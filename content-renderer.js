@@ -6,7 +6,6 @@ class ContentRenderer {
             items: this.itemTemplate,
             weapons: this.weaponTemplate,
             npcs: this.npcTemplate,
-            characters: this.characterTemplate,
             quests: this.questTemplate,
             lore: this.loreTemplate,
             default: this.defaultTemplate
@@ -39,32 +38,78 @@ class ContentRenderer {
 
     areaTemplate(data) {
         const { metadata, html } = data;
+        const connections = metadata.connections || metadata.connected_areas;
         
         return `
             <article class="content-article area-article">
                 <header class="content-header">
                     <h1>${metadata.name}</h1>
-                    ${metadata.subtitle ? `<p class="content-subtitle">${metadata.subtitle}</p>` : ''}
+                    ${metadata.title ? `<p class="content-subtitle">${metadata.title}</p>` : metadata.subtitle ? `<p class="content-subtitle">${metadata.subtitle}</p>` : ''}
                     ${metadata.description ? `<p class="content-description">${metadata.description}</p>` : ''}
                     ${this.renderTags(metadata.tags)}
                 </header>
                 
-                ${metadata.level_range || metadata.connected_areas ? `
+                ${metadata.level_range || connections || metadata.bonfires || metadata.boss || metadata.region ? `
                 <div class="boss-info-section">
                     <h3>Area Information</h3>
                     <ul class="info-list">
+                        ${metadata.region ? `
+                        <li>
+                            <strong>Region</strong>
+                            <span class="value">${metadata.region}</span>
+                        </li>
+                        ` : ''}
+                        ${metadata.bonfires ? `
+                        <li>
+                            <strong>Bonfires</strong>
+                            <span class="value">${metadata.bonfires}</span>
+                        </li>
+                        ` : ''}
+                        ${metadata.boss && metadata.boss !== 'none' ? `
+                        <li>
+                            <strong>Boss</strong>
+                            <span class="value">${metadata.boss}</span>
+                        </li>
+                        ` : ''}
                         ${metadata.level_range ? `
                         <li>
                             <strong>Recommended Level</strong>
                             <span class="value">${metadata.level_range}</span>
                         </li>
                         ` : ''}
-                        ${metadata.connected_areas ? `
+                        ${connections ? `
                         <li>
                             <strong>Connected Areas</strong>
-                            <span class="value">${metadata.connected_areas.join(', ')}</span>
+                            <span class="value">${Array.isArray(connections) ? connections.join(', ') : connections}</span>
                         </li>
                         ` : ''}
+                    </ul>
+                </div>
+                ` : ''}
+                
+                ${metadata.npcs && metadata.npcs.length > 0 ? `
+                <div class="boss-info-section">
+                    <h3>Notable NPCs</h3>
+                    <ul class="simple-list">
+                        ${metadata.npcs.map(npc => `<li>${npc}</li>`).join('')}
+                    </ul>
+                </div>
+                ` : ''}
+                
+                ${metadata.enemies && metadata.enemies.length > 0 ? `
+                <div class="boss-info-section">
+                    <h3>Enemies</h3>
+                    <ul class="simple-list">
+                        ${metadata.enemies.map(enemy => `<li>${enemy}</li>`).join('')}
+                    </ul>
+                </div>
+                ` : ''}
+                
+                ${metadata.notable_items && metadata.notable_items.length > 0 ? `
+                <div class="boss-info-section">
+                    <h3>Notable Items</h3>
+                    <ul class="simple-list">
+                        ${metadata.notable_items.map(item => `<li>${item}</li>`).join('')}
                     </ul>
                 </div>
                 ` : ''}
@@ -248,47 +293,6 @@ class ContentRenderer {
         
         return `
             <article class="content-article npc-article">
-                <header class="content-header">
-                    <h1>${metadata.name}</h1>
-                    ${metadata.title ? `<p class="content-subtitle">${metadata.title}</p>` : ''}
-                    ${metadata.description ? `<p class="content-description">${metadata.description}</p>` : ''}
-                    ${this.renderTags(metadata.tags)}
-                </header>
-                
-                ${metadata.location || metadata.voice_actor ? `
-                <div class="boss-info-section">
-                    <h3>NPC Information</h3>
-                    <ul class="info-list">
-                        ${metadata.location ? `
-                        <li>
-                            <strong>Location</strong>
-                            <span class="value">${metadata.location}</span>
-                        </li>
-                        ` : ''}
-                        ${metadata.voice_actor ? `
-                        <li>
-                            <strong>Voice Actor</strong>
-                            <span class="value">${metadata.voice_actor}</span>
-                        </li>
-                        ` : ''}
-                    </ul>
-                </div>
-                ` : ''}
-                
-                <div class="content-body">
-                    ${html}
-                </div>
-                
-                ${this.renderRelatedContent(data.relatedContent)}
-            </article>
-        `;
-    }
-
-    characterTemplate(data) {
-        const { metadata, html } = data;
-        
-        return `
-            <article class="content-article character-article">
                 <div class="character-portrait" id="character-portrait-${metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-')}">
                     <!-- Character portrait will be loaded here -->
                 </div>
@@ -330,7 +334,7 @@ class ContentRenderer {
                 ` : ''}
                 
                 ${metadata.drops && metadata.drops.length > 0 ? `
-                <div class="boss-info-section">
+                <div class="drops-section">
                     <h3>Drops</h3>
                     <ul class="drops-list">
                         ${metadata.drops.map(drop => `<li>${drop}</li>`).join('')}
@@ -340,11 +344,7 @@ class ContentRenderer {
                 
                 ${metadata.merchant ? `
                 <div class="merchant-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="9" cy="21" r="1"/>
-                        <circle cx="20" cy="21" r="1"/>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                    </svg>
+                    <span class="merchant-icon">🛒</span>
                     <span>Merchant</span>
                 </div>
                 ` : ''}
@@ -357,6 +357,7 @@ class ContentRenderer {
             </article>
         `;
     }
+
 
     questTemplate(data) {
         const { metadata, html } = data;
@@ -536,7 +537,6 @@ class ContentRenderer {
             bosses: 'Bosses',
             items: 'Items',
             npcs: 'NPCs',
-            characters: 'Characters',
             quests: 'Quests',
             lore: 'Lore',
             weapons: 'Weapons'
@@ -547,7 +547,6 @@ class ContentRenderer {
             bosses: 'Face the mighty foes that guard the realm',
             items: 'Discover equipment, consumables, and treasures',
             npcs: 'Meet the inhabitants of this dying world',
-            characters: 'Encounter the memorable souls who shape your journey',
             quests: 'Uncover the stories and tasks of Lordran',
             lore: 'Delve into the mysteries of the Dark Souls universe',
             weapons: 'Master the tools of combat'
@@ -569,6 +568,10 @@ class ContentRenderer {
 
     renderItemCard(item, category) {
         const { metadata } = item;
+        if (!metadata || !metadata.name) {
+            console.error('Item missing metadata or name:', item);
+            return '';
+        }
         const slug = metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-');
         
         // Get specific info based on category
@@ -588,12 +591,10 @@ class ContentRenderer {
                 subtitle = metadata.category || metadata.item_type || 'Item';
                 break;
             case 'areas':
-                subtitle = metadata.level_range ? `Level ${metadata.level_range}` : '';
+                subtitle = metadata.title || (metadata.region ? `${metadata.region}` : '');
+                extraInfo = metadata.boss && metadata.boss !== 'none' ? `<span class="card-boss">Boss: ${metadata.boss}</span>` : '';
                 break;
             case 'npcs':
-                subtitle = metadata.location || '';
-                break;
-            case 'characters':
                 subtitle = metadata.title || metadata.location || '';
                 extraInfo = metadata.covenant ? `<span class="card-covenant">${metadata.covenant}</span>` : '';
                 break;
@@ -625,7 +626,6 @@ class ContentRenderer {
             bosses: 'Bosses',
             items: 'Items',
             npcs: 'NPCs',
-            characters: 'Characters',
             quests: 'Quests',
             lore: 'Lore',
             weapons: 'Weapons'

@@ -907,3 +907,84 @@ body > .generic:last-child {
 .search-overlay:not(.active) {
     pointer-events: none !important;
 }
+
+/* ===================================
+   AREA/LOCATION PAGE STYLES
+   =================================== */
+.area-article .content-header {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, transparent 100%);
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.area-article .content-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.area-article .simple-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.area-article .simple-list li {
+    padding: var(--space-sm) 0;
+    padding-left: var(--space-xl);
+    position: relative;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.area-article .simple-list li:last-child {
+    border-bottom: none;
+}
+
+.area-article .simple-list li::before {
+    content: '⬢';
+    position: absolute;
+    left: 0;
+    color: var(--ds-gold);
+    font-size: 0.8rem;
+}
+
+/* Area Info Grid for better layout */
+.area-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    background: var(--bg-secondary);
+    padding: var(--space-2xl);
+    border-radius: 8px;
+    margin-bottom: var(--space-2xl);
+    border: 1px solid var(--border-color);
+}
+
+.area-info-grid .info-item {
+    text-align: center;
+}
+
+.area-info-grid .info-label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-xs);
+}
+
+.area-info-grid .info-value {
+    display: block;
+    font-size: 1.25rem;
+    color: var(--ds-gold);
+    font-weight: 600;
+}

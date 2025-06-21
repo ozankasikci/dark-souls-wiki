@@ -48,6 +48,11 @@ class Router {
         try {
             this.showLoading();
             
+            // Clear cache for this category to ensure fresh data
+            if (category === 'npcs') {
+                contentLoader.clearCategoryCache('npcs');
+            }
+            
             const items = await contentLoader.loadCategoryListing(category);
             const html = contentRenderer.renderCategoryListing(category, items);
             this.displayContent(html);
@@ -59,8 +64,7 @@ class Router {
                 npcs: 'NPCs',
                 quests: 'Quests',
                 lore: 'Lore',
-                weapons: 'Weapons',
-                characters: 'Characters'
+                weapons: 'Weapons'
             };
             
             document.title = `${categoryTitles[category] || category} - Dark Souls Wiki`;

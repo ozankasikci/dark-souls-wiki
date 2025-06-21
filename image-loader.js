@@ -29,10 +29,11 @@ class ImageLoader {
                 'ring-of-favor': 'https://darksouls.wiki.fextralife.com/file/Dark-Souls/ring_of_favor_and_protection.png',
                 'elite-knight-set': 'https://darksouls.wiki.fextralife.com/file/Dark-Souls/elite_knight_set.jpg'
             },
-            characters: {
+            npcs: {
                 'solaire-of-astora': 'https://darksouls.wiki.fextralife.com/file/Dark-Souls/solaire_of_astora.jpg',
                 'siegmeyer-of-catarina': 'https://darksouls.wiki.fextralife.com/file/Dark-Souls/siegmeyer_of_catarina.jpg',
                 'patches': 'https://darksouls.wiki.fextralife.com/file/Dark-Souls/patches_the_hyena.jpg',
+                'patches-ds1': 'https://darksouls.wiki.fextralife.com/file/Dark-Souls/patches_the_hyena.jpg',
                 'oscar-of-astora': 'https://darksouls.wiki.fextralife.com/file/Dark-Souls/oscar_of_astora.jpg'
             }
         };
@@ -85,8 +86,7 @@ class ImageLoader {
             weapons: 'weapon',
             items: 'item',
             areas: 'area',
-            npcs: 'boss',
-            characters: 'boss'
+            npcs: 'boss'
         };
         return typeMap[type] || 'thumbnail';
     }

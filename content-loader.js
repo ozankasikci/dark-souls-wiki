@@ -117,9 +117,10 @@ class ContentLoader {
             
             // For now, we'll try to load a manifest file for each category
             try {
-                const response = await fetch(`data/${category}/manifest.json`);
+                const response = await fetch(`data/${category}/manifest.json?t=${Date.now()}`);
                 if (response.ok) {
                     const manifest = await response.json();
+                    console.log(`Loading ${category} manifest with ${manifest.length} items:`, manifest);
                     
                     // Load all items from the manifest
                     const promises = manifest.map(filename => 
@@ -131,6 +132,7 @@ class ContentLoader {
                     
                     const results = await Promise.all(promises);
                     const validResults = results.filter(result => result !== null);
+                    console.log(`Loaded ${validResults.length} valid items for ${category}`);
                     
                     this.cache.set(cacheKey, validResults);
                     return validResults;
@@ -167,14 +169,13 @@ class ContentLoader {
     getKnownItemsForCategory(category) {
         // Hardcoded fallback lists for each category
         const knownItems = {
-            areas: ['cemetery-of-ash', 'firelink-shrine', 'high-wall-of-lothric', 'undead-settlement'],
+            areas: ['northern-undead-asylum', 'firelink-shrine', 'undead-burg', 'undead-parish', 'depths', 'blighttown', 'valley-of-drakes', 'darkroot-garden', 'darkroot-basin', 'new-londo-ruins', 'sens-fortress', 'anor-londo', 'dukes-archives', 'crystal-cave'],
             bosses: ['iudex-gundyr', 'vordt', 'curse-rotted-greatwood', 'crystal-sage', 'abyss-watchers', 'aldrich-devourer-of-gods', 'asylum-demon', 'bell-gargoyles', 'champion-gundyr', 'dancer-of-the-boreal-valley', 'darkeater-midir', 'demon-prince', 'lothric-younger-prince', 'nameless-king', 'pontiff-sulyvahn', 'sister-friede', 'slave-knight-gael', 'soul-of-cinder', 'taurus-demon'],
             items: ['estus-flask', 'coiled-sword', 'ashen-estus-flask', 'fire-keeper-soul'],
-            npcs: ['fire-keeper', 'hawkwood', 'ludleth', 'andre'],
+            npcs: ['fire-keeper', 'hawkwood', 'ludleth', 'andre', 'solaire-of-astora', 'siegmeyer-of-catarina', 'patches', 'patches-ds1', 'oscar-of-astora'],
             quests: ['sirris-questline', 'anri-questline', 'yoel-yuria-questline'],
             lore: ['age-of-fire', 'age-of-dark', 'first-flame', 'undead-curse'],
-            weapons: ['longsword', 'zweihander', 'uchigatana', 'claymore', 'estoc'],
-            characters: ['solaire-of-astora', 'siegmeyer-of-catarina', 'patches', 'oscar-of-astora']
+            weapons: ['longsword', 'zweihander', 'uchigatana', 'claymore', 'estoc']
         };
         
         return knownItems[category] || [];
@@ -182,6 +183,11 @@ class ContentLoader {
 
     clearCache() {
         this.cache.clear();
+    }
+    
+    clearCategoryCache(category) {
+        const cacheKey = `category-listing-${category}`;
+        this.cache.delete(cacheKey);
     }
 }
 

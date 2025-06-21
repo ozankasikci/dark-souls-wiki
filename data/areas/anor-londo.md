@@ -1,264 +1,119 @@
 ---
 id: anor-londo
 name: Anor Londo
-type: areas
-category: main
+title: City of the Gods
+description: The majestic capital city of Lordran, once home to Lord Gwyn and his silver knights
+region: Lordran
+bonfires: 3
+boss: Ornstein and Smough
 enemies:
-  - silver-knight
-  - deacon
-  - deep-accursed
-  - giant-slave
-boss: aldrich-devourer-of-gods
-items:
-  - moonlight-arrows
-  - giant-set
-  - sun-princess-ring
-  - brass-set
-  - darkmoon-longbow
+  - "Silver Knights"
+  - "Sentinels"
+  - "Bat Wing Demons"
+  - "Painting Guardians"
+  - "Titanite Demon"
 npcs:
-  - yorshka
-  - giant-blacksmith
-connected_areas:
-  - irithyll-of-the-boreal-valley
-  - kiln-of-the-first-flame
-tags:
-  - anor-londo
-  - city-of-gods
-  - aldrich-faithful
-  - nostalgia
-  - dark-souls-1
-related:
-  bosses:
-    - aldrich-devourer-of-gods
-  npcs:
-    - gwyndolin
-    - gwynevere
-  lore:
-    - gwyn
-    - gods
-    - age-of-fire
+  - "Princess Gwynevere"
+  - "Dark Sun Gwyndolin"
+  - "Giant Blacksmith"
+  - "Solaire of Astora (summon)"
+connections:
+  - "Sen's Fortress"
+  - "The Duke's Archives"
+  - "Painted World of Ariamis"
+  - "Darkmoon Tomb"
+notable_items:
+  - "Lordvessel"
+  - "Silver Knight equipment"
+  - "Hawk Ring"
+  - "Ring of the Sun's Firstborn"
+tags: [city, gods, silver-knights, ornstein-smough, gwynevere, illusion]
 ---
 
 # Anor Londo
 
-Anor Londo returns from Dark Souls 1 as a shadow of its former glory. Once the radiant city of the gods, it now lies in darkness, corrupted by Aldrich's presence and Sulyvahn's conquest.
+> *"The legendary city of the gods, built by Lord Gwyn at the dawn of the Age of Fire."*
 
-## Area Transformation
+Anor Londo stands as the crown jewel of Lordran - a magnificent city that once housed the gods themselves. As one of the only non-ruined areas in the game, its pristine architecture and golden sunlight create a stark contrast to the decay found elsewhere.
 
-### Then vs Now
-- **DS1**: Golden sunlight, pristine
-- **DS3**: Dark, corrupted, decaying
-- Illusion removed
-- Gods departed
-- Aldrich's corruption
+## History
 
-### What Remains
-- Cathedral structure
-- Silver Knights (hostile)
-- Giant blacksmith (deceased)
-- Rotating tower mechanism
-- Nostalgic architecture
+Built by Lord Gwyn at the dawn of the Age of Fire, Anor Londo served as his throne and the seat of power for the gods. When Gwyn departed to link the Fire, he took half his Silver Knight army with him, leaving the rest to defend the city under an illusion of prosperity.
 
-## Layout & Navigation
+## Architecture
 
-### Main Areas
-1. **Pontiff's Arena Exit**: Entry point
-2. **Rotating Tower**: Classic mechanism
-3. **Cathedral Interior**: Boss approach
-4. **Darkmoon Tomb**: Secret area
-5. **Prison Tower**: Yorshka's location
-
-### Key Locations
-- **Giant Blacksmith**: Corpse with items
-- **Gwynevere's Chamber**: Now empty
-- **Ornstein & Smough Arena**: Aldrich fight
-- **Darkmoon Tomb**: Covenant area
-- **Wedding Chamber**: Anri's fate
+The city's design draws heavy inspiration from real European landmarks:
+- Interior structures mirror the Château de Chambord in France
+- Exterior architecture based on Milan Cathedral in Italy
+- Massive cathedral serves as the centerpiece
+- Rotating bridge mechanism controls access to different areas
 
 ## Enemies
 
 ### Silver Knights
-- Sword and spear variants
-- Lightning damage
-- Proof of Concord drops
-- Best farming location
-- Classic enemies return
+These loyal guardians remained in Anor Londo to defend the illusory goddess. They wield:
+- Silver Knight Straight Sword
+- Silver Knight Spear
+- Dragonslayer Greatbow
 
-### Other Threats
-- **Deep Accursed**: Spider creature
-- **Deacons**: Aldrich's servants
-- **Giant Slaves**: Sewers only
-- **Man-grubs**: Rosaria's servants
-- **Aldrich Faithful**: PvP invaders
+The archer knights positioned on the narrow ledges have become infamous among players for their deadly precision.
 
-## Notable Loot
+### Sentinels
+Massive armored guardians that patrol the cathedral's main hall. Their size and reach make them formidable opponents in close quarters.
 
-### Giant Blacksmith's Gifts
-- **Giant's Coal**: Unique upgrades
-- **Hawk Ring**: Bow range
-- **Moonlight Arrows**: Infinite purchase
-- Emotional moment
-- Series callback
+### Bat Wing Demons
+These creatures serve as both enemies and transportation, carrying the Chosen Undead from Sen's Fortress to Anor Londo.
 
-### Unique Items
-- **Sun Princess Ring**: HP regen
-- **Brass Set**: Behind illusory wall
-- **Darkmoon Longbow**: Transpose reward
-- **Dragonslayer Greatbow**: Classic spot
-- **Painting Guardian Set**: Tower top
+## Key Areas
 
-## NPCs & Covenants
+### The Great Cathedral
+The main structure houses:
+- The legendary boss fight against Ornstein and Smough
+- Princess Gwynevere's chamber
+- Multiple Silver Knight patrols
+- Hidden passages and treasure rooms
 
-### Company Captain Yorshka
-- Darkmoon covenant leader
-- Imprisoned in tower
-- Gwyndolin's sister
-- Can be killed (don't)
-- Innocent character
+### The Giant Blacksmith
+Located in a side chamber, this gentle giant offers:
+- Unique weapon upgrades
+- Lightning and Crystal paths
+- Boss weapon creation
 
-### Anri's Questline
-- Wedding ceremony location
-- Hidden Pilgrim assassin
-- Multiple outcomes
-- Lord of Hollows path
-- Darkmoon tomb area
+### The Painted World
+A mysterious painting in the cathedral leads to the Painted World of Ariamis - a completely separate area housing unique enemies and treasures.
 
-## PvP Mechanics
+## The Ornstein and Smough Battle
 
-### Aldrich Faithful
-- Auto-invasion covenant
-- Protect Aldrich
-- Two zones active
-- High activity area
-- Gank potential
+Dragonslayer Ornstein and Executioner Smough form the last line of defense before Princess Gwynevere. This dual boss fight is considered one of the series' most challenging and iconic encounters:
 
-### Darkmoon Support
-- Blues summoned here
-- Protect hosts
-- Covenant warfare
-- Proof farming
-- Rare summons
+- Ornstein: Swift and aggressive with lightning attacks
+- Smough: Slow but devastating with his massive hammer
+- Defeating one empowers the other
+- Different rewards based on kill order
 
-## Secrets & Illusory Walls
+## The Illusion
 
-### Hidden Areas
-1. **Brass Set**: Hit statue
-2. **Darkmoon Tomb**: Rotating wall
-3. **Wedding Chamber**: Quest specific
-4. **Various Items**: Check corners
+Princess Gwynevere, Gwyn's daughter, appears as a gentle giant who gifts the Lordvessel. However:
+- She is merely an illusion created by Dark Sun Gwyndolin
+- Destroying the illusion plunges Anor Londo into darkness
+- The city's true abandoned state is revealed
+- Most enemies vanish, but Silver Knights remain
 
-### Classic Secrets Return
-- Painted World hint
-- Hidden covenant
-- Treasure locations
-- Environmental clues
-- Developer messages
+## Notable Items
 
-## Boss Approach
+- **Lordvessel**: Essential item for game progression
+- **Silver Knight Set**: Elegant armor with high defense
+- **Hawk Ring**: Extends bow range significantly
+- **Leo Ring**: Boosts counter damage
 
-### Path to Aldrich
-- Through cathedral
-- Past silver knights
-- Deacon ambushes
-- Multiple routes
-- Fog wall location
+## Tips
 
-### Arena Changes
-- Same location as O&S
-- Different atmosphere
-- Water-logged floor
-- Dark corruption
-- Pillars remain
+- The infamous archer section can be cheesed with poison arrows
+- Summoning Solaire makes the O&S fight more manageable
+- The Giant Blacksmith is the only source for certain upgrades
+- Hidden walls conceal valuable treasures
+- The painted world is entirely optional but worth exploring
 
 ## Lore Significance
 
-### Fall of the Gods
-- Gwyndolin devoured
-- City conquered
-- Gods fled/died
-- Age ending
-- Darkness prevails
-
-### Environmental Storytelling
-- Dead giant blacksmith
-- Empty chambers
-- Corrupted knights
-- Missing sun
-- Decay everywhere
-
-## Farming Locations
-
-### Silver Knight Stairs
-- Best Proof of Concord farm
-- Two knights repeatedly
-- Symbol of Avarice
-- Gold Serpent Ring +3
-- Crystal Sage Rapier
-
-### Drop Rates
-- Base: ~1%
-- Max Discovery: ~5-8%
-- Hours required
-- Patience needed
-- Community pain point
-
-## Connection to DS1
-
-### Returning Elements
-- Architecture intact
-- Rotating bridge
-- Silver Knights
-- Item locations
-- Music callbacks
-
-### What's Different
-- No amazing chest
-- Gwyndolin gone
-- Permanent darkness
-- New boss
-- Corruption theme
-
-## Combat Tips
-
-### Silver Knights
-- Parry timing unchanged
-- Backstab fishing works
-- Lightning damage hurts
-- Predictable AI
-- Good practice
-
-### Deep Accursed
-- Mini-boss enemy
-- Drops Aldrich's Ruby
-- High damage
-- Limited spawns
-- Careful approach
-
-## Atmosphere & Mood
-
-### Melancholic Return
-- Nostalgic but sad
-- Former glory gone
-- Darkness dominates
-- Tragedy apparent
-- Perfect sequel design
-
-### Musical Score
-- Remixed DS1 theme
-- Somber tones
-- Boss music epic
-- Emotional weight
-- Series callbacks
-
-## Tips for Exploration
-
-1. **Check DS1 Spots**: Items moved
-2. **Hit Walls**: Illusory secrets
-3. **Explore Thoroughly**: Hidden paths
-4. **Farm Efficiently**: Silver Knights
-5. **Complete Quests**: Before boss
-6. **Use Tower**: Classic mechanism
-7. **Find Giant**: Emotional moment
-8. **PvP Active**: Be ready
-9. **Lore Rich**: Read items
-10. **Appreciate Design**: Masterful callback
+Anor Londo represents the height of the Age of Fire's glory and its current facade masks the reality of the gods' abandonment. The city stands as a monument to a golden age that has long since passed, maintained only through Gwyndolin's desperate illusions.

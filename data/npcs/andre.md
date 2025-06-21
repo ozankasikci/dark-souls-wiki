@@ -1,3 +1,13 @@
+---
+id: andre
+name: Andre of Astora
+title: Blacksmith
+location: Firelink Shrine
+services: [Weapon reinforcement, Weapon infusion, Estus Flask allocation, Equipment repair]
+merchant: true
+tags: [blacksmith, astora, firelink-shrine, upgrades]
+---
+
 # Andre of Astora
 
 ## Description

@@ -2,7 +2,7 @@ class SearchEngine {
     constructor() {
         this.searchIndex = new Map();
         this.allContent = [];
-        this.categories = ['weapons', 'items', 'bosses', 'areas', 'npcs', 'characters', 'quests', 'lore'];
+        this.categories = ['weapons', 'items', 'bosses', 'areas', 'npcs', 'quests', 'lore'];
         this.initialized = false;
     }
 
