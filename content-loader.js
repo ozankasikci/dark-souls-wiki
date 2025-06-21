@@ -111,31 +111,36 @@ class ContentLoader {
         }
 
         try {
-            // First, try to fetch a directory listing (this won't work in browser without server support)
-            // So we'll need to maintain a manifest or use a different approach
-            const items = [];
+            // Special handling for equipment category with subcategories
+            if (category === 'equipment') {
+                return await this.loadEquipmentListing();
+            }
             
             // For now, we'll try to load a manifest file for each category
             try {
                 const response = await fetch(`data/${category}/manifest.json?t=${Date.now()}`);
                 if (response.ok) {
                     const manifest = await response.json();
-                    console.log(`Loading ${category} manifest with ${manifest.length} items:`, manifest);
                     
-                    // Load all items from the manifest
-                    const promises = manifest.map(filename => 
-                        this.loadContent(category, filename.replace('.md', '')).catch(err => {
-                            console.error(`Failed to load ${category}/${filename}:`, err);
-                            return null;
-                        })
-                    );
-                    
-                    const results = await Promise.all(promises);
-                    const validResults = results.filter(result => result !== null);
-                    console.log(`Loaded ${validResults.length} valid items for ${category}`);
-                    
-                    this.cache.set(cacheKey, validResults);
-                    return validResults;
+                    // Handle simple array manifests (original format)
+                    if (Array.isArray(manifest)) {
+                        console.log(`Loading ${category} manifest with ${manifest.length} items:`, manifest);
+                        
+                        // Load all items from the manifest
+                        const promises = manifest.map(filename => 
+                            this.loadContent(category, filename.replace('.md', '')).catch(err => {
+                                console.error(`Failed to load ${category}/${filename}:`, err);
+                                return null;
+                            })
+                        );
+                        
+                        const results = await Promise.all(promises);
+                        const validResults = results.filter(result => result !== null);
+                        console.log(`Loaded ${validResults.length} valid items for ${category}`);
+                        
+                        this.cache.set(cacheKey, validResults);
+                        return validResults;
+                    }
                 }
             } catch (error) {
                 console.log(`No manifest found for ${category}, trying alternative approach`);
@@ -166,6 +171,46 @@ class ContentLoader {
         }
     }
 
+    async loadEquipmentListing() {
+        const cacheKey = 'category-listing-equipment';
+        
+        try {
+            const response = await fetch(`data/equipment/manifest.json?t=${Date.now()}`);
+            if (response.ok) {
+                const manifest = await response.json();
+                const allItems = [];
+                
+                // Load items from each subcategory
+                for (const [subcategory, subcategoryData] of Object.entries(manifest.categories)) {
+                    const promises = subcategoryData.items.map(filename => 
+                        this.loadContent(`equipment/${subcategory}`, filename.replace('.md', '')).catch(err => {
+                            console.error(`Failed to load equipment/${subcategory}/${filename}:`, err);
+                            return null;
+                        })
+                    );
+                    
+                    const results = await Promise.all(promises);
+                    const validResults = results.filter(result => result !== null);
+                    
+                    // Add subcategory info to each item
+                    validResults.forEach(item => {
+                        item.subcategory = subcategory;
+                        item.subcategoryTitle = subcategoryData.title;
+                    });
+                    
+                    allItems.push(...validResults);
+                }
+                
+                this.cache.set(cacheKey, allItems);
+                return allItems;
+            }
+        } catch (error) {
+            console.error('Error loading equipment manifest:', error);
+        }
+        
+        return [];
+    }
+
     getKnownItemsForCategory(category) {
         // Hardcoded fallback lists for each category
         const knownItems = {
@@ -175,7 +220,7 @@ class ContentLoader {
             npcs: ['fire-keeper', 'hawkwood', 'ludleth', 'andre', 'solaire-of-astora', 'siegmeyer-of-catarina', 'patches', 'patches-ds1', 'oscar-of-astora'],
             quests: ['sirris-questline', 'anri-questline', 'yoel-yuria-questline'],
             lore: ['age-of-fire', 'age-of-dark', 'first-flame', 'undead-curse'],
-            weapons: ['longsword', 'zweihander', 'uchigatana', 'claymore', 'estoc']
+            equipment: [] // Will be loaded from manifest
         };
         
         return knownItems[category] || [];

@@ -24,11 +24,23 @@
                     <span class="hamburger"></span>
                 </button>
                 <ul class="nav-menu">
-                    <li><a href="#weapons">Weapons</a></li>
+                    <li class="has-submenu">
+                        <a href="#equipment">Equipment</a>
+                        <ul class="submenu">
+                            <li><a href="#equipment/weapons">Weapons</a></li>
+                            <li><a href="#equipment/armor">Armor</a></li>
+                            <li><a href="#equipment/shields">Shields</a></li>
+                            <li><a href="#equipment/rings">Rings</a></li>
+                            <li><a href="#equipment/catalysts">Catalysts</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#items">Items</a></li>
-                    <li><a href="#bosses">Bosses</a></li>
+                    <li><a href="#builds">Builds</a></li>
+                    <li class="nav-separator"></li>
                     <li><a href="#areas">Areas</a></li>
+                    <li><a href="#bosses">Bosses</a></li>
                     <li><a href="#npcs">NPCs</a></li>
+                    <li class="nav-separator"></li>
                     <li><a href="#quests">Quests</a></li>
                     <li><a href="#lore">Lore</a></li>
                 </ul>
@@ -60,7 +72,7 @@
             <div class="container">
                 <h2 class="section-title">Browse Categories</h2>
                 <div class="category-grid">
-                    <a href="#weapons" class="category-card">
+                    <a href="#equipment" class="category-card">
                         <div class="card-glow"></div>
                         <div class="card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -68,9 +80,25 @@
                             </svg>
                         </div>
                         <div class="card-content">
-                            <h3>Weapons</h3>
-                            <p>Swords, axes, bows, and more</p>
-                            <span class="card-count">18 items</span>
+                            <h3>Equipment</h3>
+                            <p>Weapons, armor, shields, and rings</p>
+                            <span class="card-count">22 items</span>
+                        </div>
+                    </a>
+                    <a href="#builds" class="category-card">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                                <path d="M3 13l5-5 5 5"/>
+                                <path d="M8 8V3m8 5v5l5-5"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Builds</h3>
+                            <p>Character builds and playstyles</p>
+                            <span class="card-count">1 build</span>
                         </div>
                     </a>
                     <a href="#items" class="category-card">
@@ -83,7 +111,7 @@
                         </div>
                         <div class="card-content">
                             <h3>Items</h3>
-                            <p>Consumables, rings, and equipment</p>
+                            <p>Consumables, keys, and materials</p>
                             <span class="card-count">2 items</span>
                         </div>
                     </a>
@@ -175,7 +203,7 @@
                             <span class="stat">STR: 24</span>
                             <span class="stat">DEX: 10</span>
                         </div>
-                        <a href="#weapons/zweihander" class="btn-small">View Details</a>
+                        <a href="#equipment/zweihander" class="btn-small">View Details</a>
                     </div>
                     <div class="item-card">
                         <div class="item-glow"></div>
@@ -220,8 +248,8 @@
     <script src="image-loader.js?v=1"></script>
     <script src="content-loader.js?v=5"></script>
     <script src="content-renderer.js?v=5"></script>
-    <script src="router.js?v=4"></script>
     <script src="navigation.js?v=5"></script>
+    <script src="router.js?v=5"></script>
     <script src="search.js?v=3"></script>
     <script src="search-ui.js?v=3"></script>
     <script src="animations.js?v=3"></script>

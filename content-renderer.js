@@ -539,18 +539,25 @@ class ContentRenderer {
             npcs: 'NPCs',
             quests: 'Quests',
             lore: 'Lore',
-            weapons: 'Weapons'
+            equipment: 'Equipment',
+            builds: 'Builds'
         };
         
         const categoryDescriptions = {
             areas: 'Explore the interconnected world of Lordran',
             bosses: 'Face the mighty foes that guard the realm',
-            items: 'Discover equipment, consumables, and treasures',
+            items: 'Discover consumables, keys, and materials',
             npcs: 'Meet the inhabitants of this dying world',
             quests: 'Uncover the stories and tasks of Lordran',
             lore: 'Delve into the mysteries of the Dark Souls universe',
-            weapons: 'Master the tools of combat'
+            equipment: 'Browse weapons, armor, shields, rings, and catalysts',
+            builds: 'Explore character builds and playstyles'
         };
+        
+        // Special handling for equipment category
+        if (category === 'equipment' && items.length > 0) {
+            return this.renderEquipmentListing(items);
+        }
         
         return `
             <div class="category-listing">
@@ -562,6 +569,96 @@ class ContentRenderer {
                 <div class="items-grid">
                     ${items.map(item => this.renderItemCard(item, category)).join('')}
                 </div>
+            </div>
+        `;
+    }
+
+    renderEquipmentSubcategory(subcategory, title, items) {
+        const subcategoryDescriptions = {
+            weapons: 'Swords, axes, bows, and other offensive equipment',
+            armor: 'Helms, chest armor, gauntlets, and leg armor',
+            shields: 'Small shields, medium shields, and greatshields',
+            rings: 'Magical rings that provide various effects',
+            catalysts: 'Sorcery catalysts, miracle talismans, and pyromancy flames'
+        };
+        
+        // Define all subcategories for navigation
+        const allSubcategories = [
+            { key: 'weapons', title: 'Weapons' },
+            { key: 'armor', title: 'Armor' },
+            { key: 'shields', title: 'Shields' },
+            { key: 'rings', title: 'Rings' },
+            { key: 'catalysts', title: 'Catalysts & Talismans' }
+        ];
+        
+        return `
+            <div class="category-listing">
+                <header class="category-header">
+                    <h1>${title}</h1>
+                    <p class="category-description">${subcategoryDescriptions[subcategory] || ''}</p>
+                    
+                    <nav class="equipment-nav">
+                        <a href="#equipment" class="equipment-nav-link">All Equipment</a>
+                        ${allSubcategories.map(sub => 
+                            `<a href="#equipment/${sub.key}" class="equipment-nav-link ${sub.key === subcategory ? 'active' : ''}">${sub.title}</a>`
+                        ).join('')}
+                    </nav>
+                </header>
+                
+                <div class="items-grid">
+                    ${items.map(item => this.renderItemCard(item, 'equipment')).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    renderEquipmentListing(items) {
+        // Group items by subcategory
+        const grouped = items.reduce((acc, item) => {
+            const subcategory = item.subcategory || 'other';
+            if (!acc[subcategory]) {
+                acc[subcategory] = {
+                    title: item.subcategoryTitle || subcategory,
+                    items: []
+                };
+            }
+            acc[subcategory].items.push(item);
+            return acc;
+        }, {});
+        
+        // Define subcategory order
+        const subcategoryOrder = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
+        
+        return `
+            <div class="category-listing equipment-listing">
+                <header class="category-header">
+                    <h1>Equipment</h1>
+                    <p class="category-description">Browse weapons, armor, shields, rings, and catalysts</p>
+                    
+                    <nav class="equipment-nav">
+                        ${subcategoryOrder.map(subcategory => {
+                            const group = grouped[subcategory];
+                            if (!group || group.items.length === 0) return '';
+                            return `<a href="#equipment/${subcategory}" class="equipment-nav-link">${group.title}</a>`;
+                        }).join('')}
+                    </nav>
+                </header>
+                
+                ${subcategoryOrder.map(subcategory => {
+                    const group = grouped[subcategory];
+                    if (!group || group.items.length === 0) return '';
+                    
+                    return `
+                        <div class="equipment-subcategory">
+                            <h2 class="subcategory-title">
+                                <a href="#equipment/${subcategory}">${group.title}</a>
+                            </h2>
+                            <div class="items-grid">
+                                ${group.items.map(item => this.renderItemCard(item, 'equipment')).join('')}
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
             </div>
         `;
     }
@@ -643,8 +740,14 @@ class ContentRenderer {
         }
         
         // Default card design for other categories
+        // Handle equipment subcategory paths
+        let href = `#${category}/${metadata.id}`;
+        if (category === 'equipment' && item.subcategory) {
+            href = `#equipment/${item.subcategory}/${metadata.id}`;
+        }
+        
         return `
-            <a href="#${category}/${metadata.id}" class="item-card">
+            <a href="${href}" class="item-card">
                 <div class="item-thumbnail-container" data-category="${category}" data-slug="${slug}">
                     <!-- Thumbnail will be loaded here -->
                 </div>

@@ -28,20 +28,65 @@ class Router {
             return;
         }
 
-        const [type, id] = hash.split('/');
+        const parts = hash.split('/');
+        const [type, ...rest] = parts;
         
         if (!type) {
             this.showHomePage();
             return;
         }
 
+        // Handle equipment subcategory listings
+        if (type === 'equipment' && rest.length === 1 && ['weapons', 'armor', 'shields', 'rings', 'catalysts'].includes(rest[0])) {
+            await this.loadEquipmentSubcategory(rest[0]);
+            return;
+        }
+
         // Check if this is a category listing (no id provided)
-        if (!id) {
+        if (rest.length === 0) {
             await this.loadCategoryListing(type);
             return;
         }
 
+        // Join the rest back for the id (handles subcategory paths)
+        const id = rest.join('/');
         await this.loadContent(type, id);
+    }
+
+    async loadEquipmentSubcategory(subcategory) {
+        try {
+            this.showLoading();
+            
+            // Load all equipment items
+            const allItems = await contentLoader.loadCategoryListing('equipment');
+            
+            // Filter by subcategory
+            const items = allItems.filter(item => item.subcategory === subcategory);
+            
+            // Render the filtered listing
+            const subcategoryTitles = {
+                weapons: 'Weapons',
+                armor: 'Armor',
+                shields: 'Shields',
+                rings: 'Rings',
+                catalysts: 'Catalysts & Talismans'
+            };
+            
+            const html = contentRenderer.renderEquipmentSubcategory(subcategory, subcategoryTitles[subcategory], items);
+            this.displayContent(html);
+            
+            document.title = `${subcategoryTitles[subcategory]} - Dark Souls Wiki`;
+            this.updateNavigation('equipment');
+            
+            // Load thumbnails after content is rendered
+            setTimeout(async () => {
+                await contentRenderer.loadCategoryThumbnails();
+            }, 100);
+            
+        } catch (error) {
+            console.error('Error loading equipment subcategory:', error);
+            this.showError(error.message);
+        }
     }
 
     async loadCategoryListing(category) {
@@ -64,7 +109,8 @@ class Router {
                 npcs: 'NPCs',
                 quests: 'Quests',
                 lore: 'Lore',
-                weapons: 'Weapons'
+                equipment: 'Equipment',
+                builds: 'Builds'
             };
             
             document.title = `${categoryTitles[category] || category} - Dark Souls Wiki`;
@@ -75,10 +121,12 @@ class Router {
                 await contentRenderer.loadCategoryThumbnails();
             }, 100);
             
-            // Add category filters
-            if (typeof navigationEnhancer !== 'undefined') {
-                navigationEnhancer.addCategoryFilters(category);
-            }
+            // Add category filters after a delay
+            setTimeout(() => {
+                if (typeof navigationEnhancer !== 'undefined') {
+                    navigationEnhancer.addCategoryFilters(category);
+                }
+            }, 100);
             
         } catch (error) {
             console.error('Error loading category listing:', error);
@@ -90,34 +138,46 @@ class Router {
         try {
             this.showLoading();
             
-            const content = await contentLoader.loadContent(type, id);
+            // Handle equipment subcategory paths
+            let contentType = type;
+            let contentId = id;
+            if (type === 'equipment' && id.includes('/')) {
+                const parts = id.split('/');
+                contentType = `equipment/${parts[0]}`;
+                contentId = parts[1];
+            }
+            
+            const content = await contentLoader.loadContent(contentType, contentId);
             
             if (content.metadata.related) {
                 content.relatedContent = await contentLoader.loadRelatedContent(content.metadata);
             }
             
-            const html = contentRenderer.render(content, type);
+            const html = contentRenderer.render(content, type.split('/')[0]);
             this.displayContent(html);
             
             document.title = `${content.metadata.name} - Dark Souls Wiki`;
             
-            this.updateNavigation(type);
+            this.updateNavigation(type.split('/')[0]);
             
             // Load images after content is rendered
             setTimeout(async () => {
-                await contentRenderer.loadContentImages(type, content.metadata);
+                await contentRenderer.loadContentImages(contentType, content.metadata);
             }, 100);
             
-            // Add navigation enhancements
-            if (typeof navigationEnhancer !== 'undefined') {
-                // Add table of contents for long content
-                // Temporarily disabled due to DOM insertion issues
-                // navigationEnhancer.addTableOfContents();
-                
-                // Add prev/next navigation
-                const items = await contentLoader.loadCategoryListing(type);
-                navigationEnhancer.addPrevNextNavigation(type, id, items);
-            }
+            // Add navigation enhancements after a delay to ensure navigationEnhancer is loaded
+            setTimeout(() => {
+                if (typeof navigationEnhancer !== 'undefined') {
+                    // Add table of contents for long content
+                    // Temporarily disabled due to DOM insertion issues
+                    // navigationEnhancer.addTableOfContents();
+                    
+                    // Add prev/next navigation
+                    contentLoader.loadCategoryListing(type.split('/')[0]).then(items => {
+                        navigationEnhancer.addPrevNextNavigation(type, id, items);
+                    });
+                }
+            }, 100);
             
         } catch (error) {
             console.error('Error loading content:', error);
@@ -224,7 +284,7 @@ function updateCategoryLinks() {
                     'cemetery-of-ash': 'areas',
                     'firelink-shrine': 'areas',
                     'coiled-sword': 'items',
-                    'zweihander': 'weapons',
+                    'zweihander': 'equipment',
                     'elite-knight-set': 'items',
                     'ring-of-favor': 'items'
                 };

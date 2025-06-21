@@ -7,6 +7,7 @@ class NavigationEnhancer {
     init() {
         this.createBreadcrumbContainer();
         this.setupEventListeners();
+        this.setupMobileSubmenu();
     }
 
     createBreadcrumbContainer() {
@@ -285,6 +286,31 @@ class NavigationEnhancer {
         
         const match = description.textContent.match(/Physical:\s*(\d+)/);
         return match ? parseInt(match[1]) : 0;
+    }
+
+    setupMobileSubmenu() {
+        const submenuParent = document.querySelector('.has-submenu');
+        if (!submenuParent) return;
+        
+        const parentLink = submenuParent.querySelector('> a');
+        if (!parentLink) return;
+        
+        // Check if we're on mobile
+        const isMobile = () => window.innerWidth <= 768;
+        
+        parentLink.addEventListener('click', (e) => {
+            if (isMobile()) {
+                e.preventDefault();
+                submenuParent.classList.toggle('open');
+            }
+        });
+        
+        // Close submenu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isMobile() && !submenuParent.contains(e.target)) {
+                submenuParent.classList.remove('open');
+            }
+        });
     }
 
     addTableOfContents() {
