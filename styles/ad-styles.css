@@ -1,0 +1,244 @@
+/* Ad Container Styles - Dark Souls Theme */
+
+/* Base Ad Container */
+.ad-container {
+    width: 100%;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(139, 69, 19, 0.3);
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.ad-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 140, 0, 0.3) 50%, 
+        transparent 100%);
+    animation: ember-glow 3s ease-in-out infinite;
+}
+
+.ad-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.ad-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    position: relative;
+}
+
+/* Ad Placeholder Styling */
+.ad-placeholder {
+    color: rgba(255, 140, 0, 0.5);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: inherit;
+}
+
+/* Header Banner Ad */
+.ad-header {
+    margin-top: 0;
+    border-top: none;
+}
+
+.ad-header .ad-content {
+    min-height: 90px;
+    max-height: 90px;
+}
+
+/* Between Sections Ad */
+.ad-between-sections {
+    margin: 40px 0;
+}
+
+.ad-between-sections .ad-content {
+    min-height: 90px;
+    max-height: 90px;
+}
+
+/* Footer Ad */
+.ad-footer {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.ad-footer .ad-content {
+    min-height: 90px;
+    max-height: 90px;
+}
+
+/* Sidebar Ad */
+.ad-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    z-index: 100;
+    display: none;
+}
+
+.ad-sidebar-content {
+    width: 300px;
+    height: 250px;
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(139, 69, 19, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.ad-sidebar-content::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.05) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* Native Ad Card */
+.category-card.ad-native {
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid rgba(139, 69, 19, 0.4);
+    position: relative;
+}
+
+.category-card.ad-native::after {
+    content: 'SPONSORED';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    color: rgba(255, 140, 0, 0.6);
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2px 8px;
+    border: 1px solid rgba(139, 69, 19, 0.3);
+}
+
+.category-card.ad-native .card-glow {
+    background: radial-gradient(circle at center, rgba(139, 69, 19, 0.3), transparent);
+}
+
+/* Animations */
+@keyframes ember-glow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Responsive Design */
+@media (min-width: 1600px) {
+    .ad-sidebar {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .ad-container {
+        margin: 15px 0;
+    }
+    
+    .ad-wrapper {
+        padding: 5px;
+    }
+    
+    .ad-content {
+        min-height: 50px;
+    }
+    
+    .ad-header .ad-content,
+    .ad-between-sections .ad-content,
+    .ad-footer .ad-content {
+        min-height: 50px;
+        max-height: 100px;
+    }
+    
+    .ad-placeholder {
+        font-size: 12px;
+    }
+}
+
+/* Dark Mode Enhancement */
+@media (prefers-color-scheme: dark) {
+    .ad-container {
+        background: rgba(10, 10, 10, 0.9);
+    }
+    
+    .ad-content {
+        background: rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* Ad Loading Animation */
+.ad-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bonfire-loader {
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+}
+
+.bonfire-loader .flame {
+    width: 10px;
+    height: 20px;
+    background: linear-gradient(to top, #ff8c00, #ff4500);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flicker 0.5s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.bonfire-loader .flame:nth-child(1) {
+    animation-delay: 0s;
+    height: 25px;
+}
+
+.bonfire-loader .flame:nth-child(2) {
+    animation-delay: 0.1s;
+    height: 30px;
+}
+
+.bonfire-loader .flame:nth-child(3) {
+    animation-delay: 0.2s;
+    height: 25px;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        transform: scaleY(1) translateY(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scaleY(1.2) translateY(-3px);
+        opacity: 1;
+    }
+}

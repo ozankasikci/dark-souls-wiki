@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dark Souls Wiki - Home</title>
-    <link rel="stylesheet" href="styles.css?v=3">
-    <link rel="stylesheet" href="content-styles.css?v=5">
-    <link rel="stylesheet" href="image-styles.css">
-    <link rel="stylesheet" href="search-styles.css">
+    <link rel="stylesheet" href="styles/styles.css?v=3">
+    <link rel="stylesheet" href="styles/content-styles.css?v=5">
+    <link rel="stylesheet" href="styles/image-styles.css">
+    <link rel="stylesheet" href="styles/search-styles.css">
+    <link rel="stylesheet" href="styles/ad-styles.css">
     <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 </head>
@@ -47,6 +48,16 @@
             </div>
         </nav>
     </header>
+
+    <!-- Header Banner Ad -->
+    <div class="ad-container ad-header">
+        <div class="ad-wrapper">
+            <div class="ad-content" data-ad-slot="header-banner">
+                <!-- Ad code will be inserted here -->
+                <div class="ad-placeholder">Advertisement</div>
+            </div>
+        </div>
+    </div>
 
     <main>
         <section class="hero">
@@ -143,6 +154,22 @@
                             <span class="card-count">14 locations</span>
                         </div>
                     </a>
+                    
+                    <!-- Native Ad Example -->
+                    <div class="category-card ad-native">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Premium Guide</h3>
+                            <p>Master Dark Souls with pro strategies</p>
+                            <span class="card-count">Ad</span>
+                        </div>
+                    </div>
+                    
                     <a href="#npcs" class="category-card">
                         <div class="card-glow"></div>
                         <div class="card-icon">
@@ -189,6 +216,16 @@
                 </div>
             </div>
         </section>
+
+        <!-- Between Sections Ad -->
+        <div class="ad-container ad-between-sections">
+            <div class="ad-wrapper">
+                <div class="ad-content" data-ad-slot="between-sections">
+                    <!-- Ad code will be inserted here -->
+                    <div class="ad-placeholder">Advertisement</div>
+                </div>
+            </div>
+        </div>
 
         <section class="featured-items">
             <div class="container">
@@ -238,20 +275,39 @@
         </section>
     </main>
 
+    <!-- Footer Ad -->
+    <div class="ad-container ad-footer">
+        <div class="ad-wrapper">
+            <div class="ad-content" data-ad-slot="footer-banner">
+                <!-- Ad code will be inserted here -->
+                <div class="ad-placeholder">Advertisement</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Sidebar Ad (Desktop Only) -->
+    <aside class="ad-sidebar">
+        <div class="ad-sidebar-content" data-ad-slot="sidebar">
+            <!-- Ad code will be inserted here -->
+            <div class="ad-placeholder">Advertisement</div>
+        </div>
+    </aside>
+
     <footer>
         <div class="container">
             <p>&copy; 2024 Dark Souls Wiki. Praise the Sun!</p>
         </div>
     </footer>
 
-    <script src="script.js?v=3"></script>
-    <script src="image-loader.js?v=1"></script>
-    <script src="content-loader.js?v=5"></script>
-    <script src="content-renderer.js?v=5"></script>
-    <script src="navigation.js?v=5"></script>
-    <script src="router.js?v=5"></script>
-    <script src="search.js?v=3"></script>
-    <script src="search-ui.js?v=3"></script>
-    <script src="animations.js?v=3"></script>
+    <script src="scripts/script.js?v=3"></script>
+    <script src="scripts/image-loader.js?v=1"></script>
+    <script src="scripts/content-loader.js?v=5"></script>
+    <script src="scripts/content-renderer.js?v=5"></script>
+    <script src="scripts/navigation.js?v=5"></script>
+    <script src="scripts/router.js?v=5"></script>
+    <script src="scripts/search.js?v=3"></script>
+    <script src="scripts/search-ui.js?v=3"></script>
+    <script src="scripts/animations.js?v=3"></script>
+    <script src="scripts/ad-manager.js"></script>
 </body>
 </html>
