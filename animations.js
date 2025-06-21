@@ -2,85 +2,79 @@
 // DARK SOULS WIKI - ANIMATIONS
 // ===================================
 
-// Ember particle animation with enhanced effects
+// Ember particle animation - simplified version
 function createEmberParticles() {
     const emberContainer = document.querySelector('.ember-container');
-    if (!emberContainer) return;
-
-    // Create initial embers
-    for (let i = 0; i < 30; i++) {
-        setTimeout(() => createEmber(emberContainer), i * 200);
+    if (!emberContainer) {
+        console.log('Ember container not found');
+        return;
     }
 
-    // Continue creating embers
+    console.log('Starting ember animation');
+    
+    // Create embers periodically
     setInterval(() => {
-        if (Math.random() > 0.6) {
-            createEmber(emberContainer);
-        }
-    }, 800);
+        createEmber(emberContainer);
+    }, 300);
 }
 
 function createEmber(container) {
     const ember = document.createElement('div');
     ember.className = 'ember';
     
-    // Random properties for variety
-    const size = Math.random() * 4 + 2;
-    const startX = Math.random() * 100;
-    const drift = (Math.random() - 0.5) * 50;
+    // Random properties
+    const size = Math.random() * 6 + 4;  // Larger embers (4-10px)
+    const startX = Math.random() * 100;  // Percentage of container width
+    const duration = Math.random() * 10 + 15;
     
-    ember.style.width = `${size}px`;
-    ember.style.height = `${size}px`;
-    ember.style.left = `${startX}%`;
-    ember.style.setProperty('--drift', `${drift}px`);
-    
-    // Vary animation duration and delay
-    const duration = Math.random() * 10 + 10;
-    const delay = Math.random() * 2;
-    
-    ember.style.animation = `
-        float-up ${duration}s ${delay}s infinite,
-        ember-glow 2s ${delay}s infinite alternate
+    // Set initial position at bottom of container
+    ember.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        background: #ff8c42;
+        border-radius: 50%;
+        left: ${startX}%;
+        bottom: 0;
+        pointer-events: none;
+        box-shadow: 0 0 10px #ff8c42;
+        z-index: 5;
+        filter: brightness(1.5);
+        will-change: transform, opacity;
     `;
     
     container.appendChild(ember);
     
-    // Remove ember after animation
-    setTimeout(() => {
-        ember.remove();
-    }, (duration + delay) * 1000);
+    // Animate using requestAnimationFrame for smooth movement
+    let progress = 0;
+    const startTime = Date.now();
+    
+    // Get the container height for proper animation bounds
+    const containerHeight = container.offsetHeight || window.innerHeight;
+    
+    const animate = () => {
+        progress = (Date.now() - startTime) / (duration * 1000);
+        
+        if (progress >= 1) {
+            ember.remove();
+            return;
+        }
+        
+        // Move up and add some horizontal drift
+        const yPos = containerHeight * progress;
+        const xDrift = Math.sin(progress * Math.PI * 4) * 30;
+        
+        ember.style.transform = `translate(${xDrift}px, -${yPos}px)`;
+        ember.style.opacity = 1 - progress;
+        
+        requestAnimationFrame(animate);
+    };
+    
+    requestAnimationFrame(animate);
 }
 
-// Add CSS for new ember animation
-const emberStyles = `
-    @keyframes ember-glow {
-        0% { opacity: 0.4; transform: scale(1); }
-        100% { opacity: 1; transform: scale(1.2); }
-    }
-    
-    @keyframes float-up {
-        0% {
-            transform: translateY(100vh) translateX(0) scale(0);
-            opacity: 0;
-        }
-        10% {
-            opacity: 1;
-            transform: translateY(90vh) translateX(var(--drift, 0)) scale(1);
-        }
-        90% {
-            opacity: 1;
-            transform: translateY(10vh) translateX(calc(var(--drift, 0) * -1)) scale(1);
-        }
-        100% {
-            transform: translateY(-10vh) translateX(0) scale(0);
-            opacity: 0;
-        }
-    }
-`;
-
-// Inject styles
+// Create a style element for other animations
 const styleSheet = document.createElement('style');
-styleSheet.textContent = emberStyles;
 document.head.appendChild(styleSheet);
 
 // Smooth scroll for navigation links
@@ -136,7 +130,7 @@ function initScrollAnimations() {
 // Parallax effect for hero section
 function initParallax() {
     const hero = document.querySelector('.hero-background');
-    const bonfire = document.querySelector('.hero-bonfire');
+    const emberContainer = document.querySelector('.ember-container');
     if (!hero) return;
 
     let ticking = false;
@@ -144,9 +138,12 @@ function initParallax() {
         const scrolled = window.pageYOffset;
         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
         
-        if (bonfire) {
-            bonfire.style.transform = `translateX(-50%) translateY(${scrolled * -0.3}px)`;
+        // Counter-transform the ember container to keep it stationary
+        if (emberContainer) {
+            emberContainer.style.transform = `translateY(${scrolled * -0.5}px)`;
         }
+        
+        // Don't apply any transform to bonfire - keep it fixed
         
         ticking = false;
     }
@@ -211,6 +208,7 @@ function createSpark(bonfire) {
     const spark = document.createElement('div');
     spark.className = 'bonfire-spark';
     spark.style.left = `${45 + Math.random() * 10}%`;
+    spark.style.setProperty('--spark-drift', `${(Math.random() - 0.5) * 40}px`);
     spark.style.animation = `spark-fly ${1 + Math.random()}s ease-out forwards`;
     
     bonfire.appendChild(spark);
@@ -228,6 +226,7 @@ const sparkStyles = `
         background: #ff8c42;
         border-radius: 50%;
         box-shadow: 0 0 6px #ff8c42;
+        pointer-events: none;
     }
     
     @keyframes spark-fly {
@@ -236,7 +235,7 @@ const sparkStyles = `
             opacity: 1;
         }
         100% {
-            transform: translateY(-60px) translateX(${(Math.random() - 0.5) * 40}px);
+            transform: translateY(-60px) translateX(var(--spark-drift));
             opacity: 0;
         }
     }
