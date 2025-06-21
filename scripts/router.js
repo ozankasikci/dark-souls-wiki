@@ -204,6 +204,10 @@ class Router {
         if (categoriesSection) categoriesSection.style.display = 'block';
         if (featuredSection) featuredSection.style.display = 'block';
         
+        // Show between-sections ad on homepage
+        const betweenSectionsAd = document.querySelector('.ad-between-sections');
+        if (betweenSectionsAd) betweenSectionsAd.style.display = 'block';
+        
         document.title = 'Dark Souls Wiki - Home';
         this.updateNavigation('home');
     }
@@ -214,6 +218,10 @@ class Router {
         allSections.forEach(section => {
             section.style.display = 'none';
         });
+        
+        // Hide between-sections ad on content pages
+        const betweenSectionsAd = document.querySelector('.ad-between-sections');
+        if (betweenSectionsAd) betweenSectionsAd.style.display = 'none';
         
         // Show content display section
         const contentDisplay = document.getElementById('content-display');

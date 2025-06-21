@@ -33,7 +33,7 @@ class ContentRenderer {
                 // For weapons, replace the weapon icon placeholder
                 if (type === 'weapons' && content.includes('weapon-icon-container')) {
                     const iconPlaceholder = `<!-- Weapon icon will be loaded here -->`;
-                    const iconHtml = `<img src="${imageData.url}" alt="${imageData.alt}" title="${imageData.name}" class="weapon-icon" loading="lazy" onerror="this.src='assets/images/placeholder.svg'">`;
+                    const iconHtml = `<img src="${imageData.url}" alt="${imageData.alt}" title="${imageData.name}" class="weapon-icon wiki-image" loading="lazy">`;
                     content = content.replace(iconPlaceholder, iconHtml);
                 }
                 // For other content types, add featured image after header
@@ -42,7 +42,7 @@ class ContentRenderer {
                     if (headerEnd !== -1 && !content.includes('content-featured-image')) {
                         const imageHtml = `
                         <div class="content-featured-image">
-                            <img src="${imageData.url}" alt="${imageData.alt}" title="${imageData.name}" loading="lazy" onerror="this.src='assets/images/placeholder.svg'">
+                            <img src="${imageData.url}" alt="${imageData.alt}" title="${imageData.name}" class="wiki-image" loading="lazy">
                         </div>
                     `;
                         content = content.slice(0, headerEnd + 9) + imageHtml + content.slice(headerEnd + 9);
