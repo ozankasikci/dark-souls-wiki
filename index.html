@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Souls Wiki - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="content-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>Dark Souls Wiki</h1>
+                </div>
+                <button class="nav-toggle" aria-label="toggle navigation">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#weapons">Weapons</a></li>
+                    <li><a href="#items">Items</a></li>
+                    <li><a href="#bosses">Bosses</a></li>
+                    <li><a href="#areas">Areas</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-background">
+                <div class="ember-container"></div>
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container hero-content">
+                <h2 class="hero-title">Welcome to Dark Souls Wiki</h2>
+                <p class="hero-subtitle">Your comprehensive guide to the world of Lordran</p>
+                <div class="hero-cta">
+                    <a href="#categories" class="btn btn-primary">Explore the Wiki</a>
+                    <a href="#search" class="btn btn-secondary">Search Content</a>
+                </div>
+            </div>
+            <div class="hero-bonfire">
+                <div class="bonfire-flame"></div>
+                <div class="bonfire-glow"></div>
+            </div>
+        </section>
+
+        <section class="categories" id="categories">
+            <div class="container">
+                <h2 class="section-title">Browse Categories</h2>
+                <div class="category-grid">
+                    <a href="#weapons" class="category-card">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Weapons</h3>
+                            <p>Swords, axes, bows, and more</p>
+                            <span class="card-count">18 items</span>
+                        </div>
+                    </a>
+                    <a href="#items" class="category-card">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Items</h3>
+                            <p>Consumables, rings, and equipment</p>
+                            <span class="card-count">2 items</span>
+                        </div>
+                    </a>
+                    <a href="#bosses" class="category-card">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Bosses</h3>
+                            <p>Powerful enemies and challenges</p>
+                            <span class="card-count">13 bosses</span>
+                        </div>
+                    </a>
+                    <a href="#areas" class="category-card">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                <polyline points="2 17 12 22 22 17"/>
+                                <polyline points="2 12 12 17 22 12"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Areas</h3>
+                            <p>Explore the world of Lordran</p>
+                            <span class="card-count">14 locations</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-items">
+            <div class="container">
+                <h2 class="section-title">Featured Items</h2>
+                <div class="item-grid">
+                    <div class="item-card">
+                        <div class="item-glow"></div>
+                        <div class="item-icon">⚔️</div>
+                        <h4>Zweihander</h4>
+                        <p>Ultra greatsword with devastating power</p>
+                        <div class="item-stats">
+                            <span class="stat">STR: 24</span>
+                            <span class="stat">DEX: 10</span>
+                        </div>
+                        <a href="#weapons/zweihander" class="btn-small">View Details</a>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-glow"></div>
+                        <div class="item-icon">🛡️</div>
+                        <h4>Elite Knight Set</h4>
+                        <p>Well-balanced armor for any adventurer</p>
+                        <div class="item-stats">
+                            <span class="stat">DEF: 224</span>
+                            <span class="stat">Weight: 29.1</span>
+                        </div>
+                        <a href="#items/elite-knight-set" class="btn-small">View Details</a>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-glow"></div>
+                        <div class="item-icon">💍</div>
+                        <h4>Ring of Favor</h4>
+                        <p>Boosts HP, stamina, and equipment load</p>
+                        <div class="item-stats">
+                            <span class="stat">HP: +20%</span>
+                            <span class="stat">Stamina: +20%</span>
+                        </div>
+                        <a href="#items/ring-of-favor" class="btn-small">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="content-display" class="content-display" style="display: none;">
+            <div class="container">
+                <div id="content-area"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dark Souls Wiki. Praise the Sun!</p>
+        </div>
+    </footer>
+
+    <script src="script.js?v=3"></script>
+    <script src="content-loader.js?v=3"></script>
+    <script src="content-renderer.js?v=3"></script>
+    <script src="router.js?v=3"></script>
+    <script src="navigation.js?v=3"></script>
+    <script src="search.js?v=3"></script>
+    <script src="search-ui.js?v=3"></script>
+    <script src="animations.js?v=3"></script>
+</body>
+</html>

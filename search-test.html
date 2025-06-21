@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Test - Dark Souls Wiki</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>Dark Souls Wiki - Search Test</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Search Functionality Test</h2>
+                <p>Click "Search" in the navigation or press Ctrl/Cmd + K to open search</p>
+                <div style="margin-top: 2rem; background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                    <h3>Available Content for Search:</h3>
+                    <ul style="columns: 2; list-style: none; padding: 0;">
+                        <li>✓ Weapons: longsword, zweihander, uchigatana, claymore, estoc</li>
+                        <li>✓ Areas: cemetery-of-ash, firelink-shrine</li>
+                        <li>✓ Bosses: iudex-gundyr</li>
+                        <li>✓ Items: estus-flask, ring-of-favor</li>
+                        <li>✓ NPCs: fire-keeper, hawkwood</li>
+                        <li>✓ Quests: sirris-questline</li>
+                        <li>✓ Lore: age-of-fire</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <h4>Try searching for:</h4>
+                    <ul>
+                        <li>"sword" - finds all sword weapons</li>
+                        <li>"fire" - finds Firelink Shrine, Fire Keeper, Age of Fire</li>
+                        <li>"quest" - finds quest content</li>
+                        <li>"STR" or "strength" - finds weapons with strength requirements</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="content-loader.js"></script>
+    <script src="search.js"></script>
+    <script src="search-ui.js"></script>
+    
+    <script>
+        // Initialize search on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('Initializing search engine...');
+            await searchEngine.initialize();
+            console.log('Search engine initialized with', searchEngine.allContent.length, 'items');
+            console.log('Search index has', searchEngine.searchIndex.size, 'unique terms');
+        });
+    </script>
+</body>
+</html>

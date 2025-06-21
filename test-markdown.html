@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Markdown Rendering</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Markdown Rendering Test</h1>
+        <p>Click on the links below to test markdown content rendering:</p>
+        
+        <h2>Test Links:</h2>
+        <ul>
+            <li><a href="#areas/cemetery-of-ash">Cemetery of Ash (Area)</a></li>
+            <li><a href="#bosses/iudex-gundyr">Iudex Gundyr (Boss)</a></li>
+            <li><a href="#items/coiled-sword">Coiled Sword (Item)</a></li>
+            <li><a href="#npcs/fire-keeper">Fire Keeper (NPC)</a></li>
+            <li><a href="#lore/age-of-fire">Age of Fire (Lore)</a></li>
+        </ul>
+        
+        <hr>
+        
+        <div id="content-display" class="content-display">
+            <div id="content-area"></div>
+        </div>
+    </div>
+
+    <script src="content-loader.js"></script>
+    <script src="content-renderer.js"></script>
+    <script src="router.js"></script>
+    
+    <script>
+        // Test the content loading directly
+        async function testContentLoading() {
+            try {
+                console.log('Testing content loading...');
+                const content = await contentLoader.loadContent('areas', 'cemetery-of-ash');
+                console.log('Loaded content:', content);
+                
+                if (content.metadata.related) {
+                    content.relatedContent = await contentLoader.loadRelatedContent(content.metadata);
+                    console.log('Related content:', content.relatedContent);
+                }
+                
+                const html = contentRenderer.render(content, 'areas');
+                document.getElementById('content-area').innerHTML = html;
+                
+            } catch (error) {
+                console.error('Test failed:', error);
+                document.getElementById('content-area').innerHTML = `
+                    <div class="error">
+                        <h2>Error during test</h2>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Run test on page load if no hash
+        if (!window.location.hash) {
+            window.addEventListener('DOMContentLoaded', testContentLoading);
+        }
+    </script>
+</body>
+</html>

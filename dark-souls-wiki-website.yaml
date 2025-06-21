@@ -1,0 +1,36 @@
+name: Create a wiki website for dark souls
+description: "MVP Dark Souls wiki using static site generator with local file database"
+steps:
+    - name: Make research for similar wiki websites and see what kind of tech stack they use
+      prompt: Make research for similar wiki websites and see what kind of tech stack they use
+      timeout: 3600
+    - name: Choose static site generator and setup project
+      prompt: Choose static site generator like Next.js, Astro, or 11ty that supports markdown files as database
+      timeout: 1800
+    - name: Define MVP content structure
+      prompt: Define MVP content structure focusing on core categories weapons, bosses, and areas using markdown frontmatter
+      timeout: 1200
+    - name: Create file-based data structure
+      prompt: Create file-based data structure with markdown files organized in folders for each content type
+      timeout: 1800
+    - name: Design simple responsive layout
+      prompt: Design simple responsive layout with homepage, category pages, and item detail pages
+      timeout: 2400
+    - name: Implement markdown content rendering
+      prompt: Implement markdown content rendering with frontmatter parsing for metadata and relationships
+      timeout: 3600
+    - name: Build category and listing pages
+      prompt: Build category and listing pages that read from local markdown files and display items
+      timeout: 3600
+    - name: Create item detail page template
+      prompt: Create item detail page template that renders markdown content with stats, descriptions, and images
+      timeout: 2400
+    - name: Implement basic search functionality
+      prompt: Implement basic search functionality using client-side search through markdown files
+      timeout: 2400
+    - name: Add navigation and breadcrumbs
+      prompt: Add navigation and breadcrumbs for easy browsing between categories and items
+      timeout: 1800
+    - name: Create sample content
+      prompt: Create sample content with 10-20 items per category to demonstrate functionality
+      timeout: 2400

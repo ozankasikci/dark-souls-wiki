@@ -1,0 +1,65 @@
+# Dark Souls Wiki Data Schema
+
+# Common fields for all content types
+base:
+  id: string           # Unique identifier (required)
+  name: string         # Display name (required)
+  type: string         # Content type (required)
+  tags: [string]       # Searchable tags (optional)
+  related: [string]    # Related content IDs (optional)
+
+# Area-specific fields
+area:
+  extends: base
+  category: string     # tutorial, main, optional, dlc
+  enemies: [string]    # List of enemy types
+  boss: string         # Boss ID if applicable
+  items: [string]      # Notable items found here
+  npcs: [string]       # NPCs found in area
+  connected_areas: [string]  # Adjacent areas
+
+# Boss-specific fields
+boss:
+  extends: base
+  difficulty: string   # tutorial, easy, medium, hard, extreme
+  hp: number          # Hit points
+  souls: number       # Souls rewarded
+  weakness: [string]  # Damage type weaknesses
+  resistance: [string] # Damage type resistances
+  location: string    # Area where boss is found
+  phases: object      # Phase descriptions
+  drops: [object]     # Item drops with rates
+
+# Item-specific fields
+item:
+  extends: base
+  category: string    # weapon, armor, consumable, key-item, etc.
+  stats: object       # Item-specific statistics
+  acquisition: [string] # How to obtain
+  upgrades: object    # Upgrade information if applicable
+  
+# NPC-specific fields
+npc:
+  extends: base
+  location: string    # Primary location
+  role: string        # merchant, questgiver, summon, etc.
+  services: [string]  # Services offered
+  questline: object   # Quest steps if applicable
+  items_sold: [object] # For merchants
+
+# Quest-specific fields
+quest:
+  extends: base
+  npc: string         # Associated NPC
+  requirements: [string] # Prerequisites
+  steps: [object]     # Ordered quest steps
+  rewards: [object]   # Quest rewards
+  failure_conditions: [string] # Ways to fail quest
+
+# Lore-specific fields
+lore:
+  extends: base
+  category: string    # world-history, character, item-lore, etc.
+  era: string         # Time period if applicable
+  key_figures: [string] # Important characters
+  events: [object]    # Historical events
