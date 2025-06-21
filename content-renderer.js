@@ -602,6 +602,47 @@ class ContentRenderer {
                 subtitle = '';
         }
         
+        // Special card design for areas
+        if (category === 'areas') {
+            return `
+                <div class="area-card" onclick="window.location.hash='#${category}/${metadata.id}'">
+                    <div class="area-card-image" data-category="${category}" data-slug="${slug}">
+                        <div class="area-card-overlay"></div>
+                        <div class="area-card-badge">
+                            ${metadata.bonfires ? `<span class="bonfire-count">🔥 ${metadata.bonfires}</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="area-card-content">
+                        <div class="area-card-header">
+                            <h3 class="area-name">${metadata.name}</h3>
+                            ${subtitle ? `<p class="area-subtitle">${subtitle}</p>` : ''}
+                        </div>
+                        ${metadata.description ? `<p class="area-description">${metadata.description}</p>` : ''}
+                        <div class="area-card-info">
+                            ${metadata.boss && metadata.boss !== 'none' ? `
+                                <div class="boss-info">
+                                    <span class="boss-label">Boss</span>
+                                    <span class="boss-name">${metadata.boss}</span>
+                                </div>
+                            ` : ''}
+                            ${metadata.region ? `
+                                <div class="region-info">
+                                    <span class="region-label">Region</span>
+                                    <span class="region-name">${metadata.region}</span>
+                                </div>
+                            ` : ''}
+                        </div>
+                        ${metadata.tags && metadata.tags.length > 0 ? `
+                            <div class="area-tags">
+                                ${metadata.tags.slice(0, 3).map(tag => `<span class="area-tag">${tag}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Default card design for other categories
         return `
             <a href="#${category}/${metadata.id}" class="item-card">
                 <div class="item-thumbnail-container" data-category="${category}" data-slug="${slug}">
