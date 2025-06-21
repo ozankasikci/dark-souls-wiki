@@ -1,0 +1,32 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <defs>
+        <radialGradient id="bg-uchigatana">
+            <stop offset="0%" style="stop-color:rgba(212,175,55,0.1)"/>
+            <stop offset="100%" style="stop-color:rgba(26,26,26,1)"/>
+        </radialGradient>
+        <filter id="glow-uchigatana">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="400" fill="url(#bg-uchigatana)"/>
+    
+    <!-- Weapon silhouette -->
+    <g transform="translate(0, 0)" style="color: #333" filter="url(#glow-uchigatana)">
+        
+        <path d="M200 60 Q210 200 205 340 L200 350 Q195 200 190 60 Z" fill="currentColor" opacity="0.8"/>
+        <rect x="190" y="340" width="20" height="50" fill="#4B0000" opacity="0.8"/>
+        <rect x="185" y="340" width="30" height="5" fill="#8B4513"/>
+    
+    </g>
+    
+    <!-- Text label -->
+    <text x="200" y="30" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="14" opacity="0.5">
+        UCHIGATANA
+    </text>
+</svg>

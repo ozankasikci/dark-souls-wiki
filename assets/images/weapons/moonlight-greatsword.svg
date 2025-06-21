@@ -1,0 +1,33 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <defs>
+        <radialGradient id="bg-moonlight-greatsword">
+            <stop offset="0%" style="stop-color:rgba(212,175,55,0.1)"/>
+            <stop offset="100%" style="stop-color:rgba(26,26,26,1)"/>
+        </radialGradient>
+        <filter id="glow-moonlight-greatsword">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="400" fill="url(#bg-moonlight-greatsword)"/>
+    
+    <!-- Weapon silhouette -->
+    <g transform="translate(0, 0)" style="color: #4a90e2" filter="url(#glow-moonlight-greatsword)">
+        
+        <path d="M200 50 L210 350 L200 380 L190 350 Z" fill="currentColor" opacity="0.8"/>
+        <rect x="180" y="350" width="40" height="30" fill="currentColor" opacity="0.6"/>
+        <rect x="160" y="380" width="80" height="10" fill="#8B4513" opacity="0.8"/>
+        <circle cx="200" cy="385" r="3" fill="#FFD700"/>
+    
+    </g>
+    
+    <!-- Text label -->
+    <text x="200" y="30" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="14" opacity="0.5">
+        MOONLIGHT GREATSWORD
+    </text>
+</svg>

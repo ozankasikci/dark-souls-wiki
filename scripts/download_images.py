@@ -47,6 +47,36 @@ IMAGE_URLS = {
         ],
         'dark-hand': [
             'https://darksouls.wiki.fextralife.com/file/Dark-Souls/dark_hand.png'
+        ],
+        'dragonslayer-greataxe': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/dragonslayer_greataxe.png'
+        ],
+        'farron-greatsword': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/farron_greatsword.png'
+        ],
+        'frayed-blade': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/frayed_blade.png'
+        ],
+        'friede-scythe': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/friede%27s_great_scythe.png'
+        ],
+        'gael-greatsword': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/gael%27s_greatsword.png'
+        ],
+        'lothric-knight-straight-sword': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/lothric_knight_sword.png'
+        ],
+        'murky-hand-scythe': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/murky_hand_scythe.png'
+        ],
+        'ringed-knight-paired-greatswords': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/ringed_knight_paired_greatswords.png'
+        ],
+        'sellsword-twinblades': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/sellsword_twinblades.png'
+        ],
+        'splitleaf-greatsword': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/splitleaf_greatsword.png'
         ]
     },
     'bosses': {
@@ -58,6 +88,54 @@ IMAGE_URLS = {
         ],
         'taurus-demon': [
             'https://darksouls.wiki.fextralife.com/file/Dark-Souls/taurus_demon.jpg'
+        ],
+        'vordt': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/vordt_of_the_boreal_valley.jpg'
+        ],
+        'crystal-sage': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/crystal_sage.jpg'
+        ],
+        'abyss-watchers': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/abyss_watchers_small.jpg'
+        ],
+        'iudex-gundyr': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/iudex_gundyr_small.jpg'
+        ],
+        'curse-rotted-greatwood': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/curse-rotted_greatwood.jpg'
+        ],
+        'aldrich-devourer-of-gods': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/aldrich_devourer_of_gods_small.jpg'
+        ],
+        'champion-gundyr': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/champion_gundyr.jpg'
+        ],
+        'dancer-of-the-boreal-valley': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/dancer_of_the_boreal_valley.jpg'
+        ],
+        'darkeater-midir': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/darkeater_midir_small.jpg'
+        ],
+        'demon-prince': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/demon_prince.jpg'
+        ],
+        'lothric-younger-prince': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/lothric_younger_prince_small.jpg'
+        ],
+        'nameless-king': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/nameless_king_small.jpg'
+        ],
+        'pontiff-sulyvahn': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/pontiff_sulyvahn.jpg'
+        ],
+        'sister-friede': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/sister_friede.jpg'
+        ],
+        'slave-knight-gael': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/slave_knight_gael_small.jpg'
+        ],
+        'soul-of-cinder': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/soul_of_cinder_small.jpg'
         ]
     },
     'areas': {
@@ -72,17 +150,71 @@ IMAGE_URLS = {
         ],
         'blighttown': [
             'https://darksouls.wiki.fextralife.com/file/Dark-Souls/blighttown.jpg'
+        ],
+        'northern-undead-asylum': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/undead_asylum.jpg'
+        ],
+        'undead-parish': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/undead_parish.jpg'
+        ],
+        'depths': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/the_depths.jpg'
+        ],
+        'valley-of-drakes': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/valley_of_drakes.jpg'
+        ],
+        'darkroot-garden': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/darkroot_garden.jpg'
+        ],
+        'darkroot-basin': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/darkroot_basin.jpg'
+        ],
+        'new-londo-ruins': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/new_londo_ruins.jpg'
+        ],
+        'sens-fortress': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/sens_fortress.jpg'
+        ],
+        'dukes-archives': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/the_dukes_archives.jpg'
+        ],
+        'crystal-cave': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/crystal_cave.jpg'
         ]
     },
     'npcs': {
         'solaire': [
             'https://darksouls.wiki.fextralife.com/file/Dark-Souls/solaire_of_astora.jpg'
         ],
+        'solaire-of-astora': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/solaire_of_astora.jpg'
+        ],
         'siegmeyer': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/siegmeyer_of_catarina.jpg'
+        ],
+        'siegmeyer-of-catarina': [
             'https://darksouls.wiki.fextralife.com/file/Dark-Souls/siegmeyer_of_catarina.jpg'
         ],
         'andre': [
             'https://darksouls.wiki.fextralife.com/file/Dark-Souls/andre_of_astora.jpg'
+        ],
+        'patches': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/patches_the_hyena.jpg'
+        ],
+        'patches-ds1': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/patches_the_hyena.jpg'
+        ],
+        'oscar-of-astora': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/oscar_of_astora.jpg'
+        ],
+        'fire-keeper': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/fire_keeper.jpg'
+        ],
+        'hawkwood': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/hawkwood_the_deserter.jpg'
+        ],
+        'ludleth': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/ludleth_of_courland.jpg'
         ]
     },
     'items': {
@@ -91,6 +223,38 @@ IMAGE_URLS = {
         ],
         'ring-of-favor': [
             'https://darksouls.wiki.fextralife.com/file/Dark-Souls/ring_of_favor_and_protection.png'
+        ],
+        'elite-knight-set': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/elite_knight_set.jpg'
+        ],
+        'ashen-estus-flask': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/ashen_estus_flask.png'
+        ],
+        'coiled-sword': [
+            'https://darksouls3.wiki.fextralife.com/file/Dark-Souls-3/coiled_sword.png'
+        ],
+        'fire-keeper-soul': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/fire_keeper_soul.png'
+        ]
+    },
+    'armor': {
+        'elite-knight-set': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/elite_knight_set.jpg'
+        ]
+    },
+    'shields': {
+        'grass-crest-shield': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/grass_crest_shield.png'
+        ]
+    },
+    'rings': {
+        'ring-of-favor': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/ring_of_favor_and_protection.png'
+        ]
+    },
+    'catalysts': {
+        'pyromancy-flame': [
+            'https://darksouls.wiki.fextralife.com/file/Dark-Souls/pyromancy_flame.png'
         ]
     }
 }

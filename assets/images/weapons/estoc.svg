@@ -1,0 +1,32 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <defs>
+        <radialGradient id="bg-estoc">
+            <stop offset="0%" style="stop-color:rgba(212,175,55,0.1)"/>
+            <stop offset="100%" style="stop-color:rgba(26,26,26,1)"/>
+        </radialGradient>
+        <filter id="glow-estoc">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="400" height="400" fill="url(#bg-estoc)"/>
+    
+    <!-- Weapon silhouette -->
+    <g transform="translate(0, 0)" style="color: #666" filter="url(#glow-estoc)">
+        
+        <path d="M200 40 L202 340 L200 360 L198 340 Z" fill="currentColor" opacity="0.9"/>
+        <ellipse cx="200" cy="350" rx="20" ry="5" fill="currentColor" opacity="0.7"/>
+        <rect x="190" y="350" width="20" height="40" fill="#8B4513" opacity="0.8"/>
+    
+    </g>
+    
+    <!-- Text label -->
+    <text x="200" y="30" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="14" opacity="0.5">
+        ESTOC
+    </text>
+</svg>

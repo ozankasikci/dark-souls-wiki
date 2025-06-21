@@ -50,42 +50,60 @@ class ImageLoader {
 
         // Handle equipment category which uses subcategories (weapons, armor, etc)
         if (type === 'equipment') {
-            // First try weapons subfolder (most common case for now)
-            const weaponPath = `assets/images/weapons/${id}.png`;
-            const weaponExists = await this.checkImageExists(weaponPath);
-            if (weaponExists) {
-                this.imageCache.set(cacheKey, weaponPath);
-                return weaponPath;
-            }
+            // Try various subcategories and extensions
+            const subcategories = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
+            const extensions = ['.png', '.jpg', '.jpeg'];
             
-            // Could add other equipment subcategories here (armor, shields, etc)
-            // For now, fall through to placeholder
+            for (const subcat of subcategories) {
+                for (const ext of extensions) {
+                    const path = `assets/images/${subcat}/${id}${ext}`;
+                    const exists = await this.checkImageExists(path);
+                    if (exists) {
+                        this.imageCache.set(cacheKey, path);
+                        return path;
+                    }
+                }
+            }
         }
 
-        // Try local image first with simplified path structure
-        let localPath;
-        if (type === 'weapons' && (imageType === 'icon' || imageType === 'full' || imageType === 'thumbnail')) {
-            // For weapons, images are directly in the weapons folder
-            localPath = `assets/images/${type}/${id}.png`;
-        } else {
-            // Original path structure for other types
-            localPath = `assets/images/${type}/${id}/${imageType}.png`;
-        }
+        // Try local image with multiple extensions (including SVG)
+        const extensions = ['.png', '.jpg', '.jpeg', '.svg'];
         
-        const imageExists = await this.checkImageExists(localPath);
-        
-        if (imageExists) {
-            this.imageCache.set(cacheKey, localPath);
-            return localPath;
+        for (const ext of extensions) {
+            let localPath;
+            if (type === 'weapons' && (imageType === 'icon' || imageType === 'full' || imageType === 'thumbnail')) {
+                // For weapons, images are directly in the weapons folder
+                localPath = `assets/images/${type}/${id}${ext}`;
+            } else if (imageType === 'thumbnail' || imageType === 'portrait') {
+                // Try simple path first for thumbnails/portraits
+                localPath = `assets/images/${type}/${id}${ext}`;
+            } else {
+                // Original path structure for other types
+                localPath = `assets/images/${type}/${id}/${imageType}${ext}`;
+            }
+            
+            const imageExists = await this.checkImageExists(localPath);
+            
+            if (imageExists) {
+                // For SVG files, verify they're not too small (invalid)
+                if (ext === '.svg' || await this.isValidImage(localPath)) {
+                    this.imageCache.set(cacheKey, localPath);
+                    return localPath;
+                }
+            }
         }
 
         // Also try without imageType for backwards compatibility
-        const simplePath = `assets/images/${type}/${id}.png`;
-        const simpleExists = await this.checkImageExists(simplePath);
-        
-        if (simpleExists) {
-            this.imageCache.set(cacheKey, simplePath);
-            return simplePath;
+        for (const ext of extensions) {
+            const simplePath = `assets/images/${type}/${id}${ext}`;
+            const simpleExists = await this.checkImageExists(simplePath);
+            
+            if (simpleExists) {
+                if (ext === '.svg' || await this.isValidImage(simplePath)) {
+                    this.imageCache.set(cacheKey, simplePath);
+                    return simplePath;
+                }
+            }
         }
 
         // Try Fextralife URL if available
@@ -105,6 +123,31 @@ class ImageLoader {
         try {
             const response = await fetch(path, { method: 'HEAD' });
             return response.ok;
+        } catch {
+            return false;
+        }
+    }
+    
+    // Validate image is actually an image and has reasonable size
+    async isValidImage(path) {
+        try {
+            const response = await fetch(path);
+            if (!response.ok) return false;
+            
+            const contentType = response.headers.get('content-type');
+            const contentLength = response.headers.get('content-length');
+            
+            // Check if it's an image type
+            if (!contentType || !contentType.startsWith('image/')) {
+                return false;
+            }
+            
+            // Check minimum size (at least 1KB)
+            if (contentLength && parseInt(contentLength) < 1000) {
+                return false;
+            }
+            
+            return true;
         } catch {
             return false;
         }

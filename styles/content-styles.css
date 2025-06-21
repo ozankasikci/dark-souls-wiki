@@ -732,11 +732,19 @@
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: var(--space-xl);
+    padding: 0;
     transition: all var(--transition-base);
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Thumbnail container is now defined in image-styles.css */
+.items-grid .item-card .item-card-content {
+    padding: var(--space-xl);
+    flex: 1;
 }
 
 .items-grid .item-card::before {

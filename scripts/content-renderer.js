@@ -788,14 +788,16 @@ class ContentRenderer {
                 <div class="item-thumbnail-container" data-category="${category}" data-slug="${slug}">
                     <!-- Thumbnail will be loaded here -->
                 </div>
-                <div class="item-card-header">
-                    <h3>${metadata.name}</h3>
-                    ${subtitle ? `<p class="card-subtitle">${subtitle}</p>` : ''}
-                </div>
-                ${metadata.description ? `<p class="card-description">${metadata.description}</p>` : ''}
-                <div class="item-card-footer">
-                    ${extraInfo}
-                    ${this.renderTags(metadata.tags)}
+                <div class="item-card-content">
+                    <div class="item-card-header">
+                        <h3>${metadata.name}</h3>
+                        ${subtitle ? `<p class="card-subtitle">${subtitle}</p>` : ''}
+                    </div>
+                    ${metadata.description ? `<p class="card-description">${metadata.description}</p>` : ''}
+                    <div class="item-card-footer">
+                        ${extraInfo}
+                        ${this.renderTags(metadata.tags)}
+                    </div>
                 </div>
             </a>
         `;

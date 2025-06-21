@@ -201,11 +201,71 @@
 /* Thumbnail Images for Listings */
 .item-thumbnail {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 150px;
+    object-fit: contain;
+    object-position: center;
     margin-bottom: 20px;
     border-radius: 4px;
+    background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.1), var(--bg-secondary));
+    padding: 15px;
+    position: relative;
+    image-rendering: auto;
+}
+
+/* Weapon-specific thumbnail styles */
+.weapons-thumbnail {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), var(--bg-secondary));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+/* Special handling for weapon thumbnails that are wider */
+.equipment-thumbnail.item-thumbnail {
+    max-width: 90%;
+    height: auto;
+    max-height: 130px;
+}
+
+/* Ensure weapon thumbnail containers center properly */
+.item-card[href*="equipment/weapons"] .item-thumbnail-container {
+    padding: 10px;
+}
+
+/* Boss thumbnail enhancement */
+.bosses-thumbnail {
+    filter: brightness(1.1) contrast(1.1);
+}
+
+/* NPC thumbnail enhancement */
+.npcs-thumbnail {
+    filter: sepia(0.1) brightness(1.05);
+}
+
+/* Add blur backdrop for small images */
+.item-thumbnail-container {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
     background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-thumbnail-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1), transparent);
+    z-index: 1;
+}
+
+.item-thumbnail-container .item-thumbnail {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0;
 }
 
 .boss-thumbnail {
