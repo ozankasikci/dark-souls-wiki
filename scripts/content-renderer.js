@@ -14,7 +14,44 @@ class ContentRenderer {
 
     render(data, type) {
         const template = this.templates[type] || this.templates.default;
-        return template.call(this, data);
+        let content = template.call(this, data);
+        
+        // Add image support based on type and metadata
+        content = this.addContentImages(content, data, type);
+        
+        return content;
+    }
+    
+    addContentImages(content, data, type) {
+        const { metadata } = data;
+        const itemId = metadata.id || metadata.name?.toLowerCase().replace(/\s+/g, '-');
+        
+        // Check if ImageDatabase is available
+        if (window.ImageDatabase && itemId) {
+            const imageData = window.ImageDatabase.getImageData(type, itemId);
+            if (imageData) {
+                // For weapons, replace the weapon icon placeholder
+                if (type === 'weapons' && content.includes('weapon-icon-container')) {
+                    const iconPlaceholder = `<!-- Weapon icon will be loaded here -->`;
+                    const iconHtml = `<img src="${imageData.url}" alt="${imageData.alt}" title="${imageData.name}" class="weapon-icon" loading="lazy" onerror="this.src='assets/images/placeholder.svg'">`;
+                    content = content.replace(iconPlaceholder, iconHtml);
+                }
+                // For other content types, add featured image after header
+                else {
+                    const headerEnd = content.indexOf('</header>');
+                    if (headerEnd !== -1 && !content.includes('content-featured-image')) {
+                        const imageHtml = `
+                        <div class="content-featured-image">
+                            <img src="${imageData.url}" alt="${imageData.alt}" title="${imageData.name}" loading="lazy" onerror="this.src='assets/images/placeholder.svg'">
+                        </div>
+                    `;
+                        content = content.slice(0, headerEnd + 9) + imageHtml + content.slice(headerEnd + 9);
+                    }
+                }
+            }
+        }
+        
+        return content;
     }
 
     defaultTemplate(data) {

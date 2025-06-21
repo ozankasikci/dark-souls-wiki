@@ -48,13 +48,44 @@ class ImageLoader {
             return this.imageCache.get(cacheKey);
         }
 
-        // Try local image first
-        const localPath = `images/${type}/${id}/${imageType}.png`;
+        // Handle equipment category which uses subcategories (weapons, armor, etc)
+        if (type === 'equipment') {
+            // First try weapons subfolder (most common case for now)
+            const weaponPath = `assets/images/weapons/${id}.png`;
+            const weaponExists = await this.checkImageExists(weaponPath);
+            if (weaponExists) {
+                this.imageCache.set(cacheKey, weaponPath);
+                return weaponPath;
+            }
+            
+            // Could add other equipment subcategories here (armor, shields, etc)
+            // For now, fall through to placeholder
+        }
+
+        // Try local image first with simplified path structure
+        let localPath;
+        if (type === 'weapons' && (imageType === 'icon' || imageType === 'full' || imageType === 'thumbnail')) {
+            // For weapons, images are directly in the weapons folder
+            localPath = `assets/images/${type}/${id}.png`;
+        } else {
+            // Original path structure for other types
+            localPath = `assets/images/${type}/${id}/${imageType}.png`;
+        }
+        
         const imageExists = await this.checkImageExists(localPath);
         
         if (imageExists) {
             this.imageCache.set(cacheKey, localPath);
             return localPath;
+        }
+
+        // Also try without imageType for backwards compatibility
+        const simplePath = `assets/images/${type}/${id}.png`;
+        const simpleExists = await this.checkImageExists(simplePath);
+        
+        if (simpleExists) {
+            this.imageCache.set(cacheKey, simplePath);
+            return simplePath;
         }
 
         // Try Fextralife URL if available

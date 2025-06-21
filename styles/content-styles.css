@@ -2,6 +2,108 @@
    CONTENT PAGE STYLES
    =================================== */
 
+/* Featured Image Styles */
+.content-featured-image {
+    margin: 20px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(139, 69, 19, 0.5);
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.content-featured-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.content-featured-image::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
+    animation: pulse-glow 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+/* Weapon Icon Styles */
+.weapon-icon-container {
+    float: right;
+    margin: 0 0 20px 20px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(139, 69, 19, 0.5);
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.weapon-icon-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
+    animation: pulse-glow 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.weapon-icon {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Boss and Item Icons */
+.boss-portrait,
+.item-icon-container {
+    float: right;
+    margin: 0 0 20px 20px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(139, 69, 19, 0.5);
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.boss-portrait img,
+.item-icon-container img {
+    display: block;
+    max-width: 150px;
+    height: auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .weapon-icon-container,
+    .boss-portrait,
+    .item-icon-container {
+        float: none;
+        margin: 0 auto 20px;
+        text-align: center;
+        max-width: 250px;
+    }
+}
+
 /* Breadcrumb Navigation */
 /* Breadcrumb Wrapper */
 .breadcrumb-wrapper {

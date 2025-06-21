@@ -1,0 +1,22 @@
+{
+  "name": "dark-souls-wiki",
+  "version": "1.0.0",
+  "description": "A comprehensive wiki for Dark Souls Remastered",
+  "main": "index.html",
+  "scripts": {
+    "download-images": "node scripts/download-images.js",
+    "download-images-py": "python3 scripts/download_images.py",
+    "download-images-sh": "bash scripts/download-images.sh",
+    "serve": "python3 -m http.server 8089",
+    "serve-node": "npx http-server -p 8089"
+  },
+  "keywords": [
+    "dark-souls",
+    "wiki",
+    "game-guide"
+  ],
+  "author": "Dark Souls Wiki Contributors",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}

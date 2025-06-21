@@ -1,0 +1,17 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGrad">
+      <stop offset="0%" style="stop-color:#2a2a2a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bgGrad)"/>
+  <text x="200" y="140" font-family="Arial, sans-serif" font-size="20" fill="#ff8c00" text-anchor="middle" dominant-baseline="middle">
+    Dark Souls
+  </text>
+  <text x="200" y="165" font-family="Arial, sans-serif" font-size="16" fill="#666" text-anchor="middle" dominant-baseline="middle">
+    Image Loading...
+  </text>
+  <path d="M180 110 L220 110 L220 130 L180 130 Z" fill="none" stroke="#ff8c00" stroke-width="2" opacity="0.5"/>
+  <circle cx="200" cy="120" r="3" fill="#ff8c00" opacity="0.7"/>
+</svg>

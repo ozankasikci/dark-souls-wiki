@@ -141,10 +141,13 @@ class Router {
             // Handle equipment subcategory paths
             let contentType = type;
             let contentId = id;
+            let renderType = type;
+            
             if (type === 'equipment' && id.includes('/')) {
                 const parts = id.split('/');
                 contentType = `equipment/${parts[0]}`;
                 contentId = parts[1];
+                renderType = parts[0]; // Use subcategory (e.g., 'weapons') for rendering
             }
             
             const content = await contentLoader.loadContent(contentType, contentId);
@@ -153,7 +156,7 @@ class Router {
                 content.relatedContent = await contentLoader.loadRelatedContent(content.metadata);
             }
             
-            const html = contentRenderer.render(content, type.split('/')[0]);
+            const html = contentRenderer.render(content, renderType);
             this.displayContent(html);
             
             document.title = `${content.metadata.name} - Dark Souls Wiki`;
