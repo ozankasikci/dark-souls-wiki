@@ -784,6 +784,106 @@ a {
     position: relative;
 }
 
+/* ===================================
+   CHARACTER PAGE STYLES
+   =================================== */
+.character-portrait {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--ds-gold);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    background: var(--bg-card);
+    position: relative;
+}
+
+.character-portrait::before {
+    content: '';
+    position: absolute;
+    inset: -15px;
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.character-portrait-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    background: var(--bg-secondary);
+    padding: var(--space-2xl);
+    border-radius: 8px;
+    margin-bottom: var(--space-2xl);
+    border: 1px solid var(--border-color);
+}
+
+.info-item {
+    text-align: center;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-xs);
+}
+
+.info-value {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.merchant-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--ds-gold);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 30px;
+    margin-bottom: var(--space-xl);
+    color: var(--ds-gold);
+}
+
+.merchant-badge svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--ds-gold);
+}
+
+.drops-list {
+    list-style: none;
+    padding: 0;
+}
+
+.drops-list li {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--ds-gray-700);
+    color: var(--text-secondary);
+}
+
+.drops-list li:last-child {
+    border-bottom: none;
+}
+
+.drops-list li::before {
+    content: '• ';
+    color: var(--ds-gold);
+    margin-right: var(--space-sm);
+}
+
 /* Fix animation elements that might block clicks */
 .ember {
     pointer-events: none !important;

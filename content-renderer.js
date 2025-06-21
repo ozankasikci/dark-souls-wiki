@@ -6,6 +6,7 @@ class ContentRenderer {
             items: this.itemTemplate,
             weapons: this.weaponTemplate,
             npcs: this.npcTemplate,
+            characters: this.characterTemplate,
             quests: this.questTemplate,
             lore: this.loreTemplate,
             default: this.defaultTemplate
@@ -86,7 +87,14 @@ class ContentRenderer {
         
         return `
             <article class="content-article boss-article">
+                <div class="boss-hero-banner" id="boss-hero-${metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-')}">
+                    <!-- Hero banner image will be loaded here -->
+                </div>
+                
                 <header class="content-header">
+                    <div class="boss-portrait" id="boss-portrait-${metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-')}">
+                        <!-- Boss portrait will be loaded here -->
+                    </div>
                     <h1>${metadata.name}</h1>
                     ${metadata.title ? `<p class="content-subtitle">${metadata.title}</p>` : ''}
                     ${metadata.description ? `<p class="content-description">${metadata.description}</p>` : ''}
@@ -156,6 +164,9 @@ class ContentRenderer {
         return `
             <article class="content-article item-article">
                 <header class="content-header">
+                    <div class="item-icon-container" id="item-icon-${metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-')}">
+                        <!-- Item icon will be loaded here -->
+                    </div>
                     <h1>${metadata.name}</h1>
                     <p class="content-subtitle">${metadata.category || metadata.item_type || 'Item'}</p>
                     ${metadata.description ? `<p class="content-description">${metadata.description}</p>` : ''}
@@ -163,6 +174,10 @@ class ContentRenderer {
                 </header>
                 
                 ${this.renderItemStats(metadata)}
+                
+                <div class="item-full-image" id="item-full-${metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-')}">
+                    <!-- Full item image will be loaded here -->
+                </div>
                 
                 <div class="content-body">
                     ${html}
@@ -179,11 +194,18 @@ class ContentRenderer {
         return `
             <article class="content-article weapon-article">
                 <header class="content-header">
+                    <div class="weapon-icon-container" id="weapon-icon-${metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-')}">
+                        <!-- Weapon icon will be loaded here -->
+                    </div>
                     <h1>${metadata.name}</h1>
                     <p class="content-subtitle">${metadata.weapon_type || 'Weapon'}</p>
                     ${metadata.description ? `<p class="content-description">${metadata.description}</p>` : ''}
                     ${this.renderTags(metadata.tags)}
                 </header>
+                
+                <div class="weapon-full-render" id="weapon-full-${metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-')}">
+                    <!-- Full weapon render will be loaded here -->
+                </div>
                 
                 <div class="item-stats-section">
                     ${metadata.damage ? `
@@ -250,6 +272,80 @@ class ContentRenderer {
                         </li>
                         ` : ''}
                     </ul>
+                </div>
+                ` : ''}
+                
+                <div class="content-body">
+                    ${html}
+                </div>
+                
+                ${this.renderRelatedContent(data.relatedContent)}
+            </article>
+        `;
+    }
+
+    characterTemplate(data) {
+        const { metadata, html } = data;
+        
+        return `
+            <article class="content-article character-article">
+                <div class="character-portrait" id="character-portrait-${metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-')}">
+                    <!-- Character portrait will be loaded here -->
+                </div>
+                
+                <header class="content-header">
+                    <h1>${metadata.name}</h1>
+                    ${metadata.title ? `<p class="content-subtitle">${metadata.title}</p>` : ''}
+                    ${metadata.description ? `<p class="content-description">${metadata.description}</p>` : ''}
+                    ${this.renderTags(metadata.tags)}
+                </header>
+                
+                ${metadata.location || metadata.voice_actor || metadata.covenant || metadata.souls ? `
+                <div class="character-info-grid">
+                    ${metadata.location ? `
+                    <div class="info-item">
+                        <span class="info-label">Location</span>
+                        <span class="info-value">${metadata.location}</span>
+                    </div>
+                    ` : ''}
+                    ${metadata.covenant ? `
+                    <div class="info-item">
+                        <span class="info-label">Covenant</span>
+                        <span class="info-value">${metadata.covenant}</span>
+                    </div>
+                    ` : ''}
+                    ${metadata.voice_actor ? `
+                    <div class="info-item">
+                        <span class="info-label">Voice Actor</span>
+                        <span class="info-value">${metadata.voice_actor}</span>
+                    </div>
+                    ` : ''}
+                    ${metadata.souls ? `
+                    <div class="info-item">
+                        <span class="info-label">Souls on Death</span>
+                        <span class="info-value stat-value souls">${metadata.souls}</span>
+                    </div>
+                    ` : ''}
+                </div>
+                ` : ''}
+                
+                ${metadata.drops && metadata.drops.length > 0 ? `
+                <div class="boss-info-section">
+                    <h3>Drops</h3>
+                    <ul class="drops-list">
+                        ${metadata.drops.map(drop => `<li>${drop}</li>`).join('')}
+                    </ul>
+                </div>
+                ` : ''}
+                
+                ${metadata.merchant ? `
+                <div class="merchant-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"/>
+                        <circle cx="20" cy="21" r="1"/>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                    </svg>
+                    <span>Merchant</span>
                 </div>
                 ` : ''}
                 
@@ -440,6 +536,7 @@ class ContentRenderer {
             bosses: 'Bosses',
             items: 'Items',
             npcs: 'NPCs',
+            characters: 'Characters',
             quests: 'Quests',
             lore: 'Lore',
             weapons: 'Weapons'
@@ -450,6 +547,7 @@ class ContentRenderer {
             bosses: 'Face the mighty foes that guard the realm',
             items: 'Discover equipment, consumables, and treasures',
             npcs: 'Meet the inhabitants of this dying world',
+            characters: 'Encounter the memorable souls who shape your journey',
             quests: 'Uncover the stories and tasks of Lordran',
             lore: 'Delve into the mysteries of the Dark Souls universe',
             weapons: 'Master the tools of combat'
@@ -471,6 +569,7 @@ class ContentRenderer {
 
     renderItemCard(item, category) {
         const { metadata } = item;
+        const slug = metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-');
         
         // Get specific info based on category
         let subtitle = '';
@@ -494,12 +593,19 @@ class ContentRenderer {
             case 'npcs':
                 subtitle = metadata.location || '';
                 break;
+            case 'characters':
+                subtitle = metadata.title || metadata.location || '';
+                extraInfo = metadata.covenant ? `<span class="card-covenant">${metadata.covenant}</span>` : '';
+                break;
             default:
                 subtitle = '';
         }
         
         return `
             <a href="#${category}/${metadata.id}" class="item-card">
+                <div class="item-thumbnail-container" data-category="${category}" data-slug="${slug}">
+                    <!-- Thumbnail will be loaded here -->
+                </div>
                 <div class="item-card-header">
                     <h3>${metadata.name}</h3>
                     ${subtitle ? `<p class="card-subtitle">${subtitle}</p>` : ''}
@@ -519,6 +625,7 @@ class ContentRenderer {
             bosses: 'Bosses',
             items: 'Items',
             npcs: 'NPCs',
+            characters: 'Characters',
             quests: 'Quests',
             lore: 'Lore',
             weapons: 'Weapons'
@@ -536,6 +643,118 @@ class ContentRenderer {
         }
         
         return [field];
+    }
+    
+    // Load images after content is rendered
+    async loadContentImages(type, metadata) {
+        const slug = metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-');
+        
+        switch(type) {
+            case 'bosses':
+                await this.loadBossImages(slug);
+                break;
+            case 'weapons':
+                await this.loadWeaponImages(slug);
+                break;
+            case 'items':
+                await this.loadItemImages(slug);
+                break;
+            case 'areas':
+                await this.loadAreaImages(slug);
+                break;
+            case 'characters':
+                await this.loadCharacterImages(slug);
+                break;
+        }
+    }
+    
+    async loadBossImages(slug) {
+        // Load hero banner
+        const heroBanner = document.getElementById(`boss-hero-${slug}`);
+        if (heroBanner) {
+            const heroSrc = await imageLoader.getImage('bosses', slug, 'hero');
+            const heroImg = imageLoader.createImageElement(heroSrc, `${slug} hero banner`, 'boss-hero-image');
+            heroBanner.appendChild(heroImg);
+        }
+        
+        // Load portrait
+        const portrait = document.getElementById(`boss-portrait-${slug}`);
+        if (portrait) {
+            const portraitSrc = await imageLoader.getImage('bosses', slug, 'portrait');
+            const portraitImg = imageLoader.createImageElement(portraitSrc, `${slug} portrait`, 'boss-portrait-image');
+            portrait.appendChild(portraitImg);
+        }
+    }
+    
+    async loadWeaponImages(slug) {
+        // Load icon
+        const iconContainer = document.getElementById(`weapon-icon-${slug}`);
+        if (iconContainer) {
+            const iconSrc = await imageLoader.getImage('weapons', slug, 'icon');
+            const iconImg = imageLoader.createImageElement(iconSrc, `${slug} icon`, 'weapon-icon');
+            iconContainer.appendChild(iconImg);
+        }
+        
+        // Load full render
+        const fullContainer = document.getElementById(`weapon-full-${slug}`);
+        if (fullContainer) {
+            const fullSrc = await imageLoader.getImage('weapons', slug, 'full');
+            const fullImg = imageLoader.createImageElement(fullSrc, `${slug} full render`, 'weapon-full-image');
+            fullContainer.appendChild(fullImg);
+        }
+    }
+    
+    async loadItemImages(slug) {
+        // Load icon
+        const iconContainer = document.getElementById(`item-icon-${slug}`);
+        if (iconContainer) {
+            const iconSrc = await imageLoader.getImage('items', slug, 'icon');
+            const iconImg = imageLoader.createImageElement(iconSrc, `${slug} icon`, 'item-icon');
+            iconContainer.appendChild(iconImg);
+        }
+        
+        // Load full image
+        const fullContainer = document.getElementById(`item-full-${slug}`);
+        if (fullContainer) {
+            const fullSrc = await imageLoader.getImage('items', slug, 'full');
+            const fullImg = imageLoader.createImageElement(fullSrc, `${slug} full image`, 'item-full-image');
+            fullContainer.appendChild(fullImg);
+        }
+    }
+    
+    async loadAreaImages(slug) {
+        // Implementation for area images
+        // This would load banner and gallery images
+    }
+    
+    async loadCharacterImages(slug) {
+        // Load character portrait
+        const portrait = document.getElementById(`character-portrait-${slug}`);
+        if (portrait) {
+            const portraitSrc = await imageLoader.getImage('characters', slug, 'portrait');
+            const portraitImg = imageLoader.createImageElement(portraitSrc, `${slug} portrait`, 'character-portrait-image');
+            portrait.appendChild(portraitImg);
+        }
+    }
+    
+    // Load thumbnails for category listings
+    async loadCategoryThumbnails() {
+        const thumbnailContainers = document.querySelectorAll('.item-thumbnail-container');
+        
+        thumbnailContainers.forEach(async (container) => {
+            const category = container.dataset.category;
+            const slug = container.dataset.slug;
+            
+            if (category && slug) {
+                const thumbnailSrc = await imageLoader.getImage(category, slug, 'thumbnail');
+                const thumbnailImg = imageLoader.createImageElement(
+                    thumbnailSrc, 
+                    `${slug} thumbnail`, 
+                    `${category}-thumbnail item-thumbnail`
+                );
+                container.appendChild(thumbnailImg);
+            }
+        });
     }
 }
 

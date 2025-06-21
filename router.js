@@ -59,11 +59,17 @@ class Router {
                 npcs: 'NPCs',
                 quests: 'Quests',
                 lore: 'Lore',
-                weapons: 'Weapons'
+                weapons: 'Weapons',
+                characters: 'Characters'
             };
             
             document.title = `${categoryTitles[category] || category} - Dark Souls Wiki`;
             this.updateNavigation(category);
+            
+            // Load thumbnails after content is rendered
+            setTimeout(async () => {
+                await contentRenderer.loadCategoryThumbnails();
+            }, 100);
             
             // Add category filters
             if (typeof navigationEnhancer !== 'undefined') {
@@ -92,6 +98,11 @@ class Router {
             document.title = `${content.metadata.name} - Dark Souls Wiki`;
             
             this.updateNavigation(type);
+            
+            // Load images after content is rendered
+            setTimeout(async () => {
+                await contentRenderer.loadContentImages(type, content.metadata);
+            }, 100);
             
             // Add navigation enhancements
             if (typeof navigationEnhancer !== 'undefined') {

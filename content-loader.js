@@ -168,12 +168,13 @@ class ContentLoader {
         // Hardcoded fallback lists for each category
         const knownItems = {
             areas: ['cemetery-of-ash', 'firelink-shrine', 'high-wall-of-lothric', 'undead-settlement'],
-            bosses: ['iudex-gundyr', 'vordt', 'curse-rotted-greatwood', 'crystal-sage'],
+            bosses: ['iudex-gundyr', 'vordt', 'curse-rotted-greatwood', 'crystal-sage', 'abyss-watchers', 'aldrich-devourer-of-gods', 'asylum-demon', 'bell-gargoyles', 'champion-gundyr', 'dancer-of-the-boreal-valley', 'darkeater-midir', 'demon-prince', 'lothric-younger-prince', 'nameless-king', 'pontiff-sulyvahn', 'sister-friede', 'slave-knight-gael', 'soul-of-cinder', 'taurus-demon'],
             items: ['estus-flask', 'coiled-sword', 'ashen-estus-flask', 'fire-keeper-soul'],
             npcs: ['fire-keeper', 'hawkwood', 'ludleth', 'andre'],
             quests: ['sirris-questline', 'anri-questline', 'yoel-yuria-questline'],
             lore: ['age-of-fire', 'age-of-dark', 'first-flame', 'undead-curse'],
-            weapons: ['longsword', 'zweihander', 'uchigatana', 'claymore', 'estoc']
+            weapons: ['longsword', 'zweihander', 'uchigatana', 'claymore', 'estoc'],
+            characters: ['solaire-of-astora', 'siegmeyer-of-catarina', 'patches', 'oscar-of-astora']
         };
         
         return knownItems[category] || [];

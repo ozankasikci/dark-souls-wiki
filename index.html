@@ -6,6 +6,8 @@
     <title>Dark Souls Wiki - Home</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="content-styles.css">
+    <link rel="stylesheet" href="image-styles.css">
+    <link rel="stylesheet" href="search-styles.css">
     <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 </head>
@@ -25,6 +27,7 @@
                     <li><a href="#items">Items</a></li>
                     <li><a href="#bosses">Bosses</a></li>
                     <li><a href="#areas">Areas</a></li>
+                    <li><a href="#characters">Characters</a></li>
                 </ul>
             </div>
         </nav>
@@ -109,6 +112,20 @@
                             <span class="card-count">14 locations</span>
                         </div>
                     </a>
+                    <a href="#characters" class="category-card">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Characters</h3>
+                            <p>Meet the inhabitants of Lordran</p>
+                            <span class="card-count">12 characters</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -168,6 +185,7 @@
     </footer>
 
     <script src="script.js?v=3"></script>
+    <script src="image-loader.js?v=1"></script>
     <script src="content-loader.js?v=3"></script>
     <script src="content-renderer.js?v=3"></script>
     <script src="router.js?v=3"></script>

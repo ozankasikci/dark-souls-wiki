@@ -2,7 +2,7 @@ class SearchEngine {
     constructor() {
         this.searchIndex = new Map();
         this.allContent = [];
-        this.categories = ['weapons', 'items', 'bosses', 'areas', 'npcs', 'quests', 'lore'];
+        this.categories = ['weapons', 'items', 'bosses', 'areas', 'npcs', 'characters', 'quests', 'lore'];
         this.initialized = false;
     }
 
@@ -31,7 +31,7 @@ class SearchEngine {
                                 const searchEntry = {
                                     id: itemId,
                                     category: category,
-                                    title: content.metadata.title || itemId,
+                                    title: content.metadata.name || content.metadata.title || itemId,
                                     description: content.metadata.description || '',
                                     content: content.content,
                                     tags: content.metadata.tags || [],
