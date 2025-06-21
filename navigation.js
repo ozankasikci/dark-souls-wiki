@@ -13,11 +13,25 @@ class NavigationEnhancer {
         const contentDisplay = document.getElementById('content-display');
         if (!contentDisplay) return;
 
+        // Create breadcrumb wrapper
+        const breadcrumbWrapper = document.createElement('div');
+        breadcrumbWrapper.className = 'breadcrumb-wrapper';
+        
+        // Create container for breadcrumb inside wrapper
+        const container = document.createElement('div');
+        container.className = 'container';
+        
         this.breadcrumbContainer = document.createElement('nav');
         this.breadcrumbContainer.className = 'breadcrumb-nav';
         this.breadcrumbContainer.setAttribute('aria-label', 'Breadcrumb');
         
-        contentDisplay.insertBefore(this.breadcrumbContainer, contentDisplay.firstChild);
+        // Build the structure
+        container.appendChild(this.breadcrumbContainer);
+        breadcrumbWrapper.appendChild(container);
+        
+        // Insert before the container div inside content-display
+        const contentContainer = contentDisplay.querySelector('.container');
+        contentDisplay.insertBefore(breadcrumbWrapper, contentContainer);
     }
 
     setupEventListeners() {
@@ -50,7 +64,7 @@ class NavigationEnhancer {
         };
 
         const breadcrumbItems = [
-            { text: 'Home', href: '#' },
+            { text: 'Home', href: 'index.html' },
             { text: categoryTitles[category] || category, href: `#${category}` }
         ];
 

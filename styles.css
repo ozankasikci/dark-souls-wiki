@@ -176,6 +176,27 @@ h6 { font-size: 1rem; }
     animation: shimmer 3s infinite;
 }
 
+/* Logo Link Styling */
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    transition: transform var(--transition-base);
+}
+
+.logo-link:hover {
+    transform: translateY(-2px);
+}
+
+.logo-link:hover h1 {
+    text-shadow: 0 0 60px rgba(212, 175, 55, 0.8);
+}
+
+.logo-link:hover h1::after {
+    background: linear-gradient(90deg, transparent, var(--ds-gold-light), transparent);
+    height: 2px;
+}
+
 @keyframes shimmer {
     0%, 100% { opacity: 0.3; }
     50% { opacity: 1; }
@@ -788,9 +809,13 @@ h6 { font-size: 1rem; }
    CONTENT DISPLAY
    =================================== */
 .content-display {
-    padding: var(--space-3xl) 0;
+    padding: 0;
     min-height: 100vh;
     background: var(--bg-primary);
+}
+
+.content-display > .container {
+    padding: var(--space-3xl) 0;
 }
 
 #content-area {
