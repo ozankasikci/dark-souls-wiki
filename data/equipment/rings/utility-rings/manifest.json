@@ -1,0 +1,51 @@
+{
+  "category": "Utility Rings",
+  "description": "Rings that improve mobility, capacity, and convenience",
+  "items": [
+    {
+      "id": "havels-ring",
+      "name": "Havel's Ring",
+      "file": "havels-ring.md"
+    },
+    {
+      "id": "ring-of-favor-and-protection",
+      "name": "Ring of Favor and Protection",
+      "file": "ring-of-favor-and-protection.md"
+    },
+    {
+      "id": "rusted-iron-ring",
+      "name": "Rusted Iron Ring",
+      "file": "rusted-iron-ring.md"
+    },
+    {
+      "id": "dark-wood-grain-ring",
+      "name": "Dark Wood Grain Ring",
+      "file": "dark-wood-grain-ring.md"
+    },
+    {
+      "id": "ring-of-sacrifice",
+      "name": "Ring of Sacrifice",
+      "file": "ring-of-sacrifice.md"
+    },
+    {
+      "id": "rare-ring-of-sacrifice",
+      "name": "Rare Ring of Sacrifice",
+      "file": "rare-ring-of-sacrifice.md"
+    },
+    {
+      "id": "tiny-beings-ring",
+      "name": "Tiny Being's Ring",
+      "file": "tiny-beings-ring.md"
+    },
+    {
+      "id": "dusk-crown-ring",
+      "name": "Dusk Crown Ring",
+      "file": "dusk-crown-ring.md"
+    },
+    {
+      "id": "covenant-of-artorias",
+      "name": "Covenant of Artorias",
+      "file": "covenant-of-artorias.md"
+    }
+  ]
+}

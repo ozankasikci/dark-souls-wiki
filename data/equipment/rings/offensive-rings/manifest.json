@@ -1,0 +1,31 @@
+{
+  "category": "Offensive Rings",
+  "description": "Rings that enhance combat damage and offensive capabilities",
+  "items": [
+    {
+      "id": "hornet-ring",
+      "name": "Hornet Ring",
+      "file": "hornet-ring.md"
+    },
+    {
+      "id": "leo-ring",
+      "name": "Leo Ring",
+      "file": "leo-ring.md"
+    },
+    {
+      "id": "bellowing-dragoncrest-ring",
+      "name": "Bellowing Dragoncrest Ring",
+      "file": "bellowing-dragoncrest-ring.md"
+    },
+    {
+      "id": "ring-of-the-suns-firstborn",
+      "name": "Ring of the Sun's Firstborn",
+      "file": "ring-of-the-suns-firstborn.md"
+    },
+    {
+      "id": "red-tearstone-ring",
+      "name": "Red Tearstone Ring",
+      "file": "red-tearstone-ring.md"
+    }
+  ]
+}

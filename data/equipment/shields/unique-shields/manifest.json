@@ -3,26 +3,6 @@
   "description": "Special shields with unique properties and abilities",
   "items": [
     {
-      "id": "crystal-ring-shield",
-      "name": "Crystal Ring Shield",
-      "file": "crystal-ring-shield.md"
-    },
-    {
-      "id": "effigy-shield",
-      "name": "Effigy Shield",
-      "file": "effigy-shield.md"
-    },
-    {
-      "id": "sanctus",
-      "name": "Sanctus",
-      "file": "sanctus.md"
-    },
-    {
-      "id": "bloodshield",
-      "name": "Bloodshield",
-      "file": "bloodshield.md"
-    },
-    {
       "id": "skull-shield",
       "name": "Skull Shield",
       "file": "skull-shield.md"

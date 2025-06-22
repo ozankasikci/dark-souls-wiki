@@ -1,3 +1,30 @@
-[
-  "ring-of-favor.md"
-]
+{
+  "category": "Rings",
+  "description": "Magical accessories that provide various bonuses and effects",
+  "subcategories": [
+    {
+      "id": "offensive-rings",
+      "name": "Offensive Rings",
+      "path": "offensive-rings",
+      "description": "Rings that enhance combat damage and offensive capabilities"
+    },
+    {
+      "id": "defensive-rings", 
+      "name": "Defensive Rings",
+      "path": "defensive-rings",
+      "description": "Rings that provide protection and defensive bonuses"
+    },
+    {
+      "id": "utility-rings",
+      "name": "Utility Rings",
+      "path": "utility-rings", 
+      "description": "Rings that improve mobility, capacity, and convenience"
+    },
+    {
+      "id": "resistance-rings",
+      "name": "Resistance Rings",
+      "path": "resistance-rings",
+      "description": "Rings that provide resistance against status effects"
+    }
+  ]
+}

@@ -59,6 +59,12 @@ class Router {
             await this.loadShieldCategoryListing(rest[1]);
             return;
         }
+        
+        // Handle ring subcategory listings (e.g., #equipment/rings/offensive-rings)
+        if (type === 'equipment' && rest[0] === 'rings' && rest.length === 2) {
+            await this.loadRingCategoryListing(rest[1]);
+            return;
+        }
 
         // Check if this is a category listing (no id provided)
         if (rest.length === 0) {
@@ -202,6 +208,44 @@ class Router {
             this.showError(error.message);
         }
     }
+    
+    async loadRingCategoryListing(ringCategory) {
+        try {
+            this.showLoading();
+            
+            // Load all equipment items
+            const allItems = await contentLoader.loadCategoryListing('equipment');
+            
+            // Filter by ring category
+            const items = allItems.filter(item => 
+                item.subcategory === 'rings' && 
+                item.ringCategory === ringCategory
+            );
+            
+            // Get category name from manifest
+            const categoryTitles = {
+                'offensive-rings': 'Offensive Rings',
+                'defensive-rings': 'Defensive Rings',
+                'utility-rings': 'Utility Rings',
+                'resistance-rings': 'Resistance Rings'
+            };
+            
+            const html = contentRenderer.renderCategoryListing('equipment', items);
+            this.displayContent(html);
+            
+            document.title = `${categoryTitles[ringCategory] || ringCategory} - Dark Souls Wiki`;
+            this.updateNavigation('equipment');
+            
+            // Load thumbnails after content is rendered
+            setTimeout(async () => {
+                await contentRenderer.loadCategoryThumbnails();
+            }, 100);
+            
+        } catch (error) {
+            console.error('Error loading ring category:', error);
+            this.showError(error.message);
+        }
+    }
 
     async loadEquipmentSubcategory(subcategory) {
         try {
@@ -314,6 +358,11 @@ class Router {
                     contentType = `equipment/shields/${parts[1]}`;
                     contentId = parts[2];
                     renderType = 'shields';
+                } else if (parts[0] === 'rings' && parts.length === 3) {
+                    // Handle ring subcategory paths like rings/offensive-rings/hornet-ring
+                    contentType = `equipment/rings/${parts[1]}`;
+                    contentId = parts[2];
+                    renderType = 'rings';
                 } else {
                     // Handle regular equipment paths
                     contentType = `equipment/${parts[0]}`;

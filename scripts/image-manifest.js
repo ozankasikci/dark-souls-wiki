@@ -1,5 +1,5 @@
 // Auto-generated manifest of all existing images in the project
-// Generated on: 2025-06-22T21:59:42.934Z
+// Generated on: 2025-06-22T22:55:34.586Z
 
 const IMAGE_MANIFEST = {
     "areas": {
@@ -135,6 +135,9 @@ const IMAGE_MANIFEST = {
         "chester-set": {
             "ext": "jpg"
         },
+        "chesters-set": {
+            "ext": "jpg"
+        },
         "cleric-set": {
             "ext": "jpg"
         },
@@ -186,6 +189,9 @@ const IMAGE_MANIFEST = {
         "havel-set": {
             "ext": "jpg"
         },
+        "havels-set": {
+            "ext": "jpg"
+        },
         "hunter-set": {
             "ext": "jpg"
         },
@@ -217,6 +223,9 @@ const IMAGE_MANIFEST = {
             "ext": "jpg"
         },
         "pyromancer-set": {
+            "ext": "jpg"
+        },
+        "set-of-thorns": {
             "ext": "jpg"
         },
         "shadow-set": {
@@ -472,11 +481,86 @@ const IMAGE_MANIFEST = {
         }
     },
     "rings": {
+        "bellowing-dragoncrest-ring": {
+            "ext": "png"
+        },
+        "bloodbite-ring": {
+            "ext": "png"
+        },
+        "blue-tearstone-ring": {
+            "ext": "png"
+        },
+        "covenant-of-artorias": {
+            "ext": "png"
+        },
+        "cursebite-ring": {
+            "ext": "png"
+        },
+        "dark-wood-grain-ring": {
+            "ext": "png"
+        },
+        "dusk-crown-ring": {
+            "ext": "png"
+        },
+        "flame-stoneplate-ring": {
+            "ext": "png"
+        },
+        "havels-ring": {
+            "ext": "png"
+        },
+        "hornet-ring": {
+            "ext": "png"
+        },
+        "leo-ring": {
+            "ext": "png"
+        },
+        "lingering-dragoncrest-ring": {
+            "ext": "png"
+        },
+        "magic-stoneplate-ring": {
+            "ext": "png"
+        },
+        "poisonbite-ring": {
+            "ext": "png"
+        },
+        "rare-ring-of-sacrifice": {
+            "ext": "png"
+        },
+        "red-tearstone-ring": {
+            "ext": "png"
+        },
+        "ring-of-favor-and-protection": {
+            "ext": "png"
+        },
         "ring-of-favor": {
             "ext": "jpg",
             "alts": [
                 "png"
             ]
+        },
+        "ring-of-fog": {
+            "ext": "png"
+        },
+        "ring-of-sacrifice": {
+            "ext": "png"
+        },
+        "ring-of-steel-protection": {
+            "ext": "png"
+        },
+        "ring-of-the-suns-firstborn": {
+            "ext": "png"
+        },
+        "rusted-iron-ring": {
+            "ext": "png"
+        },
+        "speckled-stoneplate-ring": {
+            "ext": "png"
+        },
+        "thunder-stoneplate-ring": {
+            "ext": "png"
+        },
+        "tiny-beings-ring": {
+            "ext": "png"
         }
     },
     "shields": {
@@ -546,6 +630,9 @@ const IMAGE_MANIFEST = {
         "iron-round-shield": {
             "ext": "png"
         },
+        "kite-shield": {
+            "ext": "png"
+        },
         "knight-shield": {
             "ext": "png"
         },
@@ -553,6 +640,9 @@ const IMAGE_MANIFEST = {
             "ext": "png"
         },
         "leather-shield": {
+            "ext": "png"
+        },
+        "parrying-dagger": {
             "ext": "png"
         },
         "pierce-shield": {
@@ -565,6 +655,9 @@ const IMAGE_MANIFEST = {
             "ext": "png"
         },
         "silver-knight-shield": {
+            "ext": "png"
+        },
+        "skull-shield": {
             "ext": "png"
         },
         "small-leather-shield": {
@@ -599,6 +692,9 @@ const IMAGE_MANIFEST = {
         "abyss-greatsword": {
             "ext": "png"
         },
+        "ascended-pyromancy-flame": {
+            "ext": "png"
+        },
         "astoras-straight-sword": {
             "ext": "png"
         },
@@ -606,6 +702,9 @@ const IMAGE_MANIFEST = {
             "ext": "png"
         },
         "balder-side-sword": {
+            "ext": "png"
+        },
+        "bandits-knife": {
             "ext": "png"
         },
         "barbed-straight-sword": {
@@ -651,6 +750,9 @@ const IMAGE_MANIFEST = {
             "ext": "png"
         },
         "chaos-blade": {
+            "ext": "png"
+        },
+        "claw": {
             "ext": "png"
         },
         "claymore": {
@@ -731,6 +833,9 @@ const IMAGE_MANIFEST = {
         "gargoyle-tail-axe": {
             "ext": "png"
         },
+        "gargoyles-halberd": {
+            "ext": "png"
+        },
         "ghost-blade": {
             "ext": "png"
         },
@@ -738,6 +843,9 @@ const IMAGE_MANIFEST = {
             "ext": "png"
         },
         "golem-axe": {
+            "ext": "png"
+        },
+        "grant": {
             "ext": "png"
         },
         "grants": {
@@ -837,6 +945,9 @@ const IMAGE_MANIFEST = {
             "ext": "png"
         },
         "parrying-dagger": {
+            "ext": "png"
+        },
+        "partisan": {
             "ext": "png"
         },
         "pike": {

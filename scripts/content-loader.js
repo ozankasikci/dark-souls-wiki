@@ -304,11 +304,9 @@ class ContentLoader {
         const allShields = [];
         
         try {
-            console.log('Fetching shields manifest...');
             const response = await fetch(`data/equipment/shields/manifest.json?t=${Date.now()}`);
             if (response.ok) {
                 const shieldsManifest = await response.json();
-                console.log('Shields manifest:', shieldsManifest);
                 
                 // Check if shields has subcategories
                 if (shieldsManifest.subcategories && shieldsManifest.subcategories.length > 0) {
@@ -367,6 +365,72 @@ class ContentLoader {
         
         return allShields;
     }
+    
+    async loadRingSubcategories() {
+        const allRings = [];
+        
+        try {
+            const response = await fetch(`data/equipment/rings/manifest.json?t=${Date.now()}`);
+            if (response.ok) {
+                const ringsManifest = await response.json();
+                
+                // Check if rings has subcategories
+                if (ringsManifest.subcategories && ringsManifest.subcategories.length > 0) {
+                    // Process each ring subcategory
+                    for (const subcategoryData of ringsManifest.subcategories) {
+                        try {
+                            const categoryResponse = await fetch(`data/equipment/rings/${subcategoryData.path}/manifest.json?t=${Date.now()}`);
+                            if (categoryResponse.ok) {
+                                const categoryManifest = await categoryResponse.json();
+                                
+                                // Get items from the manifest
+                                const ringItems = categoryManifest.items || [];
+                                
+                                // Load each ring in the category
+                                const promises = ringItems.map(ringItem => {
+                                    const filename = ringItem.file || `${ringItem.id}.md`;
+                                    const itemId = ringItem.id;
+                                    
+                                    return this.loadContent(`equipment/rings/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
+                                        // Ensure the item has an ID in its metadata
+                                        if (!loadedItem.metadata.id) {
+                                            loadedItem.metadata.id = itemId;
+                                        }
+                                        return loadedItem;
+                                    }).catch(err => {
+                                        console.error(`Failed to load ring ${subcategoryData.path}/${filename}:`, err);
+                                        return null;
+                                    });
+                                });
+                                
+                                const results = await Promise.all(promises);
+                                const validResults = results.filter(result => result !== null);
+                                
+                                // Add ring category info
+                                validResults.forEach(item => {
+                                    item.subcategory = 'rings';
+                                    item.subcategoryTitle = 'Rings';
+                                    item.ringCategory = subcategoryData.id;
+                                    item.ringCategoryTitle = subcategoryData.name;
+                                });
+                                
+                                allRings.push(...validResults);
+                            }
+                        } catch (err) {
+                            console.error(`Failed to load ring category ${subcategoryData.id}:`, err);
+                        }
+                    }
+                } else {
+                    // Fallback to old structure if no subcategories
+                    console.log('No ring subcategories found, using fallback');
+                }
+            }
+        } catch (error) {
+            console.error('Error loading ring subcategories:', error);
+        }
+        
+        return allRings;
+    }
 
     async loadEquipmentListing() {
         const cacheKey = 'category-listing-equipment';
@@ -401,10 +465,12 @@ class ContentLoader {
                             allItems.push(...armorItems);
                         } else if (subcategory === 'shields') {
                             // Load shield subcategories
-                            console.log('Loading shield subcategories...');
                             const shieldItems = await this.loadShieldSubcategories();
-                            console.log('Loaded shield items:', shieldItems.length);
                             allItems.push(...shieldItems);
+                        } else if (subcategory === 'rings') {
+                            // Load ring subcategories
+                            const ringItems = await this.loadRingSubcategories();
+                            allItems.push(...ringItems);
                         }
                     } else if (Array.isArray(data)) {
                         // Handle regular arrays (shields, rings, etc.)

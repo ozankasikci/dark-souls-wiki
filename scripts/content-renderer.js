@@ -1016,6 +1016,27 @@ class ContentRenderer {
             };
         }
         
+        // For rings, further group by ring category
+        if (grouped.rings && grouped.rings.items.length > 0) {
+            const ringsByCategory = grouped.rings.items.reduce((acc, ring) => {
+                const category = ring.ringCategory || 'other';
+                if (!acc[category]) {
+                    acc[category] = {
+                        title: ring.ringCategoryTitle || category,
+                        items: []
+                    };
+                }
+                acc[category].items.push(ring);
+                return acc;
+            }, {});
+            
+            // Replace rings group with categorized structure
+            grouped.rings = {
+                title: 'Rings',
+                categories: ringsByCategory
+            };
+        }
+        
         // Define subcategory order
         const subcategoryOrder = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
         
@@ -1147,6 +1168,41 @@ class ContentRenderer {
                         `;
                     }
                     
+                    // Special handling for rings with categories
+                    if (subcategory === 'rings' && group.categories) {
+                        const ringCategoryOrder = [
+                            'offensive-rings', 'defensive-rings', 'utility-rings', 'resistance-rings'
+                        ];
+                        
+                        return `
+                            <div class="equipment-subcategory">
+                                <h2 class="subcategory-title">
+                                    <a href="#equipment/rings">${group.title}</a>
+                                </h2>
+                                ${ringCategoryOrder.map(categoryKey => {
+                                    const categoryData = group.categories[categoryKey];
+                                    if (!categoryData || categoryData.items.length === 0) return '';
+                                    
+                                    return `
+                                        <div class="ring-category-section">
+                                            <h3 class="ring-category-title">
+                                                <a href="#equipment/rings/${categoryKey}">${categoryData.title} (${categoryData.items.length})</a>
+                                            </h3>
+                                            <div class="items-grid compact">
+                                                ${categoryData.items.slice(0, 4).map(item => this.renderItemCard(item, 'equipment')).join('')}
+                                            </div>
+                                            ${categoryData.items.length > 4 ? `
+                                                <a href="#equipment/rings/${categoryKey}" class="view-all-link">
+                                                    View all ${categoryData.items.length} ${categoryData.title} →
+                                                </a>
+                                            ` : ''}
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        `;
+                    }
+                    
                     // Regular handling for non-weapon categories
                     if (group.items && group.items.length > 0) {
                         return `
@@ -1256,6 +1312,9 @@ class ContentRenderer {
             } else if (item.shieldCategory) {
                 // For shields with subcategories like small-shields, greatshields, etc.
                 href = `#equipment/shields/${item.shieldCategory}/${metadata.id}`;
+            } else if (item.ringCategory) {
+                // For rings with subcategories like offensive-rings, utility-rings, etc.
+                href = `#equipment/rings/${item.ringCategory}/${metadata.id}`;
             } else {
                 href = `#equipment/${item.subcategory}/${metadata.id}`;
             }

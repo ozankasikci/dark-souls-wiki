@@ -1,0 +1,41 @@
+{
+  "category": "Defensive Rings",
+  "description": "Rings that provide protection and defensive bonuses",
+  "items": [
+    {
+      "id": "ring-of-steel-protection",
+      "name": "Ring of Steel Protection",
+      "file": "ring-of-steel-protection.md"
+    },
+    {
+      "id": "blue-tearstone-ring",
+      "name": "Blue Tearstone Ring",
+      "file": "blue-tearstone-ring.md"
+    },
+    {
+      "id": "flame-stoneplate-ring",
+      "name": "Flame Stoneplate Ring",
+      "file": "flame-stoneplate-ring.md"
+    },
+    {
+      "id": "thunder-stoneplate-ring",
+      "name": "Thunder Stoneplate Ring",
+      "file": "thunder-stoneplate-ring.md"
+    },
+    {
+      "id": "magic-stoneplate-ring",
+      "name": "Magic Stoneplate Ring",
+      "file": "magic-stoneplate-ring.md"
+    },
+    {
+      "id": "speckled-stoneplate-ring",
+      "name": "Speckled Stoneplate Ring",
+      "file": "speckled-stoneplate-ring.md"
+    },
+    {
+      "id": "ring-of-fog",
+      "name": "Ring of Fog",
+      "file": "ring-of-fog.md"
+    }
+  ]
+}

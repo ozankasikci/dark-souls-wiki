@@ -1,0 +1,26 @@
+{
+  "category": "Resistance Rings",
+  "description": "Rings that provide resistance against status effects",
+  "items": [
+    {
+      "id": "bloodbite-ring",
+      "name": "Bloodbite Ring",
+      "file": "bloodbite-ring.md"
+    },
+    {
+      "id": "poisonbite-ring",
+      "name": "Poisonbite Ring",
+      "file": "poisonbite-ring.md"
+    },
+    {
+      "id": "cursebite-ring",
+      "name": "Cursebite Ring",
+      "file": "cursebite-ring.md"
+    },
+    {
+      "id": "lingering-dragoncrest-ring",
+      "name": "Lingering Dragoncrest Ring",
+      "file": "lingering-dragoncrest-ring.md"
+    }
+  ]
+}

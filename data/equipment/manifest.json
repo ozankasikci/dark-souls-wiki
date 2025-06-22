@@ -2,9 +2,7 @@
   "weapons": "weapons/manifest.json",
   "armor": "armor/manifest.json",
   "shields": "shields/manifest.json",
-  "rings": [
-    "ring-of-favor.md"
-  ],
+  "rings": "rings/manifest.json",
   "catalysts": [
     "pyromancy-flame.md"
   ]
