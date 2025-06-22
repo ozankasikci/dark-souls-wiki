@@ -255,9 +255,17 @@ class ContentLoader {
                                 const armorItems = categoryManifest.items || [];
                                 
                                 // Load each armor piece in the category
-                                const promises = armorItems.map(item => {
-                                    const filename = item.file || `${item.id}.md`;
-                                    return this.loadContent(`equipment/armor/${subcategoryData.path}`, filename.replace('.md', '')).catch(err => {
+                                const promises = armorItems.map(armorItem => {
+                                    const filename = armorItem.file || `${armorItem.id}.md`;
+                                    const itemId = armorItem.id;
+                                    
+                                    return this.loadContent(`equipment/armor/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
+                                        // Ensure the item has an ID in its metadata
+                                        if (!loadedItem.metadata.id) {
+                                            loadedItem.metadata.id = itemId;
+                                        }
+                                        return loadedItem;
+                                    }).catch(err => {
                                         console.error(`Failed to load armor ${subcategoryData.path}/${filename}:`, err);
                                         return null;
                                     });

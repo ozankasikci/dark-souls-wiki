@@ -1141,6 +1141,9 @@ class ContentRenderer {
             if (item.weaponCategory) {
                 // For weapons with subcategories like daggers, straight-swords, etc.
                 href = `#equipment/weapons/${item.weaponCategory}/${metadata.id}`;
+            } else if (item.armorCategory) {
+                // For armor with subcategories like light-armor, heavy-armor, etc.
+                href = `#equipment/armor/${item.armorCategory}/${metadata.id}`;
             } else {
                 href = `#equipment/${item.subcategory}/${metadata.id}`;
             }

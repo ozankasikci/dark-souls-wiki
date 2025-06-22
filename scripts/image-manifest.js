@@ -1,5 +1,5 @@
 // Auto-generated manifest of all existing images in the project
-// Generated on: 2025-06-22T07:01:03.733Z
+// Generated on: 2025-06-22T21:24:20.061Z
 
 const IMAGE_MANIFEST = {
     "areas": {
@@ -43,8 +43,9 @@ const IMAGE_MANIFEST = {
             "ext": "jpg"
         },
         "firelink-shrine": {
-            "ext": "png",
+            "ext": "jpg",
             "alts": [
+                "png",
                 "svg"
             ]
         },
@@ -261,9 +262,6 @@ const IMAGE_MANIFEST = {
         "balder-side-sword": {
             "ext": "png"
         },
-        "bandits-knife": {
-            "ext": "png"
-        },
         "barbed-straight-sword": {
             "ext": "png"
         },
@@ -288,9 +286,6 @@ const IMAGE_MANIFEST = {
         "black-knight-sword": {
             "ext": "png"
         },
-        "blacksmiths-hammer": {
-            "ext": "png"
-        },
         "broadsword": {
             "ext": "png"
         },
@@ -310,9 +305,6 @@ const IMAGE_MANIFEST = {
             "ext": "png"
         },
         "chaos-blade": {
-            "ext": "png"
-        },
-        "claw": {
             "ext": "png"
         },
         "claymore": {
@@ -387,9 +379,6 @@ const IMAGE_MANIFEST = {
         "flamberge": {
             "ext": "png"
         },
-        "four-pronged-plow": {
-            "ext": "png"
-        },
         "gargoyle-halberd": {
             "ext": "png"
         },
@@ -418,6 +407,9 @@ const IMAGE_MANIFEST = {
             "ext": "png"
         },
         "greataxe": {
+            "ext": "png"
+        },
+        "greatsword-of-artorias-cursed": {
             "ext": "png"
         },
         "greatsword-of-artorias": {
@@ -501,13 +493,7 @@ const IMAGE_MANIFEST = {
         "parrying-dagger": {
             "ext": "png"
         },
-        "partisan": {
-            "ext": "png"
-        },
         "pike": {
-            "ext": "png"
-        },
-        "priscillas-dagger": {
             "ext": "png"
         },
         "pyromancy-flame": {
@@ -609,29 +595,182 @@ const IMAGE_MANIFEST = {
     },
     "items": {
         "ashen-estus-flask": {
-            "ext": "png"
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
         },
         "coiled-sword": {
-            "ext": "png"
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
         },
         "elite-knight-set": {
             "ext": "jpg"
         },
         "fire-keeper-soul": {
-            "ext": "png"
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
         },
         "ring-of-favor": {
             "ext": "svg"
         }
     },
     "armor": {
+        "artorias-set": {
+            "ext": "jpg"
+        },
+        "balder-set": {
+            "ext": "jpg"
+        },
+        "bandit-set": {
+            "ext": "jpg"
+        },
+        "black-iron-set": {
+            "ext": "jpg"
+        },
+        "black-knight-set": {
+            "ext": "jpg"
+        },
+        "black-sorcerer-set": {
+            "ext": "jpg"
+        },
+        "brass-set": {
+            "ext": "jpg"
+        },
+        "catarina-set": {
+            "ext": "jpg"
+        },
+        "chain-set": {
+            "ext": "jpg"
+        },
+        "chester-set": {
+            "ext": "jpg"
+        },
+        "cleric-set": {
+            "ext": "jpg"
+        },
+        "crimson-set": {
+            "ext": "jpg"
+        },
+        "crown-of-dusk": {
+            "ext": "png"
+        },
+        "crown-of-the-dark-sun": {
+            "ext": "png"
+        },
+        "crown-of-the-great-lord": {
+            "ext": "png"
+        },
+        "dingy-set": {
+            "ext": "jpg"
+        },
+        "eastern-set": {
+            "ext": "jpg"
+        },
         "elite-knight-set": {
             "ext": "jpg",
             "alts": [
                 "svg"
             ]
         },
+        "favor-set": {
+            "ext": "jpg"
+        },
+        "giant-set": {
+            "ext": "jpg"
+        },
+        "gold-hemmed-black-set": {
+            "ext": "jpg"
+        },
+        "golem-set": {
+            "ext": "jpg"
+        },
+        "gough-set": {
+            "ext": "jpg"
+        },
+        "great-lord-set": {
+            "ext": "jpg"
+        },
+        "guardian-set": {
+            "ext": "jpg"
+        },
         "havel-set": {
+            "ext": "jpg"
+        },
+        "hunter-set": {
+            "ext": "jpg"
+        },
+        "knight-set": {
+            "ext": "jpg"
+        },
+        "lord-blade-set": {
+            "ext": "jpg"
+        },
+        "lords-blade-set": {
+            "ext": "jpg"
+        },
+        "mask-of-the-child": {
+            "ext": "png"
+        },
+        "mask-of-the-father": {
+            "ext": "png"
+        },
+        "mask-of-the-mother": {
+            "ext": "png"
+        },
+        "moonlight-set": {
+            "ext": "jpg"
+        },
+        "ornstein-set": {
+            "ext": "jpg"
+        },
+        "painting-guardian-set": {
+            "ext": "jpg"
+        },
+        "pyromancer-set": {
+            "ext": "jpg"
+        },
+        "shadow-set": {
+            "ext": "jpg"
+        },
+        "silver-knight-set": {
+            "ext": "jpg"
+        },
+        "smough-set": {
+            "ext": "jpg"
+        },
+        "sorcerer-set": {
+            "ext": "jpg"
+        },
+        "stone-set": {
+            "ext": "jpg"
+        },
+        "sunlight-maggot": {
+            "ext": "png"
+        },
+        "symbol-of-avarice": {
+            "ext": "png"
+        },
+        "thief-set": {
+            "ext": "jpg"
+        },
+        "thorns-set": {
+            "ext": "jpg"
+        },
+        "wanderer-set": {
+            "ext": "jpg"
+        },
+        "warrior-set": {
+            "ext": "jpg"
+        },
+        "witch-set": {
+            "ext": "jpg"
+        },
+        "xanthous-set": {
             "ext": "jpg"
         }
     },
@@ -642,17 +781,26 @@ const IMAGE_MANIFEST = {
     },
     "catalysts": {
         "pyromancy-flame": {
-            "ext": "png"
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
         }
     },
     "rings": {
         "ring-of-favor": {
-            "ext": "png"
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
         }
     },
     "shields": {
         "grass-crest-shield": {
-            "ext": "png"
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
         }
     },
     "lore": {
