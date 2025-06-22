@@ -44,9 +44,14 @@ class ContentLoader {
         
         let metadata = {};
         try {
-            metadata = jsyaml.load(frontmatter) || {};
+            // Pre-process frontmatter to quote single dash values
+            const processedFrontmatter = frontmatter.replace(/^(\s*\w+:\s*)-\s*$/gm, '$1"-"');
+            
+            metadata = jsyaml.load(processedFrontmatter) || {};
         } catch (error) {
-            console.error('Error parsing frontmatter:', error);
+            console.error('Error parsing frontmatter:', error.message || error);
+            console.error('Full error:', error);
+            console.error('Problematic frontmatter:', frontmatter.substring(0, 200) + '...');
         }
 
         return {
@@ -184,7 +189,17 @@ class ContentLoader {
                     try {
                         const categoryResponse = await fetch(`data/equipment/weapons/${categoryData.manifest}?t=${Date.now()}`);
                         if (categoryResponse.ok) {
-                            const weaponFiles = await categoryResponse.json();
+                            const categoryManifest = await categoryResponse.json();
+                            
+                            // Handle both array format and object format with 'items' property
+                            let weaponFiles = Array.isArray(categoryManifest) ? categoryManifest : 
+                                           (categoryManifest.items || []);
+                            
+                            // Ensure weaponFiles is an array
+                            if (!Array.isArray(weaponFiles)) {
+                                console.error(`Invalid manifest format for ${categoryKey}:`, categoryManifest);
+                                weaponFiles = [];
+                            }
                             
                             // Load each weapon in the category
                             const promises = weaponFiles.map(filename => 

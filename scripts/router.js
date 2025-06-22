@@ -97,7 +97,7 @@ class Router {
                 'flames': 'Flames'
             };
             
-            const html = contentRenderer.renderCategoryListing('weapons', items);
+            const html = contentRenderer.renderCategoryListing('equipment', items);
             this.displayContent(html);
             
             document.title = `${categoryTitles[weaponCategory] || weaponCategory} - Dark Souls Wiki`;
@@ -210,9 +210,17 @@ class Router {
             
             if (type === 'equipment' && id.includes('/')) {
                 const parts = id.split('/');
-                contentType = `equipment/${parts[0]}`;
-                contentId = parts[1];
-                renderType = parts[0]; // Use subcategory (e.g., 'weapons') for rendering
+                if (parts[0] === 'weapons' && parts.length === 3) {
+                    // Handle weapon subcategory paths like weapons/hammers/club
+                    contentType = `equipment/weapons/${parts[1]}`;
+                    contentId = parts[2];
+                    renderType = 'weapons';
+                } else {
+                    // Handle regular equipment paths
+                    contentType = `equipment/${parts[0]}`;
+                    contentId = parts[1];
+                    renderType = parts[0];
+                }
             }
             
             const content = await contentLoader.loadContent(contentType, contentId);

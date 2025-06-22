@@ -1,0 +1,9 @@
+{
+  "category": "Crossbows",
+  "items": [
+    "light-crossbow",
+    "heavy-crossbow",
+    "sniper-crossbow",
+    "avelyn"
+  ]
+}
