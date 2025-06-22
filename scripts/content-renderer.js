@@ -273,6 +273,51 @@ class ContentRenderer {
     weaponTemplate(data) {
         const { metadata, html } = data;
         
+        // Handle damage as object or string
+        let damageDisplay = '';
+        if (metadata.damage) {
+            if (typeof metadata.damage === 'object') {
+                const damageTypes = [];
+                if (metadata.damage.physical > 0) damageTypes.push(`Physical: ${metadata.damage.physical}`);
+                if (metadata.damage.magic > 0) damageTypes.push(`Magic: ${metadata.damage.magic}`);
+                if (metadata.damage.fire > 0) damageTypes.push(`Fire: ${metadata.damage.fire}`);
+                if (metadata.damage.lightning > 0) damageTypes.push(`Lightning: ${metadata.damage.lightning}`);
+                damageDisplay = damageTypes.join(' / ');
+            } else {
+                damageDisplay = metadata.damage;
+            }
+        }
+        
+        // Handle scaling as object or string
+        let scalingDisplay = '';
+        if (metadata.scaling) {
+            if (typeof metadata.scaling === 'object') {
+                const scalingTypes = [];
+                if (metadata.scaling.strength && metadata.scaling.strength !== '-') scalingTypes.push(`STR: ${metadata.scaling.strength}`);
+                if (metadata.scaling.dexterity && metadata.scaling.dexterity !== '-') scalingTypes.push(`DEX: ${metadata.scaling.dexterity}`);
+                if (metadata.scaling.intelligence && metadata.scaling.intelligence !== '-') scalingTypes.push(`INT: ${metadata.scaling.intelligence}`);
+                if (metadata.scaling.faith && metadata.scaling.faith !== '-') scalingTypes.push(`FTH: ${metadata.scaling.faith}`);
+                scalingDisplay = scalingTypes.join(' / ');
+            } else {
+                scalingDisplay = metadata.scaling;
+            }
+        }
+        
+        // Handle requirements as object or string
+        let requirementsDisplay = '';
+        if (metadata.requirements) {
+            if (typeof metadata.requirements === 'object') {
+                const reqTypes = [];
+                if (metadata.requirements.strength > 0) reqTypes.push(`STR: ${metadata.requirements.strength}`);
+                if (metadata.requirements.dexterity > 0) reqTypes.push(`DEX: ${metadata.requirements.dexterity}`);
+                if (metadata.requirements.intelligence > 0) reqTypes.push(`INT: ${metadata.requirements.intelligence}`);
+                if (metadata.requirements.faith > 0) reqTypes.push(`FTH: ${metadata.requirements.faith}`);
+                requirementsDisplay = reqTypes.join(' / ');
+            } else {
+                requirementsDisplay = metadata.requirements;
+            }
+        }
+        
         return `
             <article class="content-article weapon-article">
                 <header class="content-header">
@@ -290,28 +335,46 @@ class ContentRenderer {
                 </div>
                 
                 <div class="item-stats-section">
-                    ${metadata.damage ? `
+                    ${damageDisplay ? `
                     <div class="item-stat">
                         <span class="item-stat-label">Damage</span>
-                        <span class="item-stat-value">${metadata.damage}</span>
+                        <span class="item-stat-value">${damageDisplay}</span>
                     </div>
                     ` : ''}
-                    ${metadata.scaling ? `
+                    ${scalingDisplay ? `
                     <div class="item-stat">
                         <span class="item-stat-label">Scaling</span>
-                        <span class="item-stat-value">${metadata.scaling}</span>
+                        <span class="item-stat-value">${scalingDisplay}</span>
                     </div>
                     ` : ''}
-                    ${metadata.requirements ? `
+                    ${requirementsDisplay ? `
                     <div class="item-stat">
                         <span class="item-stat-label">Requirements</span>
-                        <span class="item-stat-value">${metadata.requirements}</span>
+                        <span class="item-stat-value">${requirementsDisplay}</span>
+                    </div>
+                    ` : ''}
+                    ${metadata.critical && metadata.critical !== 100 ? `
+                    <div class="item-stat">
+                        <span class="item-stat-label">Critical</span>
+                        <span class="item-stat-value">${metadata.critical}</span>
                     </div>
                     ` : ''}
                     ${metadata.weight ? `
                     <div class="item-stat">
                         <span class="item-stat-label">Weight</span>
                         <span class="item-stat-value">${metadata.weight}</span>
+                    </div>
+                    ` : ''}
+                    ${metadata.durability ? `
+                    <div class="item-stat">
+                        <span class="item-stat-label">Durability</span>
+                        <span class="item-stat-value">${metadata.durability}</span>
+                    </div>
+                    ` : ''}
+                    ${metadata.special ? `
+                    <div class="item-stat full-width">
+                        <span class="item-stat-label">Special</span>
+                        <span class="item-stat-value">${metadata.special}</span>
                     </div>
                     ` : ''}
                 </div>
@@ -628,6 +691,64 @@ class ContentRenderer {
             { key: 'catalysts', title: 'Catalysts & Talismans' }
         ];
         
+        // Special handling for weapons to show categories
+        if (subcategory === 'weapons') {
+            // Group weapons by category
+            const weaponsByCategory = items.reduce((acc, weapon) => {
+                const category = weapon.weaponCategory || 'other';
+                if (!acc[category]) {
+                    acc[category] = {
+                        title: weapon.weaponCategoryTitle || category,
+                        items: []
+                    };
+                }
+                acc[category].items.push(weapon);
+                return acc;
+            }, {});
+            
+            const weaponCategoryOrder = [
+                'daggers', 'straight-swords', 'greatswords', 'ultra-greatswords',
+                'curved-swords', 'curved-greatswords', 'katanas', 'piercing-swords',
+                'axes', 'great-axes', 'hammers', 'great-hammers', 'fist-weapons',
+                'spears', 'halberds', 'whips', 'bows', 'crossbows',
+                'catalysts', 'talismans', 'flames'
+            ];
+            
+            return `
+                <div class="category-listing">
+                    <header class="category-header">
+                        <h1>${title}</h1>
+                        <p class="category-description">${subcategoryDescriptions[subcategory] || ''}</p>
+                        
+                        <nav class="equipment-nav">
+                            <a href="#equipment" class="equipment-nav-link">All Equipment</a>
+                            ${allSubcategories.map(sub => 
+                                `<a href="#equipment/${sub.key}" class="equipment-nav-link ${sub.key === subcategory ? 'active' : ''}">${sub.title}</a>`
+                            ).join('')}
+                        </nav>
+                    </header>
+                    
+                    ${weaponCategoryOrder.map(categoryKey => {
+                        const categoryData = weaponsByCategory[categoryKey];
+                        if (!categoryData || categoryData.items.length === 0) return '';
+                        
+                        return `
+                            <div class="weapon-category-section">
+                                <h2 class="weapon-category-title">
+                                    <a href="#equipment/weapons/${categoryKey}">${categoryData.title}</a>
+                                    <span class="category-count">(${categoryData.items.length})</span>
+                                </h2>
+                                <div class="items-grid">
+                                    ${categoryData.items.map(item => this.renderItemCard(item, 'equipment')).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+        
+        // Regular handling for non-weapon categories
         return `
             <div class="category-listing">
                 <header class="category-header">
@@ -663,6 +784,27 @@ class ContentRenderer {
             return acc;
         }, {});
         
+        // For weapons, further group by weapon category
+        if (grouped.weapons && grouped.weapons.items.length > 0) {
+            const weaponsByCategory = grouped.weapons.items.reduce((acc, weapon) => {
+                const category = weapon.weaponCategory || 'other';
+                if (!acc[category]) {
+                    acc[category] = {
+                        title: weapon.weaponCategoryTitle || category,
+                        items: []
+                    };
+                }
+                acc[category].items.push(weapon);
+                return acc;
+            }, {});
+            
+            // Replace weapons group with categorized structure
+            grouped.weapons = {
+                title: 'Weapons',
+                categories: weaponsByCategory
+            };
+        }
+        
         // Define subcategory order
         const subcategoryOrder = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
         
@@ -675,7 +817,7 @@ class ContentRenderer {
                     <nav class="equipment-nav">
                         ${subcategoryOrder.map(subcategory => {
                             const group = grouped[subcategory];
-                            if (!group || group.items.length === 0) return '';
+                            if (!group || (group.items && group.items.length === 0) || (group.categories && Object.keys(group.categories).length === 0)) return '';
                             return `<a href="#equipment/${subcategory}" class="equipment-nav-link">${group.title}</a>`;
                         }).join('')}
                     </nav>
@@ -683,18 +825,62 @@ class ContentRenderer {
                 
                 ${subcategoryOrder.map(subcategory => {
                     const group = grouped[subcategory];
-                    if (!group || group.items.length === 0) return '';
+                    if (!group) return '';
                     
-                    return `
-                        <div class="equipment-subcategory">
-                            <h2 class="subcategory-title">
-                                <a href="#equipment/${subcategory}">${group.title}</a>
-                            </h2>
-                            <div class="items-grid">
-                                ${group.items.map(item => this.renderItemCard(item, 'equipment')).join('')}
+                    // Special handling for weapons with categories
+                    if (subcategory === 'weapons' && group.categories) {
+                        const weaponCategoryOrder = [
+                            'daggers', 'straight-swords', 'greatswords', 'ultra-greatswords',
+                            'curved-swords', 'curved-greatswords', 'katanas', 'piercing-swords',
+                            'axes', 'great-axes', 'hammers', 'great-hammers', 'fist-weapons',
+                            'spears', 'halberds', 'whips', 'bows', 'crossbows',
+                            'catalysts', 'talismans', 'flames'
+                        ];
+                        
+                        return `
+                            <div class="equipment-subcategory">
+                                <h2 class="subcategory-title">
+                                    <a href="#equipment/weapons">${group.title}</a>
+                                </h2>
+                                ${weaponCategoryOrder.map(categoryKey => {
+                                    const categoryData = group.categories[categoryKey];
+                                    if (!categoryData || categoryData.items.length === 0) return '';
+                                    
+                                    return `
+                                        <div class="weapon-category-section">
+                                            <h3 class="weapon-category-title">
+                                                <a href="#equipment/weapons/${categoryKey}">${categoryData.title} (${categoryData.items.length})</a>
+                                            </h3>
+                                            <div class="items-grid compact">
+                                                ${categoryData.items.slice(0, 4).map(item => this.renderItemCard(item, 'equipment')).join('')}
+                                            </div>
+                                            ${categoryData.items.length > 4 ? `
+                                                <a href="#equipment/weapons/${categoryKey}" class="view-all-link">
+                                                    View all ${categoryData.items.length} ${categoryData.title} →
+                                                </a>
+                                            ` : ''}
+                                        </div>
+                                    `;
+                                }).join('')}
                             </div>
-                        </div>
-                    `;
+                        `;
+                    }
+                    
+                    // Regular handling for non-weapon categories
+                    if (group.items && group.items.length > 0) {
+                        return `
+                            <div class="equipment-subcategory">
+                                <h2 class="subcategory-title">
+                                    <a href="#equipment/${subcategory}">${group.title}</a>
+                                </h2>
+                                <div class="items-grid">
+                                    ${group.items.map(item => this.renderItemCard(item, 'equipment')).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
+                    return '';
                 }).join('')}
             </div>
         `;
@@ -780,7 +966,12 @@ class ContentRenderer {
         // Handle equipment subcategory paths
         let href = `#${category}/${metadata.id}`;
         if (category === 'equipment' && item.subcategory) {
-            href = `#equipment/${item.subcategory}/${metadata.id}`;
+            if (item.weaponCategory) {
+                // For weapons with subcategories like daggers, straight-swords, etc.
+                href = `#equipment/weapons/${item.weaponCategory}/${metadata.id}`;
+            } else {
+                href = `#equipment/${item.subcategory}/${metadata.id}`;
+            }
         }
         
         // For equipment items, use the subcategory for image loading

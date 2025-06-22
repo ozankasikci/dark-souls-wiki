@@ -296,7 +296,7 @@ h6 { font-size: 1rem; }
     transform: rotate(45deg);
 }
 
-.has-submenu:hover .submenu {
+.has-submenu:hover > .submenu:not(.submenu-nested) {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -304,10 +304,17 @@ h6 { font-size: 1rem; }
 
 .submenu li {
     margin: 0;
+    position: relative;
+}
+
+.submenu .has-submenu {
+    position: relative;
 }
 
 .submenu a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: var(--space-sm) var(--space-xl);
     color: var(--text-secondary);
     text-decoration: none;
@@ -324,6 +331,35 @@ h6 { font-size: 1rem; }
 
 .submenu a::before {
     display: none;
+}
+
+/* Nested Submenu */
+.submenu .submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    min-width: 200px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: all var(--transition-base);
+}
+
+/* Only show nested submenu when hovering on its parent li */
+.submenu li.has-submenu:hover > .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.submenu .has-submenu > a::after {
+    content: '›';
+    margin-left: auto;
+    opacity: 0.5;
 }
 
 /* Nav Separator */

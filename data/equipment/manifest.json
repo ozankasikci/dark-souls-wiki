@@ -1,13 +1,5 @@
 {
-  "weapons": [
-    "black-knight-sword.md",
-    "claymore.md",
-    "estoc.md",
-    "longsword.md",
-    "moonlight-greatsword.md",
-    "uchigatana.md",
-    "zweihander.md"
-  ],
+  "weapons": "weapons/manifest.json",
   "armor": [
     "elite-knight-set.md"
   ],

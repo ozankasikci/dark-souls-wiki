@@ -466,6 +466,14 @@
     font-family: var(--font-display);
 }
 
+.item-stat.full-width {
+    grid-column: 1 / -1;
+}
+
+.item-stat.full-width .item-stat-value {
+    font-size: 1.25rem;
+}
+
 /* Content Body */
 .content-body {
     max-width: 900px;
@@ -1422,5 +1430,97 @@ body > .generic:last-child {
     display: block;
     font-size: 1.25rem;
     color: var(--ds-gold);
+    font-weight: 600;
+}
+
+/* Weapon Category Sections */
+.weapon-category-section {
+    margin-bottom: var(--space-3xl);
+}
+
+.weapon-category-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.weapon-category-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color var(--transition-base);
+}
+
+.weapon-category-title a:hover {
+    color: var(--ds-gold);
+}
+
+.weapon-category-title .category-count {
+    font-size: 1.125rem;
+    color: var(--text-dim);
+    font-weight: 400;
+}
+
+/* Compact grid for weapon category preview */
+.items-grid.compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--ds-gold);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--ds-gold);
+    border-radius: 4px;
+    transition: all var(--transition-base);
+}
+
+.view-all-link:hover {
+    background: var(--ds-gold);
+    color: var(--bg-primary);
+    transform: translateX(4px);
+}
+
+/* Equipment navigation styles */
+.equipment-nav {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.equipment-nav-link {
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.equipment-nav-link:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--ds-gold);
+    color: var(--ds-gold);
+}
+
+.equipment-nav-link.active {
+    background: var(--ds-gold);
+    border-color: var(--ds-gold);
+    color: var(--bg-primary);
     font-weight: 600;
 }

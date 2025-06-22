@@ -42,6 +42,12 @@ class Router {
             return;
         }
 
+        // Handle weapon subcategory listings (e.g., #equipment/weapons/daggers)
+        if (type === 'equipment' && rest[0] === 'weapons' && rest.length === 2) {
+            await this.loadWeaponCategoryListing(rest[1]);
+            return;
+        }
+
         // Check if this is a category listing (no id provided)
         if (rest.length === 0) {
             await this.loadCategoryListing(type);
@@ -51,6 +57,61 @@ class Router {
         // Join the rest back for the id (handles subcategory paths)
         const id = rest.join('/');
         await this.loadContent(type, id);
+    }
+
+    async loadWeaponCategoryListing(weaponCategory) {
+        try {
+            this.showLoading();
+            
+            // Load all equipment items
+            const allItems = await contentLoader.loadCategoryListing('equipment');
+            
+            // Filter by weapon category
+            const items = allItems.filter(item => 
+                item.subcategory === 'weapons' && 
+                item.weaponCategory === weaponCategory
+            );
+            
+            // Get category name from manifest
+            const categoryTitles = {
+                'daggers': 'Daggers',
+                'straight-swords': 'Straight Swords',
+                'greatswords': 'Greatswords',
+                'ultra-greatswords': 'Ultra Greatswords',
+                'curved-swords': 'Curved Swords',
+                'katanas': 'Katanas',
+                'curved-greatswords': 'Curved Greatswords',
+                'piercing-swords': 'Piercing Swords',
+                'axes': 'Axes',
+                'great-axes': 'Great Axes',
+                'hammers': 'Hammers',
+                'great-hammers': 'Great Hammers',
+                'fist-weapons': 'Fist Weapons',
+                'spears': 'Spears',
+                'halberds': 'Halberds',
+                'whips': 'Whips',
+                'bows': 'Bows',
+                'crossbows': 'Crossbows',
+                'catalysts': 'Catalysts',
+                'talismans': 'Talismans',
+                'flames': 'Flames'
+            };
+            
+            const html = contentRenderer.renderCategoryListing('weapons', items);
+            this.displayContent(html);
+            
+            document.title = `${categoryTitles[weaponCategory] || weaponCategory} - Dark Souls Wiki`;
+            this.updateNavigation('equipment');
+            
+            // Load thumbnails after content is rendered
+            setTimeout(async () => {
+                await contentRenderer.loadCategoryThumbnails();
+            }, 100);
+            
+        } catch (error) {
+            console.error('Error loading weapon category:', error);
+            this.showError(error.message);
+        }
     }
 
     async loadEquipmentSubcategory(subcategory) {

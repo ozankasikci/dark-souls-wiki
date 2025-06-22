@@ -1,9 +1,88 @@
-[
-  "black-knight-sword.md",
-  "claymore.md",
-  "estoc.md",
-  "longsword.md",
-  "moonlight-greatsword.md",
-  "uchigatana.md",
-  "zweihander.md"
-]
+{
+  "categories": {
+    "daggers": {
+      "name": "Daggers",
+      "manifest": "daggers/manifest.json"
+    },
+    "straight-swords": {
+      "name": "Straight Swords",
+      "manifest": "straight-swords/manifest.json"
+    },
+    "greatswords": {
+      "name": "Greatswords", 
+      "manifest": "greatswords/manifest.json"
+    },
+    "ultra-greatswords": {
+      "name": "Ultra Greatswords",
+      "manifest": "ultra-greatswords/manifest.json"
+    },
+    "curved-swords": {
+      "name": "Curved Swords",
+      "manifest": "curved-swords/manifest.json"
+    },
+    "katanas": {
+      "name": "Katanas",
+      "manifest": "katanas/manifest.json"
+    },
+    "curved-greatswords": {
+      "name": "Curved Greatswords",
+      "manifest": "curved-greatswords/manifest.json"
+    },
+    "piercing-swords": {
+      "name": "Piercing Swords",
+      "manifest": "piercing-swords/manifest.json"
+    },
+    "axes": {
+      "name": "Axes",
+      "manifest": "axes/manifest.json"
+    },
+    "great-axes": {
+      "name": "Great Axes",
+      "manifest": "great-axes/manifest.json"
+    },
+    "hammers": {
+      "name": "Hammers",
+      "manifest": "hammers/manifest.json"
+    },
+    "great-hammers": {
+      "name": "Great Hammers",
+      "manifest": "great-hammers/manifest.json"
+    },
+    "fist-weapons": {
+      "name": "Fist Weapons",
+      "manifest": "fist-weapons/manifest.json"
+    },
+    "spears": {
+      "name": "Spears",
+      "manifest": "spears/manifest.json"
+    },
+    "halberds": {
+      "name": "Halberds",
+      "manifest": "halberds/manifest.json"
+    },
+    "whips": {
+      "name": "Whips",
+      "manifest": "whips/manifest.json"
+    },
+    "bows": {
+      "name": "Bows",
+      "manifest": "bows/manifest.json"
+    },
+    "crossbows": {
+      "name": "Crossbows",
+      "manifest": "crossbows/manifest.json"
+    },
+    "catalysts": {
+      "name": "Catalysts",
+      "manifest": "catalysts/manifest.json"
+    },
+    "talismans": {
+      "name": "Talismans",
+      "manifest": "talismans/manifest.json"
+    },
+    "flames": {
+      "name": "Flames",
+      "manifest": "flames/manifest.json"
+    }
+  }
+}
