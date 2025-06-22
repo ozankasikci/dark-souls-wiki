@@ -1,4 +1,4 @@
-// Image loader with Fextralife fallback and placeholder support
+// Image loader using manifest for direct image lookup
 class ImageLoader {
     constructor() {
         this.imageCache = new Map();
@@ -7,8 +7,11 @@ class ImageLoader {
             weapon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCBmaWxsPSIjMWExYTFhIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIvPgogIDx0ZXh0IGZpbGw9IiM2NjY2NjYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iNDAwIiB5PSIzMDAiPldlYXBvbiBJbWFnZTwvdGV4dD4KPC9zdmc+',
             item: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCBmaWxsPSIjMWExYTFhIiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIvPgogIDx0ZXh0IGZpbGw9IiM2NjY2NjYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMTI4IiB5PSIxMjgiPkl0ZW0gSWNvbjwvdGV4dD4KPC9zdmc+',
             area: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSI2MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3QgZmlsbD0iIzFhMWExYSIgd2lkdGg9IjE5MjAiIGhlaWdodD0iNjAwIi8+CiAgPHRleHQgZmlsbD0iIzY2NjY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjQ4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSI5NjAiIHk9IjMwMCI+QXJlYSBJbWFnZTwvdGV4dD4KPC9zdmc+',
-            thumbnail: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCBmaWxsPSIjMWExYTFhIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIvPgogIDx0ZXh0IGZpbGw9IiM2NjY2NjYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMjAwIiB5PSIxNTAiPlRodW1ibmFpbDwvdGV4dD4KPC9zdmc+'
+            thumbnail: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCBmaWxsPSIjMWExYTFhIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIvPgogIDx0ZXh0IGZpbGw9IiM2NjY2NjYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD4iMjAwIiB5PSIxNTAiPlRodW1ibmFpbDwvdGV4dD4KPC9zdmc+'
         };
+        
+        // Load the image manifest if available
+        this.manifest = typeof IMAGE_MANIFEST !== 'undefined' ? IMAGE_MANIFEST : null;
         
         // Fextralife image URL patterns
         this.fextraUrls = {
@@ -39,7 +42,7 @@ class ImageLoader {
         };
     }
 
-    // Get image path with fallback logic
+    // Get image path using manifest for direct lookup
     async getImage(type, id, imageType = 'portrait') {
         const cacheKey = `${type}/${id}/${imageType}`;
         
@@ -48,65 +51,31 @@ class ImageLoader {
             return this.imageCache.get(cacheKey);
         }
 
-        // Handle equipment category which uses subcategories (weapons, armor, etc)
-        if (type === 'equipment') {
-            // Try various subcategories and extensions
-            const subcategories = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
-            const extensions = ['.png', '.jpg', '.jpeg'];
-            
-            for (const subcat of subcategories) {
-                for (const ext of extensions) {
-                    const path = `assets/images/${subcat}/${id}${ext}`;
-                    const exists = await this.checkImageExists(path);
-                    if (exists) {
+        // If we have a manifest, use it for direct lookup
+        if (this.manifest) {
+            // Handle equipment category which uses subcategories
+            if (type === 'equipment') {
+                const subcategories = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
+                for (const subcat of subcategories) {
+                    if (this.manifest[subcat] && this.manifest[subcat][id]) {
+                        const imageInfo = this.manifest[subcat][id];
+                        const path = `assets/images/${subcat}/${id}.${imageInfo.ext}`;
                         this.imageCache.set(cacheKey, path);
                         return path;
                     }
                 }
-            }
-        }
-
-        // Try local image with multiple extensions (including SVG)
-        const extensions = ['.png', '.jpg', '.jpeg', '.svg'];
-        
-        for (const ext of extensions) {
-            let localPath;
-            if (type === 'weapons' && (imageType === 'icon' || imageType === 'full' || imageType === 'thumbnail')) {
-                // For weapons, images are directly in the weapons folder
-                localPath = `assets/images/${type}/${id}${ext}`;
-            } else if (imageType === 'thumbnail' || imageType === 'portrait') {
-                // Try simple path first for thumbnails/portraits
-                localPath = `assets/images/${type}/${id}${ext}`;
             } else {
-                // Original path structure for other types
-                localPath = `assets/images/${type}/${id}/${imageType}${ext}`;
-            }
-            
-            const imageExists = await this.checkImageExists(localPath);
-            
-            if (imageExists) {
-                // For SVG files, verify they're not too small (invalid)
-                if (ext === '.svg' || await this.isValidImage(localPath)) {
-                    this.imageCache.set(cacheKey, localPath);
-                    return localPath;
+                // Direct category lookup
+                if (this.manifest[type] && this.manifest[type][id]) {
+                    const imageInfo = this.manifest[type][id];
+                    const path = `assets/images/${type}/${id}.${imageInfo.ext}`;
+                    this.imageCache.set(cacheKey, path);
+                    return path;
                 }
             }
         }
 
-        // Also try without imageType for backwards compatibility
-        for (const ext of extensions) {
-            const simplePath = `assets/images/${type}/${id}${ext}`;
-            const simpleExists = await this.checkImageExists(simplePath);
-            
-            if (simpleExists) {
-                if (ext === '.svg' || await this.isValidImage(simplePath)) {
-                    this.imageCache.set(cacheKey, simplePath);
-                    return simplePath;
-                }
-            }
-        }
-
-        // Try Fextralife URL if available
+        // Fallback to Fextralife URL if available
         if (this.fextraUrls[type] && this.fextraUrls[type][id] && imageType === 'portrait') {
             this.imageCache.set(cacheKey, this.fextraUrls[type][id]);
             return this.fextraUrls[type][id];

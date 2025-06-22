@@ -292,7 +292,7 @@ class NavigationEnhancer {
         const submenuParent = document.querySelector('.has-submenu');
         if (!submenuParent) return;
         
-        const parentLink = submenuParent.querySelector('> a');
+        const parentLink = submenuParent.querySelector(':scope > a');
         if (!parentLink) return;
         
         // Check if we're on mobile
@@ -373,3 +373,4 @@ class NavigationEnhancer {
 }
 
 const navigationEnhancer = new NavigationEnhancer();
+window.navigationEnhancer = navigationEnhancer;

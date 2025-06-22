@@ -42,7 +42,7 @@ const imageData = {
     bosses: {
         'asylum-demon': {
             name: 'Asylum Demon',
-            url: 'assets/images/bosses/asylum-demon.jpg',
+            url: 'assets/images/bosses/asylum-demon.png',
             alt: 'Asylum Demon boss'
         },
         'bell-gargoyles': {
@@ -59,7 +59,7 @@ const imageData = {
     areas: {
         'firelink-shrine': {
             name: 'Firelink Shrine',
-            url: 'assets/images/areas/firelink-shrine.jpg',
+            url: 'assets/images/areas/firelink-shrine.png',
             alt: 'Firelink Shrine bonfire area'
         },
         'undead-burg': {

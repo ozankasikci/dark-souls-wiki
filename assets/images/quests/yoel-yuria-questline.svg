@@ -1,0 +1,11 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="questGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a2a2a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect fill="url(#questGrad)" width="800" height="400"/>
+  <text fill="#d4af37" font-family="Georgia, serif" font-size="48" text-anchor="middle" x="400" y="200" opacity="0.3">QUEST</text>
+  <text fill="#666666" font-family="Arial" font-size="20" text-anchor="middle" x="400" y="250" opacity="0.5">Journey Awaits</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect fill="#1a1a1a" width="1200" height="600"/>
+  <rect fill="#2a2a2a" x="10" y="10" width="1180" height="580" stroke="#444" stroke-width="2"/>
+  <text fill="#666666" font-family="Arial, sans-serif" font-size="32" text-anchor="middle" x="600" y="290">
+    Firelink Shrine
+  </text>
+  <text fill="#555555" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" x="600" y="320">
+    (Placeholder Image)
+  </text>
+</svg>

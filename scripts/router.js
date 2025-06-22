@@ -59,9 +59,13 @@ class Router {
             
             // Load all equipment items
             const allItems = await contentLoader.loadCategoryListing('equipment');
+            console.log('All equipment items:', allItems);
+            console.log('Looking for subcategory:', subcategory);
             
             // Filter by subcategory
             const items = allItems.filter(item => item.subcategory === subcategory);
+            console.log(`Filtered items for ${subcategory}:`, items);
+            console.log(`Found ${items.length} items for ${subcategory}`);
             
             // Render the filtered listing
             const subcategoryTitles = {
@@ -230,7 +234,21 @@ class Router {
         if (contentDisplay) contentDisplay.style.display = 'block';
         if (contentArea) {
             contentArea.innerHTML = html;
-            window.scrollTo(0, 0);
+            
+            // Only scroll to top if not switching between equipment pages
+            const currentHash = window.location.hash;
+            const previousHash = this.previousHash || '';
+            
+            // Check if we're navigating within equipment section
+            const isWithinEquipment = 
+                (previousHash === '#equipment' || previousHash.startsWith('#equipment/')) && 
+                (currentHash === '#equipment' || currentHash.startsWith('#equipment/'));
+            
+            if (!isWithinEquipment) {
+                window.scrollTo(0, 0);
+            }
+            
+            this.previousHash = currentHash;
         }
     }
 

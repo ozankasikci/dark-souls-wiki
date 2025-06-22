@@ -783,9 +783,12 @@ class ContentRenderer {
             href = `#equipment/${item.subcategory}/${metadata.id}`;
         }
         
+        // For equipment items, use the subcategory for image loading
+        const imageCategory = (category === 'equipment' && item.subcategory) ? item.subcategory : category;
+        
         return `
             <a href="${href}" class="item-card">
-                <div class="item-thumbnail-container" data-category="${category}" data-slug="${slug}">
+                <div class="item-thumbnail-container" data-category="${imageCategory}" data-slug="${slug}">
                     <!-- Thumbnail will be loaded here -->
                 </div>
                 <div class="item-card-content">

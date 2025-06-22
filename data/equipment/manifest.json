@@ -1,50 +1,23 @@
 {
-  "title": "Equipment",
-  "description": "All equipment types in Dark Souls Remastered",
-  "categories": {
-    "weapons": {
-      "title": "Weapons",
-      "description": "Swords, axes, bows, and other offensive equipment",
-      "items": [
-        "black-knight-sword.md",
-        "claymore.md",
-        "dark-hand.md",
-        "dragonslayer-greataxe.md",
-        "estoc.md",
-        "farron-greatsword.md",
-        "frayed-blade.md",
-        "friede-scythe.md",
-        "gael-greatsword.md",
-        "longsword.md",
-        "lothric-knight-straight-sword.md",
-        "moonlight-greatsword.md",
-        "murky-hand-scythe.md",
-        "ringed-knight-paired-greatswords.md",
-        "sellsword-twinblades.md",
-        "splitleaf-greatsword.md",
-        "uchigatana.md",
-        "zweihander.md"
-      ]
-    },
-    "armor": {
-      "title": "Armor",
-      "description": "Helms, chest armor, gauntlets, and leg armor",
-      "items": ["elite-knight-set.md"]
-    },
-    "shields": {
-      "title": "Shields",
-      "description": "Small shields, medium shields, and greatshields",
-      "items": ["grass-crest-shield.md"]
-    },
-    "rings": {
-      "title": "Rings",
-      "description": "Magical rings that provide various effects",
-      "items": ["ring-of-favor.md"]
-    },
-    "catalysts": {
-      "title": "Catalysts & Talismans",
-      "description": "Sorcery catalysts, miracle talismans, and pyromancy flames",
-      "items": ["pyromancy-flame.md"]
-    }
-  }
+  "weapons": [
+    "black-knight-sword.md",
+    "claymore.md",
+    "estoc.md",
+    "longsword.md",
+    "moonlight-greatsword.md",
+    "uchigatana.md",
+    "zweihander.md"
+  ],
+  "armor": [
+    "elite-knight-set.md"
+  ],
+  "shields": [
+    "grass-crest-shield.md"
+  ],
+  "rings": [
+    "ring-of-favor.md"
+  ],
+  "catalysts": [
+    "pyromancy-flame.md"
+  ]
 }

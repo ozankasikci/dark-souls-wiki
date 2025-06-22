@@ -1,5 +1,5 @@
 ---
-id: patches
+id: patches-ds1
 name: Patches
 title: The Hyena
 description: A bald, untrustworthy trickster who appears throughout the Souls series. Known for kicking people into pits and his hatred of clerics.

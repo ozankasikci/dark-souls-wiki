@@ -176,13 +176,25 @@ class ContentLoader {
         
         try {
             const response = await fetch(`data/equipment/manifest.json?t=${Date.now()}`);
+            console.log('Equipment manifest response:', response.ok, response.status);
             if (response.ok) {
                 const manifest = await response.json();
+                console.log('Equipment manifest loaded:', manifest);
                 const allItems = [];
                 
                 // Load items from each subcategory
-                for (const [subcategory, subcategoryData] of Object.entries(manifest.categories)) {
-                    const promises = subcategoryData.items.map(filename => 
+                const subcategoryTitles = {
+                    weapons: 'Weapons',
+                    armor: 'Armor',
+                    shields: 'Shields',
+                    rings: 'Rings',
+                    catalysts: 'Catalysts'
+                };
+                
+                for (const [subcategory, items] of Object.entries(manifest)) {
+                    if (!Array.isArray(items)) continue;
+                    
+                    const promises = items.map(filename => 
                         this.loadContent(`equipment/${subcategory}`, filename.replace('.md', '')).catch(err => {
                             console.error(`Failed to load equipment/${subcategory}/${filename}:`, err);
                             return null;
@@ -195,7 +207,7 @@ class ContentLoader {
                     // Add subcategory info to each item
                     validResults.forEach(item => {
                         item.subcategory = subcategory;
-                        item.subcategoryTitle = subcategoryData.title;
+                        item.subcategoryTitle = subcategoryTitles[subcategory] || subcategory;
                     });
                     
                     allItems.push(...validResults);
@@ -215,7 +227,7 @@ class ContentLoader {
         // Hardcoded fallback lists for each category
         const knownItems = {
             areas: ['northern-undead-asylum', 'firelink-shrine', 'undead-burg', 'undead-parish', 'depths', 'blighttown', 'valley-of-drakes', 'darkroot-garden', 'darkroot-basin', 'new-londo-ruins', 'sens-fortress', 'anor-londo', 'dukes-archives', 'crystal-cave'],
-            bosses: ['iudex-gundyr', 'vordt', 'curse-rotted-greatwood', 'crystal-sage', 'abyss-watchers', 'aldrich-devourer-of-gods', 'asylum-demon', 'bell-gargoyles', 'champion-gundyr', 'dancer-of-the-boreal-valley', 'darkeater-midir', 'demon-prince', 'lothric-younger-prince', 'nameless-king', 'pontiff-sulyvahn', 'sister-friede', 'slave-knight-gael', 'soul-of-cinder', 'taurus-demon'],
+            bosses: ['asylum-demon', 'bell-gargoyles', 'capra-demon', 'taurus-demon'],
             items: ['estus-flask', 'coiled-sword', 'ashen-estus-flask', 'fire-keeper-soul'],
             npcs: ['fire-keeper', 'hawkwood', 'ludleth', 'andre', 'solaire-of-astora', 'siegmeyer-of-catarina', 'patches', 'patches-ds1', 'oscar-of-astora'],
             quests: ['sirris-questline', 'anri-questline', 'yoel-yuria-questline'],
