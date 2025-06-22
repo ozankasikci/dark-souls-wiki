@@ -210,6 +210,8 @@
     padding: 15px;
     position: relative;
     image-rendering: auto;
+    min-height: 150px; /* Ensure minimum height */
+    display: block; /* Ensure block display */
 }
 
 /* Weapon-specific thumbnail styles */

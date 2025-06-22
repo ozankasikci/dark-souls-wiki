@@ -238,7 +238,7 @@ class Router {
             
             // Load images after content is rendered
             setTimeout(async () => {
-                await contentRenderer.loadContentImages(contentType, content.metadata);
+                await contentRenderer.loadContentImages(renderType, content.metadata);
             }, 100);
             
             // Add navigation enhancements after a delay to ensure navigationEnhancer is loaded

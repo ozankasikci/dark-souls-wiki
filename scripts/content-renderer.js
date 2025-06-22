@@ -1117,13 +1117,51 @@ class ContentRenderer {
     // Load thumbnails for category listings
     async loadCategoryThumbnails() {
         const thumbnailContainers = document.querySelectorAll('.item-thumbnail-container');
+        console.log(`Loading thumbnails for ${thumbnailContainers.length} containers`);
         
         thumbnailContainers.forEach(async (container) => {
             const category = container.dataset.category;
-            const slug = container.dataset.slug;
+            let slug = container.dataset.slug;
             
             if (category && slug) {
-                const thumbnailSrc = await imageLoader.getImage(category, slug, 'thumbnail');
+                // Normalize the slug to match image manifest format
+                // Remove apostrophes but keep hyphens and other valid characters
+                const normalizedSlug = slug.replace(/'/g, '');
+                
+                // First try to use ImageDatabase for weapons
+                if (window.ImageDatabase && window.ImageDatabase.getImageData) {
+                    // Try with normalized slug first
+                    let imageData = window.ImageDatabase.getImageData(category, normalizedSlug);
+                    
+                    // If not found, try with original slug
+                    if (!imageData) {
+                        imageData = window.ImageDatabase.getImageData(category, slug);
+                    }
+                    
+                    if (imageData) {
+                        console.log(`Found image for ${category}/${slug} in ImageDatabase:`, imageData.url);
+                        console.log('Full imageData:', imageData);
+                        console.log('Container element:', container);
+                        
+                        // Use imageLoader to create the image element with proper error handling
+                        const thumbnailImg = imageLoader.createImageElement(
+                            imageData.url,
+                            imageData.alt,
+                            `${category}-thumbnail item-thumbnail`
+                        );
+                        
+                        console.log('Created image element:', thumbnailImg);
+                        console.log('Image src:', thumbnailImg.src);
+                        console.log('Image className:', thumbnailImg.className);
+                        
+                        container.appendChild(thumbnailImg);
+                        return;
+                    }
+                }
+                
+                // Fallback to imageLoader with normalized slug
+                console.log(`Using imageLoader fallback for ${category}/${slug} (normalized: ${normalizedSlug})`);
+                const thumbnailSrc = await imageLoader.getImage(category, normalizedSlug, 'thumbnail');
                 const thumbnailImg = imageLoader.createImageElement(
                     thumbnailSrc, 
                     `${slug} thumbnail`, 

@@ -17,6 +17,7 @@
   ],
   "author": "Dark Souls Wiki Contributors",
   "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "jsdom": "^26.1.0"
+  }
 }

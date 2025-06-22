@@ -51,13 +51,22 @@ class ImageLoader {
             return this.imageCache.get(cacheKey);
         }
 
+        // Normalize the ID to match manifest format (remove apostrophes only)
+        const normalizedId = id.replace(/'/g, '');
+
         // If we have a manifest, use it for direct lookup
         if (this.manifest) {
             // Handle equipment category which uses subcategories
             if (type === 'equipment') {
                 const subcategories = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
                 for (const subcat of subcategories) {
-                    if (this.manifest[subcat] && this.manifest[subcat][id]) {
+                    // Try normalized ID first, then original
+                    if (this.manifest[subcat] && this.manifest[subcat][normalizedId]) {
+                        const imageInfo = this.manifest[subcat][normalizedId];
+                        const path = `assets/images/${subcat}/${normalizedId}.${imageInfo.ext}`;
+                        this.imageCache.set(cacheKey, path);
+                        return path;
+                    } else if (this.manifest[subcat] && this.manifest[subcat][id]) {
                         const imageInfo = this.manifest[subcat][id];
                         const path = `assets/images/${subcat}/${id}.${imageInfo.ext}`;
                         this.imageCache.set(cacheKey, path);
@@ -65,14 +74,26 @@ class ImageLoader {
                     }
                 }
             } else {
-                // Direct category lookup
-                if (this.manifest[type] && this.manifest[type][id]) {
+                // Direct category lookup - try normalized ID first, then original
+                if (this.manifest[type] && this.manifest[type][normalizedId]) {
+                    const imageInfo = this.manifest[type][normalizedId];
+                    const path = `assets/images/${type}/${normalizedId}.${imageInfo.ext}`;
+                    this.imageCache.set(cacheKey, path);
+                    return path;
+                } else if (this.manifest[type] && this.manifest[type][id]) {
                     const imageInfo = this.manifest[type][id];
                     const path = `assets/images/${type}/${id}.${imageInfo.ext}`;
                     this.imageCache.set(cacheKey, path);
                     return path;
                 }
             }
+        }
+
+        // For weapons, check if the file exists locally even if not in manifest
+        if (type === 'weapons' && imageType === 'thumbnail') {
+            const possiblePath = `assets/images/weapons/${normalizedId}.png`;
+            this.imageCache.set(cacheKey, possiblePath);
+            return possiblePath;
         }
 
         // Fallback to Fextralife URL if available
@@ -146,18 +167,25 @@ class ImageLoader {
         
         // Set up load handlers
         img.onload = () => {
+            console.log('Image loaded successfully:', img.src);
             img.classList.remove('loading');
             img.classList.add('loaded');
         };
         
-        img.onerror = () => {
+        img.onerror = (error) => {
+            console.error('Image failed to load:', img.src);
+            console.error('Error details:', error);
+            console.log('Image className for placeholder:', className);
+            
             img.classList.remove('loading');
             img.classList.add('error');
             // Fallback to placeholder on error
             if (!img.src.includes('data:image')) {
                 const type = className.includes('boss') ? 'boss' : 
                            className.includes('weapon') ? 'weapon' : 
-                           className.includes('item') ? 'item' : 'thumbnail';
+                           className.includes('item') ? 'item' : 
+                           className.includes('thumbnail') ? 'thumbnail' : 'thumbnail';
+                console.log('Setting placeholder type:', type);
                 img.src = this.placeholders[type];
             }
         };

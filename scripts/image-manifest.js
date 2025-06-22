@@ -1,5 +1,5 @@
 // Auto-generated manifest of all existing images in the project
-// Generated on: 2025-06-21T23:38:51.330Z
+// Generated on: 2025-06-22T07:01:03.733Z
 
 const IMAGE_MANIFEST = {
     "areas": {
@@ -104,30 +104,30 @@ const IMAGE_MANIFEST = {
         }
     },
     "bosses": {
-            "artorias-the-abysswalker": {
-                    "ext": "jpg"
-            },
-            "asylum-demon": {
-                    "ext": "jpg"
-            },
-            "bell-gargoyles": {
-                    "ext": "jpg"
-            },
-            "black-dragon-kalameet": {
-                    "ext": "jpg"
-            },
-            "capra-demon": {
-                    "ext": "jpg"
-            },
-            "gravelord-nito": {
-                    "ext": "jpg"
-            },
-            "ornstein-and-smough": {
-                    "ext": "svg"
-            },
-            "taurus-demon": {
-                    "ext": "jpg"
-            }
+        "artorias-the-abysswalker": {
+            "ext": "jpg"
+        },
+        "asylum-demon": {
+            "ext": "jpg"
+        },
+        "bell-gargoyles": {
+            "ext": "jpg"
+        },
+        "black-dragon-kalameet": {
+            "ext": "jpg"
+        },
+        "capra-demon": {
+            "ext": "jpg"
+        },
+        "gravelord-nito": {
+            "ext": "jpg"
+        },
+        "ornstein-and-smough": {
+            "ext": "svg"
+        },
+        "taurus-demon": {
+            "ext": "jpg"
+        }
     },
     "npcs": {
         "andre": {
@@ -249,74 +249,359 @@ const IMAGE_MANIFEST = {
         }
     },
     "weapons": {
+        "abyss-greatsword": {
+            "ext": "png"
+        },
+        "astoras-straight-sword": {
+            "ext": "png"
+        },
+        "avelyn": {
+            "ext": "png"
+        },
+        "balder-side-sword": {
+            "ext": "png"
+        },
+        "bandits-knife": {
+            "ext": "png"
+        },
+        "barbed-straight-sword": {
+            "ext": "png"
+        },
+        "bastard-sword": {
+            "ext": "png"
+        },
+        "battle-axe": {
+            "ext": "png"
+        },
+        "black-bow-of-pharis": {
+            "ext": "png"
+        },
+        "black-knight-greataxe": {
+            "ext": "png"
+        },
+        "black-knight-greatsword": {
+            "ext": "png"
+        },
+        "black-knight-halberd": {
+            "ext": "png"
+        },
         "black-knight-sword": {
-            "ext": "png",
-            "alts": [
-                "svg"
-            ]
+            "ext": "png"
+        },
+        "blacksmiths-hammer": {
+            "ext": "png"
+        },
+        "broadsword": {
+            "ext": "png"
+        },
+        "broken-straight-sword": {
+            "ext": "png"
+        },
+        "butcher-knife": {
+            "ext": "png"
+        },
+        "caestus": {
+            "ext": "png"
+        },
+        "canvas-talisman": {
+            "ext": "png"
+        },
+        "channelers-trident": {
+            "ext": "png"
+        },
+        "chaos-blade": {
+            "ext": "png"
+        },
+        "claw": {
+            "ext": "png"
         },
         "claymore": {
+            "ext": "png"
+        },
+        "club": {
+            "ext": "png"
+        },
+        "composite-bow": {
+            "ext": "png"
+        },
+        "crescent-axe": {
+            "ext": "png"
+        },
+        "crystal-greatsword": {
+            "ext": "png"
+        },
+        "crystal-straight-sword": {
+            "ext": "png"
+        },
+        "dagger": {
             "ext": "png"
         },
         "dark-hand": {
             "ext": "png"
         },
-        "dragonslayer-greataxe": {
+        "dark-silver-tracer": {
+            "ext": "png"
+        },
+        "darkmoon-talisman": {
+            "ext": "png"
+        },
+        "darksword": {
+            "ext": "png"
+        },
+        "demon-great-machete": {
+            "ext": "png"
+        },
+        "demons-great-hammer": {
+            "ext": "png"
+        },
+        "demons-greataxe": {
+            "ext": "png"
+        },
+        "demons-spear": {
+            "ext": "png"
+        },
+        "dragon-bone-fist": {
+            "ext": "png"
+        },
+        "dragon-greatsword": {
+            "ext": "png"
+        },
+        "dragon-king-greataxe": {
+            "ext": "png"
+        },
+        "dragon-tooth": {
+            "ext": "png"
+        },
+        "dragonslayer-spear": {
+            "ext": "png"
+        },
+        "drake-sword": {
             "ext": "png"
         },
         "estoc": {
-            "ext": "png",
-            "alts": [
-                "svg"
-            ]
-        },
-        "farron-greatsword": {
             "ext": "png"
         },
-        "frayed-blade": {
+        "falchion": {
             "ext": "png"
         },
-        "friede-scythe": {
-            "ext": "svg"
+        "flamberge": {
+            "ext": "png"
         },
-        "gael-greatsword": {
+        "four-pronged-plow": {
+            "ext": "png"
+        },
+        "gargoyle-halberd": {
+            "ext": "png"
+        },
+        "gargoyle-tail-axe": {
+            "ext": "png"
+        },
+        "ghost-blade": {
+            "ext": "png"
+        },
+        "giants-halberd": {
+            "ext": "png"
+        },
+        "golem-axe": {
+            "ext": "png"
+        },
+        "grants": {
+            "ext": "png"
+        },
+        "gravelord-sword": {
+            "ext": "png"
+        },
+        "great-club": {
+            "ext": "png"
+        },
+        "great-lord-greatsword": {
+            "ext": "png"
+        },
+        "greataxe": {
+            "ext": "png"
+        },
+        "greatsword-of-artorias": {
+            "ext": "png"
+        },
+        "greatsword": {
+            "ext": "png"
+        },
+        "halberd": {
+            "ext": "png"
+        },
+        "hammer-of-vamos": {
+            "ext": "png"
+        },
+        "hand-axe": {
+            "ext": "png"
+        },
+        "heavy-crossbow": {
+            "ext": "png"
+        },
+        "iaito": {
+            "ext": "png"
+        },
+        "jagged-ghost-blade": {
+            "ext": "png"
+        },
+        "large-club": {
+            "ext": "png"
+        },
+        "light-crossbow": {
+            "ext": "png"
+        },
+        "logans-catalyst": {
+            "ext": "png"
+        },
+        "longbow": {
             "ext": "png"
         },
         "longsword": {
-            "ext": "png",
-            "alts": [
-                "svg"
-            ]
+            "ext": "png"
         },
-        "lothric-knight-straight-sword": {
+        "lucerne": {
+            "ext": "png"
+        },
+        "mace": {
+            "ext": "png"
+        },
+        "mail-breaker": {
+            "ext": "png"
+        },
+        "mans-serpent-greatsword": {
+            "ext": "png"
+        },
+        "manus-catalyst": {
+            "ext": "png"
+        },
+        "moonlight-butterfly-horn": {
             "ext": "png"
         },
         "moonlight-greatsword": {
-            "ext": "png",
-            "alts": [
-                "svg"
-            ]
-        },
-        "murky-hand-scythe": {
-            "ext": "png",
-            "alts": [
-                "svg"
-            ]
-        },
-        "ringed-knight-paired-greatswords": {
             "ext": "png"
         },
-        "sellsword-twinblades": {
+        "morning-star": {
             "ext": "png"
         },
-        "splitleaf-greatsword": {
+        "murakumo": {
+            "ext": "png"
+        },
+        "notched-whip": {
+            "ext": "png"
+        },
+        "obsidian-greatsword": {
+            "ext": "png"
+        },
+        "oolacile-ivory-catalyst": {
+            "ext": "png"
+        },
+        "painting-guardian-sword": {
+            "ext": "png"
+        },
+        "parrying-dagger": {
+            "ext": "png"
+        },
+        "partisan": {
+            "ext": "png"
+        },
+        "pike": {
+            "ext": "png"
+        },
+        "priscillas-dagger": {
+            "ext": "png"
+        },
+        "pyromancy-flame": {
+            "ext": "png"
+        },
+        "quelaags-furysword": {
+            "ext": "png"
+        },
+        "rapier": {
+            "ext": "png"
+        },
+        "reinforced-club": {
+            "ext": "png"
+        },
+        "ricards-rapier": {
+            "ext": "png"
+        },
+        "scimitar": {
+            "ext": "png"
+        },
+        "scythe": {
+            "ext": "png"
+        },
+        "server": {
+            "ext": "png"
+        },
+        "short-bow": {
+            "ext": "png"
+        },
+        "shortsword": {
+            "ext": "png"
+        },
+        "shotel": {
+            "ext": "png"
+        },
+        "silver-knight-spear": {
+            "ext": "png"
+        },
+        "silver-knight-straight-sword": {
+            "ext": "png"
+        },
+        "smoughs-hammer": {
+            "ext": "png"
+        },
+        "sniper-crossbow": {
+            "ext": "png"
+        },
+        "sorcerers-catalyst": {
+            "ext": "png"
+        },
+        "spear": {
+            "ext": "png"
+        },
+        "stone-greatsword": {
+            "ext": "png"
+        },
+        "straight-sword-hilt": {
+            "ext": "png"
+        },
+        "sunlight-straight-sword": {
+            "ext": "png"
+        },
+        "talisman": {
+            "ext": "png"
+        },
+        "tin-banishment-catalyst": {
+            "ext": "png"
+        },
+        "tin-crystallization-catalyst": {
+            "ext": "png"
+        },
+        "tin-darkmoon-catalyst": {
+            "ext": "png"
+        },
+        "titanite-catch-pole": {
             "ext": "png"
         },
         "uchigatana": {
-            "ext": "png",
-            "alts": [
-                "svg"
-            ]
+            "ext": "png"
+        },
+        "velkas-rapier": {
+            "ext": "png"
+        },
+        "warpick": {
+            "ext": "png"
+        },
+        "washing-pole": {
+            "ext": "png"
+        },
+        "whip": {
+            "ext": "png"
+        },
+        "winged-spear": {
+            "ext": "png"
         },
         "zweihander": {
             "ext": "png"
@@ -397,23 +682,7 @@ const IMAGE_MANIFEST = {
     }
 };
 
-// Helper function to get image path
-function getImagePath(category, id) {
-    const manifest = IMAGE_MANIFEST[category];
-    if (!manifest || !manifest[id]) {
-        return null;
-    }
-    
-    const imageInfo = manifest[id];
-    return `assets/images/${category}/${id}.${imageInfo.ext}`;
-}
-
-// Helper function to check if image exists
-function imageExists(category, id) {
-    return IMAGE_MANIFEST[category] && IMAGE_MANIFEST[category][id];
-}
-
-// Export for use in other scripts
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { IMAGE_MANIFEST, getImagePath, imageExists };
+// Make it available globally for other scripts
+if (typeof window !== 'undefined') {
+    window.IMAGE_MANIFEST = IMAGE_MANIFEST;
 }
