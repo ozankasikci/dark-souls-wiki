@@ -1,3 +1,30 @@
-[
-  "grass-crest-shield.md"
-]
+{
+  "category": "Shields",
+  "description": "Defensive equipment for blocking and parrying",
+  "subcategories": [
+    {
+      "id": "small-shields",
+      "name": "Small Shields",
+      "path": "small-shields",
+      "description": "Light shields with good parrying ability"
+    },
+    {
+      "id": "medium-shields", 
+      "name": "Medium Shields",
+      "path": "medium-shields",
+      "description": "Balanced shields offering decent protection and stability"
+    },
+    {
+      "id": "greatshields",
+      "name": "Greatshields",
+      "path": "greatshields", 
+      "description": "Heavy shields with maximum stability and protection"
+    },
+    {
+      "id": "unique-shields",
+      "name": "Unique Shields",
+      "path": "unique-shields",
+      "description": "Special shields with unique properties"
+    }
+  ]
+}

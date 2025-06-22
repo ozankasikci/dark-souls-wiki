@@ -1,9 +1,7 @@
 {
   "weapons": "weapons/manifest.json",
   "armor": "armor/manifest.json",
-  "shields": [
-    "grass-crest-shield.md"
-  ],
+  "shields": "shields/manifest.json",
   "rings": [
     "ring-of-favor.md"
   ],

@@ -1524,6 +1524,38 @@ body > .generic:last-child {
     font-weight: 400;
 }
 
+/* Shield Category Sections - same styles as weapon/armor categories */
+.shield-category-section {
+    margin-bottom: var(--space-3xl);
+}
+
+.shield-category-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.shield-category-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color var(--transition-base);
+}
+
+.shield-category-title a:hover {
+    color: var(--ds-gold);
+}
+
+.shield-category-title .category-count {
+    font-size: 1.125rem;
+    color: var(--text-dim);
+    font-weight: 400;
+}
+
 /* Equipment navigation styles */
 .equipment-nav {
     display: flex;

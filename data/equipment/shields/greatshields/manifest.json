@@ -1,0 +1,51 @@
+{
+  "category": "Greatshields",
+  "description": "Heavy shields with maximum stability and protection",
+  "items": [
+    {
+      "id": "havels-greatshield",
+      "name": "Havel's Greatshield",
+      "file": "havels-greatshield.md"
+    },
+    {
+      "id": "greatshield-of-artorias",
+      "name": "Greatshield of Artorias",
+      "file": "greatshield-of-artorias.md"
+    },
+    {
+      "id": "tower-shield",
+      "name": "Tower Shield",
+      "file": "tower-shield.md"
+    },
+    {
+      "id": "black-iron-greatshield",
+      "name": "Black Iron Greatshield",
+      "file": "black-iron-greatshield.md"
+    },
+    {
+      "id": "eagle-greatshield",
+      "name": "Eagle Greatshield",
+      "file": "eagle-greatshield.md"
+    },
+    {
+      "id": "stone-greatshield",
+      "name": "Stone Greatshield",
+      "file": "stone-greatshield.md"
+    },
+    {
+      "id": "bonewheel-shield",
+      "name": "Bonewheel Shield",
+      "file": "bonewheel-shield.md"
+    },
+    {
+      "id": "cleansing-greatshield",
+      "name": "Cleansing Greatshield",
+      "file": "cleansing-greatshield.md"
+    },
+    {
+      "id": "giant-shield",
+      "name": "Giant Shield",
+      "file": "giant-shield.md"
+    }
+  ]
+}

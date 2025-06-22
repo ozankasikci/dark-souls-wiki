@@ -1,5 +1,5 @@
 // Auto-generated manifest of all existing images in the project
-// Generated on: 2025-06-22T21:24:20.061Z
+// Generated on: 2025-06-22T21:59:42.934Z
 
 const IMAGE_MANIFEST = {
     "areas": {
@@ -104,6 +104,161 @@ const IMAGE_MANIFEST = {
             "ext": "jpg"
         }
     },
+    "armor": {
+        "artorias-set": {
+            "ext": "jpg"
+        },
+        "balder-set": {
+            "ext": "jpg"
+        },
+        "bandit-set": {
+            "ext": "jpg"
+        },
+        "black-iron-set": {
+            "ext": "jpg"
+        },
+        "black-knight-set": {
+            "ext": "jpg"
+        },
+        "black-sorcerer-set": {
+            "ext": "jpg"
+        },
+        "brass-set": {
+            "ext": "jpg"
+        },
+        "catarina-set": {
+            "ext": "jpg"
+        },
+        "chain-set": {
+            "ext": "jpg"
+        },
+        "chester-set": {
+            "ext": "jpg"
+        },
+        "cleric-set": {
+            "ext": "jpg"
+        },
+        "crimson-set": {
+            "ext": "jpg"
+        },
+        "crown-of-dusk": {
+            "ext": "png"
+        },
+        "crown-of-the-dark-sun": {
+            "ext": "png"
+        },
+        "crown-of-the-great-lord": {
+            "ext": "png"
+        },
+        "dingy-set": {
+            "ext": "jpg"
+        },
+        "eastern-set": {
+            "ext": "jpg"
+        },
+        "elite-knight-set": {
+            "ext": "jpg",
+            "alts": [
+                "svg"
+            ]
+        },
+        "favor-set": {
+            "ext": "jpg"
+        },
+        "giant-set": {
+            "ext": "jpg"
+        },
+        "gold-hemmed-black-set": {
+            "ext": "jpg"
+        },
+        "golem-set": {
+            "ext": "jpg"
+        },
+        "gough-set": {
+            "ext": "jpg"
+        },
+        "great-lord-set": {
+            "ext": "jpg"
+        },
+        "guardian-set": {
+            "ext": "jpg"
+        },
+        "havel-set": {
+            "ext": "jpg"
+        },
+        "hunter-set": {
+            "ext": "jpg"
+        },
+        "knight-set": {
+            "ext": "jpg"
+        },
+        "lord-blade-set": {
+            "ext": "jpg"
+        },
+        "lords-blade-set": {
+            "ext": "jpg"
+        },
+        "mask-of-the-child": {
+            "ext": "png"
+        },
+        "mask-of-the-father": {
+            "ext": "png"
+        },
+        "mask-of-the-mother": {
+            "ext": "png"
+        },
+        "moonlight-set": {
+            "ext": "jpg"
+        },
+        "ornstein-set": {
+            "ext": "jpg"
+        },
+        "painting-guardian-set": {
+            "ext": "jpg"
+        },
+        "pyromancer-set": {
+            "ext": "jpg"
+        },
+        "shadow-set": {
+            "ext": "jpg"
+        },
+        "silver-knight-set": {
+            "ext": "jpg"
+        },
+        "smough-set": {
+            "ext": "jpg"
+        },
+        "sorcerer-set": {
+            "ext": "jpg"
+        },
+        "stone-set": {
+            "ext": "jpg"
+        },
+        "sunlight-maggot": {
+            "ext": "png"
+        },
+        "symbol-of-avarice": {
+            "ext": "png"
+        },
+        "thief-set": {
+            "ext": "jpg"
+        },
+        "thorns-set": {
+            "ext": "jpg"
+        },
+        "wanderer-set": {
+            "ext": "jpg"
+        },
+        "warrior-set": {
+            "ext": "jpg"
+        },
+        "witch-set": {
+            "ext": "jpg"
+        },
+        "xanthous-set": {
+            "ext": "jpg"
+        }
+    },
     "bosses": {
         "artorias-the-abysswalker": {
             "ext": "jpg"
@@ -128,6 +283,59 @@ const IMAGE_MANIFEST = {
         },
         "taurus-demon": {
             "ext": "jpg"
+        }
+    },
+    "builds": {
+        "quality-build": {
+            "ext": "svg"
+        }
+    },
+    "catalysts": {
+        "pyromancy-flame": {
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
+        }
+    },
+    "items": {
+        "ashen-estus-flask": {
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
+        },
+        "coiled-sword": {
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
+        },
+        "elite-knight-set": {
+            "ext": "jpg"
+        },
+        "fire-keeper-soul": {
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
+        },
+        "ring-of-favor": {
+            "ext": "svg"
+        }
+    },
+    "lore": {
+        "age-of-dark": {
+            "ext": "svg"
+        },
+        "age-of-fire": {
+            "ext": "svg"
+        },
+        "first-flame": {
+            "ext": "svg"
+        },
+        "undead-curse": {
+            "ext": "svg"
         }
     },
     "npcs": {
@@ -247,6 +455,144 @@ const IMAGE_MANIFEST = {
         },
         "yuria-of-londor": {
             "ext": "jpg"
+        }
+    },
+    "placeholder": {
+        "ext": "svg"
+    },
+    "quests": {
+        "anri-questline": {
+            "ext": "svg"
+        },
+        "sirris-questline": {
+            "ext": "svg"
+        },
+        "yoel-yuria-questline": {
+            "ext": "svg"
+        }
+    },
+    "rings": {
+        "ring-of-favor": {
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
+        }
+    },
+    "shields": {
+        "balder-shield": {
+            "ext": "png"
+        },
+        "black-iron-greatshield": {
+            "ext": "png"
+        },
+        "black-knight-shield": {
+            "ext": "png"
+        },
+        "bloodshield": {
+            "ext": "png"
+        },
+        "bonewheel-shield": {
+            "ext": "png"
+        },
+        "buckler": {
+            "ext": "png"
+        },
+        "caduceus-kite-shield": {
+            "ext": "png"
+        },
+        "caduceus-round-shield": {
+            "ext": "png"
+        },
+        "cracked-round-shield": {
+            "ext": "png"
+        },
+        "crest-shield": {
+            "ext": "png"
+        },
+        "crystal-ring-shield": {
+            "ext": "png"
+        },
+        "dragon-crest-shield": {
+            "ext": "png"
+        },
+        "eagle-shield": {
+            "ext": "png"
+        },
+        "effigy-shield": {
+            "ext": "png"
+        },
+        "giant-shield": {
+            "ext": "png"
+        },
+        "grass-crest-shield": {
+            "ext": "jpg",
+            "alts": [
+                "png"
+            ]
+        },
+        "greatshield-of-artorias": {
+            "ext": "png"
+        },
+        "havels-greatshield": {
+            "ext": "png"
+        },
+        "heater-shield": {
+            "ext": "png"
+        },
+        "hollow-soldier-shield": {
+            "ext": "png"
+        },
+        "iron-round-shield": {
+            "ext": "png"
+        },
+        "knight-shield": {
+            "ext": "png"
+        },
+        "large-leather-shield": {
+            "ext": "png"
+        },
+        "leather-shield": {
+            "ext": "png"
+        },
+        "pierce-shield": {
+            "ext": "png"
+        },
+        "plank-shield": {
+            "ext": "png"
+        },
+        "sanctus": {
+            "ext": "png"
+        },
+        "silver-knight-shield": {
+            "ext": "png"
+        },
+        "small-leather-shield": {
+            "ext": "png"
+        },
+        "spider-shield": {
+            "ext": "png"
+        },
+        "spiked-shield": {
+            "ext": "png"
+        },
+        "stone-greatshield": {
+            "ext": "png"
+        },
+        "sunlight-shield": {
+            "ext": "png"
+        },
+        "target-shield": {
+            "ext": "png"
+        },
+        "tower-kite-shield": {
+            "ext": "png"
+        },
+        "tower-shield": {
+            "ext": "png"
+        },
+        "wooden-shield": {
+            "ext": "png"
         }
     },
     "weapons": {
@@ -592,245 +938,10 @@ const IMAGE_MANIFEST = {
         "zweihander": {
             "ext": "png"
         }
-    },
-    "items": {
-        "ashen-estus-flask": {
-            "ext": "jpg",
-            "alts": [
-                "png"
-            ]
-        },
-        "coiled-sword": {
-            "ext": "jpg",
-            "alts": [
-                "png"
-            ]
-        },
-        "elite-knight-set": {
-            "ext": "jpg"
-        },
-        "fire-keeper-soul": {
-            "ext": "jpg",
-            "alts": [
-                "png"
-            ]
-        },
-        "ring-of-favor": {
-            "ext": "svg"
-        }
-    },
-    "armor": {
-        "artorias-set": {
-            "ext": "jpg"
-        },
-        "balder-set": {
-            "ext": "jpg"
-        },
-        "bandit-set": {
-            "ext": "jpg"
-        },
-        "black-iron-set": {
-            "ext": "jpg"
-        },
-        "black-knight-set": {
-            "ext": "jpg"
-        },
-        "black-sorcerer-set": {
-            "ext": "jpg"
-        },
-        "brass-set": {
-            "ext": "jpg"
-        },
-        "catarina-set": {
-            "ext": "jpg"
-        },
-        "chain-set": {
-            "ext": "jpg"
-        },
-        "chester-set": {
-            "ext": "jpg"
-        },
-        "cleric-set": {
-            "ext": "jpg"
-        },
-        "crimson-set": {
-            "ext": "jpg"
-        },
-        "crown-of-dusk": {
-            "ext": "png"
-        },
-        "crown-of-the-dark-sun": {
-            "ext": "png"
-        },
-        "crown-of-the-great-lord": {
-            "ext": "png"
-        },
-        "dingy-set": {
-            "ext": "jpg"
-        },
-        "eastern-set": {
-            "ext": "jpg"
-        },
-        "elite-knight-set": {
-            "ext": "jpg",
-            "alts": [
-                "svg"
-            ]
-        },
-        "favor-set": {
-            "ext": "jpg"
-        },
-        "giant-set": {
-            "ext": "jpg"
-        },
-        "gold-hemmed-black-set": {
-            "ext": "jpg"
-        },
-        "golem-set": {
-            "ext": "jpg"
-        },
-        "gough-set": {
-            "ext": "jpg"
-        },
-        "great-lord-set": {
-            "ext": "jpg"
-        },
-        "guardian-set": {
-            "ext": "jpg"
-        },
-        "havel-set": {
-            "ext": "jpg"
-        },
-        "hunter-set": {
-            "ext": "jpg"
-        },
-        "knight-set": {
-            "ext": "jpg"
-        },
-        "lord-blade-set": {
-            "ext": "jpg"
-        },
-        "lords-blade-set": {
-            "ext": "jpg"
-        },
-        "mask-of-the-child": {
-            "ext": "png"
-        },
-        "mask-of-the-father": {
-            "ext": "png"
-        },
-        "mask-of-the-mother": {
-            "ext": "png"
-        },
-        "moonlight-set": {
-            "ext": "jpg"
-        },
-        "ornstein-set": {
-            "ext": "jpg"
-        },
-        "painting-guardian-set": {
-            "ext": "jpg"
-        },
-        "pyromancer-set": {
-            "ext": "jpg"
-        },
-        "shadow-set": {
-            "ext": "jpg"
-        },
-        "silver-knight-set": {
-            "ext": "jpg"
-        },
-        "smough-set": {
-            "ext": "jpg"
-        },
-        "sorcerer-set": {
-            "ext": "jpg"
-        },
-        "stone-set": {
-            "ext": "jpg"
-        },
-        "sunlight-maggot": {
-            "ext": "png"
-        },
-        "symbol-of-avarice": {
-            "ext": "png"
-        },
-        "thief-set": {
-            "ext": "jpg"
-        },
-        "thorns-set": {
-            "ext": "jpg"
-        },
-        "wanderer-set": {
-            "ext": "jpg"
-        },
-        "warrior-set": {
-            "ext": "jpg"
-        },
-        "witch-set": {
-            "ext": "jpg"
-        },
-        "xanthous-set": {
-            "ext": "jpg"
-        }
-    },
-    "builds": {
-        "quality-build": {
-            "ext": "svg"
-        }
-    },
-    "catalysts": {
-        "pyromancy-flame": {
-            "ext": "jpg",
-            "alts": [
-                "png"
-            ]
-        }
-    },
-    "rings": {
-        "ring-of-favor": {
-            "ext": "jpg",
-            "alts": [
-                "png"
-            ]
-        }
-    },
-    "shields": {
-        "grass-crest-shield": {
-            "ext": "jpg",
-            "alts": [
-                "png"
-            ]
-        }
-    },
-    "lore": {
-        "age-of-dark": {
-            "ext": "svg"
-        },
-        "age-of-fire": {
-            "ext": "svg"
-        },
-        "first-flame": {
-            "ext": "svg"
-        },
-        "undead-curse": {
-            "ext": "svg"
-        }
-    },
-    "quests": {
-        "anri-questline": {
-            "ext": "svg"
-        },
-        "sirris-questline": {
-            "ext": "svg"
-        },
-        "yoel-yuria-questline": {
-            "ext": "svg"
-        }
     }
 };
 
-// Make it available globally for other scripts
-if (typeof window !== 'undefined') {
-    window.IMAGE_MANIFEST = IMAGE_MANIFEST;
+// Export for use in other modules
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = IMAGE_MANIFEST;
 }

@@ -1,0 +1,61 @@
+{
+  "category": "Small Shields",
+  "description": "Light shields with excellent parrying ability but lower stability",
+  "items": [
+    {
+      "id": "buckler",
+      "name": "Buckler",
+      "file": "buckler.md"
+    },
+    {
+      "id": "target-shield",
+      "name": "Target Shield",
+      "file": "target-shield.md"
+    },
+    {
+      "id": "small-leather-shield",
+      "name": "Small Leather Shield",
+      "file": "small-leather-shield.md"
+    },
+    {
+      "id": "parrying-dagger",
+      "name": "Parrying Dagger",
+      "file": "parrying-dagger.md"
+    },
+    {
+      "id": "caduceus-round-shield",
+      "name": "Caduceus Round Shield",
+      "file": "caduceus-round-shield.md"
+    },
+    {
+      "id": "red-and-white-round-shield",
+      "name": "Red and White Round Shield",
+      "file": "red-and-white-round-shield.md"
+    },
+    {
+      "id": "plank-shield",
+      "name": "Plank Shield",
+      "file": "plank-shield.md"
+    },
+    {
+      "id": "leather-shield",
+      "name": "Leather Shield",
+      "file": "leather-shield.md"
+    },
+    {
+      "id": "cracked-round-shield",
+      "name": "Cracked Round Shield",
+      "file": "cracked-round-shield.md"
+    },
+    {
+      "id": "effigy-shield",
+      "name": "Effigy Shield",
+      "file": "effigy-shield.md"
+    },
+    {
+      "id": "crystal-ring-shield",
+      "name": "Crystal Ring Shield",
+      "file": "crystal-ring-shield.md"
+    }
+  ]
+}

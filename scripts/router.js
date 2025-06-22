@@ -53,6 +53,12 @@ class Router {
             await this.loadArmorCategoryListing(rest[1]);
             return;
         }
+        
+        // Handle shield subcategory listings (e.g., #equipment/shields/small-shields)
+        if (type === 'equipment' && rest[0] === 'shields' && rest.length === 2) {
+            await this.loadShieldCategoryListing(rest[1]);
+            return;
+        }
 
         // Check if this is a category listing (no id provided)
         if (rest.length === 0) {
@@ -155,6 +161,44 @@ class Router {
             
         } catch (error) {
             console.error('Error loading armor category:', error);
+            this.showError(error.message);
+        }
+    }
+    
+    async loadShieldCategoryListing(shieldCategory) {
+        try {
+            this.showLoading();
+            
+            // Load all equipment items
+            const allItems = await contentLoader.loadCategoryListing('equipment');
+            
+            // Filter by shield category
+            const items = allItems.filter(item => 
+                item.subcategory === 'shields' && 
+                item.shieldCategory === shieldCategory
+            );
+            
+            // Get category name from manifest
+            const categoryTitles = {
+                'small-shields': 'Small Shields',
+                'medium-shields': 'Medium Shields',
+                'greatshields': 'Greatshields',
+                'unique-shields': 'Unique Shields'
+            };
+            
+            const html = contentRenderer.renderCategoryListing('equipment', items);
+            this.displayContent(html);
+            
+            document.title = `${categoryTitles[shieldCategory] || shieldCategory} - Dark Souls Wiki`;
+            this.updateNavigation('equipment');
+            
+            // Load thumbnails after content is rendered
+            setTimeout(async () => {
+                await contentRenderer.loadCategoryThumbnails();
+            }, 100);
+            
+        } catch (error) {
+            console.error('Error loading shield category:', error);
             this.showError(error.message);
         }
     }
@@ -265,6 +309,11 @@ class Router {
                     contentType = `equipment/armor/${parts[1]}`;
                     contentId = parts[2];
                     renderType = 'armor';
+                } else if (parts[0] === 'shields' && parts.length === 3) {
+                    // Handle shield subcategory paths like shields/small-shields/buckler
+                    contentType = `equipment/shields/${parts[1]}`;
+                    contentId = parts[2];
+                    renderType = 'shields';
                 } else {
                     // Handle regular equipment paths
                     contentType = `equipment/${parts[0]}`;

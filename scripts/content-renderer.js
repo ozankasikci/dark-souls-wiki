@@ -864,6 +864,59 @@ class ContentRenderer {
             `;
         }
         
+        // Special handling for shields to show categories
+        if (subcategory === 'shields') {
+            // Group shields by category
+            const shieldsByCategory = items.reduce((acc, shield) => {
+                const category = shield.shieldCategory || 'other';
+                if (!acc[category]) {
+                    acc[category] = {
+                        title: shield.shieldCategoryTitle || category,
+                        items: []
+                    };
+                }
+                acc[category].items.push(shield);
+                return acc;
+            }, {});
+            
+            const shieldCategoryOrder = [
+                'small-shields', 'medium-shields', 'greatshields', 'unique-shields'
+            ];
+            
+            return `
+                <div class="category-listing">
+                    <header class="category-header">
+                        <h1>${title}</h1>
+                        <p class="category-description">${subcategoryDescriptions[subcategory] || ''}</p>
+                        
+                        <nav class="equipment-nav">
+                            <a href="#equipment" class="equipment-nav-link">All Equipment</a>
+                            ${allSubcategories.map(sub => 
+                                `<a href="#equipment/${sub.key}" class="equipment-nav-link ${sub.key === subcategory ? 'active' : ''}">${sub.title}</a>`
+                            ).join('')}
+                        </nav>
+                    </header>
+                    
+                    ${shieldCategoryOrder.map(categoryKey => {
+                        const categoryData = shieldsByCategory[categoryKey];
+                        if (!categoryData || categoryData.items.length === 0) return '';
+                        
+                        return `
+                            <div class="shield-category-section">
+                                <h2 class="shield-category-title">
+                                    <a href="#equipment/shields/${categoryKey}">${categoryData.title}</a>
+                                    <span class="category-count">(${categoryData.items.length})</span>
+                                </h2>
+                                <div class="items-grid">
+                                    ${categoryData.items.map(item => this.renderItemCard(item, 'equipment')).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+        
         // Regular handling for non-weapon categories
         return `
             <div class="category-listing">
@@ -939,6 +992,27 @@ class ContentRenderer {
             grouped.armor = {
                 title: 'Armor',
                 categories: armorByCategory
+            };
+        }
+        
+        // For shields, further group by shield category
+        if (grouped.shields && grouped.shields.items.length > 0) {
+            const shieldsByCategory = grouped.shields.items.reduce((acc, shield) => {
+                const category = shield.shieldCategory || 'other';
+                if (!acc[category]) {
+                    acc[category] = {
+                        title: shield.shieldCategoryTitle || category,
+                        items: []
+                    };
+                }
+                acc[category].items.push(shield);
+                return acc;
+            }, {});
+            
+            // Replace shields group with categorized structure
+            grouped.shields = {
+                title: 'Shields',
+                categories: shieldsByCategory
             };
         }
         
@@ -1028,6 +1102,41 @@ class ContentRenderer {
                                             </div>
                                             ${categoryData.items.length > 4 ? `
                                                 <a href="#equipment/armor/${categoryKey}" class="view-all-link">
+                                                    View all ${categoryData.items.length} ${categoryData.title} →
+                                                </a>
+                                            ` : ''}
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        `;
+                    }
+                    
+                    // Special handling for shields with categories
+                    if (subcategory === 'shields' && group.categories) {
+                        const shieldCategoryOrder = [
+                            'small-shields', 'medium-shields', 'greatshields', 'unique-shields'
+                        ];
+                        
+                        return `
+                            <div class="equipment-subcategory">
+                                <h2 class="subcategory-title">
+                                    <a href="#equipment/shields">${group.title}</a>
+                                </h2>
+                                ${shieldCategoryOrder.map(categoryKey => {
+                                    const categoryData = group.categories[categoryKey];
+                                    if (!categoryData || categoryData.items.length === 0) return '';
+                                    
+                                    return `
+                                        <div class="shield-category-section">
+                                            <h3 class="shield-category-title">
+                                                <a href="#equipment/shields/${categoryKey}">${categoryData.title} (${categoryData.items.length})</a>
+                                            </h3>
+                                            <div class="items-grid compact">
+                                                ${categoryData.items.slice(0, 4).map(item => this.renderItemCard(item, 'equipment')).join('')}
+                                            </div>
+                                            ${categoryData.items.length > 4 ? `
+                                                <a href="#equipment/shields/${categoryKey}" class="view-all-link">
                                                     View all ${categoryData.items.length} ${categoryData.title} →
                                                 </a>
                                             ` : ''}
@@ -1144,6 +1253,9 @@ class ContentRenderer {
             } else if (item.armorCategory) {
                 // For armor with subcategories like light-armor, heavy-armor, etc.
                 href = `#equipment/armor/${item.armorCategory}/${metadata.id}`;
+            } else if (item.shieldCategory) {
+                // For shields with subcategories like small-shields, greatshields, etc.
+                href = `#equipment/shields/${item.shieldCategory}/${metadata.id}`;
             } else {
                 href = `#equipment/${item.subcategory}/${metadata.id}`;
             }

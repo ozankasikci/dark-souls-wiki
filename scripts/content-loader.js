@@ -299,6 +299,74 @@ class ContentLoader {
         
         return allArmor;
     }
+    
+    async loadShieldSubcategories() {
+        const allShields = [];
+        
+        try {
+            console.log('Fetching shields manifest...');
+            const response = await fetch(`data/equipment/shields/manifest.json?t=${Date.now()}`);
+            if (response.ok) {
+                const shieldsManifest = await response.json();
+                console.log('Shields manifest:', shieldsManifest);
+                
+                // Check if shields has subcategories
+                if (shieldsManifest.subcategories && shieldsManifest.subcategories.length > 0) {
+                    // Process each shield subcategory
+                    for (const subcategoryData of shieldsManifest.subcategories) {
+                        try {
+                            const categoryResponse = await fetch(`data/equipment/shields/${subcategoryData.path}/manifest.json?t=${Date.now()}`);
+                            if (categoryResponse.ok) {
+                                const categoryManifest = await categoryResponse.json();
+                                
+                                // Get items from the manifest
+                                const shieldItems = categoryManifest.items || [];
+                                
+                                // Load each shield in the category
+                                const promises = shieldItems.map(shieldItem => {
+                                    const filename = shieldItem.file || `${shieldItem.id}.md`;
+                                    const itemId = shieldItem.id;
+                                    
+                                    return this.loadContent(`equipment/shields/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
+                                        // Ensure the item has an ID in its metadata
+                                        if (!loadedItem.metadata.id) {
+                                            loadedItem.metadata.id = itemId;
+                                        }
+                                        return loadedItem;
+                                    }).catch(err => {
+                                        console.error(`Failed to load shield ${subcategoryData.path}/${filename}:`, err);
+                                        return null;
+                                    });
+                                });
+                                
+                                const results = await Promise.all(promises);
+                                const validResults = results.filter(result => result !== null);
+                                
+                                // Add shield category info
+                                validResults.forEach(item => {
+                                    item.subcategory = 'shields';
+                                    item.subcategoryTitle = 'Shields';
+                                    item.shieldCategory = subcategoryData.id;
+                                    item.shieldCategoryTitle = subcategoryData.name;
+                                });
+                                
+                                allShields.push(...validResults);
+                            }
+                        } catch (err) {
+                            console.error(`Failed to load shield category ${subcategoryData.id}:`, err);
+                        }
+                    }
+                } else {
+                    // Fallback to old structure if no subcategories
+                    console.log('No shield subcategories found, using fallback');
+                }
+            }
+        } catch (error) {
+            console.error('Error loading shield subcategories:', error);
+        }
+        
+        return allShields;
+    }
 
     async loadEquipmentListing() {
         const cacheKey = 'category-listing-equipment';
@@ -331,6 +399,12 @@ class ContentLoader {
                             // Load armor subcategories
                             const armorItems = await this.loadArmorSubcategories();
                             allItems.push(...armorItems);
+                        } else if (subcategory === 'shields') {
+                            // Load shield subcategories
+                            console.log('Loading shield subcategories...');
+                            const shieldItems = await this.loadShieldSubcategories();
+                            console.log('Loaded shield items:', shieldItems.length);
+                            allItems.push(...shieldItems);
                         }
                     } else if (Array.isArray(data)) {
                         // Handle regular arrays (shields, rings, etc.)

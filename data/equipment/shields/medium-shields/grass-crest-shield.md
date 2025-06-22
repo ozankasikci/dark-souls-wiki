@@ -1,7 +1,9 @@
 ---
+id: grass-crest-shield
 name: Grass Crest Shield
 type: shield
 category: Medium Shield
+shieldCategory: medium-shields
 description: Old medium metal shield of unknown origin. The grass crest is lightly imbued with magic, which slightly speeds stamina recovery.
 location: Darkroot Basin - Found on a corpse in the swamp area
 stats:

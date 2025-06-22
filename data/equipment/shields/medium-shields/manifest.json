@@ -1,0 +1,121 @@
+{
+  "category": "Medium Shields",
+  "description": "Balanced shields offering good protection and moderate weight",
+  "items": [
+    {
+      "id": "grass-crest-shield",
+      "name": "Grass Crest Shield",
+      "file": "grass-crest-shield.md"
+    },
+    {
+      "id": "heater-shield",
+      "name": "Heater Shield",
+      "file": "heater-shield.md"
+    },
+    {
+      "id": "knight-shield",
+      "name": "Knight Shield",
+      "file": "knight-shield.md"
+    },
+    {
+      "id": "kite-shield",
+      "name": "Kite Shield",
+      "file": "kite-shield.md"
+    },
+    {
+      "id": "balder-shield",
+      "name": "Balder Shield",
+      "file": "balder-shield.md"
+    },
+    {
+      "id": "crest-shield",
+      "name": "Crest Shield",
+      "file": "crest-shield.md"
+    },
+    {
+      "id": "dragon-crest-shield",
+      "name": "Dragon Crest Shield",
+      "file": "dragon-crest-shield.md"
+    },
+    {
+      "id": "spider-shield",
+      "name": "Spider Shield",
+      "file": "spider-shield.md"
+    },
+    {
+      "id": "eagle-shield",
+      "name": "Eagle Shield",
+      "file": "eagle-shield.md"
+    },
+    {
+      "id": "tower-kite-shield",
+      "name": "Tower Kite Shield",
+      "file": "tower-kite-shield.md"
+    },
+    {
+      "id": "caduceus-kite-shield",
+      "name": "Caduceus Kite Shield",
+      "file": "caduceus-kite-shield.md"
+    },
+    {
+      "id": "hollow-soldier-shield",
+      "name": "Hollow Soldier Shield",
+      "file": "hollow-soldier-shield.md"
+    },
+    {
+      "id": "wooden-shield",
+      "name": "Wooden Shield",
+      "file": "wooden-shield.md"
+    },
+    {
+      "id": "large-leather-shield",
+      "name": "Large Leather Shield",
+      "file": "large-leather-shield.md"
+    },
+    {
+      "id": "silver-knight-shield",
+      "name": "Silver Knight Shield",
+      "file": "silver-knight-shield.md"
+    },
+    {
+      "id": "black-knight-shield",
+      "name": "Black Knight Shield",
+      "file": "black-knight-shield.md"
+    },
+    {
+      "id": "pierce-shield",
+      "name": "Pierce Shield",
+      "file": "pierce-shield.md"
+    },
+    {
+      "id": "spiked-shield",
+      "name": "Spiked Shield",
+      "file": "spiked-shield.md"
+    },
+    {
+      "id": "crystal-shield",
+      "name": "Crystal Shield",
+      "file": "crystal-shield.md"
+    },
+    {
+      "id": "sunlight-shield",
+      "name": "Sunlight Shield",
+      "file": "sunlight-shield.md"
+    },
+    {
+      "id": "iron-round-shield",
+      "name": "Iron Round Shield",
+      "file": "iron-round-shield.md"
+    },
+    {
+      "id": "bloodshield",
+      "name": "Bloodshield",
+      "file": "bloodshield.md"
+    },
+    {
+      "id": "sanctus",
+      "name": "Sanctus",
+      "file": "sanctus.md"
+    }
+  ]
+}
