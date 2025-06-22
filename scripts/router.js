@@ -47,6 +47,12 @@ class Router {
             await this.loadWeaponCategoryListing(rest[1]);
             return;
         }
+        
+        // Handle armor subcategory listings (e.g., #equipment/armor/heavy-armor)
+        if (type === 'equipment' && rest[0] === 'armor' && rest.length === 2) {
+            await this.loadArmorCategoryListing(rest[1]);
+            return;
+        }
 
         // Check if this is a category listing (no id provided)
         if (rest.length === 0) {
@@ -110,6 +116,45 @@ class Router {
             
         } catch (error) {
             console.error('Error loading weapon category:', error);
+            this.showError(error.message);
+        }
+    }
+    
+    async loadArmorCategoryListing(armorCategory) {
+        try {
+            this.showLoading();
+            
+            // Load all equipment items
+            const allItems = await contentLoader.loadCategoryListing('equipment');
+            
+            // Filter by armor category
+            const items = allItems.filter(item => 
+                item.subcategory === 'armor' && 
+                item.armorCategory === armorCategory
+            );
+            
+            // Get category name from manifest
+            const categoryTitles = {
+                'light-armor': 'Light Armor',
+                'medium-armor': 'Medium Armor',
+                'heavy-armor': 'Heavy Armor',
+                'starting-sets': 'Starting Sets',
+                'unique-armor': 'Unique Armor'
+            };
+            
+            const html = contentRenderer.renderCategoryListing('equipment', items);
+            this.displayContent(html);
+            
+            document.title = `${categoryTitles[armorCategory] || armorCategory} - Dark Souls Wiki`;
+            this.updateNavigation('equipment');
+            
+            // Load thumbnails after content is rendered
+            setTimeout(async () => {
+                await contentRenderer.loadCategoryThumbnails();
+            }, 100);
+            
+        } catch (error) {
+            console.error('Error loading armor category:', error);
             this.showError(error.message);
         }
     }
@@ -215,6 +260,11 @@ class Router {
                     contentType = `equipment/weapons/${parts[1]}`;
                     contentId = parts[2];
                     renderType = 'weapons';
+                } else if (parts[0] === 'armor' && parts.length === 3) {
+                    // Handle armor subcategory paths like armor/heavy-armor/havel-set
+                    contentType = `equipment/armor/${parts[1]}`;
+                    contentId = parts[2];
+                    renderType = 'armor';
                 } else {
                     // Handle regular equipment paths
                     contentType = `equipment/${parts[0]}`;

@@ -234,6 +234,64 @@ class ContentLoader {
         return allWeapons;
     }
 
+    async loadArmorSubcategories() {
+        const allArmor = [];
+        
+        try {
+            const response = await fetch(`data/equipment/armor/manifest.json?t=${Date.now()}`);
+            if (response.ok) {
+                const armorManifest = await response.json();
+                
+                // Check if armor has subcategories
+                if (armorManifest.subcategories && armorManifest.subcategories.length > 0) {
+                    // Process each armor subcategory
+                    for (const subcategoryData of armorManifest.subcategories) {
+                        try {
+                            const categoryResponse = await fetch(`data/equipment/armor/${subcategoryData.path}/manifest.json?t=${Date.now()}`);
+                            if (categoryResponse.ok) {
+                                const categoryManifest = await categoryResponse.json();
+                                
+                                // Get items from the manifest
+                                const armorItems = categoryManifest.items || [];
+                                
+                                // Load each armor piece in the category
+                                const promises = armorItems.map(item => {
+                                    const filename = item.file || `${item.id}.md`;
+                                    return this.loadContent(`equipment/armor/${subcategoryData.path}`, filename.replace('.md', '')).catch(err => {
+                                        console.error(`Failed to load armor ${subcategoryData.path}/${filename}:`, err);
+                                        return null;
+                                    });
+                                });
+                                
+                                const results = await Promise.all(promises);
+                                const validResults = results.filter(result => result !== null);
+                                
+                                // Add armor category info
+                                validResults.forEach(item => {
+                                    item.subcategory = 'armor';
+                                    item.subcategoryTitle = 'Armor';
+                                    item.armorCategory = subcategoryData.id;
+                                    item.armorCategoryTitle = subcategoryData.name;
+                                });
+                                
+                                allArmor.push(...validResults);
+                            }
+                        } catch (err) {
+                            console.error(`Failed to load armor category ${subcategoryData.id}:`, err);
+                        }
+                    }
+                } else {
+                    // Fallback to old structure if no subcategories
+                    console.log('No armor subcategories found, using fallback');
+                }
+            }
+        } catch (error) {
+            console.error('Error loading armor subcategories:', error);
+        }
+        
+        return allArmor;
+    }
+
     async loadEquipmentListing() {
         const cacheKey = 'category-listing-equipment';
         
@@ -257,11 +315,17 @@ class ContentLoader {
                 for (const [subcategory, data] of Object.entries(manifest)) {
                     // Handle new structure where weapons points to a manifest file
                     if (typeof data === 'string' && data.endsWith('manifest.json')) {
-                        // Load weapons subcategories
-                        const weaponsItems = await this.loadWeaponSubcategories();
-                        allItems.push(...weaponsItems);
+                        if (subcategory === 'weapons') {
+                            // Load weapons subcategories
+                            const weaponsItems = await this.loadWeaponSubcategories();
+                            allItems.push(...weaponsItems);
+                        } else if (subcategory === 'armor') {
+                            // Load armor subcategories
+                            const armorItems = await this.loadArmorSubcategories();
+                            allItems.push(...armorItems);
+                        }
                     } else if (Array.isArray(data)) {
-                        // Handle regular arrays (armor, shields, rings)
+                        // Handle regular arrays (shields, rings, etc.)
                         const promises = data.map(filename => 
                             this.loadContent(`equipment/${subcategory}`, filename.replace('.md', '')).catch(err => {
                                 console.error(`Failed to load equipment/${subcategory}/${filename}:`, err);

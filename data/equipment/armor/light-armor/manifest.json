@@ -1,0 +1,46 @@
+{
+  "category": "Light Armor",
+  "description": "Lightweight armor sets prioritizing mobility and special resistances",
+  "items": [
+    {
+      "id": "gold-hemmed-black-set",
+      "name": "Gold-Hemmed Black Set",
+      "file": "gold-hemmed-black-set.md"
+    },
+    {
+      "id": "black-sorcerer-set",
+      "name": "Black Sorcerer Set",
+      "file": "black-sorcerer-set.md"
+    },
+    {
+      "id": "crimson-set",
+      "name": "Crimson Set",
+      "file": "crimson-set.md"
+    },
+    {
+      "id": "dingy-set",
+      "name": "Dingy Set",
+      "file": "dingy-set.md"
+    },
+    {
+      "id": "moonlight-set",
+      "name": "Moonlight Set",
+      "file": "moonlight-set.md"
+    },
+    {
+      "id": "painting-guardian-set",
+      "name": "Painting Guardian Set",
+      "file": "painting-guardian-set.md"
+    },
+    {
+      "id": "shadow-set",
+      "name": "Shadow Set",
+      "file": "shadow-set.md"
+    },
+    {
+      "id": "witch-set",
+      "name": "Witch Set",
+      "file": "witch-set.md"
+    }
+  ]
+}

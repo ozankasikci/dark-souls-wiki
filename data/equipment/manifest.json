@@ -1,8 +1,6 @@
 {
   "weapons": "weapons/manifest.json",
-  "armor": [
-    "elite-knight-set.md"
-  ],
+  "armor": "armor/manifest.json",
   "shields": [
     "grass-crest-shield.md"
   ],

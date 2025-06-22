@@ -1,0 +1,46 @@
+{
+  "category": "Medium Armor",
+  "description": "Balanced armor sets offering good protection without excessive weight",
+  "items": [
+    {
+      "id": "elite-knight-set",
+      "name": "Elite Knight Set",
+      "file": "elite-knight-set.md"
+    },
+    {
+      "id": "balder-set",
+      "name": "Balder Set",
+      "file": "balder-set.md"
+    },
+    {
+      "id": "brass-set",
+      "name": "Brass Set",
+      "file": "brass-set.md"
+    },
+    {
+      "id": "catarina-set",
+      "name": "Catarina Set",
+      "file": "catarina-set.md"
+    },
+    {
+      "id": "eastern-set",
+      "name": "Eastern Set",
+      "file": "eastern-set.md"
+    },
+    {
+      "id": "favor-set",
+      "name": "Favor Set",
+      "file": "favor-set.md"
+    },
+    {
+      "id": "ornstein-set",
+      "name": "Ornstein's Set",
+      "file": "ornstein-set.md"
+    },
+    {
+      "id": "silver-knight-set",
+      "name": "Silver Knight Set",
+      "file": "silver-knight-set.md"
+    }
+  ]
+}

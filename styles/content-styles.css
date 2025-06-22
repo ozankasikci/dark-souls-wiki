@@ -1492,6 +1492,38 @@ body > .generic:last-child {
     transform: translateX(4px);
 }
 
+/* Armor Category Sections - same styles as weapon categories */
+.armor-category-section {
+    margin-bottom: var(--space-3xl);
+}
+
+.armor-category-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.armor-category-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color var(--transition-base);
+}
+
+.armor-category-title a:hover {
+    color: var(--ds-gold);
+}
+
+.armor-category-title .category-count {
+    font-size: 1.125rem;
+    color: var(--text-dim);
+    font-weight: 400;
+}
+
 /* Equipment navigation styles */
 .equipment-nav {
     display: flex;

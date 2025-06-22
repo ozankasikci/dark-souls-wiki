@@ -1,0 +1,46 @@
+{
+  "category": "Heavy Armor",
+  "description": "Heavy armor sets offering maximum defense and poise at the cost of mobility",
+  "items": [
+    {
+      "id": "havel-set",
+      "name": "Havel's Set",
+      "file": "havel-set.md"
+    },
+    {
+      "id": "black-iron-set",
+      "name": "Black Iron Set",
+      "file": "black-iron-set.md"
+    },
+    {
+      "id": "black-knight-set",
+      "name": "Black Knight Set",
+      "file": "black-knight-set.md"
+    },
+    {
+      "id": "giant-set",
+      "name": "Giant Set",
+      "file": "giant-set.md"
+    },
+    {
+      "id": "golem-set",
+      "name": "Golem Set",
+      "file": "golem-set.md"
+    },
+    {
+      "id": "guardian-set",
+      "name": "Guardian Set",
+      "file": "guardian-set.md"
+    },
+    {
+      "id": "stone-set",
+      "name": "Stone Set",
+      "file": "stone-set.md"
+    },
+    {
+      "id": "smough-set",
+      "name": "Smough's Set",
+      "file": "smough-set.md"
+    }
+  ]
+}

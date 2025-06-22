@@ -1,0 +1,51 @@
+{
+  "category": "Starting Sets",
+  "description": "Armor sets available at the start of the game for each class",
+  "items": [
+    {
+      "id": "knight-set",
+      "name": "Knight Set",
+      "file": "knight-set.md"
+    },
+    {
+      "id": "warrior-set",
+      "name": "Warrior Set",
+      "file": "warrior-set.md"
+    },
+    {
+      "id": "wanderer-set",
+      "name": "Wanderer Set",
+      "file": "wanderer-set.md"
+    },
+    {
+      "id": "thief-set",
+      "name": "Thief Set",
+      "file": "thief-set.md"
+    },
+    {
+      "id": "bandit-set",
+      "name": "Bandit Set",
+      "file": "bandit-set.md"
+    },
+    {
+      "id": "hunter-set",
+      "name": "Hunter Set",
+      "file": "hunter-set.md"
+    },
+    {
+      "id": "sorcerer-set",
+      "name": "Sorcerer Set",
+      "file": "sorcerer-set.md"
+    },
+    {
+      "id": "pyromancer-set",
+      "name": "Pyromancer Set",
+      "file": "pyromancer-set.md"
+    },
+    {
+      "id": "cleric-set",
+      "name": "Cleric Set",
+      "file": "cleric-set.md"
+    }
+  ]
+}

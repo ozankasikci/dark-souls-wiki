@@ -5,6 +5,7 @@ class ContentRenderer {
             bosses: this.bossTemplate,
             items: this.itemTemplate,
             weapons: this.weaponTemplate,
+            armor: this.armorTemplate,
             npcs: this.npcTemplate,
             quests: this.questTemplate,
             lore: this.loreTemplate,
@@ -35,6 +36,12 @@ class ContentRenderer {
                     const iconPlaceholder = `<!-- Weapon icon will be loaded here -->`;
                     const iconHtml = `<img src="${imageData.url}" alt="${imageData.alt}" title="${imageData.name}" class="weapon-icon wiki-image" loading="lazy">`;
                     content = content.replace(iconPlaceholder, iconHtml);
+                }
+                // For armor, replace the armor render placeholder
+                else if (type === 'armor' && content.includes('armor-full-render')) {
+                    const renderPlaceholder = `<!-- Full armor render will be loaded here -->`;
+                    const renderHtml = `<img src="${imageData.url}" alt="${imageData.alt}" title="${imageData.name}" class="armor-render wiki-image" loading="lazy">`;
+                    content = content.replace(renderPlaceholder, renderHtml);
                 }
                 // For other content types, add featured image after header
                 else {
@@ -375,6 +382,62 @@ class ContentRenderer {
                     <div class="item-stat full-width">
                         <span class="item-stat-label">Special</span>
                         <span class="item-stat-value">${metadata.special}</span>
+                    </div>
+                    ` : ''}
+                </div>
+                
+                <div class="content-body">
+                    ${html}
+                </div>
+                
+                ${this.renderRelatedContent(data.relatedContent)}
+            </article>
+        `;
+    }
+
+    armorTemplate(data) {
+        const { metadata, html } = data;
+        
+        // Use title if name is not available
+        const armorName = metadata.name || metadata.title;
+        const slug = metadata.slug || (armorName ? armorName.toLowerCase().replace(/\s+/g, '-') : '');
+        
+        return `
+            <article class="content-article armor-article">
+                <header class="content-header">
+                    <h1>${armorName}</h1>
+                    <p class="content-subtitle">${metadata.category || 'Armor'}</p>
+                    ${metadata.description ? `<p class="content-description">${metadata.description}</p>` : ''}
+                    ${this.renderTags(metadata.tags)}
+                </header>
+                
+                <div class="armor-full-render" id="armor-full-${slug}">
+                    <!-- Full armor render will be loaded here -->
+                </div>
+                
+                <div class="item-stats-section">
+                    ${metadata.weight ? `
+                    <div class="item-stat">
+                        <span class="item-stat-label">Weight</span>
+                        <span class="item-stat-value">${metadata.weight}</span>
+                    </div>
+                    ` : ''}
+                    ${metadata.poise ? `
+                    <div class="item-stat">
+                        <span class="item-stat-label">Poise</span>
+                        <span class="item-stat-value">${metadata.poise}</span>
+                    </div>
+                    ` : ''}
+                    ${metadata.durability ? `
+                    <div class="item-stat">
+                        <span class="item-stat-label">Durability</span>
+                        <span class="item-stat-value">${metadata.durability}</span>
+                    </div>
+                    ` : ''}
+                    ${metadata.location ? `
+                    <div class="item-stat full-width">
+                        <span class="item-stat-label">Location</span>
+                        <span class="item-stat-value">${metadata.location}</span>
                     </div>
                     ` : ''}
                 </div>
@@ -748,6 +811,59 @@ class ContentRenderer {
             `;
         }
         
+        // Special handling for armor to show categories
+        if (subcategory === 'armor') {
+            // Group armor by category
+            const armorByCategory = items.reduce((acc, armor) => {
+                const category = armor.armorCategory || 'other';
+                if (!acc[category]) {
+                    acc[category] = {
+                        title: armor.armorCategoryTitle || category,
+                        items: []
+                    };
+                }
+                acc[category].items.push(armor);
+                return acc;
+            }, {});
+            
+            const armorCategoryOrder = [
+                'light-armor', 'medium-armor', 'heavy-armor', 'starting-sets', 'unique-armor'
+            ];
+            
+            return `
+                <div class="category-listing">
+                    <header class="category-header">
+                        <h1>${title}</h1>
+                        <p class="category-description">${subcategoryDescriptions[subcategory] || ''}</p>
+                        
+                        <nav class="equipment-nav">
+                            <a href="#equipment" class="equipment-nav-link">All Equipment</a>
+                            ${allSubcategories.map(sub => 
+                                `<a href="#equipment/${sub.key}" class="equipment-nav-link ${sub.key === subcategory ? 'active' : ''}">${sub.title}</a>`
+                            ).join('')}
+                        </nav>
+                    </header>
+                    
+                    ${armorCategoryOrder.map(categoryKey => {
+                        const categoryData = armorByCategory[categoryKey];
+                        if (!categoryData || categoryData.items.length === 0) return '';
+                        
+                        return `
+                            <div class="armor-category-section">
+                                <h2 class="armor-category-title">
+                                    <a href="#equipment/armor/${categoryKey}">${categoryData.title}</a>
+                                    <span class="category-count">(${categoryData.items.length})</span>
+                                </h2>
+                                <div class="items-grid">
+                                    ${categoryData.items.map(item => this.renderItemCard(item, 'equipment')).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+        
         // Regular handling for non-weapon categories
         return `
             <div class="category-listing">
@@ -805,6 +921,27 @@ class ContentRenderer {
             };
         }
         
+        // For armor, further group by armor category
+        if (grouped.armor && grouped.armor.items.length > 0) {
+            const armorByCategory = grouped.armor.items.reduce((acc, armor) => {
+                const category = armor.armorCategory || 'other';
+                if (!acc[category]) {
+                    acc[category] = {
+                        title: armor.armorCategoryTitle || category,
+                        items: []
+                    };
+                }
+                acc[category].items.push(armor);
+                return acc;
+            }, {});
+            
+            // Replace armor group with categorized structure
+            grouped.armor = {
+                title: 'Armor',
+                categories: armorByCategory
+            };
+        }
+        
         // Define subcategory order
         const subcategoryOrder = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
         
@@ -856,6 +993,41 @@ class ContentRenderer {
                                             </div>
                                             ${categoryData.items.length > 4 ? `
                                                 <a href="#equipment/weapons/${categoryKey}" class="view-all-link">
+                                                    View all ${categoryData.items.length} ${categoryData.title} →
+                                                </a>
+                                            ` : ''}
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        `;
+                    }
+                    
+                    // Special handling for armor with categories
+                    if (subcategory === 'armor' && group.categories) {
+                        const armorCategoryOrder = [
+                            'light-armor', 'medium-armor', 'heavy-armor', 'starting-sets', 'unique-armor'
+                        ];
+                        
+                        return `
+                            <div class="equipment-subcategory">
+                                <h2 class="subcategory-title">
+                                    <a href="#equipment/armor">${group.title}</a>
+                                </h2>
+                                ${armorCategoryOrder.map(categoryKey => {
+                                    const categoryData = group.categories[categoryKey];
+                                    if (!categoryData || categoryData.items.length === 0) return '';
+                                    
+                                    return `
+                                        <div class="armor-category-section">
+                                            <h3 class="armor-category-title">
+                                                <a href="#equipment/armor/${categoryKey}">${categoryData.title} (${categoryData.items.length})</a>
+                                            </h3>
+                                            <div class="items-grid compact">
+                                                ${categoryData.items.slice(0, 4).map(item => this.renderItemCard(item, 'equipment')).join('')}
+                                            </div>
+                                            ${categoryData.items.length > 4 ? `
+                                                <a href="#equipment/armor/${categoryKey}" class="view-all-link">
                                                     View all ${categoryData.items.length} ${categoryData.title} →
                                                 </a>
                                             ` : ''}

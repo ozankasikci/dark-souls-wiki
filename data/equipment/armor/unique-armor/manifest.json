@@ -1,0 +1,36 @@
+{
+  "category": "Unique Armor",
+  "description": "Special and unique armor pieces",
+  "items": [
+    {
+      "id": "xanthous-set",
+      "name": "Xanthous Set",
+      "file": "xanthous-set.md"
+    },
+    {
+      "id": "thorns-set",
+      "name": "Set of Thorns",
+      "file": "thorns-set.md"
+    },
+    {
+      "id": "chester-set",
+      "name": "Chester's Set",
+      "file": "chester-set.md"
+    },
+    {
+      "id": "lord-blade-set",
+      "name": "Lord's Blade Set",
+      "file": "lord-blade-set.md"
+    },
+    {
+      "id": "artorias-set",
+      "name": "Artorias' Set",
+      "file": "artorias-set.md"
+    },
+    {
+      "id": "gough-set",
+      "name": "Gough's Set",
+      "file": "gough-set.md"
+    }
+  ]
+}

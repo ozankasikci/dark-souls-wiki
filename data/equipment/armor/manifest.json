@@ -1,3 +1,31 @@
-[
-  "elite-knight-set.md"
-]
+{
+  "category": "Armor",
+  "subcategories": [
+    {
+      "id": "starting-sets",
+      "name": "Starting Sets",
+      "path": "starting-sets"
+    },
+    {
+      "id": "light-armor",
+      "name": "Light Armor",
+      "path": "light-armor"
+    },
+    {
+      "id": "medium-armor",
+      "name": "Medium Armor",
+      "path": "medium-armor"
+    },
+    {
+      "id": "heavy-armor",
+      "name": "Heavy Armor",
+      "path": "heavy-armor"
+    },
+    {
+      "id": "unique-armor",
+      "name": "Unique Armor",
+      "path": "unique-armor"
+    }
+  ],
+  "items": []
+}
