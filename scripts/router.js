@@ -23,6 +23,13 @@ class Router {
     async handleRoute() {
         const hash = window.location.hash.slice(1);
         
+        // Track page view for analytics
+        if (window.Analytics) {
+            const pageTitle = hash ? `${document.title} - ${hash}` : document.title;
+            const pageLocation = window.location.href;
+            window.Analytics.trackPageView(pageTitle, pageLocation);
+        }
+        
         if (!hash) {
             this.showHomePage();
             return;

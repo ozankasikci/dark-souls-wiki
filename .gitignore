@@ -60,3 +60,4 @@ test-*.html
 # Downloaded content cache
 scripts/weapon-image-results.json.idead
 .idea
+.vercel

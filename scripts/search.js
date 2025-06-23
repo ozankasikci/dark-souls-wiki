@@ -106,6 +106,11 @@ class SearchEngine {
     search(query, limit = 20) {
         if (!query || query.trim().length === 0) return [];
         
+        // Track search for analytics
+        if (window.Analytics) {
+            window.Analytics.trackSearch(query.trim());
+        }
+        
         const queryWords = this.tokenize(query);
         const scores = new Map();
         
