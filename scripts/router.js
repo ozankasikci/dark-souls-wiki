@@ -31,6 +31,8 @@ class Router {
         const parts = hash.split('/');
         const [type, ...rest] = parts;
         
+        console.log('Router: handling route', hash, 'type:', type, 'rest:', rest);
+        
         if (!type) {
             this.showHomePage();
             return;
@@ -38,6 +40,7 @@ class Router {
 
         // Handle equipment subcategory listings
         if (type === 'equipment' && rest.length === 1 && ['weapons', 'armor', 'shields', 'rings', 'catalysts'].includes(rest[0])) {
+            console.log('Router: calling loadEquipmentSubcategory for', rest[0]);
             await this.loadEquipmentSubcategory(rest[0]);
             return;
         }
@@ -65,9 +68,20 @@ class Router {
             await this.loadRingCategoryListing(rest[1]);
             return;
         }
+        
+        // Handle item subcategory listings (e.g., #items/consumables)
+        if (type === 'items' && rest.length === 1) {
+            await this.loadItemCategoryListing(rest[0]);
+            return;
+        }
 
         // Check if this is a category listing (no id provided)
         if (rest.length === 0) {
+            // Special handling for items category to use new items system
+            if (type === 'items') {
+                await this.loadItemsListing();
+                return;
+            }
             await this.loadCategoryListing(type);
             return;
         }
@@ -247,6 +261,75 @@ class Router {
         }
     }
 
+    async loadItemsListing() {
+        try {
+            this.showLoading();
+            
+            // Load all items from the equipment system
+            const allItems = await contentLoader.loadItemSubcategories();
+            
+            // Render as items subcategory listing
+            const html = contentRenderer.renderEquipmentSubcategory('items', 'Items', allItems);
+            this.displayContent(html);
+            
+            document.title = 'Items - Dark Souls Wiki';
+            this.updateNavigation('items');
+            
+            // Load thumbnails after content is rendered
+            setTimeout(async () => {
+                await contentRenderer.loadCategoryThumbnails();
+            }, 100);
+            
+        } catch (error) {
+            console.error('Error loading items listing:', error);
+            this.showError(error.message);
+        }
+    }
+
+    async loadItemCategoryListing(itemCategory) {
+        try {
+            this.showLoading();
+            
+            // Load all items 
+            const allItems = await contentLoader.loadItemSubcategories();
+            
+            // Filter by item category
+            const items = allItems.filter(item => 
+                item.itemCategory === itemCategory
+            );
+            
+            // Get category name from manifest
+            const categoryTitles = {
+                'ammunition': 'Ammunition',
+                'consumables': 'Consumables',
+                'embers': 'Embers',
+                'key-bonfire-items': 'Key/Bonfire Items',
+                'keys': 'Keys',
+                'multiplayer-items': 'Multiplayer Items',
+                'ore': 'Ore',
+                'projectiles': 'Projectiles',
+                'souls': 'Souls',
+                'tools': 'Tools',
+                'unequippable': 'Unequippable'
+            };
+            
+            const html = contentRenderer.renderCategoryListing('items', items);
+            this.displayContent(html);
+            
+            document.title = `${categoryTitles[itemCategory] || itemCategory} - Dark Souls Wiki`;
+            this.updateNavigation('items');
+            
+            // Load thumbnails after content is rendered
+            setTimeout(async () => {
+                await contentRenderer.loadCategoryThumbnails();
+            }, 100);
+            
+        } catch (error) {
+            console.error('Error loading item category:', error);
+            this.showError(error.message);
+        }
+    }
+
     async loadEquipmentSubcategory(subcategory) {
         try {
             this.showLoading();
@@ -267,6 +350,7 @@ class Router {
                 armor: 'Armor',
                 shields: 'Shields',
                 rings: 'Rings',
+                items: 'Items',
                 catalysts: 'Catalysts & Talismans'
             };
             
@@ -341,7 +425,16 @@ class Router {
             let contentId = id;
             let renderType = type;
             
-            if (type === 'equipment' && id.includes('/')) {
+            // Handle items subcategory paths like items/consumables/estus-flask
+            if (type === 'items' && id.includes('/')) {
+                const parts = id.split('/');
+                if (parts.length === 2) {
+                    // Handle item subcategory paths like consumables/estus-flask
+                    contentType = `equipment/items/${parts[0]}`;
+                    contentId = parts[1];
+                    renderType = 'items';
+                }
+            } else if (type === 'equipment' && id.includes('/')) {
                 const parts = id.split('/');
                 if (parts[0] === 'weapons' && parts.length === 3) {
                     // Handle weapon subcategory paths like weapons/hammers/club

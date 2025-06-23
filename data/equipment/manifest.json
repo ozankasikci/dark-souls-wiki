@@ -3,6 +3,7 @@
   "armor": "armor/manifest.json",
   "shields": "shields/manifest.json",
   "rings": "rings/manifest.json",
+  "items": "items/manifest.json",
   "catalysts": [
     "pyromancy-flame.md"
   ]

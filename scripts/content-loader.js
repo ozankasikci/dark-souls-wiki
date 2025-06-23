@@ -432,6 +432,69 @@ class ContentLoader {
         return allRings;
     }
 
+    async loadItemSubcategories() {
+        const allItems = [];
+        
+        try {
+            const response = await fetch(`data/equipment/items/manifest.json?t=${Date.now()}`);
+            if (response.ok) {
+                const itemsManifest = await response.json();
+                
+                // Check if items has subcategories
+                if (itemsManifest.subcategories && itemsManifest.subcategories.length > 0) {
+                    // Process each item subcategory
+                    for (const subcategoryData of itemsManifest.subcategories) {
+                        try {
+                            const categoryResponse = await fetch(`data/equipment/items/${subcategoryData.path}/manifest.json?t=${Date.now()}`);
+                            if (categoryResponse.ok) {
+                                const categoryManifest = await categoryResponse.json();
+                                
+                                // Get items from the manifest
+                                const itemItems = categoryManifest.items || [];
+                                
+                                // Load each item in the category
+                                const promises = itemItems.map(itemItem => {
+                                    const filename = itemItem.file || `${itemItem.id}.md`;
+                                    const itemId = itemItem.id;
+                                    
+                                    return this.loadContent(`equipment/items/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
+                                        // Ensure the item has an ID in its metadata
+                                        if (!loadedItem.metadata.id) {
+                                            loadedItem.metadata.id = itemId;
+                                        }
+                                        return loadedItem;
+                                    }).catch(err => {
+                                        console.error(`Failed to load item ${subcategoryData.path}/${filename}:`, err);
+                                        return null;
+                                    });
+                                });
+                                
+                                const results = await Promise.all(promises);
+                                const validResults = results.filter(result => result !== null);
+                                
+                                // Add item category info
+                                validResults.forEach(item => {
+                                    item.subcategory = 'items';
+                                    item.subcategoryTitle = 'Items';
+                                    item.itemCategory = subcategoryData.id;
+                                    item.itemCategoryTitle = subcategoryData.name;
+                                });
+                                
+                                allItems.push(...validResults);
+                            }
+                        } catch (error) {
+                            console.error(`Error loading item subcategory ${subcategoryData.path}:`, error);
+                        }
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Error loading item subcategories:', error);
+        }
+        
+        return allItems;
+    }
+
     async loadEquipmentListing() {
         const cacheKey = 'category-listing-equipment';
         
@@ -449,6 +512,7 @@ class ContentLoader {
                     armor: 'Armor',
                     shields: 'Shields',
                     rings: 'Rings',
+                    items: 'Items',
                     catalysts: 'Catalysts'
                 };
                 
@@ -471,6 +535,10 @@ class ContentLoader {
                             // Load ring subcategories
                             const ringItems = await this.loadRingSubcategories();
                             allItems.push(...ringItems);
+                        } else if (subcategory === 'items') {
+                            // Load items subcategories
+                            const itemItems = await this.loadItemSubcategories();
+                            allItems.push(...itemItems);
                         }
                     } else if (Array.isArray(data)) {
                         // Handle regular arrays (shields, rings, etc.)

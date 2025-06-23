@@ -1,0 +1,36 @@
+{
+  "category": "Multiplayer Items",
+  "description": "Items used for online play and cooperation",
+  "items": [
+    {
+      "id": "red-sign-soapstone",
+      "name": "Red Sign Soapstone",
+      "file": "red-sign-soapstone.md"
+    },
+    {
+      "id": "cracked-red-eye-orb",
+      "name": "Cracked Red Eye Orb",
+      "file": "cracked-red-eye-orb.md"
+    },
+    {
+      "id": "red-eye-orb",
+      "name": "Red Eye Orb",
+      "file": "red-eye-orb.md"
+    },
+    {
+      "id": "blue-eye-orb",
+      "name": "Blue Eye Orb",
+      "file": "blue-eye-orb.md"
+    },
+    {
+      "id": "book-of-the-guilty",
+      "name": "Book of the Guilty",
+      "file": "book-of-the-guilty.md"
+    },
+    {
+      "id": "indictment",
+      "name": "Indictment",
+      "file": "indictment.md"
+    }
+  ]
+}

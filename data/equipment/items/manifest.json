@@ -1,0 +1,72 @@
+{
+  "category": "Items",
+  "description": "Consumables, tools, and other utility items",
+  "subcategories": [
+    {
+      "id": "ammunition",
+      "name": "Ammunition",
+      "path": "ammunition",
+      "description": "Arrows, bolts, and throwing projectiles for ranged weapons"
+    },
+    {
+      "id": "consumables", 
+      "name": "Consumables",
+      "path": "consumables",
+      "description": "Items that provide temporary effects when used"
+    },
+    {
+      "id": "embers",
+      "name": "Embers", 
+      "path": "embers",
+      "description": "Humanity and ember-related items"
+    },
+    {
+      "id": "key-bonfire-items",
+      "name": "Key/Bonfire Items",
+      "path": "key-bonfire-items",
+      "description": "Important quest items and bonfire-related materials"
+    },
+    {
+      "id": "keys",
+      "name": "Keys",
+      "path": "keys",
+      "description": "Keys for doors, cages, and locked areas"
+    },
+    {
+      "id": "multiplayer-items", 
+      "name": "Multiplayer Items",
+      "path": "multiplayer-items",
+      "description": "Items used for online play and cooperation"
+    },
+    {
+      "id": "ore",
+      "name": "Ore",
+      "path": "ore",
+      "description": "Upgrade materials and enhancement stones"
+    },
+    {
+      "id": "projectiles",
+      "name": "Projectiles", 
+      "path": "projectiles",
+      "description": "Throwable items and bombs"
+    },
+    {
+      "id": "souls",
+      "name": "Souls",
+      "path": "souls",
+      "description": "Boss souls and special soul items"
+    },
+    {
+      "id": "tools",
+      "name": "Tools",
+      "path": "tools",
+      "description": "Repair boxes, binoculars, and utility items"
+    },
+    {
+      "id": "unequippable",
+      "name": "Unequippable",
+      "path": "unequippable",
+      "description": "Quest items and materials that cannot be equipped"
+    }
+  ]
+}

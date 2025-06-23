@@ -1,0 +1,21 @@
+{
+  "category": "Embers",
+  "description": "Humanity and ember-related items",
+  "items": [
+    {
+      "id": "humanity",
+      "name": "Humanity",
+      "file": "humanity.md"
+    },
+    {
+      "id": "twin-humanities",
+      "name": "Twin Humanities",
+      "file": "twin-humanities.md"
+    },
+    {
+      "id": "fire-keeper-soul",
+      "name": "Fire Keeper Soul",
+      "file": "fire-keeper-soul.md"
+    }
+  ]
+}

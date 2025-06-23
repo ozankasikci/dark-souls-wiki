@@ -1,0 +1,31 @@
+{
+  "category": "Projectiles",
+  "description": "Throwable items and bombs",
+  "items": [
+    {
+      "id": "throwing-knife",
+      "name": "Throwing Knife",
+      "file": "throwing-knife.md"
+    },
+    {
+      "id": "firebomb",
+      "name": "Firebomb",
+      "file": "firebomb.md"
+    },
+    {
+      "id": "black-firebomb",
+      "name": "Black Firebomb",
+      "file": "black-firebomb.md"
+    },
+    {
+      "id": "dung-pie",
+      "name": "Dung Pie",
+      "file": "dung-pie.md"
+    },
+    {
+      "id": "poison-throwing-knife",
+      "name": "Poison Throwing Knife",
+      "file": "poison-throwing-knife.md"
+    }
+  ]
+}

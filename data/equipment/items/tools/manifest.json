@@ -1,0 +1,26 @@
+{
+  "category": "Tools",
+  "description": "Repair boxes, binoculars, and utility items",
+  "items": [
+    {
+      "id": "repair-box",
+      "name": "Repair Box",
+      "file": "repair-box.md"
+    },
+    {
+      "id": "repairman-hammer",
+      "name": "Repairman Hammer",
+      "file": "repairman-hammer.md"
+    },
+    {
+      "id": "binoculars",
+      "name": "Binoculars",
+      "file": "binoculars.md"
+    },
+    {
+      "id": "servant-catalyst",
+      "name": "Servant Catalyst",
+      "file": "servant-catalyst.md"
+    }
+  ]
+}

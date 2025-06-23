@@ -1,0 +1,31 @@
+{
+  "category": "Unequippable",
+  "description": "Quest items and materials that cannot be equipped",
+  "items": [
+    {
+      "id": "broken-pendant",
+      "name": "Broken Pendant",
+      "file": "broken-pendant.md"
+    },
+    {
+      "id": "dried-finger",
+      "name": "Dried Finger",
+      "file": "dried-finger.md"
+    },
+    {
+      "id": "bottomless-box",
+      "name": "Bottomless Box",
+      "file": "bottomless-box.md"
+    },
+    {
+      "id": "darksign",
+      "name": "Darksign",
+      "file": "darksign.md"
+    },
+    {
+      "id": "covenant-of-artorias",
+      "name": "Covenant of Artorias",
+      "file": "covenant-of-artorias.md"
+    }
+  ]
+}

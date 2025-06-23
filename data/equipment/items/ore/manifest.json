@@ -1,0 +1,61 @@
+{
+  "category": "Ore",
+  "description": "Upgrade materials and enhancement stones",
+  "items": [
+    {
+      "id": "titanite-shard",
+      "name": "Titanite Shard",
+      "file": "titanite-shard.md"
+    },
+    {
+      "id": "large-titanite-shard",
+      "name": "Large Titanite Shard",
+      "file": "large-titanite-shard.md"
+    },
+    {
+      "id": "titanite-chunk",
+      "name": "Titanite Chunk",
+      "file": "titanite-chunk.md"
+    },
+    {
+      "id": "titanite-slab",
+      "name": "Titanite Slab",
+      "file": "titanite-slab.md"
+    },
+    {
+      "id": "twinkling-titanite",
+      "name": "Twinkling Titanite",
+      "file": "twinkling-titanite.md"
+    },
+    {
+      "id": "dragon-scale",
+      "name": "Dragon Scale",
+      "file": "dragon-scale.md"
+    },
+    {
+      "id": "green-titanite-shard",
+      "name": "Green Titanite Shard",
+      "file": "green-titanite-shard.md"
+    },
+    {
+      "id": "large-magic-ember",
+      "name": "Large Magic Ember",
+      "file": "large-magic-ember.md"
+    },
+    {
+      "id": "enchanted-ember",
+      "name": "Enchanted Ember",
+      "file": "enchanted-ember.md"
+    },
+    {
+      "id": "divine-ember",
+      "name": "Divine Ember",
+      "file": "divine-ember.md"
+    },
+    {
+      "id": "large-divine-ember",
+      "name": "Large Divine Ember",
+      "file": "large-divine-ember.md"
+    }
+  ]
+}

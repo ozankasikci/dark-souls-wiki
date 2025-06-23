@@ -742,7 +742,8 @@ class ContentRenderer {
             armor: 'Helms, chest armor, gauntlets, and leg armor',
             shields: 'Small shields, medium shields, and greatshields',
             rings: 'Magical rings that provide various effects',
-            catalysts: 'Sorcery catalysts, miracle talismans, and pyromancy flames'
+            catalysts: 'Sorcery catalysts, miracle talismans, and pyromancy flames',
+            items: 'Consumables, tools, keys, and other utility items'
         };
         
         // Define all subcategories for navigation
@@ -751,7 +752,8 @@ class ContentRenderer {
             { key: 'armor', title: 'Armor' },
             { key: 'shields', title: 'Shields' },
             { key: 'rings', title: 'Rings' },
-            { key: 'catalysts', title: 'Catalysts & Talismans' }
+            { key: 'catalysts', title: 'Catalysts & Talismans' },
+            { key: 'items', title: 'Items' }
         ];
         
         // Special handling for weapons to show categories
@@ -917,7 +919,61 @@ class ContentRenderer {
             `;
         }
         
-        // Regular handling for non-weapon categories
+        // Special handling for items to show categories
+        if (subcategory === 'items') {
+            // Group items by category
+            const itemsByCategory = items.reduce((acc, item) => {
+                const category = item.itemCategory || 'other';
+                if (!acc[category]) {
+                    acc[category] = {
+                        title: item.itemCategoryTitle || category,
+                        items: []
+                    };
+                }
+                acc[category].items.push(item);
+                return acc;
+            }, {});
+            
+            const itemCategoryOrder = [
+                'consumables', 'ammunition', 'ore', 'keys', 'key-bonfire-items',
+                'tools', 'souls', 'multiplayer-items', 'projectiles', 'embers', 'unequippable'
+            ];
+            
+            return `
+                <div class="category-listing">
+                    <header class="category-header">
+                        <h1>${title}</h1>
+                        <p class="category-description">${subcategoryDescriptions[subcategory] || ''}</p>
+                        
+                        <nav class="equipment-nav">
+                            <a href="#equipment" class="equipment-nav-link">All Equipment</a>
+                            ${allSubcategories.map(sub => 
+                                `<a href="#equipment/${sub.key}" class="equipment-nav-link ${sub.key === subcategory ? 'active' : ''}">${sub.title}</a>`
+                            ).join('')}
+                        </nav>
+                    </header>
+                    
+                    ${itemCategoryOrder.map(categoryKey => {
+                        const categoryData = itemsByCategory[categoryKey];
+                        if (!categoryData || categoryData.items.length === 0) return '';
+                        
+                        return `
+                            <div class="item-category-section">
+                                <h2 class="item-category-title">
+                                    <a href="#items/${categoryKey}">${categoryData.title}</a>
+                                    <span class="category-count">(${categoryData.items.length})</span>
+                                </h2>
+                                <div class="items-grid">
+                                    ${categoryData.items.map(item => this.renderItemCard(item, 'items')).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+        
+        // Regular handling for non-categorized subcategories
         return `
             <div class="category-listing">
                 <header class="category-header">
@@ -1037,8 +1093,29 @@ class ContentRenderer {
             };
         }
         
+        // For items, further group by item category
+        if (grouped.items && grouped.items.items.length > 0) {
+            const itemsByCategory = grouped.items.items.reduce((acc, item) => {
+                const category = item.itemCategory || 'other';
+                if (!acc[category]) {
+                    acc[category] = {
+                        title: item.itemCategoryTitle || category,
+                        items: []
+                    };
+                }
+                acc[category].items.push(item);
+                return acc;
+            }, {});
+            
+            // Replace items group with categorized structure
+            grouped.items = {
+                title: 'Items',
+                categories: itemsByCategory
+            };
+        }
+        
         // Define subcategory order
-        const subcategoryOrder = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
+        const subcategoryOrder = ['weapons', 'armor', 'shields', 'rings', 'items', 'catalysts'];
         
         return `
             <div class="category-listing equipment-listing">
@@ -1203,6 +1280,42 @@ class ContentRenderer {
                         `;
                     }
                     
+                    // Special handling for items with categories
+                    if (subcategory === 'items' && group.categories) {
+                        const itemCategoryOrder = [
+                            'ammunition', 'consumables', 'embers', 'key-bonfire-items', 'keys', 
+                            'multiplayer-items', 'ore', 'projectiles', 'souls', 'tools', 'unequippable'
+                        ];
+                        
+                        return `
+                            <div class="equipment-subcategory">
+                                <h2 class="subcategory-title">
+                                    <a href="#equipment/items">${group.title}</a>
+                                </h2>
+                                ${itemCategoryOrder.map(categoryKey => {
+                                    const categoryData = group.categories[categoryKey];
+                                    if (!categoryData || categoryData.items.length === 0) return '';
+                                    
+                                    return `
+                                        <div class="item-category-section">
+                                            <h3 class="item-category-title">
+                                                <a href="#equipment/items/${categoryKey}">${categoryData.title} (${categoryData.items.length})</a>
+                                            </h3>
+                                            <div class="items-grid compact">
+                                                ${categoryData.items.slice(0, 4).map(item => this.renderItemCard(item, 'equipment')).join('')}
+                                            </div>
+                                            ${categoryData.items.length > 4 ? `
+                                                <a href="#equipment/items/${categoryKey}" class="view-all-link">
+                                                    View all ${categoryData.items.length} ${categoryData.title} →
+                                                </a>
+                                            ` : ''}
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        `;
+                    }
+                    
                     // Regular handling for non-weapon categories
                     if (group.items && group.items.length > 0) {
                         return `
@@ -1315,6 +1428,9 @@ class ContentRenderer {
             } else if (item.ringCategory) {
                 // For rings with subcategories like offensive-rings, utility-rings, etc.
                 href = `#equipment/rings/${item.ringCategory}/${metadata.id}`;
+            } else if (item.itemCategory) {
+                // For items with subcategories like consumables, ammunition, etc.
+                href = `#equipment/items/${item.itemCategory}/${metadata.id}`;
             } else {
                 href = `#equipment/${item.subcategory}/${metadata.id}`;
             }

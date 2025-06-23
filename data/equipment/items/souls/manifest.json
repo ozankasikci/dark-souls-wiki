@@ -1,0 +1,56 @@
+{
+  "category": "Souls",
+  "description": "Boss souls and special soul items",
+  "items": [
+    {
+      "id": "soul-of-gwyn",
+      "name": "Soul of Gwyn",
+      "file": "soul-of-gwyn.md"
+    },
+    {
+      "id": "soul-of-sif",
+      "name": "Soul of Sif",
+      "file": "soul-of-sif.md"
+    },
+    {
+      "id": "soul-of-ornstein",
+      "name": "Soul of Ornstein",
+      "file": "soul-of-ornstein.md"
+    },
+    {
+      "id": "soul-of-smough",
+      "name": "Soul of Smough",
+      "file": "soul-of-smough.md"
+    },
+    {
+      "id": "soul-of-quelaag",
+      "name": "Soul of Quelaag",
+      "file": "soul-of-quelaag.md"
+    },
+    {
+      "id": "soul-of-the-moonlight-butterfly",
+      "name": "Soul of the Moonlight Butterfly",
+      "file": "soul-of-the-moonlight-butterfly.md"
+    },
+    {
+      "id": "core-of-an-iron-golem",
+      "name": "Core of an Iron Golem",
+      "file": "core-of-an-iron-golem.md"
+    },
+    {
+      "id": "soul-of-a-great-hero",
+      "name": "Soul of a Great Hero",
+      "file": "soul-of-a-great-hero.md"
+    },
+    {
+      "id": "soul-of-a-hero",
+      "name": "Soul of a Hero",
+      "file": "soul-of-a-hero.md"
+    },
+    {
+      "id": "soul-of-a-brave-warrior",
+      "name": "Soul of a Brave Warrior",
+      "file": "soul-of-a-brave-warrior.md"
+    }
+  ]
+}
