@@ -296,7 +296,16 @@ const IMAGE_MANIFEST = {
     },
     "builds": {
         "quality-build": {
-            "ext": "svg"
+            "ext": "jpg"
+        },
+        "giant-dad": {
+            "ext": "jpg"
+        },
+        "glass-cannon-sorcerer": {
+            "ext": "jpg"
+        },
+        "faith-paladin": {
+            "ext": "jpg"
         }
     },
     "catalysts": {
