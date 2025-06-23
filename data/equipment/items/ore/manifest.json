@@ -8,9 +8,19 @@
       "file": "titanite-shard.md"
     },
     {
+      "id": "large-titanite-shard",
+      "name": "Large Titanite Shard",
+      "file": "large-titanite-shard.md"
+    },
+    {
       "id": "twinkling-titanite",
       "name": "Twinkling Titanite",
       "file": "twinkling-titanite.md"
+    },
+    {
+      "id": "dragon-scale",
+      "name": "Dragon Scale",
+      "file": "dragon-scale.md"
     }
   ]
 }

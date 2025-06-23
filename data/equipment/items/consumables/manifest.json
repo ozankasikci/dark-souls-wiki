@@ -26,6 +26,21 @@
       "id": "humanity",
       "name": "Humanity",
       "file": "humanity.md"
+    },
+    {
+      "id": "homeward-bone",
+      "name": "Homeward Bone",
+      "file": "homeward-bone.md"
+    },
+    {
+      "id": "charcoal-pine-resin",
+      "name": "Charcoal Pine Resin",
+      "file": "charcoal-pine-resin.md"
+    },
+    {
+      "id": "prism-stone",
+      "name": "Prism Stone",
+      "file": "prism-stone.md"
     }
   ]
 }

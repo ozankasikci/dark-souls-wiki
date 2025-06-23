@@ -11,6 +11,16 @@
       "id": "cage-key",
       "name": "Cage Key",
       "file": "cage-key.md"
+    },
+    {
+      "id": "master-key",
+      "name": "Master Key",
+      "file": "master-key.md"
+    },
+    {
+      "id": "key-to-depths",
+      "name": "Key to Depths",
+      "file": "key-to-depths.md"
     }
   ]
 }

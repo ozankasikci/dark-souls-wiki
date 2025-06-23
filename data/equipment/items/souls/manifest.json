@@ -11,6 +11,16 @@
       "id": "soul-of-ornstein",
       "name": "Soul of Ornstein",
       "file": "soul-of-ornstein.md"
+    },
+    {
+      "id": "soul-of-gwyn",
+      "name": "Soul of Gwyn",
+      "file": "soul-of-gwyn.md"
+    },
+    {
+      "id": "soul-of-quelaag",
+      "name": "Soul of Quelaag",
+      "file": "soul-of-quelaag.md"
     }
   ]
 }

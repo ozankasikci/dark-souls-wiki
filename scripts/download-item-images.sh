@@ -97,22 +97,37 @@ download_item "divine-blessing" "Divine+Blessing"
 download_item "green-blossom" "Green+Blossom"
 download_item "purple-moss-clump" "Purple+Moss+Clump"
 download_item "humanity" "Humanity"
+download_item "homeward-bone" "Homeward+Bone"
+download_item "charcoal-pine-resin" "Charcoal+Pine+Resin"
+download_item "prism-stone" "Prism+Stone"
 
 # Ammunition
 download_item "wooden-arrow" "Wooden+Arrow"
+download_item "standard-arrow" "Standard+Arrow"
+download_item "large-arrow" "Large+Arrow"
+download_item "feather-arrow" "Feather+Arrow"
+download_item "fire-arrow" "Fire+Arrow"
+download_item "poison-arrow" "Poison+Arrow"
 download_item "heavy-bolt" "Heavy+Bolt"
+download_item "standard-bolt" "Standard+Bolt"
 
 # Keys
 download_item "basement-key" "Basement+Key"
 download_item "cage-key" "Cage+Key"
+download_item "master-key" "Master+Key"
+download_item "key-to-depths" "Key+to+Depths"
 
 # Souls
 download_item "soul-of-sif" "Soul+of+Sif"
 download_item "soul-of-ornstein" "Soul+of+Ornstein"
+download_item "soul-of-gwyn" "Soul+of+Gwyn"
+download_item "soul-of-quelaag" "Soul+of+Quelaag"
 
 # Ore (Upgrade Materials)
 download_item "titanite-shard" "Titanite+Shard"
+download_item "large-titanite-shard" "Large+Titanite+Shard"
 download_item "twinkling-titanite" "Twinkling+Titanite"
+download_item "dragon-scale" "Dragon+Scale"
 
 # Tools
 download_item "binoculars" "Binoculars"
