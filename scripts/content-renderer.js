@@ -1509,6 +1509,10 @@ class ContentRenderer {
                 subtitle = metadata.title || metadata.location || '';
                 extraInfo = metadata.covenant ? `<span class="card-covenant">${metadata.covenant}</span>` : '';
                 break;
+            case 'builds':
+                subtitle = metadata.build_type || 'Build';
+                extraInfo = metadata.soul_level ? `<span class="card-level">SL ${metadata.soul_level}</span>` : '';
+                break;
             default:
                 subtitle = '';
         }

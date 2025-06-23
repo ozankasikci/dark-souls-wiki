@@ -132,12 +132,19 @@ class ContentLoader {
                         console.log(`Loading ${category} manifest with ${manifest.length} items:`, manifest);
                         
                         // Load all items from the manifest
-                        const promises = manifest.map(filename => 
-                            this.loadContent(category, filename.replace('.md', '')).catch(err => {
+                        const promises = manifest.map(filename => {
+                            const itemId = filename.replace('.md', '');
+                            return this.loadContent(category, itemId).then(loadedItem => {
+                                // Ensure the item has an ID in its metadata
+                                if (!loadedItem.metadata.id) {
+                                    loadedItem.metadata.id = itemId;
+                                }
+                                return loadedItem;
+                            }).catch(err => {
                                 console.error(`Failed to load ${category}/${filename}:`, err);
                                 return null;
-                            })
-                        );
+                            });
+                        });
                         
                         const results = await Promise.all(promises);
                         const validResults = results.filter(result => result !== null);
