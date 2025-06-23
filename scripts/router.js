@@ -339,8 +339,18 @@ class Router {
             console.log('All equipment items:', allItems);
             console.log('Looking for subcategory:', subcategory);
             
-            // Filter by subcategory
-            const items = allItems.filter(item => item.subcategory === subcategory);
+            // Filter by subcategory - special handling for catalysts
+            let items;
+            if (subcategory === 'catalysts') {
+                // Combine catalysts, talismans, and flames
+                items = allItems.filter(item => 
+                    item.subcategory === 'catalysts' || 
+                    item.subcategory === 'talismans' || 
+                    item.subcategory === 'flames'
+                );
+            } else {
+                items = allItems.filter(item => item.subcategory === subcategory);
+            }
             console.log(`Filtered items for ${subcategory}:`, items);
             console.log(`Found ${items.length} items for ${subcategory}`);
             
@@ -350,7 +360,6 @@ class Router {
                 armor: 'Armor',
                 shields: 'Shields',
                 rings: 'Rings',
-                items: 'Items',
                 catalysts: 'Catalysts & Talismans'
             };
             

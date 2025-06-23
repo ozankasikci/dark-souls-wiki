@@ -752,8 +752,7 @@ class ContentRenderer {
             { key: 'armor', title: 'Armor' },
             { key: 'shields', title: 'Shields' },
             { key: 'rings', title: 'Rings' },
-            { key: 'catalysts', title: 'Catalysts & Talismans' },
-            { key: 'items', title: 'Items' }
+            { key: 'catalysts', title: 'Catalysts & Talismans' }
         ];
         
         // Special handling for weapons to show categories
@@ -1163,6 +1162,24 @@ class ContentRenderer {
             };
         }
         
+        // Combine catalysts, talismans, and flames into a single catalysts group
+        const catalystSubcategories = ['catalysts', 'talismans', 'flames'];
+        const combinedCatalysts = {
+            title: 'Catalysts & Talismans',
+            items: []
+        };
+        
+        catalystSubcategories.forEach(subcat => {
+            if (grouped[subcat] && grouped[subcat].items) {
+                combinedCatalysts.items = combinedCatalysts.items.concat(grouped[subcat].items);
+                delete grouped[subcat]; // Remove individual subcategories
+            }
+        });
+        
+        if (combinedCatalysts.items.length > 0) {
+            grouped.catalysts = combinedCatalysts;
+        }
+        
         // For items, further group by item category
         if (grouped.items && grouped.items.items.length > 0) {
             const itemsByCategory = grouped.items.items.reduce((acc, item) => {
@@ -1185,7 +1202,7 @@ class ContentRenderer {
         }
         
         // Define subcategory order
-        const subcategoryOrder = ['weapons', 'armor', 'shields', 'rings', 'items', 'catalysts'];
+        const subcategoryOrder = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
         
         return `
             <div class="category-listing equipment-listing">
@@ -1194,11 +1211,46 @@ class ContentRenderer {
                     <p class="category-description">Browse weapons, armor, shields, rings, and catalysts</p>
                     
                     <nav class="equipment-nav">
-                        ${subcategoryOrder.map(subcategory => {
-                            const group = grouped[subcategory];
-                            if (!group || (group.items && group.items.length === 0) || (group.categories && Object.keys(group.categories).length === 0)) return '';
-                            return `<a href="#equipment/${subcategory}" class="equipment-nav-link">${group.title}</a>`;
-                        }).join('')}
+                        <a href="#equipment" class="equipment-nav-link active">All Equipment</a>
+                        <a href="#equipment/weapons" class="equipment-nav-link">Weapons</a>
+                        <a href="#equipment/weapons/daggers" class="equipment-nav-link">Daggers</a>
+                        <a href="#equipment/weapons/straight-swords" class="equipment-nav-link">Straight Swords</a>
+                        <a href="#equipment/weapons/greatswords" class="equipment-nav-link">Greatswords</a>
+                        <a href="#equipment/weapons/ultra-greatswords" class="equipment-nav-link">Ultra Greatswords</a>
+                        <a href="#equipment/weapons/curved-swords" class="equipment-nav-link">Curved Swords</a>
+                        <a href="#equipment/weapons/curved-greatswords" class="equipment-nav-link">Curved Greatswords</a>
+                        <a href="#equipment/weapons/piercing-swords" class="equipment-nav-link">Piercing Swords</a>
+                        <a href="#equipment/weapons/katanas" class="equipment-nav-link">Katanas</a>
+                        <a href="#equipment/weapons/spears" class="equipment-nav-link">Spears</a>
+                        <a href="#equipment/weapons/axes" class="equipment-nav-link">Axes</a>
+                        <a href="#equipment/weapons/great-axes" class="equipment-nav-link">Great Axes</a>
+                        <a href="#equipment/weapons/hammers" class="equipment-nav-link">Hammers</a>
+                        <a href="#equipment/weapons/great-hammers" class="equipment-nav-link">Great Hammers</a>
+                        <a href="#equipment/weapons/fist-weapons" class="equipment-nav-link">Fist Weapons</a>
+                        <a href="#equipment/weapons/halberds" class="equipment-nav-link">Halberds</a>
+                        <a href="#equipment/weapons/whips" class="equipment-nav-link">Whips</a>
+                        <a href="#equipment/weapons/bows" class="equipment-nav-link">Bows</a>
+                        <a href="#equipment/weapons/crossbows" class="equipment-nav-link">Crossbows</a>
+                        <a href="#equipment/weapons/catalysts" class="equipment-nav-link">Catalysts</a>
+                        <a href="#equipment/weapons/talismans" class="equipment-nav-link">Talismans</a>
+                        <a href="#equipment/weapons/flames" class="equipment-nav-link">Flames</a>
+                        <a href="#equipment/armor" class="equipment-nav-link">Armor</a>
+                        <a href="#equipment/armor/light-armor" class="equipment-nav-link">Light Armor</a>
+                        <a href="#equipment/armor/medium-armor" class="equipment-nav-link">Medium Armor</a>
+                        <a href="#equipment/armor/heavy-armor" class="equipment-nav-link">Heavy Armor</a>
+                        <a href="#equipment/armor/starting-sets" class="equipment-nav-link">Starting Sets</a>
+                        <a href="#equipment/armor/unique-armor" class="equipment-nav-link">Unique Armor</a>
+                        <a href="#equipment/shields" class="equipment-nav-link">Shields</a>
+                        <a href="#equipment/shields/small-shields" class="equipment-nav-link">Small Shields</a>
+                        <a href="#equipment/shields/medium-shields" class="equipment-nav-link">Medium Shields</a>
+                        <a href="#equipment/shields/greatshields" class="equipment-nav-link">Greatshields</a>
+                        <a href="#equipment/shields/unique-shields" class="equipment-nav-link">Unique Shields</a>
+                        <a href="#equipment/rings" class="equipment-nav-link">Rings</a>
+                        <a href="#equipment/rings/offensive-rings" class="equipment-nav-link">Offensive Rings</a>
+                        <a href="#equipment/rings/defensive-rings" class="equipment-nav-link">Defensive Rings</a>
+                        <a href="#equipment/rings/utility-rings" class="equipment-nav-link">Utility Rings</a>
+                        <a href="#equipment/rings/resistance-rings" class="equipment-nav-link">Resistance Rings</a>
+                        <a href="#equipment/catalysts" class="equipment-nav-link">Catalysts & Talismans</a>
                     </nav>
                 </header>
                 
@@ -1346,6 +1398,25 @@ class ContentRenderer {
                                         </div>
                                     `;
                                 }).join('')}
+                            </div>
+                        `;
+                    }
+                    
+                    // Special handling for catalysts (combined catalysts, talismans, flames)
+                    if (subcategory === 'catalysts' && group.items) {
+                        return `
+                            <div class="equipment-subcategory">
+                                <h2 class="subcategory-title">
+                                    <a href="#equipment/catalysts">${group.title}</a>
+                                </h2>
+                                <div class="items-grid compact">
+                                    ${group.items.slice(0, 6).map(item => this.renderItemCard(item, 'equipment')).join('')}
+                                </div>
+                                ${group.items.length > 6 ? `
+                                    <a href="#equipment/catalysts" class="view-all-link">
+                                        View all ${group.items.length} ${group.title} →
+                                    </a>
+                                ` : ''}
                             </div>
                         `;
                     }
