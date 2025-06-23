@@ -131,8 +131,11 @@ function initScrollAnimations() {
     });
 }
 
-// Parallax effect for hero section
+// Parallax effect for hero section - DISABLED to keep hero elements fixed height
 function initParallax() {
+    // Disabled to prevent transform issues with hero section height
+    return;
+    
     const hero = document.querySelector('.hero-background');
     const emberContainer = document.querySelector('.ember-container');
     if (!hero) return;
