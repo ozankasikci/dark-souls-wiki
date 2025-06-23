@@ -3,64 +3,14 @@
   "description": "Arrows, bolts, and throwing projectiles for ranged weapons",
   "items": [
     {
-      "id": "standard-arrow",
-      "name": "Standard Arrow",
-      "file": "standard-arrow.md"
-    },
-    {
-      "id": "large-arrow",
-      "name": "Large Arrow", 
-      "file": "large-arrow.md"
-    },
-    {
-      "id": "feather-arrow",
-      "name": "Feather Arrow",
-      "file": "feather-arrow.md"
-    },
-    {
-      "id": "fire-arrow",
-      "name": "Fire Arrow",
-      "file": "fire-arrow.md"
-    },
-    {
-      "id": "poison-arrow",
-      "name": "Poison Arrow",
-      "file": "poison-arrow.md"
-    },
-    {
-      "id": "moonlight-arrow",
-      "name": "Moonlight Arrow",
-      "file": "moonlight-arrow.md"
-    },
-    {
       "id": "wooden-arrow",
       "name": "Wooden Arrow",
       "file": "wooden-arrow.md"
     },
     {
-      "id": "standard-bolt",
-      "name": "Standard Bolt",
-      "file": "standard-bolt.md"
-    },
-    {
       "id": "heavy-bolt",
       "name": "Heavy Bolt",
       "file": "heavy-bolt.md"
-    },
-    {
-      "id": "sniper-bolt",
-      "name": "Sniper Bolt", 
-      "file": "sniper-bolt.md"
-    },
-    {
-      "id": "wood-bolt",
-      "name": "Wood Bolt",
-      "file": "wood-bolt.md"
-    },
-    {
-      "id": "lightning-bolt",
-      "name": "Lightning Bolt",
-      "file": "lightning-bolt.md"
     }
   ]
 }

@@ -96,6 +96,13 @@ class ImageLoader {
             return possiblePath;
         }
 
+        // For items, check if the file exists locally even if not in manifest
+        if (type === 'items' && imageType === 'thumbnail') {
+            const possiblePath = `assets/images/items/${normalizedId}.png`;
+            this.imageCache.set(cacheKey, possiblePath);
+            return possiblePath;
+        }
+
         // Fallback to Fextralife URL if available
         if (this.fextraUrls[type] && this.fextraUrls[type][id] && imageType === 'portrait') {
             this.imageCache.set(cacheKey, this.fextraUrls[type][id]);

@@ -8,39 +8,9 @@
       "file": "basement-key.md"
     },
     {
-      "id": "master-key",
-      "name": "Master Key",
-      "file": "master-key.md"
-    },
-    {
-      "id": "residence-key",
-      "name": "Residence Key",
-      "file": "residence-key.md"
-    },
-    {
-      "id": "watchtower-basement-key",
-      "name": "Watchtower Basement Key",
-      "file": "watchtower-basement-key.md"
-    },
-    {
       "id": "cage-key",
       "name": "Cage Key",
       "file": "cage-key.md"
-    },
-    {
-      "id": "archive-tower-cell-key",
-      "name": "Archive Tower Cell Key",
-      "file": "archive-tower-cell-key.md"
-    },
-    {
-      "id": "archive-tower-giant-door-key",
-      "name": "Archive Tower Giant Door Key",
-      "file": "archive-tower-giant-door-key.md"
-    },
-    {
-      "id": "big-pilgrims-key",
-      "name": "Big Pilgrim's Key",
-      "file": "big-pilgrims-key.md"
     }
   ]
 }

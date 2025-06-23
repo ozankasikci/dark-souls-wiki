@@ -6,36 +6,6 @@
       "id": "lordvessel",
       "name": "Lordvessel",
       "file": "lordvessel.md"
-    },
-    {
-      "id": "peculiar-doll",
-      "name": "Peculiar Doll",
-      "file": "peculiar-doll.md"
-    },
-    {
-      "id": "lord-soul",
-      "name": "Lord Soul",
-      "file": "lord-soul.md"
-    },
-    {
-      "id": "bequeathed-lord-soul-shard",
-      "name": "Bequeathed Lord Soul Shard",
-      "file": "bequeathed-lord-soul-shard.md"
-    },
-    {
-      "id": "orange-guidance-soapstone",
-      "name": "Orange Guidance Soapstone",
-      "file": "orange-guidance-soapstone.md"
-    },
-    {
-      "id": "white-sign-soapstone",
-      "name": "White Sign Soapstone",
-      "file": "white-sign-soapstone.md"
-    },
-    {
-      "id": "pendant",
-      "name": "Pendant",
-      "file": "pendant.md"
     }
   ]
 }
