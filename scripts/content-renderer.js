@@ -946,10 +946,12 @@ class ContentRenderer {
                         <p class="category-description">${subcategoryDescriptions[subcategory] || ''}</p>
                         
                         <nav class="equipment-nav">
-                            <a href="#equipment" class="equipment-nav-link">All Equipment</a>
-                            ${allSubcategories.map(sub => 
-                                `<a href="#equipment/${sub.key}" class="equipment-nav-link ${sub.key === subcategory ? 'active' : ''}">${sub.title}</a>`
-                            ).join('')}
+                            <a href="#items" class="equipment-nav-link active">Items</a>
+                            ${itemCategoryOrder.map(categoryKey => {
+                                const categoryData = itemsByCategory[categoryKey];
+                                if (!categoryData || categoryData.items.length === 0) return '';
+                                return `<a href="#items/${categoryKey}" class="equipment-nav-link">${categoryData.title}</a>`;
+                            }).join('')}
                         </nav>
                     </header>
                     
@@ -969,6 +971,40 @@ class ContentRenderer {
                             </div>
                         `;
                     }).join('')}
+                </div>
+            `;
+        }
+        
+        // Check if this is an item subcategory
+        const itemCategories = ['consumables', 'ammunition', 'ore', 'keys', 'key-bonfire-items', 'tools', 'souls', 'multiplayer-items', 'projectiles', 'embers', 'unequippable'];
+        const isItemCategory = itemCategories.includes(subcategory);
+        
+        if (isItemCategory) {
+            // Load all items to show navigation
+            const allItems = items; // We already have the filtered items
+            const itemsByCategory = {};
+            // Populate with available categories
+            itemCategories.forEach(cat => {
+                itemsByCategory[cat] = { title: this.getItemCategoryTitle(cat), items: [] };
+            });
+            
+            return `
+                <div class="category-listing">
+                    <header class="category-header">
+                        <h1>${title}</h1>
+                        <p class="category-description">${this.getItemCategoryDescription(subcategory)}</p>
+                        
+                        <nav class="equipment-nav">
+                            <a href="#items" class="equipment-nav-link">Items</a>
+                            ${itemCategories.map(categoryKey => 
+                                `<a href="#items/${categoryKey}" class="equipment-nav-link ${categoryKey === subcategory ? 'active' : ''}">${this.getItemCategoryTitle(categoryKey)}</a>`
+                            ).join('')}
+                        </nav>
+                    </header>
+                    
+                    <div class="items-grid">
+                        ${items.map(item => this.renderItemCard(item, 'items')).join('')}
+                    </div>
                 </div>
             `;
         }
@@ -993,6 +1029,40 @@ class ContentRenderer {
                 </div>
             </div>
         `;
+    }
+
+    getItemCategoryTitle(categoryKey) {
+        const titles = {
+            'consumables': 'Consumables',
+            'ammunition': 'Ammunition',
+            'ore': 'Ore',
+            'keys': 'Keys',
+            'key-bonfire-items': 'Key/Bonfire Items',
+            'tools': 'Tools',
+            'souls': 'Souls',
+            'multiplayer-items': 'Multiplayer Items',
+            'projectiles': 'Projectiles',
+            'embers': 'Embers',
+            'unequippable': 'Unequippable'
+        };
+        return titles[categoryKey] || categoryKey;
+    }
+
+    getItemCategoryDescription(categoryKey) {
+        const descriptions = {
+            'consumables': 'Items that provide temporary effects when used',
+            'ammunition': 'Arrows and bolts for ranged weapons',
+            'ore': 'Materials used for upgrading equipment',
+            'keys': 'Keys for doors, cages, and locked areas',
+            'key-bonfire-items': 'Important quest and bonfire-related items',
+            'tools': 'Utility items and equipment',
+            'souls': 'Boss souls and special soul items',
+            'multiplayer-items': 'Items used for multiplayer interactions',
+            'projectiles': 'Throwable items and projectiles',
+            'embers': 'Enhancement materials',
+            'unequippable': 'Quest items and unequippable materials'
+        };
+        return descriptions[categoryKey] || '';
     }
 
     renderEquipmentListing(items) {

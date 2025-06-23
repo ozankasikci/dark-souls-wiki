@@ -313,7 +313,7 @@ class Router {
                 'unequippable': 'Unequippable'
             };
             
-            const html = contentRenderer.renderCategoryListing('items', items);
+            const html = contentRenderer.renderEquipmentSubcategory(itemCategory, categoryTitles[itemCategory], items);
             this.displayContent(html);
             
             document.title = `${categoryTitles[itemCategory] || itemCategory} - Dark Souls Wiki`;
