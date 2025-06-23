@@ -610,10 +610,7 @@ const IMAGE_MANIFEST = {
             "ext": "png"
         },
         "grass-crest-shield": {
-            "ext": "jpg",
-            "alts": [
-                "png"
-            ]
+            "ext": "png"
         },
         "greatshield-of-artorias": {
             "ext": "png"
