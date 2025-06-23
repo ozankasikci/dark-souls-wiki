@@ -358,10 +358,7 @@ const IMAGE_MANIFEST = {
     },
     "npcs": {
         "andre": {
-            "ext": "jpg",
-            "alts": [
-                "svg"
-            ]
+            "ext": "jpg"
         },
         "anri-of-astora": {
             "ext": "jpg"
@@ -379,10 +376,7 @@ const IMAGE_MANIFEST = {
             "ext": "jpg"
         },
         "fire-keeper": {
-            "ext": "jpg",
-            "alts": [
-                "svg"
-            ]
+            "ext": "jpg"
         },
         "greirat-of-the-undead-settlement": {
             "ext": "jpg"
@@ -460,10 +454,7 @@ const IMAGE_MANIFEST = {
             "ext": "jpg"
         },
         "solaire-of-astora": {
-            "ext": "jpg",
-            "alts": [
-                "svg"
-            ]
+            "ext": "jpg"
         },
         "unbreakable-patches": {
             "ext": "jpg"
@@ -472,6 +463,15 @@ const IMAGE_MANIFEST = {
             "ext": "jpg"
         },
         "yuria-of-londor": {
+            "ext": "jpg"
+        },
+        "logan": {
+            "ext": "jpg"
+        },
+        "lautrec": {
+            "ext": "jpg"
+        },
+        "griggs": {
             "ext": "jpg"
         }
     },
