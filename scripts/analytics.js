@@ -1,8 +1,8 @@
 // Google Analytics configuration and tracking functions
 class Analytics {
     constructor() {
-        // Replace with your actual GA4 Measurement ID
-        this.measurementId = 'GA_MEASUREMENT_ID'; // e.g., 'G-XXXXXXXXXX'
+        // GA4 Measurement ID
+        this.measurementId = 'G-YTKV6LJXS3';
         this.initialized = false;
         this.init();
     }
