@@ -1483,7 +1483,12 @@ class ContentRenderer {
             console.error('Item missing metadata or name:', item);
             return '';
         }
-        const slug = metadata.slug || metadata.name.toLowerCase().replace(/\s+/g, '-');
+        const slug = metadata.slug || metadata.id || metadata.name.toLowerCase().replace(/\s+/g, '-');
+        
+        // Debug logging for builds
+        if (category === 'builds') {
+            console.log(`Build: ${metadata.name} - slug: ${slug} - id: ${metadata.id} - metadata.slug: ${metadata.slug}`);
+        }
         
         // Get specific info based on category
         let subtitle = '';

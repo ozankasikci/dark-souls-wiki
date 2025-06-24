@@ -157,7 +157,8 @@ class ImageLoader {
             weapons: 'weapon',
             items: 'item',
             areas: 'area',
-            npcs: 'boss'
+            npcs: 'boss',
+            builds: 'boss'
         };
         return typeMap[type] || 'thumbnail';
     }

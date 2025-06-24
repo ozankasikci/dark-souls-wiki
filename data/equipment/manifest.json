@@ -1,10 +1,270 @@
 {
-  "weapons": "weapons/manifest.json",
-  "armor": "armor/manifest.json",
-  "shields": "shields/manifest.json",
-  "rings": "rings/manifest.json",
-  "items": "items/manifest.json",
-  "catalysts": [
-    "pyromancy-flame.md"
+  "categories": [
+    {
+      "id": "weapons",
+      "name": "Weapons",
+      "description": "All weapon types in Dark Souls",
+      "subcategories": [
+        {
+          "id": "axes",
+          "name": "Axes",
+          "count": 6
+        },
+        {
+          "id": "bows",
+          "name": "Bows",
+          "count": 0
+        },
+        {
+          "id": "catalysts",
+          "name": "Catalysts",
+          "count": 0
+        },
+        {
+          "id": "crossbows",
+          "name": "Crossbows",
+          "count": 0
+        },
+        {
+          "id": "curved-greatswords",
+          "name": "Curved Greatswords",
+          "count": 3
+        },
+        {
+          "id": "curved-swords",
+          "name": "Curved Swords",
+          "count": 6
+        },
+        {
+          "id": "daggers",
+          "name": "Daggers",
+          "count": 6
+        },
+        {
+          "id": "fist-weapons",
+          "name": "Fist Weapons",
+          "count": 0
+        },
+        {
+          "id": "flames",
+          "name": "Flames",
+          "count": 0
+        },
+        {
+          "id": "great-axes",
+          "name": "Great Axes",
+          "count": 4
+        },
+        {
+          "id": "great-hammers",
+          "name": "Great Hammers",
+          "count": 0
+        },
+        {
+          "id": "greatswords",
+          "name": "Greatswords",
+          "count": 13
+        },
+        {
+          "id": "halberds",
+          "name": "Halberds",
+          "count": 0
+        },
+        {
+          "id": "hammers",
+          "name": "Hammers",
+          "count": 0
+        },
+        {
+          "id": "katanas",
+          "name": "Katanas",
+          "count": 4
+        },
+        {
+          "id": "piercing-swords",
+          "name": "Piercing Swords",
+          "count": 5
+        },
+        {
+          "id": "spears",
+          "name": "Spears",
+          "count": 10
+        },
+        {
+          "id": "straight-swords",
+          "name": "Straight Swords",
+          "count": 13
+        },
+        {
+          "id": "talismans",
+          "name": "Talismans",
+          "count": 0
+        },
+        {
+          "id": "ultra-greatswords",
+          "name": "Ultra Greatswords",
+          "count": 5
+        },
+        {
+          "id": "whips",
+          "name": "Whips",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": "armor",
+      "name": "Armor",
+      "description": "All armor sets and pieces",
+      "subcategories": [
+        {
+          "id": "heavy-armor",
+          "name": "Heavy Armor",
+          "count": 0
+        },
+        {
+          "id": "light-armor",
+          "name": "Light Armor",
+          "count": 0
+        },
+        {
+          "id": "medium-armor",
+          "name": "Medium Armor",
+          "count": 0
+        },
+        {
+          "id": "starting-sets",
+          "name": "Starting Sets",
+          "count": 0
+        },
+        {
+          "id": "unique-armor",
+          "name": "Unique Armor",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": "shields",
+      "name": "Shields",
+      "description": "All shield types",
+      "subcategories": [
+        {
+          "id": "greatshields",
+          "name": "Greatshields",
+          "count": 0
+        },
+        {
+          "id": "medium-shields",
+          "name": "Medium Shields",
+          "count": 0
+        },
+        {
+          "id": "small-shields",
+          "name": "Small Shields",
+          "count": 0
+        },
+        {
+          "id": "unique-shields",
+          "name": "Unique Shields",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": "rings",
+      "name": "Rings",
+      "description": "All rings and their effects",
+      "subcategories": [
+        {
+          "id": "defensive-rings",
+          "name": "Defensive Rings",
+          "count": 0
+        },
+        {
+          "id": "offensive-rings",
+          "name": "Offensive Rings",
+          "count": 0
+        },
+        {
+          "id": "resistance-rings",
+          "name": "Resistance Rings",
+          "count": 0
+        },
+        {
+          "id": "utility-rings",
+          "name": "Utility Rings",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": "items",
+      "name": "Items",
+      "description": "Consumables, tools, and other items",
+      "subcategories": [
+        {
+          "id": "ammunition",
+          "name": "Ammunition",
+          "count": 0
+        },
+        {
+          "id": "consumables",
+          "name": "Consumables",
+          "count": 0
+        },
+        {
+          "id": "embers",
+          "name": "Embers",
+          "count": 0
+        },
+        {
+          "id": "key-bonfire-items",
+          "name": "Key Bonfire Items",
+          "count": 0
+        },
+        {
+          "id": "keys",
+          "name": "Keys",
+          "count": 0
+        },
+        {
+          "id": "multiplayer-items",
+          "name": "Multiplayer Items",
+          "count": 0
+        },
+        {
+          "id": "ore",
+          "name": "Ore",
+          "count": 0
+        },
+        {
+          "id": "projectiles",
+          "name": "Projectiles",
+          "count": 0
+        },
+        {
+          "id": "souls",
+          "name": "Souls",
+          "count": 0
+        },
+        {
+          "id": "tools",
+          "name": "Tools",
+          "count": 0
+        },
+        {
+          "id": "unequippable",
+          "name": "Unequippable",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "id": "catalysts",
+      "name": "Catalysts",
+      "description": "Spell casting tools",
+      "subcategories": []
+    }
   ]
 }

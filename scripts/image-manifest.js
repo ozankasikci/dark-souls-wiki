@@ -1,5 +1,5 @@
 // Auto-generated manifest of all existing images in the project
-// Generated on: 2025-06-22T22:55:34.586Z
+// Generated on: 2025-06-24T14:09:35.074Z
 
 const IMAGE_MANIFEST = {
     "areas": {
@@ -295,7 +295,22 @@ const IMAGE_MANIFEST = {
         }
     },
     "builds": {
-        "quality-build": {
+        "artorias-cosplay": {
+            "ext": "jpg"
+        },
+        "bleed-build": {
+            "ext": "jpg"
+        },
+        "dex-build": {
+            "ext": "jpg"
+        },
+        "dragon-build": {
+            "ext": "jpg"
+        },
+        "faith-cleric": {
+            "ext": "jpg"
+        },
+        "faith-paladin": {
             "ext": "jpg"
         },
         "giant-dad": {
@@ -304,7 +319,22 @@ const IMAGE_MANIFEST = {
         "glass-cannon-sorcerer": {
             "ext": "jpg"
         },
-        "faith-paladin": {
+        "havel-tank": {
+            "ext": "jpg"
+        },
+        "int-sorcerer": {
+            "ext": "jpg"
+        },
+        "pyromancer": {
+            "ext": "jpg"
+        },
+        "quality-build": {
+            "ext": "jpg"
+        },
+        "stealth-assassin": {
+            "ext": "jpg"
+        },
+        "strength-build": {
             "ext": "jpg"
         }
     },
@@ -323,14 +353,41 @@ const IMAGE_MANIFEST = {
                 "png"
             ]
         },
+        "basement-key": {
+            "ext": "png"
+        },
+        "binoculars": {
+            "ext": "png"
+        },
+        "cage-key": {
+            "ext": "png"
+        },
+        "charcoal-pine-resin": {
+            "ext": "png"
+        },
         "coiled-sword": {
             "ext": "jpg",
             "alts": [
                 "png"
             ]
         },
+        "divine-blessing": {
+            "ext": "png"
+        },
+        "dragon-scale": {
+            "ext": "png"
+        },
         "elite-knight-set": {
             "ext": "jpg"
+        },
+        "estus-flask": {
+            "ext": "png"
+        },
+        "feather-arrow": {
+            "ext": "png"
+        },
+        "fire-arrow": {
+            "ext": "png"
         },
         "fire-keeper-soul": {
             "ext": "jpg",
@@ -338,8 +395,80 @@ const IMAGE_MANIFEST = {
                 "png"
             ]
         },
+        "green-blossom": {
+            "ext": "png"
+        },
+        "heavy-bolt": {
+            "ext": "png"
+        },
+        "homeward-bone": {
+            "ext": "png"
+        },
+        "humanity": {
+            "ext": "png"
+        },
+        "key-to-depths": {
+            "ext": "png"
+        },
+        "large-arrow": {
+            "ext": "png"
+        },
+        "large-titanite-shard": {
+            "ext": "png"
+        },
+        "lordvessel": {
+            "ext": "png"
+        },
+        "master-key": {
+            "ext": "png"
+        },
+        "peculiar-doll": {
+            "ext": "png"
+        },
+        "poison-arrow": {
+            "ext": "png"
+        },
+        "prism-stone": {
+            "ext": "png"
+        },
+        "purple-moss-clump": {
+            "ext": "png"
+        },
         "ring-of-favor": {
             "ext": "svg"
+        },
+        "soul-of-gwyn": {
+            "ext": "png"
+        },
+        "soul-of-ornstein": {
+            "ext": "png"
+        },
+        "soul-of-quelaag": {
+            "ext": "png"
+        },
+        "soul-of-sif": {
+            "ext": "png"
+        },
+        "standard-arrow": {
+            "ext": "png"
+        },
+        "standard-bolt": {
+            "ext": "png"
+        },
+        "throwing-knife": {
+            "ext": "png"
+        },
+        "titanite-shard": {
+            "ext": "png"
+        },
+        "twinkling-titanite": {
+            "ext": "png"
+        },
+        "white-sign-soapstone": {
+            "ext": "png"
+        },
+        "wooden-arrow": {
+            "ext": "png"
         }
     },
     "lore": {
@@ -363,6 +492,125 @@ const IMAGE_MANIFEST = {
         "anri-of-astora": {
             "ext": "jpg"
         },
+        "backup": {
+            "andre": {
+                "ext": "jpg"
+            },
+            "anri-of-astora": {
+                "ext": "jpg"
+            },
+            "company-captain-yorshka": {
+                "ext": "jpg"
+            },
+            "cornyx-of-the-great-swamp": {
+                "ext": "jpg"
+            },
+            "crestfallen-warrior": {
+                "ext": "jpg"
+            },
+            "eygon-of-carim": {
+                "ext": "jpg"
+            },
+            "fire-keeper": {
+                "ext": "jpg"
+            },
+            "greirat-of-the-undead-settlement": {
+                "ext": "jpg"
+            },
+            "griggs": {
+                "ext": "jpg"
+            },
+            "gwynevere-queen-of-sunlight": {
+                "ext": "jpg"
+            },
+            "hawkwood": {
+                "ext": "jpg"
+            },
+            "horace-the-hushed": {
+                "ext": "jpg"
+            },
+            "ingward": {
+                "ext": "jpg"
+            },
+            "irina-of-carim": {
+                "ext": "jpg"
+            },
+            "karla": {
+                "ext": "jpg"
+            },
+            "laurentius": {
+                "ext": "jpg"
+            },
+            "lautrec": {
+                "ext": "jpg"
+            },
+            "leonhard": {
+                "ext": "jpg"
+            },
+            "logan": {
+                "ext": "jpg"
+            },
+            "ludleth-of-courland": {
+                "ext": "jpg"
+            },
+            "ludleth": {
+                "ext": "jpg"
+            },
+            "orbeck-of-vinheim": {
+                "ext": "jpg"
+            },
+            "oscar-of-astora": {
+                "ext": "jpg"
+            },
+            "patches-ds1": {
+                "ext": "jpg"
+            },
+            "patches": {
+                "ext": "jpg"
+            },
+            "petrus": {
+                "ext": "jpg"
+            },
+            "quelana": {
+                "ext": "jpg"
+            },
+            "rhea": {
+                "ext": "jpg"
+            },
+            "rickert": {
+                "ext": "jpg"
+            },
+            "ringfinger-leonhard": {
+                "ext": "jpg"
+            },
+            "rosaria-mother-of-rebirth": {
+                "ext": "jpg"
+            },
+            "shiva": {
+                "ext": "jpg"
+            },
+            "siegmeyer-of-catarina": {
+                "ext": "jpg"
+            },
+            "siegward-of-catarina": {
+                "ext": "jpg"
+            },
+            "sirris-of-the-sunless-realms": {
+                "ext": "jpg"
+            },
+            "solaire-of-astora": {
+                "ext": "jpg"
+            },
+            "unbreakable-patches": {
+                "ext": "jpg"
+            },
+            "yoel-of-londor": {
+                "ext": "jpg"
+            },
+            "yuria-of-londor": {
+                "ext": "jpg"
+            }
+        },
         "company-captain-yorshka": {
             "ext": "jpg"
         },
@@ -379,6 +627,9 @@ const IMAGE_MANIFEST = {
             "ext": "jpg"
         },
         "greirat-of-the-undead-settlement": {
+            "ext": "jpg"
+        },
+        "griggs": {
             "ext": "jpg"
         },
         "gwynevere-queen-of-sunlight": {
@@ -402,7 +653,13 @@ const IMAGE_MANIFEST = {
         "laurentius": {
             "ext": "jpg"
         },
+        "lautrec": {
+            "ext": "jpg"
+        },
         "leonhard": {
+            "ext": "jpg"
+        },
+        "logan": {
             "ext": "jpg"
         },
         "ludleth-of-courland": {
@@ -463,15 +720,6 @@ const IMAGE_MANIFEST = {
             "ext": "jpg"
         },
         "yuria-of-londor": {
-            "ext": "jpg"
-        },
-        "logan": {
-            "ext": "jpg"
-        },
-        "lautrec": {
-            "ext": "jpg"
-        },
-        "griggs": {
             "ext": "jpg"
         }
     },

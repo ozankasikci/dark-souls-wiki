@@ -1,5 +1,6 @@
 ---
 name: Giant Dad (The Legend)
+id: giant-dad
 type: build
 build_type: Strength/Tank
 description: The legendary meme build that became a PvP powerhouse. High poise, fast roll, and devastating damage with the Zweihander
