@@ -3,6 +3,62 @@ class ContentLoader {
         this.cache = new Map();
     }
 
+    async batchPromises(promises, batchSize = 20) {
+        const results = [];
+        for (let i = 0; i < promises.length; i += batchSize) {
+            const batch = promises.slice(i, i + batchSize);
+            const batchResults = await Promise.all(batch);
+            results.push(...batchResults);
+            
+            // Small delay between batches to avoid overwhelming server
+            if (i + batchSize < promises.length) {
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+        }
+        return results;
+    }
+
+    async loadMetadataOnly(contentType, id) {
+        const cacheKey = `meta-${contentType}/${id}`;
+        
+        // Check cache first
+        if (this.cache.has(cacheKey)) {
+            return this.cache.get(cacheKey);
+        }
+        
+        try {
+            const filePath = `data/${contentType}/${id}.md`;
+            const response = await fetch(`${filePath}?t=${Date.now()}`);
+            
+            if (!response.ok) {
+                throw new Error(`Failed to load ${filePath}: ${response.status}`);
+            }
+            
+            const text = await response.text();
+            
+            // Extract only frontmatter, not the full content
+            const frontmatterMatch = text.match(/^---\n([\s\S]*?)\n---/);
+            if (!frontmatterMatch) {
+                throw new Error(`No frontmatter found in ${filePath}`);
+            }
+            
+            const metadata = jsyaml.load(frontmatterMatch[1]);
+            
+            // Create minimal content object with just metadata
+            const content = {
+                metadata: metadata,
+                html: '' // Empty for performance
+            };
+            
+            this.cache.set(cacheKey, content);
+            return content;
+            
+        } catch (error) {
+            console.error(`Error loading metadata for ${contentType}/${id}:`, error);
+            throw error;
+        }
+    }
+
     async loadContent(type, id) {
         const cacheKey = `${type}/${id}`;
         
@@ -163,7 +219,7 @@ class ContentLoader {
             const knownItems = this.getKnownItemsForCategory(category);
             if (knownItems.length > 0) {
                 const promises = knownItems.map(id => 
-                    this.loadContent(category, id).catch(err => {
+                    this.loadMetadataOnly(category, id).catch(err => {
                         console.error(`Failed to load ${category}/${id}:`, err);
                         return null;
                     })
@@ -208,15 +264,16 @@ class ContentLoader {
                                 weaponFiles = [];
                             }
                             
-                            // Load each weapon in the category
+                            // Load only metadata for each weapon (for performance)
                             const promises = weaponFiles.map(filename => 
-                                this.loadContent(`equipment/weapons/${categoryKey}`, filename.replace('.md', '')).catch(err => {
+                                this.loadMetadataOnly(`equipment/weapons/${categoryKey}`, filename.replace('.md', '')).catch(err => {
                                     console.error(`Failed to load weapon ${categoryKey}/${filename}:`, err);
                                     return null;
                                 })
                             );
                             
-                            const results = await Promise.all(promises);
+                            // Batch requests to avoid overwhelming server
+                            const results = await this.batchPromises(promises, 20);
                             const validResults = results.filter(result => result !== null);
                             
                             // Add weapon category info
@@ -266,7 +323,7 @@ class ContentLoader {
                                     const filename = armorItem.file || `${armorItem.id}.md`;
                                     const itemId = armorItem.id;
                                     
-                                    return this.loadContent(`equipment/armor/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
+                                    return this.loadMetadataOnly(`equipment/armor/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
                                         // Ensure the item has an ID in its metadata
                                         if (!loadedItem.metadata.id) {
                                             loadedItem.metadata.id = itemId;
@@ -278,7 +335,8 @@ class ContentLoader {
                                     });
                                 });
                                 
-                                const results = await Promise.all(promises);
+                                // Batch requests to avoid overwhelming server
+                            const results = await this.batchPromises(promises, 20);
                                 const validResults = results.filter(result => result !== null);
                                 
                                 // Add armor category info
@@ -332,7 +390,7 @@ class ContentLoader {
                                     const filename = shieldItem.file || `${shieldItem.id}.md`;
                                     const itemId = shieldItem.id;
                                     
-                                    return this.loadContent(`equipment/shields/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
+                                    return this.loadMetadataOnly(`equipment/shields/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
                                         // Ensure the item has an ID in its metadata
                                         if (!loadedItem.metadata.id) {
                                             loadedItem.metadata.id = itemId;
@@ -344,7 +402,8 @@ class ContentLoader {
                                     });
                                 });
                                 
-                                const results = await Promise.all(promises);
+                                // Batch requests to avoid overwhelming server
+                            const results = await this.batchPromises(promises, 20);
                                 const validResults = results.filter(result => result !== null);
                                 
                                 // Add shield category info
@@ -398,7 +457,7 @@ class ContentLoader {
                                     const filename = ringItem.file || `${ringItem.id}.md`;
                                     const itemId = ringItem.id;
                                     
-                                    return this.loadContent(`equipment/rings/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
+                                    return this.loadMetadataOnly(`equipment/rings/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
                                         // Ensure the item has an ID in its metadata
                                         if (!loadedItem.metadata.id) {
                                             loadedItem.metadata.id = itemId;
@@ -410,7 +469,8 @@ class ContentLoader {
                                     });
                                 });
                                 
-                                const results = await Promise.all(promises);
+                                // Batch requests to avoid overwhelming server
+                            const results = await this.batchPromises(promises, 20);
                                 const validResults = results.filter(result => result !== null);
                                 
                                 // Add ring category info
@@ -464,7 +524,7 @@ class ContentLoader {
                                     const filename = itemItem.file || `${itemItem.id}.md`;
                                     const itemId = itemItem.id;
                                     
-                                    return this.loadContent(`equipment/items/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
+                                    return this.loadMetadataOnly(`equipment/items/${subcategoryData.path}`, filename.replace('.md', '')).then(loadedItem => {
                                         // Ensure the item has an ID in its metadata
                                         if (!loadedItem.metadata.id) {
                                             loadedItem.metadata.id = itemId;
@@ -476,7 +536,8 @@ class ContentLoader {
                                     });
                                 });
                                 
-                                const results = await Promise.all(promises);
+                                // Batch requests to avoid overwhelming server
+                            const results = await this.batchPromises(promises, 20);
                                 const validResults = results.filter(result => result !== null);
                                 
                                 // Add item category info
@@ -567,7 +628,7 @@ class ContentLoader {
                             // Handle both string filenames and object entries
                             const name = typeof filename === 'string' ? filename : filename.name || filename.id;
                             const cleanName = name.replace('.md', '');
-                            return this.loadContent(`equipment/${subcategory}`, cleanName).catch(err => {
+                            return this.loadMetadataOnly(`equipment/${subcategory}`, cleanName).catch(err => {
                                 console.error(`Failed to load equipment/${subcategory}/${cleanName}:`, err);
                                 return null;
                             });

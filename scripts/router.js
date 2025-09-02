@@ -369,7 +369,7 @@ class Router {
 
     async loadEquipmentSubcategory(subcategory) {
         try {
-            this.showLoading();
+            this.showLoading('Loading equipment data...');
             
             // Load all equipment items
             const allItems = await contentLoader.loadCategoryListing('equipment');
@@ -420,7 +420,11 @@ class Router {
 
     async loadCategoryListing(category) {
         try {
-            this.showLoading();
+            if (category === 'equipment') {
+                this.showLoading('Loading equipment data... This may take a moment.');
+            } else {
+                this.showLoading();
+            }
             
             // Clear cache for this category to ensure fresh data
             if (category === 'npcs') {
@@ -617,12 +621,12 @@ class Router {
         }
     }
 
-    showLoading() {
+    showLoading(message = 'Loading content...') {
         const contentArea = document.getElementById('content-area');
         if (contentArea) {
             contentArea.innerHTML = `
                 <div class="loading">
-                    <p>Loading content...</p>
+                    <p>${message}</p>
                 </div>
             `;
         }
