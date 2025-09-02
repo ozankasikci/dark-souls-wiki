@@ -16,7 +16,7 @@ class ContentLoader {
             
             // Small delay between batches to avoid overwhelming server
             if (i + batchSize < promises.length) {
-                await new Promise(resolve => setTimeout(resolve, 50));
+                await new Promise(resolve => setTimeout(resolve, 25));
             }
         }
         return results;
@@ -251,8 +251,8 @@ class ContentLoader {
             if (response.ok) {
                 const weaponManifest = await response.json();
                 
-                // Process each weapon category
-                for (const [categoryKey, categoryData] of Object.entries(weaponManifest.categories)) {
+                // Process all weapon categories in parallel
+                const categoryPromises = Object.entries(weaponManifest.categories).map(async ([categoryKey, categoryData]) => {
                     try {
                         const categoryStart = performance.now();
                         console.log(`  🗡️ Loading weapon category: ${categoryKey}...`);
@@ -293,12 +293,20 @@ class ContentLoader {
                             });
                             
                             console.log(`    📊 Category ${categoryKey} complete:`, performance.now() - categoryStart, 'ms, loaded', validResults.length, 'items');
-                            allWeapons.push(...validResults);
+                            return validResults;
                         }
+                        return [];
                     } catch (err) {
                         console.error(`Failed to load weapon category ${categoryKey}:`, err);
+                        return [];
                     }
-                }
+                });
+                
+                // Wait for all categories to complete
+                const allCategoryResults = await Promise.all(categoryPromises);
+                allCategoryResults.forEach(categoryResults => {
+                    allWeapons.push(...categoryResults);
+                });
             }
         } catch (error) {
             console.error('Error loading weapon subcategories:', error);
@@ -317,8 +325,8 @@ class ContentLoader {
                 
                 // Check if armor has subcategories
                 if (armorManifest.subcategories && armorManifest.subcategories.length > 0) {
-                    // Process each armor subcategory
-                    for (const subcategoryData of armorManifest.subcategories) {
+                    // Process all armor subcategories in parallel
+                    const subcategoryPromises = armorManifest.subcategories.map(async (subcategoryData) => {
                         try {
                             const categoryResponse = await fetch(`data/equipment/armor/${subcategoryData.path}/manifest.json?t=${Date.now()}`);
                             if (categoryResponse.ok) {
@@ -345,7 +353,7 @@ class ContentLoader {
                                 });
                                 
                                 // Batch requests to avoid overwhelming server
-                            const results = await this.batchPromises(promises, 20);
+                                const results = await this.batchPromises(promises, 20);
                                 const validResults = results.filter(result => result !== null);
                                 
                                 // Add armor category info
@@ -356,12 +364,20 @@ class ContentLoader {
                                     item.armorCategoryTitle = subcategoryData.name;
                                 });
                                 
-                                allArmor.push(...validResults);
+                                return validResults;
                             }
+                            return [];
                         } catch (err) {
                             console.error(`Failed to load armor category ${subcategoryData.id}:`, err);
+                            return [];
                         }
-                    }
+                    });
+                    
+                    // Wait for all subcategories to complete
+                    const allSubcategoryResults = await Promise.all(subcategoryPromises);
+                    allSubcategoryResults.forEach(subcategoryResults => {
+                        allArmor.push(...subcategoryResults);
+                    });
                 } else {
                     // Fallback to old structure if no subcategories
                     console.log('No armor subcategories found, using fallback');
@@ -600,7 +616,8 @@ class ContentLoader {
                 // Handle new manifest structure with categories array
                 const categoriesToProcess = manifest.categories || manifest;
                 
-                for (const categoryData of (Array.isArray(categoriesToProcess) ? categoriesToProcess : Object.entries(categoriesToProcess))) {
+                // Process all equipment subcategories in parallel for maximum performance
+                const subcategoryPromises = (Array.isArray(categoriesToProcess) ? categoriesToProcess : Object.entries(categoriesToProcess)).map(async (categoryData) => {
                     let subcategory, data;
                     
                     if (Array.isArray(categoriesToProcess)) {
@@ -611,6 +628,7 @@ class ContentLoader {
                         // Old structure: {weapons: [...]}
                         [subcategory, data] = categoryData;
                     }
+                    
                     // For new manifest structure, always load subcategories
                     if (subcategory === 'weapons') {
                         // Load weapons subcategories
@@ -618,40 +636,37 @@ class ContentLoader {
                         console.log('🗡️ Loading weapons subcategories...');
                         const weaponsItems = await this.loadWeaponSubcategories();
                         console.log('📊 Weapons loading took:', performance.now() - weaponsStart, 'ms, loaded', weaponsItems.length, 'items');
-                        allItems.push(...weaponsItems);
+                        return weaponsItems;
                     } else if (subcategory === 'armor') {
                         // Load armor subcategories
                         const armorStart = performance.now();
                         console.log('🛡️ Loading armor subcategories...');
                         const armorItems = await this.loadArmorSubcategories();
                         console.log('📊 Armor loading took:', performance.now() - armorStart, 'ms, loaded', armorItems.length, 'items');
-                        allItems.push(...armorItems);
+                        return armorItems;
                     } else if (subcategory === 'shields') {
                         // Load shield subcategories
                         const shieldsStart = performance.now();
                         console.log('🛡️ Loading shield subcategories...');
                         const shieldItems = await this.loadShieldSubcategories();
                         console.log('📊 Shields loading took:', performance.now() - shieldsStart, 'ms, loaded', shieldItems.length, 'items');
-                        allItems.push(...shieldItems);
+                        return shieldItems;
                     } else if (subcategory === 'rings') {
                         // Load ring subcategories
                         const ringsStart = performance.now();
                         console.log('💍 Loading ring subcategories...');
                         const ringItems = await this.loadRingSubcategories();
                         console.log('📊 Rings loading took:', performance.now() - ringsStart, 'ms, loaded', ringItems.length, 'items');
-                        allItems.push(...ringItems);
+                        return ringItems;
                     } else if (subcategory === 'items') {
                         // Load items subcategories
                         const itemsStart = performance.now();
                         console.log('🎒 Loading items subcategories...');
                         const itemItems = await this.loadItemSubcategories();
                         console.log('📊 Items loading took:', performance.now() - itemsStart, 'ms, loaded', itemItems.length, 'items');
-                        allItems.push(...itemItems);
-                    }
-                    
-                    // Handle legacy structure with direct arrays
-                    else if (Array.isArray(data)) {
-                        // Handle regular arrays (shields, rings, etc.)
+                        return itemItems;
+                    } else if (Array.isArray(data)) {
+                        // Handle legacy structure with direct arrays
                         const promises = data.map(filename => {
                             // Handle both string filenames and object entries
                             const name = typeof filename === 'string' ? filename : filename.name || filename.id;
@@ -671,9 +686,17 @@ class ContentLoader {
                             item.subcategoryTitle = subcategoryTitles[subcategory] || subcategory;
                         });
                         
-                        allItems.push(...validResults);
+                        return validResults;
                     }
-                }
+                    
+                    return [];
+                });
+                
+                // Wait for all subcategories to load in parallel
+                const allSubcategoryResults = await Promise.all(subcategoryPromises);
+                allSubcategoryResults.forEach(subcategoryResults => {
+                    allItems.push(...subcategoryResults);
+                });
                 
                 console.log('📊 Total equipment loading took:', performance.now() - startTime, 'ms, loaded', allItems.length, 'total items');
                 this.cache.set(cacheKey, allItems);
