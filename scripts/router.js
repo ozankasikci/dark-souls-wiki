@@ -159,7 +159,7 @@ class Router {
             
             // Load thumbnails after content is rendered
             setTimeout(async () => {
-                await contentRenderer.loadCategoryThumbnails();
+                contentRenderer.initLazyImageLoading();
             }, 100);
             
         } catch (error) {
@@ -203,7 +203,7 @@ class Router {
             
             // Load thumbnails after content is rendered
             setTimeout(async () => {
-                await contentRenderer.loadCategoryThumbnails();
+                contentRenderer.initLazyImageLoading();
             }, 100);
             
         } catch (error) {
@@ -246,7 +246,7 @@ class Router {
             
             // Load thumbnails after content is rendered
             setTimeout(async () => {
-                await contentRenderer.loadCategoryThumbnails();
+                contentRenderer.initLazyImageLoading();
             }, 100);
             
         } catch (error) {
@@ -289,7 +289,7 @@ class Router {
             
             // Load thumbnails after content is rendered
             setTimeout(async () => {
-                await contentRenderer.loadCategoryThumbnails();
+                contentRenderer.initLazyImageLoading();
             }, 100);
             
         } catch (error) {
@@ -314,7 +314,7 @@ class Router {
             
             // Load thumbnails after content is rendered
             setTimeout(async () => {
-                await contentRenderer.loadCategoryThumbnails();
+                contentRenderer.initLazyImageLoading();
             }, 100);
             
         } catch (error) {
@@ -358,7 +358,7 @@ class Router {
             
             // Load thumbnails after content is rendered
             setTimeout(async () => {
-                await contentRenderer.loadCategoryThumbnails();
+                contentRenderer.initLazyImageLoading();
             }, 100);
             
         } catch (error) {
@@ -409,7 +409,7 @@ class Router {
             
             // Load thumbnails after content is rendered
             setTimeout(async () => {
-                await contentRenderer.loadCategoryThumbnails();
+                contentRenderer.initLazyImageLoading();
             }, 100);
             
         } catch (error) {
@@ -456,7 +456,7 @@ class Router {
             
             // Load thumbnails after content is rendered
             setTimeout(async () => {
-                await contentRenderer.loadCategoryThumbnails();
+                contentRenderer.initLazyImageLoading();
             }, 100);
             
             // Add category filters after a delay

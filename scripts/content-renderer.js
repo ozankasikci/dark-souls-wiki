@@ -1963,52 +1963,64 @@ List of enemies found here.`
     }
     
     // Load thumbnails for category listings
-    async loadCategoryThumbnails() {
-        const thumbnailContainers = document.querySelectorAll('.item-thumbnail-container');
-        console.log(`Loading thumbnails for ${thumbnailContainers.length} containers`);
+    initLazyImageLoading() {
+        // Initialize intersection observer for lazy loading
+        if (!this.imageObserver) {
+            this.imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.loadSingleThumbnail(entry.target);
+                        this.imageObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '200px', // Start loading 200px before entering viewport
+                threshold: 0
+            });
+        }
         
-        thumbnailContainers.forEach(async (container) => {
+        const thumbnailContainers = document.querySelectorAll('.item-thumbnail-container:not([data-loaded])');
+        console.log(`Setting up lazy loading for ${thumbnailContainers.length} images`);
+        
+        thumbnailContainers.forEach(container => {
+            this.imageObserver.observe(container);
+        });
+    }
+
+    async loadSingleThumbnail(container) {
+        // Prevent duplicate loading
+        if (container.dataset.loaded) return;
+        container.dataset.loaded = 'loading';
+        
+        try {
             const category = container.dataset.category;
             let slug = container.dataset.slug;
             
             if (category && slug) {
                 // Normalize the slug to match image manifest format
-                // Remove apostrophes but keep hyphens and other valid characters
                 const normalizedSlug = slug.replace(/'/g, '');
                 
-                // First try to use ImageDatabase for weapons
+                // First try to use ImageDatabase
                 if (window.ImageDatabase && window.ImageDatabase.getImageData) {
-                    // Try with normalized slug first
                     let imageData = window.ImageDatabase.getImageData(category, normalizedSlug);
-                    
-                    // If not found, try with original slug
                     if (!imageData) {
                         imageData = window.ImageDatabase.getImageData(category, slug);
                     }
                     
                     if (imageData) {
-                        console.log(`Found image for ${category}/${slug} in ImageDatabase:`, imageData.url);
-                        console.log('Full imageData:', imageData);
-                        console.log('Container element:', container);
-                        
-                        // Use imageLoader to create the image element with proper error handling
                         const thumbnailImg = imageLoader.createImageElement(
                             imageData.url,
                             imageData.alt,
                             `${category}-thumbnail item-thumbnail`
                         );
-                        
-                        console.log('Created image element:', thumbnailImg);
-                        console.log('Image src:', thumbnailImg.src);
-                        console.log('Image className:', thumbnailImg.className);
-                        
                         container.appendChild(thumbnailImg);
+                        container.dataset.loaded = 'true';
                         return;
                     }
                 }
                 
-                // Fallback to imageLoader with normalized slug
-                console.log(`Using imageLoader fallback for ${category}/${slug} (normalized: ${normalizedSlug})`);
+                // Fallback to imageLoader
                 const thumbnailSrc = await imageLoader.getImage(category, normalizedSlug, 'thumbnail');
                 const thumbnailImg = imageLoader.createImageElement(
                     thumbnailSrc, 
@@ -2016,8 +2028,18 @@ List of enemies found here.`
                     `${category}-thumbnail item-thumbnail`
                 );
                 container.appendChild(thumbnailImg);
+                container.dataset.loaded = 'true';
             }
-        });
+        } catch (error) {
+            console.error('Error loading thumbnail:', error);
+            container.dataset.loaded = 'error';
+        }
+    }
+
+    // Legacy function kept for backwards compatibility
+    async loadCategoryThumbnails() {
+        // For equipment page, use lazy loading instead
+        this.initLazyImageLoading();
     }
 }
 
