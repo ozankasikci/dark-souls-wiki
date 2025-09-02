@@ -420,6 +420,9 @@ class Router {
 
     async loadCategoryListing(category) {
         try {
+            const routerStart = performance.now();
+            console.log(`🚀 Router: Starting to load category listing for ${category}`);
+            
             if (category === 'equipment') {
                 this.showLoading('Loading equipment data... This may take a moment.');
             } else {
@@ -431,14 +434,21 @@ class Router {
                 contentLoader.clearCategoryCache('npcs');
             }
             
+            const loadStart = performance.now();
             const items = await contentLoader.loadCategoryListing(category);
+            console.log(`📊 Router: Content loading took:`, performance.now() - loadStart, 'ms');
+            const renderStart = performance.now();
             let html = contentRenderer.renderCategoryListing(category, items);
+            console.log(`📊 Router: Rendering took:`, performance.now() - renderStart, 'ms');
             
             // Add collaboration section for category listings
             const collaborationSection = contentRenderer.renderCategoryCollaborationSection(category);
             html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
             
+            const displayStart = performance.now();
             this.displayContent(html);
+            console.log(`📊 Router: Display took:`, performance.now() - displayStart, 'ms');
+            console.log(`📊 Router: Total router operation took:`, performance.now() - routerStart, 'ms');
             
             const categoryTitles = {
                 areas: 'Areas',
@@ -456,11 +466,13 @@ class Router {
             
             // Load thumbnails after content is rendered
             setTimeout(async () => {
+                console.log('🚀 Router: Triggering lazy image loading (100ms delay)...');
                 contentRenderer.initLazyImageLoading();
             }, 100);
             
             // Add category filters after a delay
             setTimeout(() => {
+                console.log('🚀 Router: Adding category filters (100ms delay)...');
                 if (typeof navigationEnhancer !== 'undefined') {
                     navigationEnhancer.addCategoryFilters(category);
                 }
