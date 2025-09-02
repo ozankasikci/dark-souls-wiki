@@ -5,10 +5,14 @@ class ContentLoader {
 
     async batchPromises(promises, batchSize = 20) {
         const results = [];
+        console.log(`🔄 Starting batch processing: ${promises.length} items in batches of ${batchSize}`);
+        
         for (let i = 0; i < promises.length; i += batchSize) {
+            const batchStart = performance.now();
             const batch = promises.slice(i, i + batchSize);
             const batchResults = await Promise.all(batch);
             results.push(...batchResults);
+            console.log(`  📊 Batch ${Math.floor(i/batchSize) + 1} (${batch.length} items) took:`, performance.now() - batchStart, 'ms');
             
             // Small delay between batches to avoid overwhelming server
             if (i + batchSize < promises.length) {
@@ -250,6 +254,8 @@ class ContentLoader {
                 // Process each weapon category
                 for (const [categoryKey, categoryData] of Object.entries(weaponManifest.categories)) {
                     try {
+                        const categoryStart = performance.now();
+                        console.log(`  🗡️ Loading weapon category: ${categoryKey}...`);
                         const categoryResponse = await fetch(`data/equipment/weapons/${categoryKey}/manifest.json?t=${Date.now()}`);
                         if (categoryResponse.ok) {
                             const categoryManifest = await categoryResponse.json();
@@ -273,7 +279,9 @@ class ContentLoader {
                             );
                             
                             // Batch requests to avoid overwhelming server
+                            const batchStart = performance.now();
                             const results = await this.batchPromises(promises, 20);
+                            console.log(`    📊 Batch loading ${categoryKey} took:`, performance.now() - batchStart, 'ms');
                             const validResults = results.filter(result => result !== null);
                             
                             // Add weapon category info
@@ -284,6 +292,7 @@ class ContentLoader {
                                 item.weaponCategoryTitle = categoryData.name;
                             });
                             
+                            console.log(`    📊 Category ${categoryKey} complete:`, performance.now() - categoryStart, 'ms, loaded', validResults.length, 'items');
                             allWeapons.push(...validResults);
                         }
                     } catch (err) {
@@ -565,9 +574,13 @@ class ContentLoader {
 
     async loadEquipmentListing() {
         const cacheKey = 'category-listing-equipment';
+        const startTime = performance.now();
+        console.log('🕐 Starting equipment listing load...');
         
         try {
+            const manifestStart = performance.now();
             const response = await fetch(`data/equipment/manifest.json?t=${Date.now()}`);
+            console.log('📊 Equipment manifest fetch took:', performance.now() - manifestStart, 'ms');
             console.log('Equipment manifest response:', response.ok, response.status);
             if (response.ok) {
                 const manifest = await response.json();
@@ -601,23 +614,38 @@ class ContentLoader {
                     // For new manifest structure, always load subcategories
                     if (subcategory === 'weapons') {
                         // Load weapons subcategories
+                        const weaponsStart = performance.now();
+                        console.log('🗡️ Loading weapons subcategories...');
                         const weaponsItems = await this.loadWeaponSubcategories();
+                        console.log('📊 Weapons loading took:', performance.now() - weaponsStart, 'ms, loaded', weaponsItems.length, 'items');
                         allItems.push(...weaponsItems);
                     } else if (subcategory === 'armor') {
                         // Load armor subcategories
+                        const armorStart = performance.now();
+                        console.log('🛡️ Loading armor subcategories...');
                         const armorItems = await this.loadArmorSubcategories();
+                        console.log('📊 Armor loading took:', performance.now() - armorStart, 'ms, loaded', armorItems.length, 'items');
                         allItems.push(...armorItems);
                     } else if (subcategory === 'shields') {
                         // Load shield subcategories
+                        const shieldsStart = performance.now();
+                        console.log('🛡️ Loading shield subcategories...');
                         const shieldItems = await this.loadShieldSubcategories();
+                        console.log('📊 Shields loading took:', performance.now() - shieldsStart, 'ms, loaded', shieldItems.length, 'items');
                         allItems.push(...shieldItems);
                     } else if (subcategory === 'rings') {
                         // Load ring subcategories
+                        const ringsStart = performance.now();
+                        console.log('💍 Loading ring subcategories...');
                         const ringItems = await this.loadRingSubcategories();
+                        console.log('📊 Rings loading took:', performance.now() - ringsStart, 'ms, loaded', ringItems.length, 'items');
                         allItems.push(...ringItems);
                     } else if (subcategory === 'items') {
                         // Load items subcategories
+                        const itemsStart = performance.now();
+                        console.log('🎒 Loading items subcategories...');
                         const itemItems = await this.loadItemSubcategories();
+                        console.log('📊 Items loading took:', performance.now() - itemsStart, 'ms, loaded', itemItems.length, 'items');
                         allItems.push(...itemItems);
                     }
                     
@@ -647,6 +675,7 @@ class ContentLoader {
                     }
                 }
                 
+                console.log('📊 Total equipment loading took:', performance.now() - startTime, 'ms, loaded', allItems.length, 'total items');
                 this.cache.set(cacheKey, allItems);
                 return allItems;
             }

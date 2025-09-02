@@ -931,6 +931,9 @@ List of enemies found here.`
     }
 
     renderCategoryListing(category, items) {
+        const renderStart = performance.now();
+        console.log(`🎨 Content Renderer: Starting to render ${category} with ${items.length} items`);
+        
         const categoryTitles = {
             areas: 'Areas',
             bosses: 'Bosses',
@@ -955,7 +958,11 @@ List of enemies found here.`
         
         // Special handling for equipment category
         if (category === 'equipment' && items.length > 0) {
-            return this.renderEquipmentListing(items);
+            const equipmentRenderStart = performance.now();
+            const result = this.renderEquipmentListing(items);
+            console.log(`📊 Equipment rendering took:`, performance.now() - equipmentRenderStart, 'ms');
+            console.log(`📊 Total category rendering took:`, performance.now() - renderStart, 'ms');
+            return result;
         }
         
         return `
@@ -1301,7 +1308,11 @@ List of enemies found here.`
     }
 
     renderEquipmentListing(items) {
+        const equipmentStart = performance.now();
+        console.log(`🎨 Equipment Renderer: Grouping ${items.length} items by subcategory...`);
+        
         // Group items by subcategory
+        const groupingStart = performance.now();
         const grouped = items.reduce((acc, item) => {
             const subcategory = item.subcategory || 'other';
             if (!acc[subcategory]) {
@@ -1440,7 +1451,9 @@ List of enemies found here.`
         // Define subcategory order
         const subcategoryOrder = ['weapons', 'armor', 'shields', 'rings', 'catalysts'];
         
-        return `
+        console.log(`📊 Equipment grouping took:`, performance.now() - groupingStart, 'ms');
+        
+        const result = `
             <div class="category-listing equipment-listing">
                 <header class="category-header">
                     <h1>Equipment</h1>
@@ -1711,6 +1724,10 @@ List of enemies found here.`
                 }).join('')}
             </div>
         `;
+        
+        console.log(`📊 Total equipment rendering took:`, performance.now() - equipmentStart, 'ms');
+        
+        return result;
     }
 
     renderItemCard(item, category) {
@@ -1964,6 +1981,9 @@ List of enemies found here.`
     
     // Load thumbnails for category listings
     initLazyImageLoading() {
+        const lazyLoadStart = performance.now();
+        console.log('🖼️ Initializing lazy image loading...');
+        
         // Initialize intersection observer for lazy loading
         if (!this.imageObserver) {
             this.imageObserver = new IntersectionObserver((entries) => {
@@ -1986,6 +2006,8 @@ List of enemies found here.`
         thumbnailContainers.forEach(container => {
             this.imageObserver.observe(container);
         });
+        
+        console.log(`📊 Lazy loading init took:`, performance.now() - lazyLoadStart, 'ms');
     }
 
     async loadSingleThumbnail(container) {
