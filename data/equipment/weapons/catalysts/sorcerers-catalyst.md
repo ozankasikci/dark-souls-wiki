@@ -35,9 +35,9 @@ requirements:
 # Scaling
 scaling:
   strength: E
-  dexterity: -
+  dexterity: "-"
   intelligence: A
-  faith: -
+  faith: "-"
 
 # Special Effects
 special: "Standard sorcery catalyst. Best for 27-40 INT."

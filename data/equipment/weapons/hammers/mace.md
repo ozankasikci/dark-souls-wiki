@@ -34,9 +34,9 @@ requirements:
 # Scaling
 scaling:
   strength: B
-  dexterity: -
-  intelligence: -
-  faith: -
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Found in a chest above Blacksmith Andre in Undead Parish. Sold by Patches."

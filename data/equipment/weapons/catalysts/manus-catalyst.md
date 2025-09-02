@@ -35,9 +35,9 @@ requirements:
 # Scaling
 scaling:
   strength: B
-  dexterity: -
+  dexterity: "-"
   intelligence: S
-  faith: -
+  faith: "-"
 
 # Special Effects
 special: "Boosts dark sorceries. Good physical damage with STR scaling."

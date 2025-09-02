@@ -34,9 +34,9 @@ requirements:
 # Scaling
 scaling:
   strength: A
-  dexterity: -
-  intelligence: -
-  faith: -
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "Causes Poison buildup (180)"

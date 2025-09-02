@@ -34,9 +34,9 @@ requirements:
 
 # Scaling
 scaling:
-  strength: -
-  dexterity: -
-  intelligence: -
+  strength: "-"
+  dexterity: "-"
+  intelligence: "-"
   faith: C
 
 # Special Effects

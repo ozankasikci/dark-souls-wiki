@@ -19,8 +19,8 @@ weight: 2.5
 scaling:
   strength: E
   dexterity: C
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Requirements
 requirements:

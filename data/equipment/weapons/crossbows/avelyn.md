@@ -34,10 +34,10 @@ requirements:
 
 # Scaling
 scaling:
-  strength: -
-  dexterity: -
-  intelligence: -
-  faith: -
+  strength: "-"
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "Fires 3 bolts in rapid succession. Cannot fire while blocking."

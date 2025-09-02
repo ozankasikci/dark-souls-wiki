@@ -34,8 +34,8 @@ requirements:
 # Scaling
 scaling:
   strength: B
-  dexterity: -
-  intelligence: -
+  dexterity: "-"
+  intelligence: "-"
   faith: A
 
 # Acquisition

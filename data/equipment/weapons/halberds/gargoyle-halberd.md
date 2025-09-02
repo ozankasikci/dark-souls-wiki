@@ -35,8 +35,8 @@ requirements:
 scaling:
   strength: D
   dexterity: D
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "+20% resist to poison, toxic, bleed and curse"

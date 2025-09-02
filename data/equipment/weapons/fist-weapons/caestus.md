@@ -35,8 +35,8 @@ requirements:
 scaling:
   strength: C
   dexterity: C
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Sold by Andre of Astora in Undead Parish."

@@ -35,9 +35,9 @@ requirements:
 # Scaling
 scaling:
   strength: D
-  dexterity: -
+  dexterity: "-"
   intelligence: A
-  faith: -
+  faith: "-"
 
 # Special Effects
 special: "High physical damage. Poor magic adjustment. Better used as a weapon."

@@ -34,9 +34,9 @@ requirements:
 # Scaling
 scaling:
   strength: A
-  dexterity: -
-  intelligence: -
-  faith: -
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Found in Blighttown swamp, near the bonfire in the swamp area."

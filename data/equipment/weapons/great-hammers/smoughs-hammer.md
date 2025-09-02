@@ -34,9 +34,9 @@ requirements:
 # Scaling
 scaling:
   strength: D
-  dexterity: -
-  intelligence: -
-  faith: -
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Created from Soul of Smough and any +10 Hammer/Great Hammer."

@@ -35,9 +35,9 @@ requirements:
 # Scaling
 scaling:
   strength: E
-  dexterity: -
+  dexterity: "-"
   intelligence: S
-  faith: -
+  faith: "-"
 
 # Special Effects
 special: "S-rank INT scaling from base. Best catalyst for 41-44 INT."

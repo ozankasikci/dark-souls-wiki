@@ -33,10 +33,10 @@ requirements:
 
 # Scaling
 scaling:
-  strength: -
+  strength: "-"
   dexterity: B
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "Causes Bleed buildup (300). Cannot be parried. Cannot riposte or backstab."

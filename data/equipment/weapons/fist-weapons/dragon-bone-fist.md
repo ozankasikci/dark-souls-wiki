@@ -34,9 +34,9 @@ requirements:
 # Scaling
 scaling:
   strength: A
-  dexterity: -
-  intelligence: -
-  faith: -
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Created from +10 Caestus/Claw and Core of Iron Golem at Giant Blacksmith."
