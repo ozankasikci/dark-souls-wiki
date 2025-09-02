@@ -1,5 +1,5 @@
 // Auto-generated manifest of all existing images in the project
-// Generated on: 2025-06-24T14:09:35.074Z
+// Generated on: 2025-06-24T16:07:47.156Z
 
 const IMAGE_MANIFEST = {
     "areas": {
@@ -301,6 +301,15 @@ const IMAGE_MANIFEST = {
         "bleed-build": {
             "ext": "jpg"
         },
+        "bow-sniper": {
+            "ext": "jpg"
+        },
+        "chaos-build": {
+            "ext": "jpg"
+        },
+        "darkwraith": {
+            "ext": "jpg"
+        },
         "dex-build": {
             "ext": "jpg"
         },
@@ -313,7 +322,13 @@ const IMAGE_MANIFEST = {
         "faith-paladin": {
             "ext": "jpg"
         },
+        "forest-hunter": {
+            "ext": "jpg"
+        },
         "giant-dad": {
+            "ext": "jpg"
+        },
+        "giantmom": {
             "ext": "jpg"
         },
         "glass-cannon-sorcerer": {
@@ -322,7 +337,19 @@ const IMAGE_MANIFEST = {
         "havel-tank": {
             "ext": "jpg"
         },
+        "hexer": {
+            "ext": "jpg"
+        },
         "int-sorcerer": {
+            "ext": "jpg"
+        },
+        "miracle-cleric": {
+            "ext": "jpg"
+        },
+        "mundane": {
+            "ext": "jpg"
+        },
+        "onebro": {
             "ext": "jpg"
         },
         "pyromancer": {
@@ -335,6 +362,9 @@ const IMAGE_MANIFEST = {
             "ext": "jpg"
         },
         "strength-build": {
+            "ext": "jpg"
+        },
+        "wanderer-samurai": {
             "ext": "jpg"
         }
     },
