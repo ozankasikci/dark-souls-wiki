@@ -35,9 +35,9 @@ requirements:
 # Scaling
 scaling:
   strength: E
-  dexterity: -
+  dexterity: "-"
   intelligence: C
-  faith: -
+  faith: "-"
 
 # Special Effects
 special: "Fixed magic adjust. Best catalyst for INT 10-26."

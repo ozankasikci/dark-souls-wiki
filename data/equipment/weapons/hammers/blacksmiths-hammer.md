@@ -34,9 +34,9 @@ requirements:
 # Scaling
 scaling:
   strength: C
-  dexterity: -
-  intelligence: -
-  faith: -
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Dropped by Blacksmith Andre upon death. Can be purchased from various blacksmiths."

@@ -36,8 +36,8 @@ requirements:
 scaling:
   strength: E
   dexterity: S
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "Longest range. Unique S-scaling from base."

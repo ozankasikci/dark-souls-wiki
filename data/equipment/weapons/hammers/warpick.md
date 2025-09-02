@@ -35,8 +35,8 @@ requirements:
 scaling:
   strength: C
   dexterity: D
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Dropped by Pickaxe Undead in the Catacombs."

@@ -35,9 +35,9 @@ requirements:
 # Scaling
 scaling:
   strength: E
-  dexterity: -
+  dexterity: "-"
   intelligence: S
-  faith: -
+  faith: "-"
 
 # Special Effects
 special: "Halves number of sorcery casts. Highest magic adjust possible. Best for 45+ INT."

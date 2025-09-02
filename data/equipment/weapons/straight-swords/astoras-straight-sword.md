@@ -19,7 +19,7 @@ weight: 3.0
 scaling:
   strength: C
   dexterity: C
-  intelligence: -
+  intelligence: "-"
   faith: C
 
 # Requirements

@@ -33,10 +33,10 @@ requirements:
 
 # Scaling
 scaling:
-  strength: -
-  dexterity: -
-  intelligence: -
-  faith: -
+  strength: "-"
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Obtained by killing Royal Blacksmith Vamos in the Catacombs."

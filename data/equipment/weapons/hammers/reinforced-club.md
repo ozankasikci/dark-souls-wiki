@@ -34,9 +34,9 @@ requirements:
 # Scaling
 scaling:
   strength: C
-  dexterity: -
-  intelligence: -
-  faith: -
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "Causes Bleed buildup (180)"

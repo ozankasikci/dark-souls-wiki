@@ -35,8 +35,8 @@ requirements:
 scaling:
   strength: D
   dexterity: D
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Dropped by Giant Sentinels in Anor Londo."

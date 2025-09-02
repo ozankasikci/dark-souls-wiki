@@ -35,8 +35,8 @@ requirements:
 scaling:
   strength: D
   dexterity: C
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Found in Undead Parish, near the gate lever. Also dropped by Halberd-wielding enemies."

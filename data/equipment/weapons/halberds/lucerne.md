@@ -35,8 +35,8 @@ requirements:
 scaling:
   strength: D
   dexterity: C
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Found in the Catacombs, behind hidden wall near first bonfire."

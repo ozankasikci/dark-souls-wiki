@@ -35,7 +35,7 @@ requirements:
 # Scaling
 scaling:
   strength: E
-  dexterity: -
+  dexterity: "-"
   intelligence: A
   faith: A
 

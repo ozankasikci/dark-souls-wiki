@@ -34,10 +34,10 @@ requirements:
 
 # Scaling
 scaling:
-  strength: -
-  dexterity: -
-  intelligence: -
-  faith: -
+  strength: "-"
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "No stat scaling. Can be fired one-handed while blocking."

@@ -36,7 +36,7 @@ scaling:
   strength: D
   dexterity: D
   intelligence: C
-  faith: -
+  faith: "-"
 
 # Acquisition
 location: "Rare drop from Titanite Demons."

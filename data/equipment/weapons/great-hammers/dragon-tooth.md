@@ -34,9 +34,9 @@ requirements:
 # Scaling
 scaling:
   strength: D
-  dexterity: -
-  intelligence: -
-  faith: -
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "+20 Fire and Magic defense when equipped"

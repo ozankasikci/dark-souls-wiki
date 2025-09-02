@@ -36,8 +36,8 @@ requirements:
 scaling:
   strength: C
   dexterity: C
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "Quality scaling bow"

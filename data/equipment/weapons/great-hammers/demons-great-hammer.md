@@ -34,9 +34,9 @@ requirements:
 # Scaling
 scaling:
   strength: B
-  dexterity: -
-  intelligence: -
-  faith: -
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Crafted from Demon's Catalyst (Demon Firesage soul) by Giant Blacksmith."

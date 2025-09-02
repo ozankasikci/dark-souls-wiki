@@ -34,9 +34,9 @@ requirements:
 # Scaling
 scaling:
   strength: A
-  dexterity: -
-  intelligence: -
-  faith: -
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Acquisition
 location: "Starting equipment for Deprived class. Purchased from Undead Male Merchant."

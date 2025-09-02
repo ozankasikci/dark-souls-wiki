@@ -33,10 +33,10 @@ requirements:
 
 # Scaling
 scaling:
-  strength: -
-  dexterity: -
-  intelligence: -
-  faith: -
+  strength: "-"
+  dexterity: "-"
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "R2 drains humanity from human enemies. L1 blocks with shield properties."

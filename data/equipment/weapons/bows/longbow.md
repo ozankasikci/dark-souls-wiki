@@ -36,8 +36,8 @@ requirements:
 scaling:
   strength: D
   dexterity: A
-  intelligence: -
-  faith: -
+  intelligence: "-"
+  faith: "-"
 
 # Special Effects
 special: "Balanced range and power"
