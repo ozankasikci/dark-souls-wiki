@@ -13,9 +13,9 @@ class ContentRenderer {
         };
     }
 
-    render(data, type) {
+    render(data, type, contentType = null) {
         const template = this.templates[type] || this.templates.default;
-        let content = template.call(this, data);
+        let content = template.call(this, data, type, contentType);
         
         // Add image support based on type and metadata
         content = this.addContentImages(content, data, type);
@@ -61,7 +61,7 @@ class ContentRenderer {
         return content;
     }
 
-    defaultTemplate(data) {
+    defaultTemplate(data, type = 'default', contentType = null) {
         const { metadata, html } = data;
         
         return `
@@ -76,11 +76,12 @@ class ContentRenderer {
                     ${html}
                 </div>
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'), contentType)}
             </article>
         `;
     }
 
-    areaTemplate(data) {
+    areaTemplate(data, type = 'areas', contentType = null) {
         const { metadata, html } = data;
         const connections = metadata.connections || metadata.connected_areas;
         
@@ -163,11 +164,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'), contentType)}
             </article>
         `;
     }
 
-    bossTemplate(data) {
+    bossTemplate(data, type = 'bosses', contentType = null) {
         const { metadata, html } = data;
         
         // Parse weaknesses and resistances from array format
@@ -243,11 +245,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'), contentType)}
             </article>
         `;
     }
 
-    itemTemplate(data) {
+    itemTemplate(data, type = 'items', contentType = null) {
         const { metadata, html } = data;
         
         return `
@@ -273,11 +276,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'), contentType)}
             </article>
         `;
     }
 
-    weaponTemplate(data) {
+    weaponTemplate(data, type = 'weapons', contentType = null) {
         const { metadata, html } = data;
         
         // Handle damage as object or string
@@ -391,11 +395,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'), contentType)}
             </article>
         `;
     }
 
-    armorTemplate(data) {
+    armorTemplate(data, type = 'armor', contentType = null) {
         const { metadata, html } = data;
         
         // Use title if name is not available
@@ -447,11 +452,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'), contentType)}
             </article>
         `;
     }
 
-    npcTemplate(data) {
+    npcTemplate(data, type = 'npcs', contentType = null) {
         const { metadata, html } = data;
         
         return `
@@ -517,12 +523,13 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'), contentType)}
             </article>
         `;
     }
 
 
-    questTemplate(data) {
+    questTemplate(data, type = 'quests', contentType = null) {
         const { metadata, html } = data;
         
         return `
@@ -558,11 +565,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'), contentType)}
             </article>
         `;
     }
 
-    loreTemplate(data) {
+    loreTemplate(data, type = 'lore', contentType = null) {
         const { metadata, html } = data;
         
         return `
@@ -579,6 +587,7 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'), contentType)}
             </article>
         `;
     }
@@ -659,6 +668,233 @@ class ContentRenderer {
                 ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
             </div>
         `;
+    }
+
+    renderCollaborationSection(type, id, contentType = null) {
+        // GitHub repository info
+        const githubRepo = 'ozankasikci/dark-souls-wiki';
+        const githubBranch = 'main';
+        
+        // Build the edit URL based on content type and id
+        let editPath = '';
+        
+        // Use contentType if provided (from router), otherwise infer from type
+        if (contentType) {
+            editPath = `data/${contentType}/${id}.md`;
+        } else if (type === 'weapons' || type === 'armor' || type === 'shields' || type === 'rings') {
+            // These are equipment subcategories - need to determine the full path
+            // This is a fallback for when contentType isn't provided
+            editPath = `data/equipment/${type}/${id}.md`;
+        } else if (type === 'equipment') {
+            // Direct equipment path
+            editPath = `data/equipment/${id}.md`;
+        } else {
+            // Standard content types (bosses, areas, npcs, etc.)
+            editPath = `data/${type}/${id}.md`;
+        }
+        
+        const editUrl = `https://github.com/${githubRepo}/edit/${githubBranch}/${editPath}`;
+        
+        return `
+            <div class="collaboration-section">
+                <div class="edit-actions">
+                    <a href="${editUrl}" target="_blank" class="edit-button" title="Edit this page on GitHub">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"/>
+                        </svg>
+                        Improve this page
+                    </a>
+                    <a href="https://github.com/${githubRepo}/issues/new?title=Issue%20with%20${type}/${id}" target="_blank" class="report-button" title="Report an issue">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+                            <path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"/>
+                        </svg>
+                        Report issue
+                    </a>
+                </div>
+                
+                <div class="discussion-section">
+                    <h3>Community Discussion</h3>
+                    <p class="discussion-intro">Help improve this page by sharing your knowledge and tips!</p>
+                    <div id="giscus-container">
+                        <!-- Giscus will be loaded here by the router -->
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    renderCategoryCollaborationSection(category, subcategory = null) {
+        const githubRepo = 'ozankasikci/dark-souls-wiki';
+        
+        // Determine the correct path for adding new items
+        let newItemPath = '';
+        let newItemText = 'Add New Item';
+        
+        if (category === 'equipment' && subcategory) {
+            // Handle equipment subcategories like weapons/daggers
+            const parts = subcategory.split('/');
+            if (parts.length === 2) {
+                // e.g., weapons/daggers
+                newItemPath = `data/equipment/${parts[0]}/${parts[1]}/`;
+                newItemText = `Add New ${parts[1].replace('-', ' ')}`;
+            }
+        } else {
+            // Standard categories
+            newItemPath = `data/${category}/`;
+            newItemText = `Add New ${category.slice(0, -1)}`; // Remove 's' from plural
+        }
+        
+        // GitHub URLs for creating new files
+        const newItemUrl = `https://github.com/${githubRepo}/new/main?filename=${newItemPath}new-item.md&value=${this.getNewItemTemplate(category, subcategory)}`;
+        const issueUrl = `https://github.com/${githubRepo}/issues/new?title=Content%20request%20for%20${category}${subcategory ? '/' + subcategory : ''}`;
+        
+        return `
+            <div class="category-collaboration-section">
+                <div class="category-edit-actions">
+                    <a href="${newItemUrl}" target="_blank" class="add-new-button" title="Add a new item to this category">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0a8 8 0 100 16A8 8 0 008 0zM4 8a.75.75 0 01.75-.75h2.5V4.75a.75.75 0 011.5 0v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5A.75.75 0 014 8z"/>
+                        </svg>
+                        ${newItemText}
+                    </a>
+                    <a href="${issueUrl}" target="_blank" class="request-button" title="Request new content">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM6.5 7.75A.75.75 0 017.25 7h1.5a.75.75 0 01.75.75v2.75h.75a.75.75 0 010 1.5h-.75v.75a.75.75 0 01-1.5 0v-.75h-.75a.75.75 0 010-1.5h.75V7.75z"/>
+                        </svg>
+                        Request Content
+                    </a>
+                </div>
+                
+                <div class="category-help">
+                    <p class="category-help-text">
+                        <strong>Help expand this section!</strong> 
+                        Add missing items, improve descriptions, or suggest new content.
+                    </p>
+                </div>
+            </div>
+        `;
+    }
+
+    getNewItemTemplate(category, subcategory) {
+        // Generate a template for new items based on category and subcategory
+        if (category === 'equipment' && subcategory) {
+            const parts = subcategory.split('/');
+            const equipmentType = parts[0]; // weapons, armor, shields, rings
+            const specificCategory = parts[1]; // daggers, heavy-armor, etc.
+            
+            if (equipmentType === 'weapons') {
+                return encodeURIComponent(`---
+name: New Weapon Name
+id: new-weapon-name
+weapon_type: ${this.getWeaponTypeFromCategory(specificCategory)}
+subcategory: ${specificCategory}
+stats:
+  damage: 100
+  scaling: "C/C/-/-"
+  weight: 3.0
+requirements:
+  strength: 10
+  dexterity: 10
+location: Found in...
+---
+
+# New Weapon Name
+
+## Description
+Add weapon description here.
+
+## How to Obtain
+Describe how to get this weapon.
+
+## Moveset
+Describe the weapon's moveset.
+
+## Tips
+- Add tips for using this weapon
+- Include upgrade recommendations`);
+            }
+        }
+        
+        // Default templates for other categories
+        const templates = {
+            'bosses': `---
+name: New Boss Name
+id: new-boss-name
+location: Area Name
+health: 1000
+souls: 5000
+weaknesses:
+  - Fire
+resistances:
+  - Physical
+drops:
+  - Boss Soul
+---
+
+# New Boss Name
+
+## Overview
+Brief description of the boss.
+
+## Strategy
+Add strategy guide here.
+
+## Lore
+Optional lore information.`,
+
+            'areas': `---
+name: New Area Name
+id: new-area-name
+region: Main Game
+level_range: "20-30"
+bonfires: 2
+connected_areas:
+  - Previous Area
+  - Next Area
+---
+
+# New Area Name
+
+## Overview
+Area description.
+
+## Navigation
+How to navigate the area.
+
+## Enemies
+List of enemies found here.`
+        };
+
+        return encodeURIComponent(templates[category] || templates['bosses']);
+    }
+
+    getWeaponTypeFromCategory(category) {
+        const weaponTypes = {
+            'daggers': 'Dagger',
+            'straight-swords': 'Straight Sword',
+            'greatswords': 'Greatsword',
+            'ultra-greatswords': 'Ultra Greatsword',
+            'curved-swords': 'Curved Sword',
+            'curved-greatswords': 'Curved Greatsword',
+            'katanas': 'Katana',
+            'piercing-swords': 'Piercing Sword',
+            'axes': 'Axe',
+            'great-axes': 'Great Axe',
+            'hammers': 'Hammer',
+            'great-hammers': 'Great Hammer',
+            'fist-weapons': 'Fist Weapon',
+            'spears': 'Spear',
+            'halberds': 'Halberd',
+            'whips': 'Whip',
+            'bows': 'Bow',
+            'crossbows': 'Crossbow',
+            'catalysts': 'Catalyst',
+            'talismans': 'Talisman',
+            'flames': 'Pyromancy Flame'
+        };
+        
+        return weaponTypes[category] || 'Weapon';
     }
 
     renderRelatedContent(relatedContent) {

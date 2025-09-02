@@ -45,9 +45,19 @@ class Router {
             return;
         }
 
+        // Handle special pages
+        if (type === 'recent-changes') {
+            await this.showRecentChanges();
+            return;
+        }
+        
+        if (type === 'contribute') {
+            await this.showContributePage();
+            return;
+        }
+
         // Handle equipment subcategory listings
         if (type === 'equipment' && rest.length === 1 && ['weapons', 'armor', 'shields', 'rings', 'catalysts'].includes(rest[0])) {
-            console.log('Router: calling loadEquipmentSubcategory for', rest[0]);
             await this.loadEquipmentSubcategory(rest[0]);
             return;
         }
@@ -136,7 +146,12 @@ class Router {
                 'flames': 'Flames'
             };
             
-            const html = contentRenderer.renderCategoryListing('equipment', items);
+            let html = contentRenderer.renderEquipmentSubcategory('weapons', categoryTitles[weaponCategory] || weaponCategory, items);
+            
+            // Add collaboration section for this weapon category
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection('equipment', `weapons/${weaponCategory}`);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             document.title = `${categoryTitles[weaponCategory] || weaponCategory} - Dark Souls Wiki`;
@@ -175,7 +190,12 @@ class Router {
                 'unique-armor': 'Unique Armor'
             };
             
-            const html = contentRenderer.renderCategoryListing('equipment', items);
+            let html = contentRenderer.renderEquipmentSubcategory('armor', categoryTitles[armorCategory] || armorCategory, items);
+            
+            // Add collaboration section for this armor category
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection('equipment', `armor/${armorCategory}`);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             document.title = `${categoryTitles[armorCategory] || armorCategory} - Dark Souls Wiki`;
@@ -213,7 +233,12 @@ class Router {
                 'unique-shields': 'Unique Shields'
             };
             
-            const html = contentRenderer.renderCategoryListing('equipment', items);
+            let html = contentRenderer.renderEquipmentSubcategory('shields', categoryTitles[shieldCategory] || shieldCategory, items);
+            
+            // Add collaboration section for this shield category
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection('equipment', `shields/${shieldCategory}`);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             document.title = `${categoryTitles[shieldCategory] || shieldCategory} - Dark Souls Wiki`;
@@ -251,7 +276,12 @@ class Router {
                 'resistance-rings': 'Resistance Rings'
             };
             
-            const html = contentRenderer.renderCategoryListing('equipment', items);
+            let html = contentRenderer.renderEquipmentSubcategory('rings', categoryTitles[ringCategory] || ringCategory, items);
+            
+            // Add collaboration section for this ring category
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection('equipment', `rings/${ringCategory}`);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             document.title = `${categoryTitles[ringCategory] || ringCategory} - Dark Souls Wiki`;
@@ -343,8 +373,6 @@ class Router {
             
             // Load all equipment items
             const allItems = await contentLoader.loadCategoryListing('equipment');
-            console.log('All equipment items:', allItems);
-            console.log('Looking for subcategory:', subcategory);
             
             // Filter by subcategory - special handling for catalysts
             let items;
@@ -358,8 +386,6 @@ class Router {
             } else {
                 items = allItems.filter(item => item.subcategory === subcategory);
             }
-            console.log(`Filtered items for ${subcategory}:`, items);
-            console.log(`Found ${items.length} items for ${subcategory}`);
             
             // Render the filtered listing
             const subcategoryTitles = {
@@ -370,7 +396,12 @@ class Router {
                 catalysts: 'Catalysts & Talismans'
             };
             
-            const html = contentRenderer.renderEquipmentSubcategory(subcategory, subcategoryTitles[subcategory], items);
+            let html = contentRenderer.renderEquipmentSubcategory(subcategory, subcategoryTitles[subcategory], items);
+            
+            // Add collaboration section for this equipment subcategory
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection('equipment', subcategory);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             document.title = `${subcategoryTitles[subcategory]} - Dark Souls Wiki`;
@@ -397,7 +428,12 @@ class Router {
             }
             
             const items = await contentLoader.loadCategoryListing(category);
-            const html = contentRenderer.renderCategoryListing(category, items);
+            let html = contentRenderer.renderCategoryListing(category, items);
+            
+            // Add collaboration section for category listings
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection(category);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             const categoryTitles = {
@@ -486,7 +522,7 @@ class Router {
                 content.relatedContent = await contentLoader.loadRelatedContent(content.metadata);
             }
             
-            const html = contentRenderer.render(content, renderType);
+            const html = contentRenderer.render(content, renderType, contentType);
             this.displayContent(html);
             
             document.title = `${content.metadata.name} - Dark Souls Wiki`;
@@ -510,6 +546,9 @@ class Router {
                         navigationEnhancer.addPrevNextNavigation(type, id, items);
                     });
                 }
+                
+                // Load Giscus comments for this page
+                this.loadGiscusComments(type, id);
             }, 100);
             
         } catch (error) {
@@ -614,6 +653,131 @@ class Router {
                 link.classList.add('active');
             }
         });
+    }
+
+    async showRecentChanges() {
+        try {
+            this.showLoading();
+            
+            const recentChanges = new RecentChanges();
+            const html = await recentChanges.createRecentChangesPage();
+            
+            this.displayContent(html);
+            document.title = 'Recent Changes - Dark Souls Wiki';
+            this.updateNavigation('contribute');
+            
+            // Load the actual changes data
+            setTimeout(async () => {
+                const changes = await recentChanges.fetchRecentChanges();
+                recentChanges.renderChanges(changes);
+                recentChanges.attachFilterHandlers();
+            }, 100);
+            
+        } catch (error) {
+            console.error('Error loading recent changes:', error);
+            this.showError('Failed to load recent changes');
+        }
+    }
+
+    async showContributePage() {
+        const html = `
+            <article class="content-article">
+                <header class="content-header">
+                    <h1>Contribute to Dark Souls Wiki</h1>
+                    <p class="content-description">
+                        Help us build the most comprehensive Dark Souls resource
+                    </p>
+                </header>
+                
+                <div class="content-body">
+                    <h2>Ways to Contribute</h2>
+                    
+                    <div class="contribute-options">
+                        <div class="contribute-card">
+                            <h3>Quick Edits</h3>
+                            <p>Click "Improve this page" on any article to suggest edits via GitHub.</p>
+                            <a href="https://github.com/ozankasikci/dark-souls-wiki" target="_blank" class="btn">
+                                View on GitHub
+                            </a>
+                        </div>
+                        
+                        <div class="contribute-card">
+                            <h3>Content Editor</h3>
+                            <p>Use our web-based CMS to edit content with a user-friendly interface.</p>
+                            <a href="/admin" target="_blank" class="btn">
+                                Open Editor
+                            </a>
+                        </div>
+                        
+                        <div class="contribute-card">
+                            <h3>Discussion</h3>
+                            <p>Share tips and strategies in the comment section of each page.</p>
+                            <a href="#bosses/asylum-demon" class="btn">
+                                View Example
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <h2>What We Need</h2>
+                    <ul class="needs-list">
+                        <li>Missing boss strategies and tips</li>
+                        <li>Weapon scaling and upgrade paths</li>
+                        <li>NPC questline walkthroughs</li>
+                        <li>Hidden item locations</li>
+                        <li>Lore theories and connections</li>
+                        <li>Grammar and spelling corrections</li>
+                    </ul>
+                    
+                    <h2>Getting Started</h2>
+                    <ol>
+                        <li>Read our <a href="/CONTRIBUTING.md" target="_blank">contribution guidelines</a></li>
+                        <li>Choose a page that needs improvement</li>
+                        <li>Make your edits using one of the methods above</li>
+                        <li>Submit your changes for review</li>
+                    </ol>
+                    
+                    <h2>Recent Activity</h2>
+                    <p>See what others have been working on:</p>
+                    <a href="#recent-changes" class="btn">View Recent Changes</a>
+                </div>
+            </article>
+        `;
+        
+        this.displayContent(html);
+        document.title = 'Contribute - Dark Souls Wiki';
+        this.updateNavigation('contribute');
+    }
+
+    loadGiscusComments(type, id) {
+        const container = document.getElementById('giscus-container');
+        if (!container) return;
+        
+        // Clear any existing comments
+        container.innerHTML = '';
+        
+        // Create script element for Giscus
+        const script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.setAttribute('data-repo', 'ozankasikci/dark-souls-wiki');
+        script.setAttribute('data-repo-id', 'YOUR_REPO_ID'); // TODO: Get from https://giscus.app
+        script.setAttribute('data-category', 'Wiki Comments');
+        script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID'); // TODO: Get from https://giscus.app
+        script.setAttribute('data-mapping', 'pathname');
+        script.setAttribute('data-strict', '0');
+        script.setAttribute('data-reactions-enabled', '1');
+        script.setAttribute('data-emit-metadata', '0');
+        script.setAttribute('data-input-position', 'top');
+        script.setAttribute('data-theme', 'dark_dimmed');
+        script.setAttribute('data-lang', 'en');
+        script.setAttribute('data-loading', 'lazy');
+        script.crossOrigin = 'anonymous';
+        script.async = true;
+        
+        // Use the current page path as the discussion identifier
+        const discussionPath = `${type}/${id}`;
+        script.setAttribute('data-term', discussionPath);
+        
+        container.appendChild(script);
     }
 
     preloadContent(type, id) {

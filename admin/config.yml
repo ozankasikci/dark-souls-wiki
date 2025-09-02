@@ -1,0 +1,346 @@
+# Decap CMS Configuration for Dark Souls Wiki
+# Update the repo field with your GitHub username/repo
+
+backend:
+  name: github
+  repo: ozankasikci/dark-souls-wiki
+  branch: main
+  base_url: https://api.netlify.com # Only needed for Netlify
+  site_domain: your-site.netlify.app # TODO: Replace with your domain
+
+# Uncomment for local testing
+# backend:
+#   name: test-repo
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+# CMS Settings
+site_url: https://your-dark-souls-wiki.com # TODO: Replace with your URL
+display_url: https://your-dark-souls-wiki.com
+logo_url: /assets/images/logo.png
+
+# Editorial Workflow enables draft/review/publish stages
+publish_mode: editorial_workflow
+
+# Collections define the content types
+collections:
+  # Bosses Collection
+  - name: "bosses"
+    label: "Bosses"
+    label_singular: "Boss"
+    folder: "data/bosses"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}} - {{location}}"
+    sortable_fields: ['name', 'location', 'health']
+    fields:
+      - {label: "Name", name: "name", widget: "string", required: true}
+      - {label: "Title", name: "title", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Health", name: "health", widget: "number"}
+      - {label: "Souls", name: "souls", widget: "number"}
+      - label: "Weaknesses"
+        name: "weaknesses"
+        widget: "list"
+        field: {label: "Weakness", name: "weakness", widget: "string"}
+      - label: "Resistances"
+        name: "resistances"
+        widget: "list"
+        field: {label: "Resistance", name: "resistance", widget: "string"}
+      - label: "Drops"
+        name: "drops"
+        widget: "list"
+        field: {label: "Item", name: "item", widget: "string"}
+      - {label: "Strategy", name: "body", widget: "markdown"}
+
+  # Areas Collection
+  - name: "areas"
+    label: "Areas"
+    label_singular: "Area"
+    folder: "data/areas"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}} - {{region}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string", required: true}
+      - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Region", name: "region", widget: "string"}
+      - {label: "Level Range", name: "level_range", widget: "string"}
+      - {label: "Bonfires", name: "bonfires", widget: "number"}
+      - {label: "Boss", name: "boss", widget: "string", required: false}
+      - label: "Connected Areas"
+        name: "connected_areas"
+        widget: "list"
+        field: {label: "Area", name: "area", widget: "string"}
+      - label: "NPCs"
+        name: "npcs"
+        widget: "list"
+        field: {label: "NPC", name: "npc", widget: "string"}
+      - label: "Notable Items"
+        name: "notable_items"
+        widget: "list"
+        field: {label: "Item", name: "item", widget: "string"}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # Weapons Collection
+  - name: "weapons"
+    label: "Weapons"
+    label_singular: "Weapon"
+    folder: "data/equipment/weapons"
+    create: true
+    slug: "{{category}}/{{slug}}"
+    summary: "{{name}} ({{weapon_type}})"
+    nested:
+      depth: 2
+      summary: '{{title}}'
+    fields:
+      - {label: "Name", name: "name", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text"}
+      - label: "Weapon Type"
+        name: "weapon_type"
+        widget: "select"
+        options:
+          - "Dagger"
+          - "Straight Sword"
+          - "Greatsword"
+          - "Ultra Greatsword"
+          - "Curved Sword"
+          - "Curved Greatsword"
+          - "Katana"
+          - "Piercing Sword"
+          - "Axe"
+          - "Great Axe"
+          - "Hammer"
+          - "Great Hammer"
+          - "Fist Weapon"
+          - "Spear"
+          - "Halberd"
+          - "Whip"
+          - "Bow"
+          - "Crossbow"
+          - "Catalyst"
+          - "Talisman"
+          - "Pyromancy Flame"
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "daggers"
+          - "straight-swords"
+          - "greatswords"
+          - "ultra-greatswords"
+          - "curved-swords"
+          - "curved-greatswords"
+          - "katanas"
+          - "piercing-swords"
+          - "axes"
+          - "great-axes"
+          - "hammers"
+          - "great-hammers"
+          - "fist-weapons"
+          - "spears"
+          - "halberds"
+          - "whips"
+          - "bows"
+          - "crossbows"
+          - "catalysts"
+          - "talismans"
+          - "flames"
+      - label: "Stats"
+        name: "stats"
+        widget: "object"
+        fields:
+          - {label: "Damage", name: "damage", widget: "string"}
+          - {label: "Damage Type", name: "damage_type", widget: "string"}
+          - {label: "Scaling", name: "scaling", widget: "string"}
+          - {label: "Weight", name: "weight", widget: "number"}
+          - {label: "Durability", name: "durability", widget: "number"}
+      - label: "Requirements"
+        name: "requirements"
+        widget: "object"
+        fields:
+          - {label: "Strength", name: "strength", widget: "number"}
+          - {label: "Dexterity", name: "dexterity", widget: "number"}
+          - {label: "Intelligence", name: "intelligence", widget: "number", required: false}
+          - {label: "Faith", name: "faith", widget: "number", required: false}
+      - {label: "Location", name: "location", widget: "text"}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # NPCs Collection
+  - name: "npcs"
+    label: "NPCs"
+    label_singular: "NPC"
+    folder: "data/npcs"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}} - {{location}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string", required: true}
+      - {label: "Title", name: "title", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Role", name: "role", widget: "string"}
+      - label: "Services"
+        name: "services"
+        widget: "list"
+        field: {label: "Service", name: "service", widget: "string"}
+      - label: "Questline"
+        name: "questline"
+        widget: "list"
+        field: {label: "Step", name: "step", widget: "text"}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # Items Collection
+  - name: "items"
+    label: "Items"
+    label_singular: "Item"
+    folder: "data/equipment/items"
+    create: true
+    slug: "{{category}}/{{slug}}"
+    summary: "{{name}} ({{item_type}})"
+    nested:
+      depth: 2
+    fields:
+      - {label: "Name", name: "name", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text"}
+      - label: "Item Type"
+        name: "item_type"
+        widget: "select"
+        options:
+          - "Consumable"
+          - "Key Item"
+          - "Ammunition"
+          - "Ore"
+          - "Soul"
+          - "Multiplayer Item"
+          - "Tool"
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "consumables"
+          - "key-bonfire-items"
+          - "ammunition"
+          - "ore"
+          - "souls"
+          - "multiplayer-items"
+          - "tools"
+          - "projectiles"
+      - {label: "Effect", name: "effect", widget: "text"}
+      - {label: "Location", name: "location", widget: "text"}
+      - {label: "Price", name: "price", widget: "number", required: false}
+      - {label: "Max Held", name: "max_held", widget: "number", required: false}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # Builds Collection
+  - name: "builds"
+    label: "Character Builds"
+    label_singular: "Build"
+    folder: "data/builds"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}} - {{build_type}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text"}
+      - label: "Build Type"
+        name: "build_type"
+        widget: "select"
+        options:
+          - "Strength"
+          - "Dexterity"
+          - "Intelligence"
+          - "Faith"
+          - "Quality"
+          - "Hybrid"
+          - "PvP"
+          - "PvE"
+          - "Cosplay"
+      - {label: "Difficulty", name: "difficulty", widget: "select", options: ["Beginner", "Intermediate", "Advanced", "Expert"]}
+      - label: "Starting Class"
+        name: "starting_class"
+        widget: "select"
+        options:
+          - "Warrior"
+          - "Knight"
+          - "Wanderer"
+          - "Thief"
+          - "Bandit"
+          - "Hunter"
+          - "Sorcerer"
+          - "Pyromancer"
+          - "Cleric"
+          - "Deprived"
+      - label: "Stats at SL120"
+        name: "stats"
+        widget: "object"
+        fields:
+          - {label: "Vitality", name: "vitality", widget: "number"}
+          - {label: "Attunement", name: "attunement", widget: "number"}
+          - {label: "Endurance", name: "endurance", widget: "number"}
+          - {label: "Strength", name: "strength", widget: "number"}
+          - {label: "Dexterity", name: "dexterity", widget: "number"}
+          - {label: "Resistance", name: "resistance", widget: "number"}
+          - {label: "Intelligence", name: "intelligence", widget: "number"}
+          - {label: "Faith", name: "faith", widget: "number"}
+      - label: "Equipment"
+        name: "equipment"
+        widget: "object"
+        fields:
+          - {label: "Weapons", name: "weapons", widget: "list", field: {label: "Weapon", name: "weapon", widget: "string"}}
+          - {label: "Armor", name: "armor", widget: "list", field: {label: "Piece", name: "piece", widget: "string"}}
+          - {label: "Rings", name: "rings", widget: "list", field: {label: "Ring", name: "ring", widget: "string"}}
+          - {label: "Spells", name: "spells", widget: "list", field: {label: "Spell", name: "spell", widget: "string"}, required: false}
+      - {label: "Strategy Guide", name: "body", widget: "markdown"}
+
+  # Lore Collection
+  - name: "lore"
+    label: "Lore"
+    label_singular: "Lore Article"
+    folder: "data/lore"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Name", name: "name", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text"}
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Characters"
+          - "Locations"
+          - "Events"
+          - "Concepts"
+          - "Timeline"
+      - label: "Related Topics"
+        name: "related_topics"
+        widget: "list"
+        field: {label: "Topic", name: "topic", widget: "string"}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # Quests Collection
+  - name: "quests"
+    label: "Quests"
+    label_singular: "Quest"
+    folder: "data/quests"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{name}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string", required: true}
+      - {label: "NPC", name: "npc", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - label: "Requirements"
+        name: "requirements"
+        widget: "list"
+        field: {label: "Requirement", name: "requirement", widget: "string"}
+      - label: "Rewards"
+        name: "rewards"
+        widget: "list"
+        field: {label: "Reward", name: "reward", widget: "string"}
+      - {label: "Quest Guide", name: "body", widget: "markdown"}

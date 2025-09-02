@@ -1,0 +1,248 @@
+/* Recent Changes Styles */
+.recent-changes-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Filters */
+.changes-filters {
+    display: flex;
+    gap: 0.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background: #1a1a1a;
+    color: #888;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filter-btn:hover {
+    background: #2a2a2a;
+    color: #c9a961;
+    border-color: #3a3a3a;
+}
+
+.filter-btn.active {
+    background: #2a2a2a;
+    color: #c9a961;
+    border-color: #c9a961;
+}
+
+/* Changes List */
+.changes-container {
+    background: #0a0a0a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.changes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Change Item */
+.change-item {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.change-item:hover {
+    border-color: #3a3a3a;
+    transform: translateX(4px);
+}
+
+/* Change Header */
+.change-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.change-author {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.author-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #3a3a3a;
+}
+
+.author-avatar-placeholder {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+}
+
+.author-name {
+    color: #c9a961;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.change-time {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* Change Content */
+.change-content {
+    margin-left: 32px;
+}
+
+.change-message {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.change-message a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.change-message a:hover {
+    color: #c9a961;
+}
+
+/* Change Summary */
+.change-summary {
+    color: #888;
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: #0a0a0a;
+    border-left: 2px solid #2a2a2a;
+    border-radius: 2px;
+}
+
+/* Change Stats */
+.change-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.additions {
+    color: #4caf50;
+}
+
+.deletions {
+    color: #f44336;
+}
+
+.commit-sha {
+    color: #666;
+    font-family: monospace;
+}
+
+/* Footer */
+.changes-footer {
+    text-align: center;
+    padding: 1rem;
+}
+
+.view-all-link {
+    color: #c9a961;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.view-all-link:hover {
+    color: #e0c080;
+    transform: translateX(4px);
+}
+
+/* Loading State */
+.changes-list .loading {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Empty State */
+.no-changes {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+}
+
+.no-changes h3 {
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .recent-changes-page {
+        padding: 1rem;
+    }
+    
+    .change-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .change-content {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+    
+    .changes-filters {
+        justify-content: center;
+    }
+    
+    .filter-btn {
+        flex: 1;
+        min-width: 80px;
+    }
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.change-item {
+    animation: slideIn 0.3s ease forwards;
+}
+
+.change-item:nth-child(1) { animation-delay: 0.05s; }
+.change-item:nth-child(2) { animation-delay: 0.10s; }
+.change-item:nth-child(3) { animation-delay: 0.15s; }
+.change-item:nth-child(4) { animation-delay: 0.20s; }
+.change-item:nth-child(5) { animation-delay: 0.25s; }
