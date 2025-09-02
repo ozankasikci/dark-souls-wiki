@@ -549,12 +549,15 @@ class ContentLoader {
                         }
                     } else if (Array.isArray(data)) {
                         // Handle regular arrays (shields, rings, etc.)
-                        const promises = data.map(filename => 
-                            this.loadContent(`equipment/${subcategory}`, filename.replace('.md', '')).catch(err => {
-                                console.error(`Failed to load equipment/${subcategory}/${filename}:`, err);
+                        const promises = data.map(filename => {
+                            // Handle both string filenames and object entries
+                            const name = typeof filename === 'string' ? filename : filename.name || filename.id;
+                            const cleanName = name.replace('.md', '');
+                            return this.loadContent(`equipment/${subcategory}`, cleanName).catch(err => {
+                                console.error(`Failed to load equipment/${subcategory}/${cleanName}:`, err);
                                 return null;
-                            })
-                        );
+                            });
+                        });
                         
                         const results = await Promise.all(promises);
                         const validResults = results.filter(result => result !== null);

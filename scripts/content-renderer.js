@@ -15,7 +15,7 @@ class ContentRenderer {
 
     render(data, type) {
         const template = this.templates[type] || this.templates.default;
-        let content = template.call(this, data);
+        let content = template.call(this, data, type);
         
         // Add image support based on type and metadata
         content = this.addContentImages(content, data, type);
@@ -61,7 +61,7 @@ class ContentRenderer {
         return content;
     }
 
-    defaultTemplate(data) {
+    defaultTemplate(data, type = 'default') {
         const { metadata, html } = data;
         
         return `
@@ -76,11 +76,12 @@ class ContentRenderer {
                     ${html}
                 </div>
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'))}
             </article>
         `;
     }
 
-    areaTemplate(data) {
+    areaTemplate(data, type = 'areas') {
         const { metadata, html } = data;
         const connections = metadata.connections || metadata.connected_areas;
         
@@ -163,11 +164,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'))}
             </article>
         `;
     }
 
-    bossTemplate(data) {
+    bossTemplate(data, type = 'bosses') {
         const { metadata, html } = data;
         
         // Parse weaknesses and resistances from array format
@@ -243,11 +245,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'))}
             </article>
         `;
     }
 
-    itemTemplate(data) {
+    itemTemplate(data, type = 'items') {
         const { metadata, html } = data;
         
         return `
@@ -273,11 +276,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'))}
             </article>
         `;
     }
 
-    weaponTemplate(data) {
+    weaponTemplate(data, type = 'weapons') {
         const { metadata, html } = data;
         
         // Handle damage as object or string
@@ -391,11 +395,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'))}
             </article>
         `;
     }
 
-    armorTemplate(data) {
+    armorTemplate(data, type = 'armor') {
         const { metadata, html } = data;
         
         // Use title if name is not available
@@ -447,11 +452,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'))}
             </article>
         `;
     }
 
-    npcTemplate(data) {
+    npcTemplate(data, type = 'npcs') {
         const { metadata, html } = data;
         
         return `
@@ -517,12 +523,13 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'))}
             </article>
         `;
     }
 
 
-    questTemplate(data) {
+    questTemplate(data, type = 'quests') {
         const { metadata, html } = data;
         
         return `
@@ -558,11 +565,12 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'))}
             </article>
         `;
     }
 
-    loreTemplate(data) {
+    loreTemplate(data, type = 'lore') {
         const { metadata, html } = data;
         
         return `
@@ -579,6 +587,7 @@ class ContentRenderer {
                 </div>
                 
                 ${this.renderRelatedContent(data.relatedContent)}
+                ${this.renderCollaborationSection(type, data.metadata.id || data.metadata.name?.toLowerCase().replace(/\s+/g, '-'))}
             </article>
         `;
     }
@@ -657,6 +666,52 @@ class ContentRenderer {
         return `
             <div class="content-tags">
                 ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            </div>
+        `;
+    }
+
+    renderCollaborationSection(type, id) {
+        // GitHub repository info - you'll need to update this with your actual repo
+        const githubRepo = 'ozankasikci/dark-souls-wiki';
+        const githubBranch = 'main';
+        
+        // Build the edit URL based on content type and id
+        let editPath = '';
+        if (type === 'equipment') {
+            // Equipment items have nested paths
+            const parts = id.split('/');
+            editPath = `data/equipment/${id}.md`;
+        } else {
+            editPath = `data/${type}/${id}.md`;
+        }
+        
+        const editUrl = `https://github.com/${githubRepo}/edit/${githubBranch}/${editPath}`;
+        
+        return `
+            <div class="collaboration-section">
+                <div class="edit-actions">
+                    <a href="${editUrl}" target="_blank" class="edit-button" title="Edit this page on GitHub">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M11.013 1.427a1.75 1.75 0 012.474 0l1.086 1.086a1.75 1.75 0 010 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 01-.927-.928l.929-3.25a1.75 1.75 0 01.445-.758l8.61-8.61zm1.414 1.06a.25.25 0 00-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 000-.354l-1.086-1.086zM11.189 6.25L9.75 4.81l-6.286 6.287a.25.25 0 00-.064.108l-.558 1.953 1.953-.558a.249.249 0 00.108-.064l6.286-6.286z"/>
+                        </svg>
+                        Improve this page
+                    </a>
+                    <a href="https://github.com/${githubRepo}/issues/new?title=Issue%20with%20${type}/${id}" target="_blank" class="report-button" title="Report an issue">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+                            <path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"/>
+                        </svg>
+                        Report issue
+                    </a>
+                </div>
+                
+                <div class="discussion-section">
+                    <h3>Community Discussion</h3>
+                    <p class="discussion-intro">Help improve this page by sharing your knowledge and tips!</p>
+                    <div id="giscus-container">
+                        <!-- Giscus will be loaded here by the router -->
+                    </div>
+                </div>
             </div>
         `;
     }
