@@ -194,7 +194,7 @@ class ContentLoader {
                 // Process each weapon category
                 for (const [categoryKey, categoryData] of Object.entries(weaponManifest.categories)) {
                     try {
-                        const categoryResponse = await fetch(`data/equipment/weapons/${categoryData.manifest}?t=${Date.now()}`);
+                        const categoryResponse = await fetch(`data/equipment/weapons/${categoryKey}/manifest.json?t=${Date.now()}`);
                         if (categoryResponse.ok) {
                             const categoryManifest = await categoryResponse.json();
                             
@@ -523,31 +523,45 @@ class ContentLoader {
                     catalysts: 'Catalysts'
                 };
                 
-                for (const [subcategory, data] of Object.entries(manifest)) {
-                    // Handle new structure where weapons points to a manifest file
-                    if (typeof data === 'string' && data.endsWith('manifest.json')) {
-                        if (subcategory === 'weapons') {
-                            // Load weapons subcategories
-                            const weaponsItems = await this.loadWeaponSubcategories();
-                            allItems.push(...weaponsItems);
-                        } else if (subcategory === 'armor') {
-                            // Load armor subcategories
-                            const armorItems = await this.loadArmorSubcategories();
-                            allItems.push(...armorItems);
-                        } else if (subcategory === 'shields') {
-                            // Load shield subcategories
-                            const shieldItems = await this.loadShieldSubcategories();
-                            allItems.push(...shieldItems);
-                        } else if (subcategory === 'rings') {
-                            // Load ring subcategories
-                            const ringItems = await this.loadRingSubcategories();
-                            allItems.push(...ringItems);
-                        } else if (subcategory === 'items') {
-                            // Load items subcategories
-                            const itemItems = await this.loadItemSubcategories();
-                            allItems.push(...itemItems);
-                        }
-                    } else if (Array.isArray(data)) {
+                // Handle new manifest structure with categories array
+                const categoriesToProcess = manifest.categories || manifest;
+                
+                for (const categoryData of (Array.isArray(categoriesToProcess) ? categoriesToProcess : Object.entries(categoriesToProcess))) {
+                    let subcategory, data;
+                    
+                    if (Array.isArray(categoriesToProcess)) {
+                        // New structure: {categories: [{id: "weapons", ...}]}
+                        subcategory = categoryData.id;
+                        data = categoryData;
+                    } else {
+                        // Old structure: {weapons: [...]}
+                        [subcategory, data] = categoryData;
+                    }
+                    // For new manifest structure, always load subcategories
+                    if (subcategory === 'weapons') {
+                        // Load weapons subcategories
+                        const weaponsItems = await this.loadWeaponSubcategories();
+                        allItems.push(...weaponsItems);
+                    } else if (subcategory === 'armor') {
+                        // Load armor subcategories
+                        const armorItems = await this.loadArmorSubcategories();
+                        allItems.push(...armorItems);
+                    } else if (subcategory === 'shields') {
+                        // Load shield subcategories
+                        const shieldItems = await this.loadShieldSubcategories();
+                        allItems.push(...shieldItems);
+                    } else if (subcategory === 'rings') {
+                        // Load ring subcategories
+                        const ringItems = await this.loadRingSubcategories();
+                        allItems.push(...ringItems);
+                    } else if (subcategory === 'items') {
+                        // Load items subcategories
+                        const itemItems = await this.loadItemSubcategories();
+                        allItems.push(...itemItems);
+                    }
+                    
+                    // Handle legacy structure with direct arrays
+                    else if (Array.isArray(data)) {
                         // Handle regular arrays (shields, rings, etc.)
                         const promises = data.map(filename => {
                             // Handle both string filenames and object entries

@@ -58,7 +58,6 @@ class Router {
 
         // Handle equipment subcategory listings
         if (type === 'equipment' && rest.length === 1 && ['weapons', 'armor', 'shields', 'rings', 'catalysts'].includes(rest[0])) {
-            console.log('Router: calling loadEquipmentSubcategory for', rest[0]);
             await this.loadEquipmentSubcategory(rest[0]);
             return;
         }
@@ -147,7 +146,12 @@ class Router {
                 'flames': 'Flames'
             };
             
-            const html = contentRenderer.renderCategoryListing('equipment', items);
+            let html = contentRenderer.renderEquipmentSubcategory('weapons', categoryTitles[weaponCategory] || weaponCategory, items);
+            
+            // Add collaboration section for this weapon category
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection('equipment', `weapons/${weaponCategory}`);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             document.title = `${categoryTitles[weaponCategory] || weaponCategory} - Dark Souls Wiki`;
@@ -186,7 +190,12 @@ class Router {
                 'unique-armor': 'Unique Armor'
             };
             
-            const html = contentRenderer.renderCategoryListing('equipment', items);
+            let html = contentRenderer.renderEquipmentSubcategory('armor', categoryTitles[armorCategory] || armorCategory, items);
+            
+            // Add collaboration section for this armor category
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection('equipment', `armor/${armorCategory}`);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             document.title = `${categoryTitles[armorCategory] || armorCategory} - Dark Souls Wiki`;
@@ -224,7 +233,12 @@ class Router {
                 'unique-shields': 'Unique Shields'
             };
             
-            const html = contentRenderer.renderCategoryListing('equipment', items);
+            let html = contentRenderer.renderEquipmentSubcategory('shields', categoryTitles[shieldCategory] || shieldCategory, items);
+            
+            // Add collaboration section for this shield category
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection('equipment', `shields/${shieldCategory}`);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             document.title = `${categoryTitles[shieldCategory] || shieldCategory} - Dark Souls Wiki`;
@@ -262,7 +276,12 @@ class Router {
                 'resistance-rings': 'Resistance Rings'
             };
             
-            const html = contentRenderer.renderCategoryListing('equipment', items);
+            let html = contentRenderer.renderEquipmentSubcategory('rings', categoryTitles[ringCategory] || ringCategory, items);
+            
+            // Add collaboration section for this ring category
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection('equipment', `rings/${ringCategory}`);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             document.title = `${categoryTitles[ringCategory] || ringCategory} - Dark Souls Wiki`;
@@ -354,8 +373,6 @@ class Router {
             
             // Load all equipment items
             const allItems = await contentLoader.loadCategoryListing('equipment');
-            console.log('All equipment items:', allItems);
-            console.log('Looking for subcategory:', subcategory);
             
             // Filter by subcategory - special handling for catalysts
             let items;
@@ -369,8 +386,6 @@ class Router {
             } else {
                 items = allItems.filter(item => item.subcategory === subcategory);
             }
-            console.log(`Filtered items for ${subcategory}:`, items);
-            console.log(`Found ${items.length} items for ${subcategory}`);
             
             // Render the filtered listing
             const subcategoryTitles = {
@@ -381,7 +396,12 @@ class Router {
                 catalysts: 'Catalysts & Talismans'
             };
             
-            const html = contentRenderer.renderEquipmentSubcategory(subcategory, subcategoryTitles[subcategory], items);
+            let html = contentRenderer.renderEquipmentSubcategory(subcategory, subcategoryTitles[subcategory], items);
+            
+            // Add collaboration section for this equipment subcategory
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection('equipment', subcategory);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             document.title = `${subcategoryTitles[subcategory]} - Dark Souls Wiki`;
@@ -408,7 +428,12 @@ class Router {
             }
             
             const items = await contentLoader.loadCategoryListing(category);
-            const html = contentRenderer.renderCategoryListing(category, items);
+            let html = contentRenderer.renderCategoryListing(category, items);
+            
+            // Add collaboration section for category listings
+            const collaborationSection = contentRenderer.renderCategoryCollaborationSection(category);
+            html = html.replace(/<\/div>\s*$/, collaborationSection + '</div>');
+            
             this.displayContent(html);
             
             const categoryTitles = {
@@ -497,7 +522,7 @@ class Router {
                 content.relatedContent = await contentLoader.loadRelatedContent(content.metadata);
             }
             
-            const html = contentRenderer.render(content, renderType);
+            const html = contentRenderer.render(content, renderType, contentType);
             this.displayContent(html);
             
             document.title = `${content.metadata.name} - Dark Souls Wiki`;
