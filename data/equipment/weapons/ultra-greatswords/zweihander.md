@@ -5,7 +5,7 @@ type: weapons
 category: Ultra Greatsword
 item_type: Weapon
 description: A massive ultra greatsword obtainable very early near Firelink Shrine
-damage_physical: 130
+damage_physical: 150
 damage_scaling: C/D/-/-
 weight: 10.0
 durability: 200
@@ -42,7 +42,7 @@ Found on a corpse in the **Graveyard behind Firelink Shrine**:
 
 | Stat | Value |
 |------|-------|
-| Physical Damage | 130 (base) |
+| Physical Damage | 150 (base) |
 | Weight | 10.0 |
 | Durability | 200 |
 | Critical | 100 |

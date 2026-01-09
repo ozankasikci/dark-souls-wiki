@@ -2,8 +2,8 @@
 name: "Elite Knight Set"
 title: "Elite Knight Set"
 category: "Medium Armor"
-weight: "29.1"
-poise: "53"
+weight: "26.8"
+poise: "46"
 durability: "Variable"
 location: "Darkroot Garden - Near stone bridge"
 image: "elite-knight-set.jpg"
@@ -19,10 +19,10 @@ Armor of a nameless knight, perhaps an elite knight of Astora. This armor is mod
 
 ## Set Pieces
 
-- **Elite Knight Helm**: 5.4 weight, 12 poise
-- **Elite Knight Armor**: 12.0 weight, 24 poise
-- **Elite Knight Gauntlets**: 4.5 weight, 11 poise
-- **Elite Knight Leggings**: 7.2 weight, 14 poise
+- **Elite Knight Helm**: 4.5 weight, 10 poise
+- **Elite Knight Armor**: 11.7 weight, 21 poise
+- **Elite Knight Gauntlets**: 3.7 weight, 7 poise
+- **Elite Knight Leggings**: 6.9 weight, 8 poise
 
 ## Stats (Fully Upgraded +10)
 
