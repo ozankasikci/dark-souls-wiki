@@ -65,7 +65,7 @@ Astora's Straight Sword deals split physical/magic damage and has faith scaling,
 **Special Properties:**
 - Split damage (physical + magic)
 - Extra damage to undead enemies
-- Cannot be buffed or infused
+- Cannot be buffed with resins or spells
 - Faith scaling unusual for straight sword
 
 ## Upgrades

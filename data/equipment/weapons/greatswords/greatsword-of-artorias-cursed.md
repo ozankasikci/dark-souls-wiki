@@ -49,9 +49,9 @@ Sword born from the soul of the great grey wolf Sif, guardian of the grave of th
 
 ## Acquisition
 - Created by Giant Blacksmith in Anor Londo
-- Requires Soul of Sif + broken/straight sword hilt +10
-- Using broken sword creates cursed version
-- Using regular sword creates normal version
+- Requires Soul of Sif + any +10 straight sword, greatsword, ultra greatsword, or dagger (EXCEPT Broken Straight Sword/Straight Sword Hilt)
+- Eligible weapons: Longsword, Broadsword, Balder Side Sword, Claymore, Zweihander, Dagger, etc.
+- Using Broken Straight Sword/Straight Sword Hilt creates the TRUE version instead
 
 ## Characteristics
 The cursed version has lower stat requirements than the normal version and can permanently damage ghosts in New Londo.

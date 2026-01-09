@@ -4,90 +4,134 @@ name: Zweihander
 type: weapons
 category: Ultra Greatsword
 item_type: Weapon
-description: An ultra greatsword with a long reach and devastating damage
-image: /images/weapons/zweihander.jpg
-damage_physical: 145
+description: A massive ultra greatsword obtainable very early near Firelink Shrine
+damage_physical: 130
 damage_scaling: C/D/-/-
 weight: 10.0
-durability: 85
+durability: 200
 critical: 100
-skill: Stomp
 requirements:
-  strength: 19
-  dexterity: 11
-location: Sold by Greirat for 6,000 souls
+  strength: 24
+  dexterity: 10
+location: Found in the Graveyard behind Firelink Shrine
 tags:
   - ultra-greatsword
   - strength-weapon
   - poise-weapon
+  - early-game
 related:
-  npcs:
-    - greirat-of-the-undead-settlement
+  areas:
+    - firelink-shrine
+    - catacombs
 ---
 
 # Zweihander
 
-The Zweihander is a massive ultra greatsword that trades speed for incredible reach and damage. A favorite among strength builds, this weapon can devastate opponents with its wide swings and high poise damage.
+The Zweihander is a massive ultra greatsword that trades speed for incredible reach and damage. A favorite among strength builds and the weapon of choice for the legendary "Giant Dad" build.
+
+## Acquisition
+
+Found on a corpse in the **Graveyard behind Firelink Shrine**:
+- Located in front of the large tombstone at the farthest end
+- To the right of the stairs leading down toward the Catacombs
+- Guarded by two Skeletons and one Giant Skeleton
+
+**Strategy**: Sprint past the skeletons, grab the weapon, and use a Homeward Bone or die to return to Firelink.
+
+## Stats
+
+| Stat | Value |
+|------|-------|
+| Physical Damage | 130 (base) |
+| Weight | 10.0 |
+| Durability | 200 |
+| Critical | 100 |
+| Strength Scaling | C |
+| Dexterity Scaling | D |
+
+## Requirements
+
+| Stat | Requirement |
+|------|-------------|
+| Strength | 24 (16 to two-hand) |
+| Dexterity | 10 |
 
 ## Weapon Overview
 
-Despite being classified as an Ultra Greatsword, the Zweihander is unique for several reasons:
-- Lowest stat requirements in its class
-- Unique horizontal R2 attacks
-- Exceptional reach
-- Lower weight compared to other ultra greatswords
+The Zweihander is unique among Ultra Greatswords:
+- **Lowest stat requirements** in its class
+- **Lightest** ultra greatsword at 10.0 weight
+- **Unique horizontal R2 attacks** (different from other UGS)
+- **Exceptional reach**
+- Available extremely early in the game
 
-## Moveset Analysis
+## Moveset
 
 ### One-Handed
 - **R1**: Wide horizontal swings
-- **R2**: Unique horizontal sweep (different from other UGS)
+- **R2**: Unique horizontal sweep
 - **Rolling R1**: Upward slash
 - **Running R1**: Powerful overhead slam
 
 ### Two-Handed
-- **R1**: Vertical slams with hyper armor
+- **R1**: Vertical slams
 - **R2**: Wide horizontal sweep
-- **Weapon Art (Stomp)**: Grants poise and leads into devastating uppercut
 
-## Build Optimization
+## Build Recommendations
 
-### Pure Strength (66 STR)
-The Zweihander reaches its maximum potential at 66 strength when two-handed (effective 99 STR). Heavy infusion is recommended for pure physical damage.
+### Pure Strength Build
+At 27 STR (two-handing = effective 40 STR), the Zweihander performs excellently. Push to 40+ STR for maximum scaling.
 
-### Quality Build (40/40)
-While not optimal, quality builds can still make effective use of the Zweihander with refined infusion.
+### Quality Build (27 STR / 40 DEX)
+Viable but not optimal due to the lower DEX scaling (D rank).
 
 ### Elemental Builds
-- **Chaos/Dark**: Excellent for pyromancer builds
-- **Lightning**: Viable for faith builds, though the scaling is modest
+At Lightning +5, Fire +10, or Chaos +5 (with 10 humanity), the Zweihander exceeds **700 AR** - one of the highest in the game:
+- **Lightning +5**: Removes scaling, pure damage
+- **Fire +10**: Another scaleless option
+- **Chaos +5**: Scales with humanity, devastating with 10 soft humanity
 
-## PvP Strategy
+## "Giant Dad" Build
 
-The Zweihander excels in PvP due to:
-1. **Space Control**: Its massive reach keeps opponents at bay
-2. **Hyper Armor**: Trades favorably with smaller weapons
-3. **Roll Catching**: The wide swings catch panic rolls
-4. **Stamina Pressure**: Forces opponents to manage stamina carefully
+The Zweihander is the centerpiece of the legendary Giant Dad PvP build:
+- Giant's Armor Set
+- Father Mask
+- Chaos Zweihander +5
+- Grass Crest Shield (on back)
+- Havel's Ring + Ring of Favor and Protection
+- Fast roll with massive poise
 
-### Common Combos
-- R1 → R1 (true combo on hit)
-- Stomp → R2 (can catch aggressive players)
-- Running R1 → R1 (rollcatch setup)
+## Upgrades
+
+Standard upgrade path using Titanite:
+- +0 to +5: Titanite Shards
+- +6 to +10: Large Titanite Shards
+- +11 to +14: Titanite Chunks
+- +15: Titanite Slab
+
+Elemental paths available at +5 or +10 base.
 
 ## Comparison with Other Ultra Greatswords
 
-| Weapon | Weight | STR Req | Reach | Unique Features |
-|--------|--------|---------|-------|-----------------|
-| Zweihander | 10.0 | 19 | Exceptional | Horizontal R2s, low requirements |
-| Greatsword | 20.0 | 28 | Very Good | Higher damage, standard UGS moveset |
-| Fume UGS | 25.5 | 50 | Good | S-scaling in STR, strike damage |
-| Cathedral Knight GS | 15.0 | 26 | Good | Strike damage on 2H R2s |
+| Weapon | Weight | STR Req | Features |
+|--------|--------|---------|----------|
+| Zweihander | 10.0 | 24 | Horizontal R2s, low requirements |
+| Greatsword | 12.0 | 28 | Higher damage, standard moveset |
+| Demon Great Machete | 13.0 | 40 | Very high base damage |
+| Dragon Greatsword | 24.0 | 50 | Shockwave R2, massive damage |
 
-## Tips for New Players
+## Tips
 
-1. **Spacing is Key**: Use the Zweihander's reach to hit enemies outside their range
-2. **Don't Spam**: Each swing consumes significant stamina
-3. **Learn to Aim**: The wide swings can miss if not properly positioned
-4. **Use Hyper Armor**: Trade hits with confidence during your attack animations
-5. **Mix Up Attacks**: Alternate between R1s and R2s to keep opponents guessing
+1. **Two-hand at 16 STR** to use it immediately upon acquiring
+2. **Use the reach** to hit enemies before they reach you
+3. **Manage stamina** carefully - each swing is costly
+4. **Elemental paths** are excellent for low-level invasions
+5. **Poise through attacks** - UGS attacks have high poise damage
+
+## Notes
+
+- One of the most popular weapons in Dark Souls history
+- Trivializes early game when acquired immediately
+- The "Giant Dad" build became a meme due to its effectiveness
+- Excellent for both PvE and PvP
+- Getting it early requires dodging dangerous skeletons

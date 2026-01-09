@@ -4,31 +4,57 @@ name: Longsword
 type: weapons
 category: Straight Sword
 item_type: Weapon
-description: A balanced straight sword suitable for thrusting attacks
-damage_physical: 110
+description: A balanced straight sword suitable for various combat situations
+damage_physical: 80
 damage_scaling: C/C/-/-
 weight: 3.0
-durability: 100
+durability: 200
 requirements:
   strength: 10
   dexterity: 10
-location: Found on a corpse in the High Wall of Lothric
+location: Starting equipment for Warrior class, sold by Andre of Astora
 tags:
   - straight-sword
   - quality-weapon
   - starter-weapon
+  - versatile
 related:
+  npcs:
+    - andre-of-astora
   areas:
-    - high-wall-of-lothric
+    - undead-burg
+    - undead-parish
 ---
 
 # Longsword
 
-The Longsword is one of the most reliable and versatile weapons in Dark Souls III. Its balanced moveset, moderate stat requirements, and solid scaling make it an excellent choice for both beginners and experienced players.
+The Longsword is a widely used straight sword that offers a balanced moveset, reasonable damage, low requirements, and efficient stamina usage. It is the archetypical straight sword in Dark Souls.
+
+## Acquisition
+
+- Starting equipment for Warrior class
+- Sold by Andre of Astora for 1,000 souls
+- Dropped by Undead Soldiers (sword and shield type) - 2% drop rate
+- Found in: Undead Burg, Undead Parish, Northern Undead Asylum (revisit), Firelink Shrine
+
+## Stats
+
+| Stat | Value |
+|------|-------|
+| Physical Damage | 80 (base) |
+| Weight | 3.0 |
+| Durability | 200 |
+| Strength Scaling | C |
+| Dexterity Scaling | C |
+
+## Requirements
+
+| Stat | Requirement |
+|------|-------------|
+| Strength | 10 |
+| Dexterity | 10 |
 
 ## Moveset
-
-The Longsword features a well-rounded moveset with both slashing and thrusting attacks:
 
 - **One-handed R1**: Horizontal slashes
 - **One-handed R2**: Upward thrust
@@ -38,34 +64,29 @@ The Longsword features a well-rounded moveset with both slashing and thrusting a
 ## Build Recommendations
 
 ### Quality Build
-With C/C scaling in STR/DEX, the Longsword excels in quality builds (40 STR/40 DEX). At +10 with refined infusion, it reaches impressive damage output while maintaining its versatile moveset.
+With C/C scaling in STR/DEX, the Longsword excels in quality builds. At +15 with 40 STR/40 DEX, it reaches impressive damage output while maintaining its versatile moveset.
 
-### Elemental Builds
-The Longsword also performs well with elemental infusions:
-- **Lightning**: Good for faith builds
-- **Crystal**: Excellent for sorcery builds
-- **Dark/Chaos**: Strong options for pyromancers
+### Elemental Paths
+The Longsword performs well with various upgrade paths:
+- **Lightning +5**: Good for low-stat builds (no scaling)
+- **Fire +10**: Another option for builds not investing in STR/DEX
+- **Divine +10**: Useful for Faith builds
+- **Enchanted +5**: For Intelligence builds
 
-## PvP Considerations
+## Upgrades
 
-In PvP, the Longsword's main advantages are:
-- Fast startup on R1 attacks
-- Good roll-catching potential
-- Reliable weapon art (Stance) for breaking guards
-- Low stamina consumption
+Standard upgrade path using Titanite:
+- +0 to +5: Titanite Shards
+- +6 to +10: Large Titanite Shards
+- +11 to +14: Titanite Chunks
+- +15: Titanite Slab
 
-## Upgrade Path
+At +15: ~200 base damage before scaling
 
-| Level | Damage | Materials Required |
-|-------|---------|-------------------|
-| +0 | 110 | - |
-| +1 | 121 | 2x Titanite Shard |
-| +2 | 132 | 4x Titanite Shard |
-| +3 | 143 | 6x Titanite Shard |
-| +4 | 154 | 2x Large Titanite Shard |
-| +5 | 165 | 4x Large Titanite Shard |
-| +6 | 176 | 6x Large Titanite Shard |
-| +7 | 187 | 2x Titanite Chunk |
-| +8 | 198 | 4x Titanite Chunk |
-| +9 | 209 | 6x Titanite Chunk |
-| +10 | 220 | 1x Titanite Slab |
+## Notes
+
+- One of the most reliable weapons in the game
+- Completely viable from start to finish
+- Low weight makes it easy to incorporate into any build
+- Popular for both PvE and PvP
+- Standard moveset that feels natural for new players

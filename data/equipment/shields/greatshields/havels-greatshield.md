@@ -7,7 +7,7 @@ shieldCategory: greatshields
 # Havel's Greatshield
 
 ## Description
-Greatshield created from the Dragon Tooth of Havel the Rock. It is terribly heavy and most who try to wield it find themselves unable to move.
+Greatshield of the legendary Havel the Rock. Cut straight from a great slab of stone. This greatshield is imbued with the magic of Havel, provides strong defense, and is incredibly heavy. A true divine heirloom on par with the Dragon Tooth.
 
 ## Stats
 
@@ -18,21 +18,23 @@ Greatshield created from the Dragon Tooth of Havel the Rock. It is terribly heav
 | Fire Defense | 80.0 |
 | Lightning Defense | 80.0 |
 | Stability | 84 |
-| Durability | 1000 |
+| Durability | 500 |
 | Weight | 26.0 |
 | Strength Requirement | 50 |
 
 ## Special Properties
-- Highest stability in the game
 - 100% physical block
-- Exceptional magic defense
-- Special attack: Stone Flesh effect
+- Highest magic defense of any shield (tied with Crystal Ring Shield)
+- Special ability: Stoneskin buff (L2/R2) - boosts poise and heavy deflection for 30 seconds
+- Stoneskin consumes 300 durability per use
 
 ## Location
 - Found in Anor Londo
-- Behind illusory wall in basement with Havel's armor set
+- In a chest in a dark room behind a fireplace, blocked by an illusory wall
+- Same room contains Havel's Armor Set and Dragon Tooth
 
 ## Notes
-- Heaviest shield in the game
-- L2/LT special attack grants temporary damage reduction
-- Requires massive strength investment
+- Heaviest greatshield in the game (26.0)
+- Useful against enemies with mixed elemental attacks (Sanctuary Guardian)
+- Effective against mages and sorcerers
+- Must meet 50 STR requirement to use Stoneskin buff

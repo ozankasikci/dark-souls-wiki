@@ -22,9 +22,10 @@ The Leo Ring is one of the four special rings granted to Gwyn's Knights. This ri
 - **Thrust Damage**: +40%
 
 ## Location
-- **Anor Londo**: Chest in Ornstein and Smough boss room after defeating both bosses
-- Available regardless of which boss is killed last
-- Must be collected before leaving Anor Londo
+- **Anor Londo**: Dropped by Dragon Slayer Ornstein when killed LAST
+- Must kill Executioner Smough first, then defeat Super Ornstein
+- Ring drops on the ground where Ornstein dies - pick it up before leaving!
+- **Warning**: Killing Ornstein first means you miss the Leo Ring for that playthrough
 
 ## Notes
 - Excellent for aggressive playstyles and thrust weapon builds

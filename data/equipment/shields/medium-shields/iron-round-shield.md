@@ -8,7 +8,7 @@ shieldCategory: medium-shields
 
 ## Description
 
-A simple round iron shield. Common equipment among soldiers and mercenaries due to its reliable construction and balanced weight. Its circular design offers consistent protection from all angles.
+Thick iron shield of Shiva of the East. Heaviest of the standard shields. Deflects enemy attacks. A famous specimen from Shiva's collection, but none who have faced it have lived to tell the tale.
 
 ## Stats
 
@@ -25,13 +25,15 @@ A simple round iron shield. Common equipment among soldiers and mercenaries due 
 
 ## Special Properties
 
-- Good parry frames for a medium shield
+- Heavy deflection (deflects attacks like a greatshield despite being a standard shield)
+- Provides partial Poison and Toxic buildup reduction when blocking
+- Can parry (unlike greatshields)
 
 ## Location
 
-- Sold by Shiva of the East for 2,500 souls (requires Forest Hunter covenant)
-- Dropped by Shiva's bodyguard (the ninja merchant)
-- Can be found in Blighttown on a corpse
+- **Purchased from Shiva of the East** when he becomes a merchant in Blighttown
+- Must join the Forest Hunter covenant first (talk to Alvina in Darkroot Garden)
+- Shiva moves to Blighttown (near waterwheel) after you speak to him in Darkroot
 
 ## Notes
 

@@ -80,6 +80,7 @@ Boss weapon, upgraded with Demon Titanite:
 ## Notes
 - Highest stat requirements in the game
 - Split damage makes it less effective than numbers suggest
-- Essential for Four Kings fight (prevents Abyss death)
-- Two versions exist - cursed version has different properties
+- Can damage ghosts in New Londo Ruins without curse
+- Two versions exist - cursed version has different properties (pure physical)
 - Cannot be buffed
+- Note: The Covenant of Artorias RING (not this sword) is what prevents Abyss death in Four Kings fight

@@ -43,7 +43,7 @@ scaling:
 special: "Longest range. Unique S-scaling from base."
 
 # Acquisition
-location: "Dropped by Pharis in Darkroot Garden (human form only)."
+location: "Dropped by Pharis (Forest Hunter archer) in Darkroot Garden beyond the Crest of Artorias door."
 price: N/A
 
 # Lore
@@ -102,12 +102,12 @@ The legendary bow of the forest's guardian archer, this weapon boasts the longes
 - **One Chance**: Per playthrough
 
 ## Location
-Obtained from Pharis:
-- **Darkroot Garden**: Forest area
-- **Must Be Human**: For invasion
-- **Near Mushroom Parents**: His spawn
-- **Not Guaranteed**: Drop rate RNG
-- **One Attempt**: Per playthrough
+Obtained from Pharis in **Darkroot Garden**:
+- Located beyond the Crest of Artorias door (20,000 souls from Andre)
+- She stands far to the right of Alvina's ruins, along the cliffside
+- A Forest Hunter NPC archer (not an invader)
+- Drops: Black Bow of Pharis, Pharis' Hat, Humanity
+- **Warning**: If she falls off the cliff, quit/reload to get loot at her spawn
 
 ## Best Practices
 
@@ -118,13 +118,13 @@ Black Bow excels with:
 - **Forest Hunter**: Thematic choice
 - **Specialized Archers**: Range priority
 
-### The Pharis Hunt
-Getting the bow:
-1. Must be human
-2. Enter from garden
-3. Pharis invades once
-4. Difficult NPC fight
-5. Pray for drop RNG
+### Getting the Bow
+How to obtain:
+1. Purchase Crest of Artorias from Andre (20,000 souls)
+2. Enter sealed area in Darkroot Garden
+3. Pharis is far right of Alvina's ruins, on cliffside
+4. Defeat her (careful, she's a skilled archer)
+5. Guaranteed drop of bow and hat (100%)
 
 ### Combat Tips
 1. Abuse the range advantage

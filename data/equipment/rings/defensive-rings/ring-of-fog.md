@@ -21,9 +21,9 @@ A mystical ring that shrouds the wearer in fog, making them harder to detect by 
 - **Stealth**: Enhanced
 
 ## Location
-- **Ingward** (New Londo Ruins): Can be purchased for 20,000 souls
-- Must first drain New Londo Ruins by obtaining the Lordvessel
-- Available after placing the Lordvessel with Frampt or the Primordial Serpent
+**Two methods to obtain:**
+- **Forest Hunter covenant reward**: Successfully defeat 3 invaders/trespassers as a Forest Hunter (join by talking to Alvina in Darkroot Garden)
+- **Trade with Snuggly the Crow**: Trade a Skull Lantern at the Northern Undead Asylum (return visit)
 
 ## Notes
 - Particularly useful for avoiding confrontations with multiple enemies

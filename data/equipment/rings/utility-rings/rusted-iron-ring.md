@@ -21,9 +21,10 @@ This rusted ring allows the wearer to move normally through swamps and other tre
 - **Movement**: Unimpeded in swamps
 
 ## Location
-- **Undead Asylum** (return visit): Given by the Undead Merchant
-- Requires returning to the Asylum using the crow from Firelink Shrine
-- Must have the Peculiar Doll to access the return trip
+- **Northern Undead Asylum** (return visit): On a broken staircase
+- Requires the Undead Asylum F2 West Key (found on roof above Petrus in Firelink Shrine)
+- Return to Asylum by curling up in the crow's nest at Firelink Shrine
+- Behind the locked door on the west side of the second floor
 
 ## Notes
 - Absolutely essential for comfortable exploration of Blighttown

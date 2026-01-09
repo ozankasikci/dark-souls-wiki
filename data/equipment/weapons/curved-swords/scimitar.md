@@ -67,10 +67,10 @@ The Scimitar is a lightweight curved sword with fast attacks and innate bleed bu
 - Short reach
 
 ## Upgrades
-- Normal +15: B dexterity scaling
-- Lightning +5: Good elemental option
+- Normal +15: Best for DEX builds (B scaling)
+- Lightning +5: Good elemental option, no scaling needed
 - Chaos +5: Scales with humanity
-- Sharp infusion ideal (if available)
+- Fire +10: Another scaleless option
 
 ## Notes
 - Excellent DEX weapon

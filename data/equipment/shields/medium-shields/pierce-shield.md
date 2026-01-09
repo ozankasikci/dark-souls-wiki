@@ -8,7 +8,7 @@ shieldCategory: medium-shields
 
 ## Description
 
-A unique shield with a sharp spike protruding from its center. The spike can be used to attack while maintaining guard. Popular among those who prefer an aggressive defensive style.
+Employed by certain knights of Catarina, this shield features a large protrusion in the center for attacking. It can be used as a thrust weapon, offering both offensive and defensive capabilities.
 
 ## Stats
 
@@ -31,8 +31,9 @@ A unique shield with a sharp spike protruding from its center. The spike can be 
 
 ## Location
 
-- Found in Sen's Fortress on a corpse near the rolling boulder mechanism
-- Can be obtained after navigating past the swinging blades
+- **Gift from Siegmeyer of Catarina** in Blighttown swamp
+- Give Siegmeyer 3 Purple Moss Clumps when you find him near the slugs
+- Siegmeyer appears in Blighttown after you help him in Anor Londo
 
 ## Notes
 

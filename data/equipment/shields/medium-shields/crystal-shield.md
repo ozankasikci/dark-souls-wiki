@@ -8,7 +8,7 @@ shieldCategory: medium-shields
 
 ## Description
 
-A shield made entirely of crystal. Created using the lost sorceries of Oolacile, it offers high defense but cannot be repaired. Its crystalline structure provides excellent magical defense.
+A straight shield entirely crystallized, with its creation shrouded in mystery. The crystallization enhances its defensive capabilities but also makes the shield fragile and irreparable.
 
 ## Stats
 
@@ -26,12 +26,13 @@ A shield made entirely of crystal. Created using the lost sorceries of Oolacile,
 ## Special Properties
 
 - Cannot be repaired by any means
-- Exceptional elemental defense
+- Cannot parry (shield bash instead)
+- Blocks 100% poison, toxin and bleeding (does not work in PvP)
 
 ## Location
 
-- Found in The Duke's Archives on a corpse
-- Located in the crystal cave area before Seath the Scaleless
+- **Purchased from Domhnall of Zena** for 4,000 souls
+- Domhnall moves to Firelink Shrine after ringing both bells
 
 ## Notes
 

@@ -29,9 +29,8 @@ None.
 
 ## Location
 
-- Starting equipment for the Warrior class
-- Commonly dropped by Hollow Soldiers throughout Lordran
-- Can be purchased from the male Undead Merchant for 800 souls
+- Dropped by shield-wielding Hollow Soldiers throughout Lordran (1% drop rate)
+- Can be purchased from the male Undead Merchant in Undead Burg
 
 ## Notes
 

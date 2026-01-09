@@ -7,7 +7,7 @@ shieldCategory: small-shields
 # Effigy Shield
 
 ## Description
-A frightening shield made from an effigy of a sacrificial victim. The spikes on its surface make it unsuitable for parrying, but allow for attacking while defending.
+A fearsome occult shield designed by Mat Gunn for FromSoftware's Shield Design contest. Originally named "Xenomorph's Aegis," it provides strong defense against divine weapons and lightning.
 
 ## Stats
 
@@ -20,19 +20,20 @@ A frightening shield made from an effigy of a sacrificial victim. The spikes on 
 | Stability | 55 |
 | Durability | 300 |
 | Weight | 3.0 |
-| Strength Requirement | 16 |
+| Faith Requirement | 16 |
 
 ## Special Properties
-- Cannot parry
-- Can attack while blocking
-- High physical defense for a small shield
-- Good fire resistance
+- Highest cumulative damage reduction among all small and medium shields
+- Highest lightning damage reduction of any shield in the game
+- Cannot parry (replaced with shield bash)
 
 ## Location
 - Found in Tomb of the Giants
-- On a corpse in the first area
+- Near the second bonfire, on a plateau with two Skeleton Beasts
+- Take the slope leading down from the plateau and turn right
+- Guarded by a Black Knight (Halberd)
 
 ## Notes
-- Unique among small shields as it cannot parry
-- Has the highest physical defense of any small shield
-- Can perform shield bash attack while blocking
+- One of the four contest-winning shields (designer credited in game credits)
+- Occult property provides bonus damage against divine/holy enemies
+- Requires Faith investment unlike most shields

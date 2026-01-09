@@ -15,24 +15,25 @@ Shield of the savage mountain bandits. Uniquely cures poison and is resistant to
 |------|-------|
 | Physical Defense | 100.0 |
 | Magic Defense | 30.0 |
-| Fire Defense | 70.0 |
+| Fire Defense | 72.0 |
 | Lightning Defense | 48.0 |
 | Stability | 56 |
-| Durability | 250 |
+| Durability | 230 |
 | Weight | 3.0 |
 | Strength Requirement | 10 |
 
 ## Special Properties
 - 100% physical block
-- Cures poison when raised
-- High poison resistance
+- Blocks poison/toxic buildup while actively blocking attacks
+- Does NOT provide passive poison resistance or cure poison
 
 ## Location
-- Found in Valley of Drakes
-- Dropped by bandits in the area
-- Can also be found in Depths
+- Starting equipment for Bandit class
+- Found on a corpse on the bridge in Valley of Drakes (near Brigand Armor)
+- Also found in the Depths
 
 ## Notes
-- Essential for poison-heavy areas like Blighttown
-- Raising the shield removes poison buildup
+- Essential for Blighttown - blocks poison/toxic from enemy attacks while blocking
+- Does NOT protect against environmental poison (swamp gas)
+- Must actively block attacks to prevent poison buildup
 - Standard stability and defenses otherwise

@@ -5,17 +5,17 @@ category: "Unique Armor"
 weight: "5.4"
 poise: "0"
 durability: "Variable"
-location: "The Catacombs - Vamos area"
+location: "Artorias of the Abyss DLC - Dropped by Lord's Blade Ciaran"
 image: "lords-blade-set.jpg"
 ---
 
 # Lord's Blade Set
 
-Silent armor of Lord Gwyn's elite assassins.
+Porcelain armor worn by Lord's Blade Ciaran, one of Gwyn's Four Knights.
 
 ## Description
 
-Black leather armor worn by the Lord's Blades, elite assassins who served Lord Gwyn. Designed for stealth and swift, silent movement. Associated with Lord's Blade Ciaran.
+This elegant porcelain armor was worn by Lord's Blade Ciaran, captain of the Lord's Blades - elite assassins who served Lord Gwyn. The set is designed for stealth and swift, silent movement. The distinctive porcelain mask is her signature piece.
 
 ## Set Pieces
 
@@ -44,11 +44,19 @@ Black leather armor worn by the Lord's Blades, elite assassins who served Lord G
 
 ## Location
 
-Found behind an illusory wall in The Catacombs:
-- Near blacksmith Vamos
-- Behind illusory wall in the hallway
-- Guarded by skeleton wheels
-- Full set on a corpse
+Dropped by Lord's Blade Ciaran in the Artorias of the Abyss DLC:
+
+1. Defeat Knight Artorias boss
+2. Reload the area (warp away and back)
+3. Ciaran appears in Artorias's arena
+4. Kill Ciaran to obtain the full set
+
+**Important**: If you give Ciaran the Soul of Artorias, she disappears permanently and you lose the armor set until NG+. Kill her immediately after speaking to her if you want her set.
+
+Ciaran also drops:
+- Dark Silver Tracer (dagger)
+- Gold Tracer (curved sword)
+- 10,000 souls
 
 ## Upgrade Path
 
@@ -58,8 +66,10 @@ Upgrades with Twinkling Titanite:
 
 ## Notes
 
-- Extremely high bleed resistance
-- No poise but very light
-- Porcelain mask increases item discovery
-- Associated with Lord's Blade Ciaran
-- Perfect for stealth builds
+- Extremely light - only 5.4 total weight
+- Excellent bleed and poison resistance
+- No poise - pure evasion playstyle
+- Porcelain mask has unique appearance
+- Part of the Four Knights of Gwyn collection
+- Requires Artorias of the Abyss DLC
+- Cannot be obtained if you give Ciaran the Soul of Artorias

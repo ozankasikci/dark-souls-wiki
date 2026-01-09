@@ -7,7 +7,7 @@ shieldCategory: greatshields
 # Black Iron Greatshield
 
 ## Description
-Greatshield of Black Iron Tarkus. Black Iron Tarkus was among the last to challenge the fortress city. His greatshield is imbued with the magic of the ancient dragons.
+Greatshield forged from special black iron and wielded by Black Iron Tarkus. This shield is even heavier than Knight Berenike's Tower Shield, and it excels in resisting fire attacks while also being effective for shield bashing.
 
 ## Stats
 
@@ -24,16 +24,17 @@ Greatshield of Black Iron Tarkus. Black Iron Tarkus was among the last to challe
 
 ## Special Properties
 - 100% physical block
-- Exceptional fire defense (90%)
-- Very high durability
-- Cannot be destroyed
+- Best fire defense among greatshields (90%)
+- Extremely high durability (999)
+- Standard bash attack
 
 ## Location
 - Found in Anor Londo
-- In the painted world entrance room
-- On a corpse behind the painting
+- On Iron Tarkus' corpse in the grand painting hall
+- Ground floor, left corner near the painting that leads to Painted World of Ariamis
+- Found alongside the Black Iron Set
 
 ## Notes
-- Best fire defense among greatshields
-- Nearly indestructible durability
-- Named after Iron Tarkus
+- Shield design won FromSoftware's pre-release contest (designed by Adam Ledzion)
+- Originally named "Blood and Souls Shield" in the contest
+- Creator credited in game's end credits

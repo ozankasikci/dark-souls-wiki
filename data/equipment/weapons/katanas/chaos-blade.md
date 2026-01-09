@@ -66,7 +66,7 @@ The Chaos Blade has the highest base damage of any katana but damages the wielde
 **Special Properties:**
 - Damages user 20 HP per successful hit
 - Does not damage on missed swings
-- 300 bleed buildup
+- 360 bleed buildup (36 per hit, higher than other katanas)
 - Cannot be buffed
 
 ## Upgrades

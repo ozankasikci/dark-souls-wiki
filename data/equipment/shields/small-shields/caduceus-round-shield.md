@@ -28,9 +28,11 @@ A small round shield decorated with a snake wrapped around a winged staff. It is
 - Low stability
 
 ## Location
-- Starting equipment for Sorcerer class
-- Sold by Griggs of Vinheim
+- Found in the graveyard next to Firelink Shrine
+- On a corpse near the path to the Catacombs
+- Two Skeletons spawn when picked up
 
 ## Notes
-- Best small shield for magic defense
-- Still maintains good parry frames
+- Has same stats as Red & White Round Shield
+- The wood from Lordran's giant trees reduces magic damage
+- NOT sold by any merchant

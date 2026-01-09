@@ -10,19 +10,19 @@ ringCategory: utility-rings
 A tiny ring given to the player at the start of their journey. This simple ring provides a small but permanent increase to maximum health.
 
 ## Effects
-- Increases maximum HP by 12.5%
+- Increases maximum HP by **5%** (NOT HP regeneration as the misleading description suggests)
 - Permanent health boost while equipped
-- Stackable with other HP-increasing items
 - One of the starting gift options
+- **Warning**: In-game description claims HP regeneration, but this is incorrect
 
 ## Stats
 - **Weight**: 0.1
 - **Durability**: -
-- **HP Boost**: +12.5%
+- **HP Boost**: +5%
 
 ## Location
-- **Starting Gift**: Can be selected as one of the starting gifts during character creation
-- **Cannot be obtained later**: If not chosen at the start, it's unavailable for the rest of the playthrough
+- **Starting Gift**: Can be selected during character creation
+- **Reward from Siegmeyer**: Given by Siegmeyer of Catarina after you defeat nearby Silver Knights in Anor Londo (if not chosen as starting gift)
 
 ## Notes
 - One of the most popular starting gift choices

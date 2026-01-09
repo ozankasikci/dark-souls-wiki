@@ -29,9 +29,9 @@ None.
 
 ## Location
 
-- Starting equipment for the Bandit class
-- Sold by male Undead Merchant for 800 souls
-- Can be found on corpses in the Undead Burg
+- **Starting equipment for the Hunter class**
+- Purchased from Andre of Astora for 800 souls
+- Dropped by Phalanx enemies in Painted World of Ariamis (1% drop rate)
 
 ## Notes
 

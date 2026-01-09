@@ -13,11 +13,11 @@ stats:
   fire_reduction: 70
   lightning_reduction: 50
   weight: 3.0
-  durability: 300
+  durability: 200
 requirements:
   strength: 10
 special: Increases stamina regeneration by 10 per second
-lore: The grass crest is the coat of arms of the Undead Legion of Farron, a group of warriors who swore to keep the Abyss at bay. Though the Legion was destroyed long ago, their heraldry lives on in this shield.
+lore: This shield of unknown origin bears a grass crest lightly imbued with magic, bestowing its wearer with improved stamina recovery.
 ---
 
 # Grass Crest Shield
@@ -30,7 +30,7 @@ This medium shield offers solid physical protection while providing a passive st
 
 ## Acquisition
 
-Found in **Darkroot Basin** on a corpse near the Hydra. From the bonfire, head down towards the lake and look for a corpse on the left side of the swamp area.
+Found in **Darkroot Basin** guarded by a Black Knight. Near the Hydra area, look for a Black Knight on a path leading up from the basin floor. The shield is on a corpse he guards.
 
 ## Stats & Requirements
 

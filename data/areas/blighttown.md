@@ -104,9 +104,11 @@ Located in a webbed mound at the swamp's edge:
 ## Important NPCs
 
 ### Quelana of Izalith
-- Appears after defeating Quelaag (requires 10+ Intelligence)
-- Teaches advanced pyromancies
+- Appears when player has a +10 or higher Pyromancy Flame
+- Can also appear if summoned/invaded by someone with +10 Flame
+- Teaches advanced pyromancies including Fire Tempest
 - Daughter of the Witch of Izalith
+- Will disappear if Bed of Chaos is defeated before meeting her
 
 ### The Fair Lady
 - Quelaag's sister, found after boss fight

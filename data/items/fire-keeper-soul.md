@@ -4,8 +4,8 @@ name: Fire Keeper Soul
 type: items
 category: Key Item
 item_type: Soul
-description: Soul of a Fire Keeper who tends the flame
-effect: Increases Estus Flask effectiveness when given to Fire Keeper
+description: Soul of a Fire Keeper who tends the bonfire flame
+effect: Reinforces Estus Flask when given to a Fire Keeper
 tags:
   - soul
   - key-item
@@ -15,22 +15,56 @@ tags:
 # Fire Keeper Soul
 
 ## Description
-Soul of a Fire Keeper who has tended the flame for ages. Each Fire Keeper is a corporeal manifestation of her bonfire, and her soul is gnawed by the flame.
+Soul of a Fire Keeper who long ago became Undead and was burned. These are fragments of the Fire Keepers who have been bound to bonfires, and their souls carry immense healing power.
 
 ## Usage
-- Give to the Fire Keeper to increase Estus Flask effectiveness
-- Provides 5 free levels when consumed (not recommended)
-- Can be used to heal Dark Sigils
 
-## Acquisition
-- Tower behind Firelink Shrine (requires Tower Key)
-- Dropped by killing the Fire Keeper (not recommended)
-- Found in various hidden locations throughout the game
+### Reinforce Estus Flask (Recommended)
+- Give to any living Fire Keeper to upgrade your Estus Flask
+- Each soul increases HP restored per drink
+- Maximum of +7 reinforcement
+
+### Consume for Humanity (Not Recommended)
+- Can be consumed for 5 soft Humanity
+- This is a WASTE - the Estus upgrade is far more valuable
+
+### Revive Anastacia
+- Anastacia's specific soul can be used to revive her after Lautrec kills her
+- Use on her corpse in Firelink Shrine
+
+## Locations
+
+### Obtainable Souls (7 total)
+1. **Undead Parish**: Near the Channeler in the church
+2. **Blighttown**: On the corpse at the rotating bridge platform
+3. **New Londo Ruins**: Behind an illusory wall, after draining the water
+4. **Duke's Archives**: In a chest in the archive tower
+5. **Quelaag's Domain**: Held by the Fair Lady (requires killing her - not recommended)
+6. **Anor Londo**: Held by the Darkmoon Knightess (requires killing her - not recommended)
+7. **Anastacia's Soul**: Recovered from Lautrec after invading him in Anor Londo
+
+## Fire Keepers Who Accept Souls
+
+### Anastacia of Astora (Firelink Shrine)
+- Primary Fire Keeper for most players
+- Located below Firelink bonfire
+- May be killed by Lautrec mid-game
+
+### Quelaag's Sister / The Fair Lady (Quelaag's Domain)
+- Behind the illusory wall after Quelaag boss fight
+- Also accepts Fire Keeper Souls
+- Keeper of the Chaos covenant bonfire
+
+### Darkmoon Knightess (Anor Londo)
+- At the first Anor Londo bonfire
+- Also accepts Fire Keeper Souls
+- Associated with the Darkmoon covenant
 
 ## Tips
-- Always give to Fire Keeper for permanent healing boost
-- Do not consume directly - the level gain is minimal compared to the permanent benefit
-- Required for certain ending paths
+- NEVER consume these souls - always give to a Fire Keeper
+- The Estus upgrade is permanent and far more valuable than 5 Humanity
+- You can still upgrade Estus even if Anastacia is dead (use other Fire Keepers)
+- Getting all 7 souls allows maximum +7 Estus reinforcement
 
 ## Lore
-Fire Keepers are bound to the flame they tend, their souls slowly consumed by the very fire they nurture. These souls contain immense power, having absorbed the essence of countless flames over the ages. The Fire Keeper Soul represents both duty and sacrifice, embodying the eternal vigil of those who tend the bonfires.
+Fire Keeper Souls are fragments of the Undead who were bound to tend bonfires, their bodies burned as kindling for the eternal flames. The souls retain the healing essence of the bonfires they once tended.

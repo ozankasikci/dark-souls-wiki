@@ -10,7 +10,7 @@ damage:
   magic: 0
   fire: 0
   lightning: 0
-  
+
 critical: 100
 durability: 240
 weight: 4.0
@@ -20,26 +20,24 @@ scaling:
   strength: C
   dexterity: C
   intelligence: "-"
-  faith: B
+  faith: "-"
 
 # Requirements
 requirements:
   strength: 12
   dexterity: 12
   intelligence: 0
-  faith: 16
+  faith: 0
 
 # Other
-special: Weapon buff (Sacred Oath) on two-handed R2
+special: Higher base damage and durability than Longsword
 location: Dropped by Solaire of Astora
-upgrade_path: Twinkling Titanite (special weapon)
+upgrade_path: Normal, Raw, Divine, Occult, Magic, Enchanted, Lightning, Crystal, Fire, Chaos
 
 tags:
   - straight-sword
-  - faith
-  - buff
   - solaire
-  - special
+  - quality
 ---
 
 # Sunlight Straight Sword
@@ -48,35 +46,41 @@ This standard longsword, belonging to Solaire of Astora, is of high quality, is 
 
 ## Acquisition
 - Dropped by Solaire of Astora when killed
-- Can be obtained by completing his questline (he goes hollow)
-- Not recommended to kill Solaire early as you miss his questline
+- Can be obtained by saving him and letting him go hollow in Lost Izalith
+- If you kill the Sunlight Maggot before Solaire reaches it, he survives his questline
+- Killing Solaire early prevents his summon sign at various bosses
 
 ## Characteristics
-The Sunlight Straight Sword is unique among straight swords for its faith scaling and built-in miracle buff. The two-handed R2 casts a version of Sacred Oath that boosts damage and damage reduction.
+Despite its legendary association with Solaire, the Sunlight Straight Sword is functionally a slightly improved Longsword with no special magical properties. Solaire's power comes from his faith and skill, not his equipment.
 
 **Moveset:**
-- One-handed R1: Standard straight sword slashes
+- One-handed R1: Standard straight sword horizontal slashes
 - One-handed R2: Thrust attack
 - Two-handed R1: Vertical and horizontal slashes
-- Two-handed R2: Casts Sacred Oath buff (costs no FP/casts)
+- Two-handed R2: Strong thrust
 
-**Buff Effect:**
-- +10% physical damage
-- +10% damage absorption
-- Duration: 60 seconds
-- Stacks with other buffs
+**Comparison to Longsword:**
+- +2 base damage
+- +60 durability (240 vs 180)
+- +1.0 weight
+- Higher STR/DEX requirements (12/12 vs 10/10)
+- Slightly slower attack speed
 
 ## Upgrades
-Upgraded with Twinkling Titanite:
-- Sunlight Straight Sword +1 (1 Twinkling Titanite)
-- +1 → +2 (1 Twinkling Titanite)
-- +2 → +3 (2 Twinkling Titanite)
-- +3 → +4 (2 Twinkling Titanite)
-- +4 → +5 (4 Twinkling Titanite)
+Standard upgrade paths available:
+- **Normal +15**: Best for quality builds (C/C scaling)
+- **Lightning +5**: No scaling, high base damage
+- **Divine +10**: Faith scaling for cleric builds
+- **Fire/Chaos +5**: Removes scaling
+- Can be buffed when on normal upgrade path
 
 ## Notes
-- Popular for faith builds due to B faith scaling
-- Built-in buff makes it useful for any build
-- Cannot be infused or buffed with resins/spells
-- Killing Solaire prevents joining Warriors of Sunlight
+- No special properties despite its name
+- "Unlikely to live up to its grandiose name" per item description
+- Solaire's strength comes from his skills, not equipment
+- Popular for Solaire cosplay builds
+- Killing Solaire too early means missing his summon help at bosses
 - "Praise the Sun!" \\[T]/
+
+## Lore
+The sword's description emphasizes that Solaire's legendary status comes from his personal faith and dedication to the sun, not from any magical enhancement to his gear. This humble blade has served him faithfully across multiple worlds as he searches for his own sun.

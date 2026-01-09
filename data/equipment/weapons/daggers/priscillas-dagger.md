@@ -10,7 +10,7 @@ damage:
   magic: 0
   fire: 0
   lightning: 0
-  
+
 critical: 110
 durability: 100
 weight: 1.0
@@ -30,29 +30,42 @@ requirements:
   faith: 0
 
 # Other
-special: 500 bleed buildup (highest in game), Occult modifier
-location: Created from Soul of Priscilla
-upgrade_path: Demon Titanite (boss weapon)
+special: Bleed buildup (50% of target HP when triggered), Occult modifier
+location: Cut from Crossbreed Priscilla's tail
+upgrade_path: Dragon Scale (dragon weapon)
 
 tags:
   - dagger
-  - boss-weapon
+  - dragon-weapon
+  - tail-cut
   - bleed
   - occult
-  - dlc
 ---
 
 # Priscilla's Dagger
 
-This sword, one of the rare dragon weapons, is formed by the tail of Priscilla, the Dragon Crossbreed. Its blade is imbued with a powerful poison that causes heavy bleeding.
+This dagger, one of the rare dragon weapons, is formed by the tail of Crossbreed Priscilla. Its blade causes bleeding that deals 50% of the target's max HP when triggered.
 
 ## Acquisition
-- Obtained by giving the Soul of Priscilla to Giant Blacksmith in Anor Londo
-- Requires cutting off Priscilla's tail during the boss fight in Painted World of Ariamis
-- Costs 5,000 souls to create
+- Cut off Crossbreed Priscilla's tail in Painted World of Ariamis
+- Automatically awarded when tail is cut (no need to pick up)
+- Attacking Priscilla counts as a sin (need to absolve at Oswald)
+
+**Strategy for tail cut:**
+1. Before the fight starts, position yourself near her tail
+2. Hit her TAIL (not body) as your first attack to start the fight
+3. Keep swinging while she turns invisible - she won't attack immediately
+4. Aim for the TIP of the tail
+5. Vertical slashing weapons work best (Claymore 2H light attack)
+6. Fire resin + Claymore +10 makes this easy
+
+**Alternative method (without killing her):**
+- Use Lordvessel to warp back to Painted World bonfire
+- Cut tail, then use Homeward Bone
+- Absolve sins at Oswald to keep her alive
 
 ## Characteristics
-Priscilla's Dagger has the highest bleed buildup in the game at 500 (50 bleed per hit), making it capable of causing bleed in just 2-3 hits on most enemies. It also has inherent Occult damage, making it effective against certain enemies.
+Priscilla's Dagger has 20 bleed buildup per strike but triggers for 50% of the target's max HP when bleed procs.
 
 **Moveset:**
 - One-handed R1: Horizontal slashes
@@ -61,21 +74,24 @@ Priscilla's Dagger has the highest bleed buildup in the game at 500 (50 bleed pe
 - Two-handed R2: Jumping attack
 
 **Special Properties:**
-- 500 bleed buildup (50 per hit)
-- Occult auxiliary effect (110% damage vs divine enemies)
+- Bleed deals 50% of target's max HP (like Lifehunt Scythe)
+- Occult auxiliary effect
 - Cannot be buffed
+- A scaling in Dexterity
 
 ## Upgrades
-As a boss weapon, upgraded with Demon Titanite:
-- Priscilla's Dagger → +1 (1 Demon Titanite)
-- +1 → +2 (1 Demon Titanite)
-- +2 → +3 (2 Demon Titanite)
-- +3 → +4 (2 Demon Titanite)
-- +4 → +5 (4 Demon Titanite)
+Dragon weapon, upgraded with Dragon Scales:
+- Base → +1 (1 Dragon Scale)
+- +1 → +2 (1 Dragon Scale)
+- +2 → +3 (2 Dragon Scales)
+- +3 → +4 (2 Dragon Scales)
+- +4 → +5 (4 Dragon Scales)
+
+At +5 with 40 DEX: ~269 damage
 
 ## Notes
-- Most effective bleed weapon in the game
-- Lower critical modifier than other daggers
+- Bleed damage is percentage-based (devastating vs high HP targets)
 - A scaling makes it excellent for DEX builds
 - Popular for bleed-focused PvP builds
 - Requires entering optional Painted World area
+- Can get dagger without killing Priscilla

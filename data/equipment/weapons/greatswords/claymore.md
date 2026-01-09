@@ -4,39 +4,64 @@ name: Claymore
 type: weapons
 category: Greatsword
 item_type: Weapon
-description: A versatile greatsword with a balanced moveset perfect for any build
-damage_physical: 138
+description: A versatile greatsword with a balanced moveset, excellent for quality builds
+damage_physical: 103
 damage_scaling: C/C/-/-
-weight: 9.0
-durability: 85
+weight: 6.0
+durability: 200
 requirements:
   strength: 16
-  dexterity: 13
-location: Found on the bridge in Irithyll of the Boreal Valley
-weapon_art: Stance
+  dexterity: 10
+location: Found on the Hellkite Drake bridge in Undead Burg
 tags:
   - greatsword
   - quality-weapon
   - versatile
+  - thrust-attack
 related:
   areas:
-    - irithyll
+    - undead-burg
+  npcs:
+    - andre-of-astora
 ---
 
 # Claymore
 
-The Claymore is widely considered one of the most versatile weapons in Dark Souls III. Its exceptional moveset, reasonable stat requirements, and excellent scaling make it suitable for nearly any build.
+The Claymore is widely considered one of the most versatile weapons in Dark Souls. Its exceptional moveset, reasonable stat requirements, and excellent scaling make it suitable for nearly any build.
+
+## Acquisition
+
+- Found on a corpse on the bridge in Undead Burg where the Hellkite Drake patrols
+- Located on the left side of the bridge
+- Can be retrieved by sprinting past the drake or baiting its fire breath
+
+## Stats
+
+| Stat | Value |
+|------|-------|
+| Physical Damage | 103 (base) |
+| Weight | 6.0 |
+| Durability | 200 |
+| Strength Scaling | C |
+| Dexterity Scaling | C |
+
+## Requirements
+
+| Stat | Requirement |
+|------|-------------|
+| Strength | 16 |
+| Dexterity | 10 |
 
 ## Why Choose the Claymore?
 
-The Claymore has earned its reputation as "Old Reliable" for several reasons:
-- Thrust attacks on one-handed R2
-- Wide sweeping two-handed R1s
-- Stance weapon art for versatility
-- Excellent for both PvE and PvP
-- Can be buffed and infused
+The Claymore has earned its reputation as one of the best greatswords:
+- **Thrust R2 attack** - One-handed R2 is a long-range thrust (unique for greatswords)
+- **Wide sweeping two-handed R1s** - Excellent for crowd control
+- **True quality weapon** - 51% STR and 51% DEX scaling
+- **Can be buffed** - Works with resins and magic buffs
+- **Excellent for both PvE and PvP**
 
-## Comprehensive Moveset
+## Moveset
 
 ### One-Handed
 - **R1**: Diagonal slashes with good speed
@@ -48,95 +73,40 @@ The Claymore has earned its reputation as "Old Reliable" for several reasons:
 - **R1**: Wide horizontal sweeps
 - **R2**: Overhead slam
 - **Rolling R1**: Quick thrust
-- **Weapon Art (Stance)**: 
-  - R1: Guard break
-  - R2: Launching uppercut
 
-## Build Optimization Guide
+## Build Recommendations
 
-### Quality Build (40/40 STR/DEX)
-- Refined infusion
-- ~525 AR at +10
-- Most versatile option
+### Quality Build (27 STR / 40 DEX)
+Best option for the Claymore. At +15 with quality stats, it achieves impressive damage while maintaining versatility.
 
-### Strength Build (66 STR)
-- Heavy infusion
-- ~545 AR when two-handed
-- Maximizes hyperarmor potential
+### Elemental Paths
+- **Lightning +5**: Good for low-stat builds (removes scaling)
+- **Fire +10**: Another option for builds not investing in STR/DEX
+- **Divine +10**: Useful for Faith builds, keeps enemies dead in Catacombs
+- **Enchanted +5**: For Intelligence builds
 
-### Dexterity Build (70 DEX)
-- Sharp infusion
-- ~490 AR at +10
-- Faster casting for hybrid builds
+## Upgrades
 
-### Elemental Builds
-- **Dark/Chaos**: Excellent for pyromancers
-- **Crystal**: Strong for INT builds
-- **Lightning**: Viable for faith builds
-- **Blessed**: Decent damage with HP regen
+Standard upgrade path using Titanite:
+- +0 to +5: Titanite Shards (Andre of Astora)
+- +6 to +10: Large Titanite Shards (requires Large Ember)
+- +11 to +14: Titanite Chunks
+- +15: Titanite Slab
 
-## PvP Mastery
+At +15: ~200 base damage before scaling
+
+## PvP Applications
 
 ### Key Advantages
 1. **Moveset Variety**: Keeps opponents guessing
-2. **Thrust Attacks**: Counter-damage bonus
-3. **Hyperarmor**: Trades with smaller weapons
-4. **Roll Catching**: Wide swings catch rolls
-5. **Stance Mix-ups**: R1 breaks guards, R2 launches
+2. **Thrust Attacks**: Counter-damage bonus with Leo Ring
+3. **Spacing**: Thrust R2 outranges most weapons
+4. **Roll Catching**: Wide swings catch panic rolls
 
-### Essential Combos
-- 2H R1 → R1 (basic combo)
-- 1H R2 → R1 (thrust into slash)
-- Stance R2 → R1 (launch combo)
-- Running R1 → R2 (mix-up)
+## Notes
 
-### Advanced Techniques
-
-#### The Thrust Game
-Master the one-handed R2 thrust:
-- Outranges most straight swords
-- Benefits from Leo Ring counter damage
-- Catches backward rolls
-- Safe poke option
-
-#### Stance Dancing
-Use Stance to create pressure:
-- Condition with R1 guard breaks
-- Punish with R2 launches
-- Cancel into rolls for safety
-
-## PvE Applications
-
-The Claymore excels in PvE content:
-- **Crowd Control**: Wide swings handle groups
-- **Boss Fighting**: Thrust for safety, slashes for damage
-- **Versatility**: Effective against all enemy types
-- **Stamina Efficient**: Good damage per stamina point
-
-## Comparison Table
-
-| Greatsword | Weight | Unique Feature | Best For |
-|------------|--------|----------------|----------|
-| Claymore | 9.0 | Thrust R2 | All builds |
-| Bastard Sword | 8.0 | Lower requirements | Early game |
-| Hollowslayer | 8.5 | Bonus vs. Hollows | PvE focused |
-| Black Knight Sword | 10.0 | Perseverance WA | Poise builds |
-| Moonlight GS | 10.5 | INT scaling | Sorcerer builds |
-
-## Fashion Souls
-
-The Claymore pairs well with:
-- Elite Knight Set
-- Faraam Set
-- Wolf Knight Set
-- Fallen Knight Set
-
-## Tips for Success
-
-1. **Learn All Attacks**: Each has specific uses
-2. **Spacing**: Use thrust R2 to control distance
-3. **Stamina Management**: Keep enough for rolls
-4. **Mix Up Attacks**: Predictability is death
-5. **Use Hyperarmor**: Trade when advantageous
-
-The Claymore remains one of the most reliable weapons throughout the entire game, from early areas to end-game PvP.
+- Available very early in the game
+- One of the most reliable weapons from start to finish
+- Popular for both speedruns and casual playthroughs
+- The thrust attack makes it unique among greatswords
+- Low weight (6.0) for a greatsword allows flexibility in builds

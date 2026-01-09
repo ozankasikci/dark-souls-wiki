@@ -45,7 +45,7 @@ tags:
 
 # Obsidian Greatsword
 
-This greataxe, one of the rare dragon weapons, is formed by the tail of the one-eyed black dragon Kalameet. The mystical power of its obsidian blade will be released when held with two hands.
+This greatsword, one of the rare dragon weapons, is formed by the tail of the one-eyed black dragon Kalameet. The mystical power of its obsidian blade will be released when held with two hands.
 
 ## Acquisition
 - Cut off Black Dragon Kalameet's tail

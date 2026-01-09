@@ -7,34 +7,33 @@ shieldCategory: greatshields
 # Bonewheel Shield
 
 ## Description
-Shield made from the skull of a bone wheel. Listed as a greatshield, even though it is a terrible shield by any measure.
+A giant wooden wheel encircled by spikes, partially fused with a peculiar skeleton. While the worst greatshield for defense, it has a powerful spinning attack.
 
 ## Stats
 
 | Stat | Value |
 |------|-------|
-| Physical Defense | 82.0 |
+| Physical Defense | 90.0 |
 | Magic Defense | 30.0 |
-| Fire Defense | 50.0 |
-| Lightning Defense | 30.0 |
-| Stability | 30 |
-| Durability | 250 |
+| Fire Defense | 30.0 |
+| Lightning Defense | 51.0 |
+| Stability | 66 |
+| Durability | 200 |
 | Weight | 12.0 |
 | Strength Requirement | 30 |
-| Dexterity Requirement | 12 |
 
 ## Special Properties
+- Spinning attack (L2/LT) deals damage and causes bleed buildup
+- Attack hits multiple times per spin
+- Strike damage type on spin attack
 - Cannot parry
-- Special attack: Spinning wheel attack
-- Causes bleed buildup on hit
-- Very low stability
 
 ## Location
-- Dropped by Bonewheel Skeletons
-- Found in Painted World of Ariamis
-- Also in Catacombs basement
+- Dropped by Bonewheel Skeletons (2% chance)
+- Found in The Catacombs and Painted World of Ariamis
 
 ## Notes
-- More of a weapon than a shield
-- L2/LT performs damaging spin attack
-- Terrible for blocking due to low stability
+- More effective as a weapon than a shield
+- Lightning +5 recommended: gives 200 Physical + 200 Lightning damage
+- Effective against high-poise enemies that attack slowly
+- Works well against Stone Guardians, Berenike Knights, Crystal Golems

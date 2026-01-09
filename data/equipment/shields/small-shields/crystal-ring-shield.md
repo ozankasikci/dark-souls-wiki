@@ -7,7 +7,7 @@ shieldCategory: small-shields
 # Crystal Ring Shield
 
 ## Description
-One of the special rings granted to the four knights of Gwyn. A crystal ring shield that can unleash a magical ring when parrying.
+This weapon, originating from the mystical Moonlight Butterfly of the Darkroot Garden, is imbued with potent crystal power, akin to the creation of Seath the Scaleless. It has the ability to emit rings of crystal light.
 
 ## Stats
 
@@ -23,15 +23,17 @@ One of the special rings granted to the four knights of Gwyn. A crystal ring shi
 | Strength Requirement | 10 |
 
 ## Special Properties
-- Special attack: launches a crystal projectile
-- Consumes 4 durability per use
-- Cannot be repaired
-- High magic defense
+- Parry/strong attack replaced by crystal ring projectile
+- Projectile consumes 4 durability per use
+- Highest magic defense of any small shield (tied with Havel's Greatshield at 90%)
+- This shield CAN be repaired despite "crystal" in name
 
 ## Location
-- Created by ascending any +10 shield with the Soul of the Moonlight Butterfly
+- Created at the Giant Blacksmith in Anor Londo
+- Requires: +10 shield + Soul of the Moonlight Butterfly + 5,000 souls
 
 ## Notes
-- The projectile scales with right-hand weapon damage
-- Cannot be repaired, so use special attack sparingly
-- Excellent magic defense for a small shield
+- NOT crystal equipment - can be repaired normally
+- Projectile damage scales with right-hand weapon damage
+- Upgrading with Demon Titanite increases projectile damage
+- Very useful against magic-heavy bosses (Four Kings, Nito, Moonlight Butterfly)

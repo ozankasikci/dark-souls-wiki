@@ -20,7 +20,7 @@ scaling:
   strength: C
   dexterity: B
   intelligence: "-"
-  faith: B
+  faith: A
 
 # Requirements
 requirements:

@@ -42,7 +42,7 @@ scaling:
 special: "+20 Fire and Magic defense when equipped"
 
 # Acquisition
-location: "Dropped by Havel the Rock in Undead Burg or Anor Londo."
+location: "Found in Anor Londo behind an illusory wall in a fireplace"
 price: N/A
 
 # Lore
@@ -95,11 +95,12 @@ The Dragon Tooth is Havel the Rock's legendary weapon, carved from the tooth of 
 - **High Requirements**: 40 STR to wield
 
 ## Location
-Obtained by defeating **Havel the Rock**:
-- **Early**: Bottom of Undead Burg tower
-- **Late**: Basement of Anor Londo
+Found in **Anor Londo** behind an illusory wall:
+- From the bonfire near the double spiral staircase, head past and take the left door
+- The fireplace has an illusory wall - roll through it
+- Follow the stairs down to a dark room with 5 chests (one is a Mimic)
+- Dragon Tooth is in one of the chests alongside Havel's Set and Havel's Greatshield
 - Only one per playthrough
-- Must kill Havel (dangerous early game)
 
 ## Best Practices
 

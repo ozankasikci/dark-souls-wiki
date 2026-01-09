@@ -9,7 +9,7 @@ boss: Bell Gargoyles
 enemies: [Hollow Soldiers, Balder Knights, Berenike Knight, Channeler, Titanite Demon]
 npcs: [Andre of Astora, Oswald of Carim, Lautrec of Carim]
 connections: [Undead Burg, Darkroot Garden, Sen's Fortress]
-notable_items: [Fire Keeper Soul, Mystery Key, Basement Key, Black Eye Orb]
+notable_items: [Fire Keeper Soul, Mystery Key, Basement Key, Halberd]
 tags: [parish, church, bell-of-awakening, gargoyles, andre]
 ---
 

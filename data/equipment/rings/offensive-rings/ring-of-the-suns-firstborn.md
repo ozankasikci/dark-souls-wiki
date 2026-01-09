@@ -20,9 +20,9 @@ This ring is associated with the Sun's Firstborn, the former god of war who was 
 - **Miracle Boost**: +20%
 
 ## Location
-- **The Catacombs**: Found in a coffin in the Tomb of the Giants
-- Requires the Lordvessel to access the area where it's located
-- In the area near Patches, inside a coffin
+- **Anor Londo**: At the bottom of the rotating bridge by the Darkmoon Tomb bonfire
+- Located near the entrance to the Darkmoon covenant area
+- Accessible after rotating the bridge mechanism
 
 ## Notes
 - Particularly effective with offensive miracles like Lightning Spear and Wrath of the Gods

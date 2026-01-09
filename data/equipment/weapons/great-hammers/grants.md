@@ -112,7 +112,7 @@ Grant demands specific builds:
 ### Special Ability
 Two-handed strong attack:
 - Casts Emit Force miracle
-- No FP/spell uses required
+- No attunement slots required
 - Medium range projectile
 - Knocks back enemies
 - Goes through walls

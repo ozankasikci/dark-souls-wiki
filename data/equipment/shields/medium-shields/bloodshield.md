@@ -25,14 +25,14 @@ A sinister shield stained with blood. This cursed shield bears a grotesque face 
 
 ## Special Properties
 
-- High resistance to poison (50%)
-- High resistance to bleed (50%)
-- High resistance to curse (50%)
+- Raises Bleed/Poison/Curse resistance by 50% of base resistances
+- Must be equipped to see properly modified stats (display is bugged)
+- Poor stability - best used situationally, not as main shield
 
 ## Location
 
-- Found in the Painted World of Ariamis
-- Located on a corpse near the well in the courtyard with the Phalanx enemies
+- **Painted World of Ariamis**: On a corpse on the bridge near the Undead Dragon
+- Second item on the bridge (also contains Dragon Scale and Large Soul of a Proud Knight)
 
 ## Notes
 

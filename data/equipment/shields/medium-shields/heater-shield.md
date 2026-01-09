@@ -17,7 +17,7 @@ A standard metal shield. Heater shields are characterized by a tapered bottom ed
 | Magic Defense | 30.0 |
 | Fire Defense | 70.0 |
 | Lightning Defense | 50.0 |
-| Stability | 59 |
+| Stability | 55 |
 | Durability | 250 |
 | Weight | 2.0 |
 | Strength Requirement | 8 |
