@@ -96,18 +96,17 @@ The legendary bow of the forest's guardian archer, this weapon boasts the longes
 
 ### Disadvantages
 - **Lower Base Damage**: 34 only
-- **Rare Drop**: Pharis only
-- **Human Required**: For invasion
+- **Requires Crest of Artorias**: 20,000 souls to access area
 - **High DEX Requirement**: 18 needed
-- **One Chance**: Per playthrough
+- **One Per Playthrough**: Pharis doesn't respawn
 
 ## Location
 Obtained from Pharis in **Darkroot Garden**:
 - Located beyond the Crest of Artorias door (20,000 souls from Andre)
-- She stands far to the right of Alvina's ruins, along the cliffside
-- A Forest Hunter NPC archer (not an invader)
-- Drops: Black Bow of Pharis, Pharis' Hat, Humanity
-- **Warning**: If she falls off the cliff, quit/reload to get loot at her spawn
+- She patrols the area between the sealed door and Alvina's ruins
+- A regular NPC enemy (NOT an invader - no human form required)
+- Guaranteed drops: Black Bow of Pharis, Pharis's Hat, Twin Humanities
+- **Tip**: If she falls off a cliff, quit/reload to get loot at her spawn point
 
 ## Best Practices
 
@@ -186,13 +185,13 @@ With 40 DEX:
 - Matches his armor
 - Complete the set
 
-## Farming Frustration
+## Obtaining the Bow
 Getting it requires:
-- Human form risk
-- One chance only
-- RNG dependency
-- Pharis can be tough
-- Restart if failed
+- Crest of Artorias (20,000 souls from Andre)
+- Defeating Pharis (regular NPC enemy, NOT an invader)
+- No human form required - she's always present
+- 100% guaranteed drop on kill
+- One chance per playthrough
 
 ## Sniper Playstyle
 Enables unique approach:

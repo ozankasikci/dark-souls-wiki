@@ -39,7 +39,7 @@ scaling:
   faith: A
 
 # Acquisition
-location: "Found in Tomb of the Giants, guarded by Paladin Leeroy's corpse."
+location: "Dropped by Paladin Leeroy when he invades in Tomb of the Giants (near Nito's fog gate)"
 price: N/A
 
 # Lore
@@ -93,12 +93,12 @@ Grant is the legendary great hammer of the Way of White clerics, requiring both 
 - **Limited Upgrade**: Only to +5
 
 ## Location
-Found in **Tomb of the Giants**:
-- Near the first bonfire
-- Paladin Leeroy invasion location
-- On a corpse near the cliff edge
-- Requires careful navigation in darkness
-- Can be obtained before Nito
+Dropped by **Paladin Leeroy** in Tomb of the Giants:
+- Leeroy invades as a black phantom near Nito's fog gate
+- Must be in human form for him to invade
+- He drops both Grant and Sanctus shield
+- Can be obtained before fighting Nito
+- Leeroy also appears as a summon earlier in the area
 
 ## Best Practices
 

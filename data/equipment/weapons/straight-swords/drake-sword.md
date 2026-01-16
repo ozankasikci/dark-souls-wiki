@@ -44,7 +44,7 @@ tags:
 
 # Drake Sword
 
-This sword, one of the rare dragon weapons, came from the tail of the stone dragon of Ash Lake, descendant of the ancient dragons.
+This sword, one of the rare dragon weapons, is obtained by cutting the tail of the Hellkite Dragon (also known as the Bridge Wyvern) that guards the bridge in Undead Burg. Despite its dragon origins, it has no stat scaling.
 
 ## Acquisition
 - Obtained by cutting off the Hellkite Dragon's tail on the bridge in Undead Burg

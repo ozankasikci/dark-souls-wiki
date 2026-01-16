@@ -36,14 +36,14 @@ requirements:
 scaling:
   strength: E
   dexterity: "-"
-  intelligence: A
+  intelligence: "-"
   faith: A
 
 # Special Effects
-special: "Scales with both INT and FAI. Best for high INT/FAI builds."
+special: "Scales with Faith only (not Intelligence). Allows Faith builds to cast sorceries effectively."
 
 # Acquisition
-location: "Trade Snuggly the Crow with Soul of Gwyndolin."
+location: "Created by Giant Blacksmith in Anor Londo using Soul of Gwyndolin + any catalyst (5,000 souls)"
 price: N/A
 
 # Lore
@@ -77,49 +77,48 @@ attack_types:
 # Tin Darkmoon Catalyst
 
 ## Overview
-The Tin Darkmoon Catalyst stands unique as the only catalyst that scales with both Intelligence and Faith, created from Gwyndolin's soul. It rewards hybrid builds with potentially the highest magic adjustment.
+The Tin Darkmoon Catalyst is unique as the only catalyst that scales sorcery damage with **Faith instead of Intelligence**. This allows Faith builds to cast sorceries effectively. Note: The 16 INT requirement is only to meet spell casting minimums, not for damage scaling.
 
 ## Characteristics
 
 ### Advantages
-- **Dual Scaling**: INT and FAI both A
-- **Highest Potential**: 293 at +5
-- **Unique Niche**: INT/FAI builds
+- **Faith Scaling**: A-rank Faith scaling for sorcery damage
+- **Unique Niche**: Allows Faith builds to cast sorceries
+- **Good Magic Adjust**: 217 at 50 Faith
 - **Gwyndolin's Power**: Lore significant
-- **No Downside**: Full spell casts
+- **No Downside**: Full spell casts (unlike Tin Crystallization)
 
 ### Disadvantages
-- **16/16 Requirements**: Dual stats
-- **Niche Build**: Limited use
-- **Boss Soul Cost**: Gwyndolin sacrifice
-- **Split Investment**: Stats spread
+- **16 INT Required**: Must meet sorcery cast requirements
+- **16 FAI Required**: Base Faith requirement
+- **Boss Soul Cost**: Requires Soul of Gwyndolin
 - **Late Game**: Anor Londo+
+- **Pure INT builds should use Logan's**: This is for Faith builds
 
 ## Location
-Snuggly trade:
+Giant Blacksmith in Anor Londo:
 1. Kill Dark Sun Gwyndolin
-2. Obtain his soul
-3. Return to Asylum
-4. Trade with crow
-5. Receive catalyst
+2. Obtain Soul of Gwyndolin
+3. Bring any catalyst to Giant Blacksmith
+4. Create for 5,000 souls
+5. Note: NOT a Snuggly trade
 
 ## Best Practices
 
-### Hybrid Excellence
+### Faith Sorcerer Excellence
 Optimal stats:
-- 40 INT / 40 FAI ideal
-- 30/30 minimum viable
-- Pure builds avoid
-- Unique stat spread
-- Maximum potential
+- 50 FAI for maximum Magic Adjust (217)
+- 16 INT minimum to cast sorceries
+- Pure INT builds should use Logan's Catalyst instead
+- Perfect for Faith builds wanting Dark Bead/sorcery utility
 
 ### Build Synergy
 Perfect for:
-- Darkmoon builds
-- INT/FAI hybrids
-- Versatile casters
-- Lore builds
-- Unique playstyles
+- Faith builds wanting sorcery access
+- Darkmoon covenant roleplay
+- Dark Bead on Faith builds
+- Hybrid Faith/INT builds
+- Lore-appropriate builds
 
 ### Combat Tips
 1. Maximize both stats

@@ -20,7 +20,7 @@ scaling:
   strength: C
   dexterity: B
   intelligence: "-"
-  faith: A
+  faith: B
 
 # Requirements
 requirements:
@@ -77,7 +77,7 @@ Boss weapon, upgraded with Demon Titanite:
 - +3 → +4 (2 Demon Titanite)
 - +4 → +5 (4 Demon Titanite)
 
-At +5: 215 physical, 205 lightning
+At +5: 142 physical, 97 lightning (plus scaling bonuses from STR/DEX/FAI)
 
 ## Notes
 - Must kill Ornstein last
