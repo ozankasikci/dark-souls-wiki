@@ -66,7 +66,7 @@ This build maximizes attack speed, critical damage, and mobility. With 45 DEX, y
 
 ### Primary Weapons
 1. **Uchigatana** - Classic DEX weapon
-   - Bleed buildup (300)
+   - Bleed buildup (33)
    - Excellent R2 thrust
    - Found by killing merchant
 

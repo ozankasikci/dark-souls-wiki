@@ -1,9 +1,9 @@
 ---
-name: Hexer
+name: Dark Sorcerer
 id: hexer
 type: build
-build_type: Dark Magic/Hybrid
-description: Master of dark sorceries and hexes, wielding forbidden magic and cursed weapons to dominate enemies
+build_type: Dark Sorcery/Intelligence
+description: Master of dark sorceries from the Abyss, wielding forbidden Oolacile magic and cursed weapons to dominate enemies
 starting_class: Sorcerer
 soul_level: 120
 stats:
@@ -35,13 +35,15 @@ tags:
   - Cursed
 ---
 
-# Hexer
+# Dark Sorcerer
 
-The **Hexer** specializes in dark sorceries and forbidden magic, using the power of the Abyss to corrupt and destroy enemies with devastating dark spells.
+> **Note**: This build was previously called "Hexer" but has been renamed for accuracy. "Hexes" as a magic school do not exist in Dark Souls 1 - they were introduced in Dark Souls 2. Dark Souls 1 has "dark sorceries" which are a subset of regular Sorceries.
+
+The **Dark Sorcerer** specializes in dark sorceries and forbidden Oolacile magic, using the power of the Abyss to corrupt and destroy enemies with devastating dark spells.
 
 ## Overview
 
-This build focuses on dark sorceries introduced in the DLC, particularly those obtained from Manus. The Hexer combines high intelligence with select dark spells to create a unique magical assassin playstyle.
+This build focuses on dark sorceries introduced in the Artorias of the Abyss DLC, particularly those obtained from Manus. The Dark Sorcerer combines high intelligence with select dark spells to create a unique magical assassin playstyle. Note that dark sorceries in DS1 are classified under Sorceries, not as a separate magic school.
 
 ## Starting Class
 
@@ -225,7 +227,7 @@ This build focuses on dark sorceries introduced in the DLC, particularly those o
 1. Complete DLC for dark sorceries
 2. Get Manus Catalyst
 3. Perfect dark magic combinations
-4. Master hexer techniques
+4. Master dark sorcery techniques
 
 ## DLC Requirements
 
@@ -311,7 +313,7 @@ This build focuses on dark sorceries introduced in the DLC, particularly those o
 - **Range mastery** crucial for Dark Bead
 - **Spell slot management** important
 
-### Hexer Philosophy
+### Dark Sorcerer Philosophy
 - **Embrace the darkness** - Use forbidden power
 - **Sacrifice for power** - Accept fragility
 - **Precision over volume** - Quality shots

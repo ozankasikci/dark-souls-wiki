@@ -1,9 +1,9 @@
 ---
-name: Mundane Build
+name: Jack-of-All-Trades Build
 id: mundane
 type: build
-build_type: Balanced/Unique
-description: Perfectly balanced in all stats, achieving harmony through equal distribution and versatile equipment mastery
+build_type: Balanced/Experimental
+description: An experimental balanced build with equal stats for versatility - note that unlike DS2, DS1 has no "Mundane" scaling mechanic
 starting_class: Deprived
 soul_level: 120
 stats:
@@ -35,13 +35,15 @@ tags:
   - Adaptable
 ---
 
-# Mundane Build
+# Jack-of-All-Trades Build
 
-The **Mundane Build** achieves perfect balance through equal stat distribution, creating a uniquely versatile character capable of using any equipment effectively.
+> **Important Note**: This build was previously called "Mundane Build" but has been renamed for accuracy. The "Mundane" infusion is a **Dark Souls 2 mechanic only** that scales weapon damage based on your lowest stat. **This mechanic does not exist in Dark Souls 1 Remastered.** In DS1, leveling all stats equally provides no special scaling benefit - it simply makes you mediocre at everything. This build is purely for experimentation and challenge runs.
+
+The **Jack-of-All-Trades Build** distributes stats equally across all attributes, creating a versatile but unoptimized character. This is an experimental/challenge build, not a meta choice.
 
 ## Overview
 
-This experimental build distributes stats evenly across all attributes, creating a jack-of-all-trades character. While not excelling in any specific area, the build offers unparalleled versatility and adaptability.
+This experimental build distributes stats evenly across all attributes, creating a jack-of-all-trades character. **Unlike Dark Souls 2's Mundane infusion, DS1 provides no mechanical benefit to equal stat distribution.** While not excelling in any specific area, the build offers versatility and adaptability for players who want a unique challenge.
 
 ## Starting Class
 

@@ -2,8 +2,8 @@
 name: Forest Hunter
 id: forest-hunter
 type: build
-build_type: Stealth/Nature
-description: Guardian of Darkroot Forest using stealth, nature magic, and environmental advantages to protect the sacred grove
+build_type: Stealth/Archery
+description: Guardian of Darkroot Forest using stealth, archery, and environmental advantages to protect the sacred grove
 starting_class: Hunter
 soul_level: 120
 stats:
@@ -69,13 +69,15 @@ This build focuses on the Forest Hunter covenant gameplay, using the unique Cat 
 ### Joining Requirements
 - Speak to Alvina in Darkroot Garden
 - Must not have killed Sif
-- Purchase Cat Covenant Ring for 20,000 souls
+- Answer "Yes" to all of Alvina's questions
+- **Note**: The Cat Covenant Ring is given FREE upon joining (the 20,000 souls is for the Crest of Artorias to access the area, NOT the ring)
 
 ### Covenant Benefits
-- **Cat Covenant Ring** - No fall damage
-- **Auto-invasion** - Defend forest automatically
+- **Cat Covenant Ring** - Enables automatic invasions to defend the forest (does NOT prevent fall damage - this is a common misconception)
+- **Auto-invasion** - When equipped, automatically summons you to defend against intruders
 - **Environmental advantage** - Know the terrain
 - **Covenant brotherhood** - Work with other hunters
+- **Rewards**: Divine Blessing (1st kill), Ring of Fog (3rd kill)
 
 ## Weapon Arsenal
 
@@ -108,17 +110,19 @@ This build focuses on the Forest Hunter covenant gameplay, using the unique Cat 
 
 ## Cat Covenant Ring
 
-### No Fall Damage
-- **Freedom of movement** - Jump from any height
-- **Tactical advantage** - Surprise from above
-- **Escape routes** - Drop down to safety
-- **Unique mobility** - Unmatched in forest
+> **Important Correction**: The Cat Covenant Ring does **NOT** eliminate fall damage. It enables automatic invasions to defend the forest when equipped. For fall damage prevention, you would need the Fall Control sorcery.
 
-### Forest Advantages
-- Jump down from tree branches
-- Escape via cliff drops
-- Ambush from elevated positions
-- Control vertical space
+### Actual Function
+- **Auto-invasion trigger** - Automatically summons you to invade when players enter Darkroot Garden
+- **Can invade while hollow** - No need to be human
+- **No upper invasion cap** - Can invade players significantly above your level
+- **Covenant identity** - Marks you as a Forest Hunter
+
+### Forest Advantages (Environmental, not ring-based)
+- Learn all the terrain shortcuts
+- Know ambush positions
+- Use elevation for bow advantage
+- Multiple escape routes
 
 ## Armor Strategy
 
@@ -142,9 +146,9 @@ This build focuses on the Forest Hunter covenant gameplay, using the unique Cat 
 
 ### Core Rings
 1. **Cat Covenant Ring** - Essential covenant item
-   - No fall damage ability
+   - Enables auto-invasions to defend forest
    - Forest hunter identity
-   - Unique tactical advantage
+   - Required to be summoned as defender
 
 2. **Hawk Ring** - Extended bow range
    - +50% bow range increase
@@ -330,9 +334,10 @@ This build focuses on the Forest Hunter covenant gameplay, using the unique Cat 
 
 ## Notes
 
-- Cat Covenant Ring eliminates all fall damage
-- Forest Hunter auto-invasions occur in Darkroot
-- Multiple hunters can defend simultaneously
-- Forest knowledge is crucial for success
-- Environmental tactics more important than stats
-- Covenant brotherhood enhances experience significantly
+- Cat Covenant Ring enables auto-invasions (does NOT eliminate fall damage - this is a common misconception)
+- Forest Hunter auto-invasions occur when players enter Darkroot Garden
+- Up to 2 Forest Hunters can invade the same host simultaneously
+- Can invade while hollow (no humanity required)
+- Forest knowledge and environmental tactics are crucial for success
+- Rewards: Divine Blessing (1st kill), Ring of Fog (3rd kill)
+- Access to Shiva of the East merchant in Blighttown while in covenant

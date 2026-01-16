@@ -8,13 +8,13 @@ starting_class: Bandit
 soul_level: 99
 stats:
   vitality: 48
-  attunement: 10
+  attunement: 12
   endurance: 66
   strength: 16
   dexterity: 10
   resistance: 11
   intelligence: 8
-  faith: 9
+  faith: 10
 recommended_weapons:
   - Zweihander +5 Chaos
   - Grass Crest Shield
@@ -62,13 +62,13 @@ This build achieves the "impossible" trinity:
 | Stat | Level | Notes |
 |------|-------|-------|
 | **Vitality** | 48 | Maximum HP within build constraints |
-| **Attunement** | 10 | 1 spell slot for Black Flame |
+| **Attunement** | 12 | 2 spell slots for 2x Black Flame |
 | **Endurance** | 66 | THE LEGEND'S SECRET - Fast roll in Giant's |
 | **Strength** | 16 | Minimum for 2H Zweihander |
 | **Dexterity** | 10 | Don't tell anyone you leveled this |
 | **Resistance** | 11 | Base (never level) |
 | **Intelligence** | 8 | Base |
-| **Faith** | 9 | Base |
+| **Faith** | 10 | Base |
 
 ## Equipment Setup
 
@@ -108,9 +108,10 @@ This build achieves the "impossible" trinity:
 
 ## Pyromancy
 
-- **Black Flame** - Close range burst damage
+- **Black Flame x2** - Close range burst damage (requires 2 attunement slots)
 - **Great Combustion** - Alternative choice
 - Ascended Flame +5 for maximum damage
+- Black Flame is obtained in Chasm of the Abyss (DLC) on NG+
 
 ## Playstyle
 

@@ -69,7 +69,7 @@ This build embodies the classic samurai archetype, focusing on katana mastery, q
 ### Primary Weapons
 1. **Uchigatana +15** - Classic katana
    - A scaling in dexterity
-   - Bleed buildup (300)
+   - Bleed buildup (33)
    - Excellent R2 thrust attack
    - Obtained by killing Undead Merchant
 
@@ -176,10 +176,10 @@ This build embodies the classic samurai archetype, focusing on katana mastery, q
 - **Dead angle R1** - Bypass shields
 
 ### Bleed Mechanics
-- **300 bleed per hit** on most katanas
-- **Bleed proc** at 1000 buildup
-- **33% max HP damage** on proc
-- **Reset timer** - 5 seconds without hits
+- **33 bleed buildup per hit** on most katanas (Uchigatana, Iaito)
+- **Bleed proc** triggers when buildup reaches enemy's bleed resistance
+- **30-50% max HP damage** on proc (varies by enemy)
+- **Buildup decays** over time if you stop attacking
 
 ## Equipment Upgrades
 

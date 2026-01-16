@@ -44,7 +44,7 @@ This build maximizes faith for miracle power while maintaining solid melee capab
 ## Starting Class
 
 **Cleric** is the optimal choice:
-- Starts with 11 Faith
+- Starts with 14 Faith (highest of any class)
 - Heal miracle included
 - Canvas Talisman
 

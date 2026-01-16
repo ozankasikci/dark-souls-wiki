@@ -339,10 +339,10 @@ This build serves three roles:
 
 ## Equipment Locations
 
-- **Grant**: Trade Sanctus to Snuggly
+- **Grant**: Dropped by Paladin Leeroy in Tomb of Giants (invades near Nito's fog gate in NG, or kill him as a phantom in Catacombs)
 - **Canvas Talisman**: Patches sells it
-- **Sunlight Blade**: Warrior of Sunlight +1
-- **Crown of Dark Sun**: Gwyndolin's crown
+- **Sunlight Blade**: Warrior of Sunlight +1 (trade Soul of Gwyn)
+- **Crown of Dark Sun**: Dropped by Gwyndolin
 
 ## Tips for Success
 

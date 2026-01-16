@@ -17,7 +17,7 @@ stats:
   faith: 8
 recommended_weapons:
   - Chaos Zweihander +5
-  - Chaos Blade +5
+  - Chaos Gargoyle Halberd +5
   - Chaos Rapier +5
 recommended_armor:
   - Gold-Hemmed Black Set
@@ -70,10 +70,12 @@ Chaos weapons scale with your soft humanity (up to 10), making this build incred
    - Long reach and wide swings
    - Excellent for both PvE and PvP
 
-2. **Chaos Blade +5** - Katana with A chaos scaling
-   - Fast attacks and bleed buildup
-   - Self-damage adds risk/reward
-   - Great for critical hits
+2. **Chaos Gargoyle Halberd +5** - Halberd with excellent base damage
+   - High Chaos damage output
+   - Good range and moveset
+   - Scales with Humanity like all Chaos weapons
+   
+   > **Note**: Despite its name, the "Chaos Blade" katana is NOT a Chaos-infused weapon. It's a unique boss weapon from Quelaag's Soul that scales with DEX, not Humanity.
 
 3. **Chaos Rapier +5** - High critical damage
    - 110 critical modifier
@@ -133,10 +135,10 @@ Chaos weapons scale with your soft humanity (up to 10), making this build incred
 - High critical damage
 
 ### Tactics
-1. Maintain spacing with Zweihander
-2. Punish mistakes with Chaos Blade
-3. Use pyromancy for pressure
-4. Fish for backstabs with rapier
+1. Maintain spacing with Zweihander's massive range
+2. Punish mistakes with Gargoyle Halberd's quick attacks
+3. Use pyromancy for pressure and mixups
+4. Fish for backstabs with Rapier for high critical damage
 
 ## PvE Progression
 
@@ -182,9 +184,9 @@ Chaos weapons scale with your soft humanity (up to 10), making this build incred
 
 ### Weapon Swapping
 - Switch between weapons based on situation
-- Zweihander for groups
-- Chaos Blade for single targets
-- Rapier for criticals
+- Zweihander for groups and high damage
+- Gargoyle Halberd for reach and versatility
+- Rapier for critical hits (backstabs/ripostes)
 
 ## Essential Items
 

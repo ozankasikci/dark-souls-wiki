@@ -118,9 +118,10 @@ This build focuses on aggressive PvP invasion tactics, combining dark sorceries 
    - Forces defensive play
 
 ### Catalyst Choice
-- **Tin Darkmoon Catalyst** at 32 INT
-  - Best MagAdjust for dark sorceries
-  - Obtained from Darkmoon covenant
+- **Logan's Catalyst** or **Tin Crystallization Catalyst**
+  - Logan's Catalyst: Best MagAdjust at 40+ INT
+  - Tin Crystallization Catalyst: Highest damage but halves spell uses
+  - Note: Tin Darkmoon Catalyst scales with Faith, NOT Intelligence - avoid for INT builds
 
 ## Armor Strategy
 
@@ -197,7 +198,7 @@ This build focuses on aggressive PvP invasion tactics, combining dark sorceries 
 ## Equipment Upgrades
 
 ### Priority Order
-1. **Tin Darkmoon Catalyst** - Essential for damage
+1. **Logan's Catalyst** - Essential for INT-based sorcery damage
 2. **Tracers to +5** - Primary weapons
 3. **Armor upgrades** - Every point helps
 4. **Dark Sword +15** - Backup option
@@ -268,10 +269,10 @@ This build focuses on aggressive PvP invasion tactics, combining dark sorceries 
 ## Advanced Tips
 
 ### Dark Sorcery Mastery
-- **32 INT breakpoint** for Tin Darkmoon Catalyst
-- **Crown of Dusk** for extra damage (risky)
-- **Spell combination** timing
-- **Range management** crucial
+- **44 INT** is the soft cap for sorcery damage with Logan's Catalyst
+- **Crown of Dusk** for extra damage (risky - reduces magic defense)
+- **Bellowing Dragoncrest Ring** for +20% sorcery damage
+- **Spell combination** timing and **range management** crucial
 
 ### Invasion Psychology
 - **Appearance matters** - Look intimidating
@@ -281,8 +282,9 @@ This build focuses on aggressive PvP invasion tactics, combining dark sorceries 
 
 ## Notes
 
-- Darkwraith requires specific covenant progression
-- 32 INT is optimal for Tin Darkmoon Catalyst
+- Darkwraith requires specific covenant progression (kill Four Kings BEFORE placing Lordvessel)
+- 44 INT is the soft cap for dark sorcery damage with Logan's Catalyst
+- Note: Tin Darkmoon Catalyst scales with Faith, not INT - use Logan's or Tin Crystallization Catalyst instead
 - Practice ninja flip timing extensively
-- Dark Bead can one-shot many builds
+- Dark Bead can one-shot many builds at close range
 - Tracers have unique movesets - master them

@@ -98,7 +98,7 @@ This build combines high critical damage with stealth tools to create the ultima
 
 3. **Bandit's Knife** - Bleed bonus
    - 110 critical
-   - 300 bleed
+   - 30 bleed buildup
    - Lightweight
 
 ### Special Mention

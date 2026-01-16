@@ -65,33 +65,40 @@ This build uses the fastest bleed weapons to quickly build up the bleed meter, t
 
 ### Top Tier
 1. **Gold Tracer** - Fastest bleed
-   - 300 bleed buildup
+   - 30 bleed buildup per hit
    - Curved sword speed
    - DLC exclusive
 
 2. **Lifehunt Scythe** - Highest bleed
-   - 500 bleed buildup
-   - Self-bleed risk
-   - From Priscilla soul
+   - 50 bleed buildup per hit (highest in game)
+   - Self-bleed risk (40 buildup on yourself per hit!)
+   - Deals 50% of target's max HP on proc
+   - From Priscilla Soul
 
 3. **Priscilla's Dagger** - Critical bleed
-   - 500 bleed buildup
-   - 110 critical
-   - Occult damage
+   - 20 bleed buildup per hit (lowest, but 50% HP damage on proc)
+   - Best used as a finisher after building bleed with another weapon
+   - Occult damage type
 
 ### Alternative Options
-- **Bandit's Knife** - Starting weapon
-- **Painting Guardian Sword** - S scaling
-- **Katanas** - Range option
+- **Bandit's Knife** - Starting weapon, 30 buildup, 147 critical modifier (highest for daggers!)
+- **Painting Guardian Sword** - A scaling, 30 buildup
+- **Katanas** (Uchigatana, Iaito, Chaos Blade) - Range option, 33-36 buildup
 
 ## Bleed Mechanics
 
-| Weapon | Bleed Rate | Hits to Proc |
-|--------|------------|--------------|
-| Gold Tracer | 300 | 2-3 hits |
-| Lifehunt | 500 | 1-2 hits |
-| Bandit's | 300 | 2-3 hits |
-| Uchigatana | 300 | 2-3 hits |
+> **How Bleed Works**: Each hit adds to a hidden bleed meter on the target. When the meter fills (based on target's Bleed Resistance), "Blood Loss" triggers dealing percentage HP damage. The meter decreases by 5 points per second when not being hit.
+
+| Weapon | Bleed Buildup (per hit) | Damage on Proc |
+|--------|-------------------------|----------------|
+| Gold Tracer | 30 | 30% max HP |
+| Lifehunt Scythe | 50 | 50% max HP |
+| Priscilla's Dagger | 20 | 50% max HP |
+| Bandit's Knife | 30 | 30% max HP |
+| Uchigatana | 33 | 30% max HP |
+| Painting Guardian Sword | 30 | 30% max HP |
+
+**Note**: Dexterity does NOT affect bleed buildup in DS1 (unlike DS3's Luck stat). Bleed buildup is fixed per weapon.
 
 ## Armor Setup
 
@@ -205,7 +212,10 @@ Immune bosses:
 
 ## Notes
 
-- Bleed ignores shields
-- 30 second reset timer
-- Learn proc timing
-- Aggressive playstyle mandatory
+- Bleed damage ignores shields and armor
+- Bleed meter decreases at 5 points per second when not being hit
+- Standard bleed deals 30% max HP, Priscilla weapons deal 50% max HP
+- After a bleed proc, there's a 2-second immunity window
+- Rolling at the exact moment of proc can negate the damage (but still shows the effect)
+- DEX does NOT increase bleed buildup (this is a DS3 mechanic with Luck)
+- Aggressive playstyle mandatory to prevent bleed meter reset
