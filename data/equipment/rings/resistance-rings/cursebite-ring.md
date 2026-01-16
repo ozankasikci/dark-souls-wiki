@@ -21,9 +21,9 @@ A protective ring that provides resistance against curse effects. Absolutely ess
 - **Curse Resistance**: +400
 
 ## Location
-- **New Londo Ruins**: Found in the area with the Mass of Souls
-- Requires draining the ruins by obtaining the Lordvessel first
-- Located in the lower levels near the Four Kings boss area
+- **New Londo Ruins**: Can be obtained WITHOUT draining the water
+- Turn left after entering Ingward's church and follow the path to a corpse (guarded by a ghost)
+- Accessible early in the game, before obtaining the Lordvessel
 
 ## Notes
 - Absolutely essential for exploring the depths and sewers safely

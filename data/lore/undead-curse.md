@@ -1,7 +1,7 @@
 # The Undead Curse
 
 ## Origin of the Curse
-The Undead Curse began when Lord Gwyn first linked the First Flame. In his desperate attempt to extend the Age of Fire, Gwyn inadvertently cursed humanity with the Darksign, a ring of fire that brands the Undead.
+The Undead Curse manifests as the First Flame fades. While some theories suggest Lord Gwyn's linking of the First Flame may have contributed to the curse, its exact origin remains unclear. What is known is that humans are branded with the Darksign, a ring of fire that marks the Undead, as the flame weakens.
 
 ## The Darksign
 The Darksign is a cursed brand that:

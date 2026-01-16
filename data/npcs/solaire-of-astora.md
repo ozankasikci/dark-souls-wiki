@@ -99,10 +99,11 @@ When summoned as a phantom:
 ## Lore Implications
 
 Solaire's quest for his "own sun" has sparked numerous theories:
-- Some believe he is the firstborn son of Gwyn, stripped of his deific status
-- Others see him as a reflection of the player's journey
+- His journey parallels the player's own search for purpose in a dying world
 - His potential linking of the Fire in his own world suggests parallel timelines
 - The Sunlight Maggot he seeks may represent false hope or delusion
+
+Note: A popular fan theory suggested Solaire was Gwyn's firstborn son, but this was debunked by Dark Souls 3, which revealed the Nameless King to be Gwyn's exiled firstborn.
 
 ## Tips
 

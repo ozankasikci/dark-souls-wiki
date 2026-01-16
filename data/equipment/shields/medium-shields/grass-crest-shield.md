@@ -46,12 +46,12 @@ Found in **Darkroot Basin** guarded by a Black Knight. Near the Hydra area, look
 
 ### Other Properties
 - **Weight**: 3.0
-- **Durability**: 300
+- **Durability**: 200
 - **Parry Type**: Medium Shield
 
 ## Special Effect
 
-The Grass Crest Shield provides a passive **+10 stamina regeneration per second** when equipped, even when held on your back. This effect stacks with other stamina regeneration items like:
+The Grass Crest Shield provides a passive **+10 stamina regeneration per second** (approximately 22.5% faster than base) when equipped, even when held on your back. This effect stacks with other stamina regeneration items like:
 - Chloranthy Ring
 - Green Blossom consumable
 - Mask of the Child

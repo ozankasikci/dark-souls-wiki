@@ -40,10 +40,11 @@ The key to this fight is surviving the first few seconds. Upon entering the fog 
 - The narrow arena can work in your favor with proper positioning
 
 ## Drops
-- Key to the Depths
-- 6000 Souls
+- Key to the Depths (guaranteed)
+- 6,000 Souls
 - 1 Humanity
 - 1 Homeward Bone
+- Demon Great Machete (5% rare drop)
 
 ## Notes
 - One of the most challenging early-game bosses due to the cramped arena

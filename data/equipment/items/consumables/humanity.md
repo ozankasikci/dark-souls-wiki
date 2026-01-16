@@ -55,10 +55,11 @@ Humanity represents the essence of the Dark Soul itself - the power that separat
 |----------------|---------------------|
 | 0 | 100 (base) |
 | 1 | 150 |
-| 5 | 200 |
-| 10 | 210 |
-| 30 | 410 (soft cap) |
-| 99 | 410 (hard cap) |
+| 5 | 180 |
+| 10 | 210 (soft cap) |
+| 11-99 | 210 (capped) |
+
+Note: Item discovery soft caps at 10 humanity. Having more than 10 humanity does not increase item discovery further.
 
 ## Acquisition Methods
 

@@ -35,8 +35,10 @@ Bonfires can be kindled using Humanity:
 ## Upgrading Estus Potency
 
 Give **Fire Keeper Souls** to any Fire Keeper to increase HP restored:
-- Base: ~300 HP
-- +1 through +7: Increasingly more HP per drink
+- Base: 300 HP
+- +1: 400 HP, +2: 500 HP, +3: 600 HP
+- +4: 650 HP, +5: 700 HP, +6: 750 HP
+- +7: 800 HP (maximum)
 
 ### Fire Keeper Soul Locations
 1. Undead Parish - Church near the Channeler

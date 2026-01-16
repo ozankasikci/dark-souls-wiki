@@ -20,7 +20,7 @@ tags:
 
 ## Stats
 - **HP:** 1,000 each (2,000 total)
-- **Number:** 2 (second joins at 50% health of first)
+- **Number:** 2 (second joins at 60% health of first)
 - **Resistances:** 
   - Standard: Normal
   - Strike: Normal
@@ -32,7 +32,7 @@ tags:
 - **Weaknesses:** Lightning damage
 
 ## Description
-Stone gargoyles that guard the first Bell of Awakening atop the Undead Parish church. The battle begins as a 1v1 fight, but when the first gargoyle reaches 50% health, a second one joins the battle, turning it into a challenging 2v1 encounter.
+Stone gargoyles that guard the first Bell of Awakening atop the Undead Parish church. The battle begins as a 1v1 fight, but when the first gargoyle reaches 60% health, a second one joins the battle, turning it into a challenging 2v1 encounter.
 
 ## Attacks
 

@@ -14,7 +14,7 @@ From the Dark, they came, and found the Souls of Lords within the flame:
 With the strength of Lords, they challenged the Dragons. Gwyn's mighty bolts peeled apart their stone scales. The Witches weaved great firestorms. Nito unleashed a miasma of death and disease. And Seath the Scaleless betrayed his own, and the Dragons were no more.
 
 ## The Fading
-But the First Flame began to fade, threatening to return the world to darkness. Gwyn sacrificed himself to link the Fire, burning his very soul to extend the Age of Fire. This act cursed humanity with the Darksign, creating the Undead.
+But the First Flame began to fade, threatening to return the world to darkness. Gwyn sacrificed himself to link the Fire, burning his very soul to extend the Age of Fire. As the flame continued to weaken over the ages, the Darksign began appearing on humans, creating the Undead. Whether the curse was a direct consequence of Gwyn's linking or simply a symptom of the fading flame remains unclear.
 
 ## The Cycle
 Since Gwyn's linking, the flame has been linked countless times by various heroes:

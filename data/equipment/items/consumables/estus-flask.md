@@ -38,14 +38,14 @@ The Estus Flask is automatically given to the player at the beginning of the gam
 
 The Estus Flask can be upgraded by giving **Fire Keeper Souls** to Fire Keepers:
 
-- **Base**: Restores ~250 HP
-- **+1**: Restores ~375 HP  
-- **+2**: Restores ~500 HP
-- **+3**: Restores ~625 HP
-- **+4**: Restores ~750 HP
-- **+5**: Restores ~875 HP
-- **+6**: Restores ~1000 HP
-- **+7**: Restores ~1125 HP (maximum)
+- **Base**: Restores 300 HP
+- **+1**: Restores 400 HP  
+- **+2**: Restores 500 HP
+- **+3**: Restores 600 HP
+- **+4**: Restores 650 HP
+- **+5**: Restores 700 HP
+- **+6**: Restores 750 HP
+- **+7**: Restores 800 HP (maximum)
 
 ## Increasing Uses
 

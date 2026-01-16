@@ -17,7 +17,7 @@ A small round metal shield. Light and easy to handle, but has low stability. Shi
 | Magic Defense | 40.0 |
 | Fire Defense | 55.0 |
 | Lightning Defense | 30.0 |
-| Stability | 50 |
+| Stability | 40 |
 | Durability | 250 |
 | Weight | 1.5 |
 | Strength Requirement | 7 |

@@ -21,9 +21,9 @@ A ring that extends the duration of magical effects. This ring significantly inc
 - **Buff Duration**: +50%
 
 ## Location
-- **Sen's Fortress**: Found in a chest in the upper area
-- Requires navigating through the fortress's traps and mechanisms
-- Located in the area accessible after the boulder trap section
+- **Sold by Griggs of Vinheim** at Firelink Shrine for 20,000 souls
+- Requires 10 Intelligence to purchase from Griggs
+- Griggs must first be rescued from Lower Undead Burg (key required)
 
 ## Notes
 - Essential for builds that rely heavily on weapon buffs

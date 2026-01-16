@@ -10,7 +10,7 @@ ringCategory: resistance-rings
 A protective ring that grants resistance to poison. The ring is inscribed with tiny, intricate symbols that seem to ward off toxins and venomous attacks.
 
 ## Effects
-- **Poison Resistance**: +400 poison resistance
+- **Poison Resistance**: +400% boost to base poison resistance
 - **Toxin Protection**: Significantly reduces poison buildup rate
 - **Status Prevention**: Makes it much harder for enemies to poison you
 - **Passive Effect**: Always active when equipped
@@ -18,14 +18,11 @@ A protective ring that grants resistance to poison. The ring is inscribed with t
 ## Stats
 - **Weight**: 0.5
 - **Durability**: -
-- **Poison Resistance**: +400
-- **Buildup Reduction**: ~80% slower poison accumulation
+- **Poison Resistance**: +400% (percentage boost to natural resistance)
 
 ## Location
-- **Lower Undead Burg**: In the room with the dogs before the Capra Demon
-- On a corpse behind the stairs
-- Can be collected before or after fighting Capra Demon
-- Also available from Ingward in New Londo Ruins for 15,000 souls
+- **Sold by Oswald of Carim** in Undead Parish (bell tower) for 15,000 souls
+- Oswald appears after ringing the first Bell of Awakening
 
 ## Notes
 - Essential for areas with heavy poison presence

@@ -64,8 +64,8 @@ A minotaur-like demon found atop a narrow castle wall in the Undead Burg, blocki
 2. **Ranged:** Maintain distance and use spells/arrows between its slow attacks
 
 ## Drops
-- **Guaranteed:** 3,000 Souls, 1 Humanity
-- **Rare Drop:** Demon's Greataxe
+- **Guaranteed:** 3,000 Souls, 1 Humanity, 1 Homeward Bone
+- **Rare Drop:** Demon's Greataxe (5% chance)
 
 ## Tips
 - Gold Pine Resin makes this fight significantly easier

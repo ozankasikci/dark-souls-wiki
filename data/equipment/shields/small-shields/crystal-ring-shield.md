@@ -17,7 +17,7 @@ This weapon, originating from the mystical Moonlight Butterfly of the Darkroot G
 | Magic Defense | 90.0 |
 | Fire Defense | 40.0 |
 | Lightning Defense | 40.0 |
-| Stability | 50 |
+| Stability | 40 |
 | Durability | 180 |
 | Weight | 3.0 |
 | Strength Requirement | 10 |

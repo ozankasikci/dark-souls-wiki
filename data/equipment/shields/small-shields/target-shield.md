@@ -17,7 +17,7 @@ A small wooden shield used by assassins of the forest. It is named for the bull'
 | Magic Defense | 40.0 |
 | Fire Defense | 30.0 |
 | Lightning Defense | 50.0 |
-| Stability | 48 |
+| Stability | 45 |
 | Durability | 220 |
 | Weight | 2.0 |
 | Strength Requirement | 8 |
