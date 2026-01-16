@@ -52,7 +52,7 @@ Former rulers of New Londo who were seduced by the Abyss. This DPS race takes pl
 - **Dark Hand**: Darkwraith weapon that can steal humanity
 
 ## Enemies
-- **Ghosts**: Can phase through walls and inflict curse buildup
+- **Ghosts**: Can phase through walls and floors; deal physical damage (NOT curse); require Transient Curse, cursed weapon, or being cursed to damage them
 - **Darkwraiths**: Elite enemies that drop titanite chunks and Dark Hand
 - **Mass of Souls**: Explosive skull clusters in the lower ruins
 

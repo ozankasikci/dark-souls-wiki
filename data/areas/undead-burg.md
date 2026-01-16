@@ -4,7 +4,7 @@ name: Undead Burg
 title: The First True Test
 description: A fortified town filled with hostile undead, serving as the first major area for new players
 region: Lordran
-bonfires: 2
+bonfires: 1
 boss: Taurus Demon
 enemies:
   - "Hollow Warriors"

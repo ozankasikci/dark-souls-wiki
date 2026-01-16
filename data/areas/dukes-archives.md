@@ -71,11 +71,11 @@ The archives reveal Seath's obsession with immortality and crystals:
 - **To Crystal Cave**: Through the garden area
 
 ## Strategy Tips
-- The first Seath fight is meant to be lost
-- Bring curse resistance for Crystal Cave later
-- Prison has good humanity farming from Pisacas
-- Archive has invisible walkways marked by snow
-- Crystal weapons cannot be repaired
+- The first Seath fight is meant to be lost - do not waste resources
+- Bring curse resistance for the Crystal Cave boss fight
+- Prison has excellent humanity farming from Pisacas
+- The Crystal Cave (not Archives) has invisible walkways - watch for falling snow particles to reveal safe paths
+- Crystal weapons cannot be repaired, only restored at bonfires
 
 ## Lore
 The Duke's Archives represents the corruption of knowledge and the price of immortality. Seath's betrayal of the dragons earned him Gwyn's favor, but his lack of scales drives him to madness and experimentation. The library becomes a monument to obsession, where even the brilliant Big Hat Logan succumbs to crystal madness.

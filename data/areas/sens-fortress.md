@@ -132,7 +132,7 @@ A massive iron construct powered by a dragon bone core:
 
 ### Big Hat Logan
 - Imprisoned in hanging cage
-- Requires Cage Key or Mystery Key
+- Requires Cage Key or Master Key to free
 - Sells powerful sorceries
 - Moves to Firelink after rescue
 

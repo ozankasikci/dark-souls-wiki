@@ -16,8 +16,7 @@ npcs:
   - "Patches"
   - "Siegmeyer of Catarina"
 connections:
-  - "Upper Undead Burg"
-  - "Lower Undead Burg"
+  - "Undead Burg"
   - "The Catacombs"
   - "New Londo Ruins"
   - "Undead Asylum"
@@ -65,8 +64,7 @@ Master sorcerer who sells advanced sorceries after being rescued from Sen's Fort
 
 Firelink Shrine serves as a crossroads connecting to multiple areas:
 
-- **Upper Undead Burg**: Via the aqueduct and stairs
-- **Lower Undead Burg**: Through a locked gate (requires key)
+- **Undead Burg**: Via the aqueduct and stairs
 - **The Catacombs**: Down through the graveyard
 - **New Londo Ruins**: Down the stairs below the shrine
 - **Undead Asylum**: Via the Giant Crow (requires access to Undead Parish elevator)
